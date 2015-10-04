@@ -12,9 +12,9 @@ public class LoanToFirm {
 	private double remainingBalance;
 	private double payment;
 	private boolean paid;
-	private int loanId;
+	private String loanId;
 	
-	public LoanToFirm(Firm firm, double remainingBalance, double payment, int loanId){
+	public LoanToFirm(Firm firm, double remainingBalance, double payment, String loanId){
 		this.firm = firm;
 		this.remainingBalance = remainingBalance;
 		this.payment = payment;
@@ -28,7 +28,11 @@ public class LoanToFirm {
 		return paid;
 	}
 	
-	public int getId(){
+	public Firm getFirm(){
+		return firm;
+	}
+	
+	public String getId(){
 		return loanId;
 	}
 	

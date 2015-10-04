@@ -3,6 +3,7 @@
  */
 package model1;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,25 +24,42 @@ public class CommercialBank {
 	private double assets;
 	private double liabilities;
 	private double netWorth;
-	private HashMap<Consumer, Double> Consumers;
 	private double annualSavingsYield;
 	private double periodSavingsYield;
+	private double loanYears;
 	private double loanRate;
-	private HashMap<Integer, LoanToIB> loansToIB;
+	
+	private ArrayList<InvestmentBank> iBanks;
+	private HashMap<Consumer, Double> Consumers;
+	private HashMap<String, LoanToIB> loansToIB;
 	
 	
 	
 	
-	public CommercialBank(ContinuousSpace<Object> space, Grid<Object> grid, double reserves, double savingsYield, double loanRate){
+	public CommercialBank(ContinuousSpace<Object> space, Grid<Object> grid, double reserves, double savingsYield, double loanRate, double loanYears){
 		this.space = space;
 		this.grid = grid;
 		this.reserves = reserves;
 		this.periodSavingsYield = savingsYield;
 		this.loanRate = loanRate;
+		this.loanYears = loanYears;
+		
 		addAssets(reserves);
 		periodSavingsYield = savingsYield/12;
 		Consumers = new HashMap<Consumer, Double>();
-		loansToIB = new HashMap<Integer, LoanToIB>();
+		loansToIB = new HashMap<String, LoanToIB>();
+		iBanks = new ArrayList<InvestmentBank>();
+	}
+	
+	public boolean addIBAccount(InvestmentBank iBank){
+		if(!(iBanks.contains(iBank))){
+			iBanks.add(iBank);
+			return true;
+		}
+		else{
+			//investment bank already has relationship
+			return false;
+		}
 	}
 	
 	public boolean addAccount(Consumer holder, double amount){
@@ -92,12 +110,12 @@ public class CommercialBank {
 		if (reserves <= -1){
 			//destroy this bank
 			
-			return 0;
+			return 0.0;
 		}
 		else{
 			if (amount > (reserves + 1)){
 				double lessThanFull = reserves;
-				reserves = -1;
+				reserves = -1.0;
 				return lessThanFull;
 				//listener should destroy this bank			
 			}
@@ -136,8 +154,14 @@ public class CommercialBank {
 		addAssets(interest);
 	}
 	
+	//commercial bank calculates how much it should pay commercial bank for potential loan
+		public double calculateTickPayment(double amount){
+			double payment = amount/(1/loanRate)/(1-(1/Math.pow((1+loanRate),loanYears)))/12;
+			return payment;
+		}
+	
 	//I may want to add methods in future where IB asks for a loan. Then CB comes back with payments. If IB can meet the payments, it takes the loan. Otherwise it keeps on looking
-	public boolean createLoan(InvestmentBank debtor, double balance, double payment, int loanId){
+	public boolean createLoan(InvestmentBank debtor, double balance, double payment, String loanId){
 		//I may want to incorporate reserve requirement type thing later
 		if (balance <= reserves){
 			removeReserves(balance);
@@ -156,16 +180,16 @@ public class CommercialBank {
 	
 	
 	//commercial bank receiving payment from investment bank
-	public boolean receivePayment(int loanId, double amount) throws Exception{
-		if(loansToIB.containsKey(loanId)){
-			LoanToIB thisLoan = loansToIB.get(loanId);
+	public boolean receivePayment(String tempId, double amount) throws Exception{
+		if(loansToIB.containsKey(tempId)){
+			LoanToIB thisLoan = loansToIB.get(tempId);
 			double paymentOutcome = thisLoan.receivePayment(amount);
 			if (paymentOutcome == -1.0){
 				addReserves(amount);
 				removeAssets(amount);
 				removeLiabilities(amount);
 				//destroy this loan by removing it from map
-				loansToIB.remove(loanId);
+				loansToIB.remove(tempId);
 				return true;
 			}
 			else if (thisLoan.getPayment() == paymentOutcome){
@@ -186,7 +210,7 @@ public class CommercialBank {
 				removeAssets(loss);
 				removeLiabilities(loss);
 				//destroy this loan
-				loansToIB.remove(loanId);
+				loansToIB.remove(tempId);
 				return false;
 			}			
 		}
@@ -203,7 +227,7 @@ public class CommercialBank {
 			while (loans.hasNext()){
 				LoanToIB thisLoan = loans.next();
 				if (!(thisLoan.isPaid())){
-					int tempId = thisLoan.getId();
+					String tempId = thisLoan.getId();
 					receivePayment(tempId, 0.0);
 					//this will destroy the loan since it is delinquent
 				}

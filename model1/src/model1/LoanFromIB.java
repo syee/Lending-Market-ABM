@@ -12,9 +12,9 @@ public class LoanFromIB {
 	private double remainingBalance;
 	private double payment;
 	private boolean paid;
-	private int loanId;
+	private String loanId;
 	
-	public LoanFromIB(InvestmentBank iBank, double remainingBalance, double payment, int loanId){
+	public LoanFromIB(InvestmentBank iBank, double remainingBalance, double payment, String loanId){
 		this.iBank = iBank;
 		this.remainingBalance = remainingBalance;
 		this.payment = payment;
@@ -24,23 +24,45 @@ public class LoanFromIB {
 		paid = false;
 	}
 	
-	public int makePayment(double amount){
+	public double makePayment(double amount) throws Exception{
 		if (amount == payment){
 			paid = true;
-			iBank.receiveFullPayment(loanId);
+			iBank.receivePayment(loanId, payment);
 		}
 		else{
 			paid = false;
-			iBank.receivePartialPayment(loanId, amount);
+			iBank.receivePayment(loanId, amount);
 		}
-		remainingBalance -= payment;
+		remainingBalance -= amount;
 		if (remainingBalance <= 0){
-			return 1;
+			return -1.0;
 		}
 		if (paid){
-			return 0;
+			return payment;
 		}
-		return -1;
+		return amount;
 	}
+	
+	public double getRemainingBalance(){
+		return remainingBalance;
+	}
+	
+	public InvestmentBank getInvestmentBank(){
+		return iBank;
+	}
+	
+	public double getPayment(){
+		return payment;
+	}
+	
+	public boolean isPaid(){
+		return paid;
+	}
+	
+	public String getId(){
+		return loanId;
+	}
+	
+	
 	
 }

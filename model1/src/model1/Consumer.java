@@ -106,6 +106,7 @@ public class Consumer {
 	public void joinBank(CommercialBank cBank){
 		if(cBank.addAccount(this, cash)){
 			removeCash(cash);
+			this.cBank = cBank;
 		}
 		else{
 			//already joined bank

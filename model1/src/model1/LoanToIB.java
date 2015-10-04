@@ -12,9 +12,9 @@ public class LoanToIB {
 	private double remainingBalance;
 	private double payment;
 	private boolean paid;
-	private int loanId;
+	private String loanId;
 	
-	public LoanToIB(InvestmentBank bank, double remainingBalance, double payment, int loanId){
+	public LoanToIB(InvestmentBank bank, double remainingBalance, double payment, String loanId){
 		this.bank = bank;
 		this.remainingBalance = remainingBalance;
 		this.payment = payment;
@@ -28,7 +28,7 @@ public class LoanToIB {
 		return paid;
 	}
 	
-	public int getId(){
+	public String getId(){
 		return loanId;
 	}
 	
