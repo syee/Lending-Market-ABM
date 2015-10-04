@@ -3,7 +3,7 @@
  */
 package model1;
 
-import java.util.LinkedList;
+import java.util.HashMap;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
@@ -26,7 +26,7 @@ public class Firm {
 	private NormalDistribution expenseCurve;
 	private double FIRM_DEVIATION_PERCENT;
 	private double averageProfits;
-	private LinkedList<LoanFromIB> loansFromIB;
+	private HashMap<Integer, LoanFromIB> loansFromIB;
 	
 	public Firm(ContinuousSpace<Object> space, Grid<Object> grid, double revenue, double expenses, double reserves, double FIRM_DEVIATION_PERCENT, double averageProfits){
 		this.space = space;
@@ -42,7 +42,7 @@ public class Firm {
 		this.expenseCurve = new NormalDistribution(revenue - averageProfits, FIRM_DEVIATION_PERCENT*(revenue - averageProfits));
 		this.expenses = expenseCurve.sample();
 		
-		loansFromIB = new LinkedList<LoanFromIB>();
+		loansFromIB = new HashMap<Integer, LoanFromIB>();
 	}
 
 }

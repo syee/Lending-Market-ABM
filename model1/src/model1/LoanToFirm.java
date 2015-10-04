@@ -11,16 +11,50 @@ public class LoanToFirm {
 	private Firm firm;
 	private double remainingBalance;
 	private double payment;
-	private boolean isPaid;
+	private boolean paid;
+	private int loanId;
 	
-	public LoanToFirm(Firm firm, double remainingBalance, double payment){
+	public LoanToFirm(Firm firm, double remainingBalance, double payment, int loanId){
 		this.firm = firm;
 		this.remainingBalance = remainingBalance;
 		this.payment = payment;
+		this.loanId = loanId;
 		
 		//Do I want to require payment at initialization?
-		isPaid = false;
+		paid = false;
 	}
 	
-
+	public boolean isPaid(){
+		return paid;
+	}
+	
+	public int getId(){
+		return loanId;
+	}
+	
+	public double getPayment(){
+		return payment;
+	}
+	
+	public double getRemainingBalance(){
+		return remainingBalance;
+	}
+	
+	public double receivePayment(double amount){
+		if (amount == payment){
+			paid = true;
+		}
+		else{
+			paid = false;
+		}
+		remainingBalance -= amount;
+		if (remainingBalance <= 0){
+			return -1.0;
+			//destroy this loan since it is paid
+		}
+		if (paid){
+			return payment;
+		}
+		return amount;
+	}
 }

@@ -8,18 +8,39 @@ package model1;
  *
  */
 public class LoanFromIB {
-	private InvestmentBank bank;
+	private InvestmentBank iBank;
 	private double remainingBalance;
 	private double payment;
-	private boolean isPaid;
+	private boolean paid;
+	private int loanId;
 	
-	public LoanFromIB(InvestmentBank bank, double remainingBalance, double payment){
-		this.bank = bank;
+	public LoanFromIB(InvestmentBank iBank, double remainingBalance, double payment, int loanId){
+		this.iBank = iBank;
 		this.remainingBalance = remainingBalance;
 		this.payment = payment;
+		this.loanId = loanId;
 		
 		//Do I want to require payment at initialization?
-		isPaid = false;
+		paid = false;
+	}
+	
+	public int makePayment(double amount){
+		if (amount == payment){
+			paid = true;
+			iBank.receiveFullPayment(loanId);
+		}
+		else{
+			paid = false;
+			iBank.receivePartialPayment(loanId, amount);
+		}
+		remainingBalance -= payment;
+		if (remainingBalance <= 0){
+			return 1;
+		}
+		if (paid){
+			return 0;
+		}
+		return -1;
 	}
 	
 }
