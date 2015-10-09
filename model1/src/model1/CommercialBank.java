@@ -63,24 +63,33 @@ public class CommercialBank {
 	}
 	
 	public boolean addAccount(Consumer holder, double amount){
-		if(amount == (Consumers.put(holder, amount))){
+		if (!(Consumers.containsKey(holder))){
+			Consumers.put(holder, amount);
 			addReserves(amount);
 			addAssets(amount);
 			addLiabilities(amount);
 			return true;
 		}
 		else{
+			//Consumer already has account at bank
 			return false;
 		}
 	}
 	
 	public void deposit(Consumer holder, double amount){
-		double savings = Consumers.get(holder);
-		savings += amount;
-		addReserves(amount);
-		addAssets(amount);
-		addLiabilities(amount);
-		Consumers.put(holder, savings);		
+		if (Consumers.containsKey(holder)){
+			double savings = Consumers.get(holder);
+			savings += amount;
+			addReserves(amount);
+			addAssets(amount);
+			addLiabilities(amount);
+			Consumers.put(holder, savings);
+		}
+		else{
+			//consumer does not have account here
+			//error
+			;
+		}
 	}
 	
 	public void addReserves(double amount){
@@ -103,6 +112,10 @@ public class CommercialBank {
 		liabilities -= amount;
 	}
 	
+	public double getNetWorth(){
+		return reserves - liabilities;
+	}
+	
 	
 	//how do I return reserves before killing bank?
 	//add listener for bank reserves == -1?
@@ -113,11 +126,11 @@ public class CommercialBank {
 			return 0.0;
 		}
 		else{
-			if (amount > (reserves + 1)){
+			if (amount > (reserves)){
 				double lessThanFull = reserves;
 				reserves = -1.0;
 				return lessThanFull;
-				//listener should destroy this bank			
+				//listener should destroy this bank. Maybe I run a destroy method if reserves = -1 at last "tick" method call		
 			}
 			else{
 				reserves -= amount;
@@ -129,6 +142,7 @@ public class CommercialBank {
 	public double withdraw(Consumer holder, double amount){
 		double savings = Consumers.get(holder);
 		if (savings >= amount){
+			//actualAmount must be equal to amount at this point. unnecessary checking?
 			double actualAmount = removeReserves(amount);
 			removeAssets(actualAmount);
 			removeLiabilities(actualAmount);
@@ -141,24 +155,29 @@ public class CommercialBank {
 			double amountAvailable = removeReserves(savings);
 			removeAssets(amountAvailable);
 			removeLiabilities(amountAvailable);
+			//consumer should be removed because he could not pay a full debt
+			Consumers.remove(holder);
+			//note that amountAvailable could be less than what consumer has if cBank is about to go bankrupt
 			return amountAvailable;
 		}
 	}
 	
 	public void payInterest(Consumer holder){
 		double savings = Consumers.get(holder);
-		double interest = savings * (periodSavingsYield);
+		//divide by 12 because each tick is a month
+		double interest = savings * (periodSavingsYield) / 12;
 		Consumers.put(holder, savings + interest);
 		addLiabilities(interest);
 		//should I also add this to the assets?
 		addAssets(interest);
 	}
 	
-	//commercial bank calculates how much it should pay commercial bank for potential loan
-		public double calculateTickPayment(double amount){
-			double payment = amount/(1/loanRate)/(1-(1/Math.pow((1+loanRate),loanYears)))/12;
-			return payment;
-		}
+	//commercial bank calculates how much it should be paid by an investment bank for potential loan
+	//I don't actually use this method in my first model. Maybe in later models
+	public double calculateTickPayment(double amount){
+		double payment = amount/(1/loanRate)/(1-(1/Math.pow((1+loanRate),loanYears)))/12;
+		return payment;
+	}
 	
 	//I may want to add methods in future where IB asks for a loan. Then CB comes back with payments. If IB can meet the payments, it takes the loan. Otherwise it keeps on looking
 	public boolean createLoan(InvestmentBank debtor, double balance, double payment, String loanId){
@@ -220,6 +239,8 @@ public class CommercialBank {
 	}
 	
 	//making sure investment banks have paid up all loans
+	//in theory, this method is made redundant by receivePayment()
+	//any loans that are not paid in full should be deleted in receivePayment()
 	public void checkAllLoans() throws Exception{
 		Collection<LoanToIB> loanList = loansToIB.values();
 		if (loanList != null){
@@ -230,6 +251,14 @@ public class CommercialBank {
 					String tempId = thisLoan.getId();
 					receivePayment(tempId, 0.0);
 					//this will destroy the loan since it is delinquent
+					double loss = thisLoan.getRemainingBalance();
+					removeAssets(loss);
+					removeLiabilities(loss);
+					//destroy this loan
+					loansToIB.remove(tempId);
+				}
+				else{
+					//loan payment has been made in full
 				}
 			}
 		}		

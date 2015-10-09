@@ -28,6 +28,10 @@ public class LoanToIB {
 		return paid;
 	}
 	
+	public void makePaid(){
+		paid = true;
+	}
+	
 	public String getId(){
 		return loanId;
 	}
@@ -42,10 +46,10 @@ public class LoanToIB {
 	
 	public double receivePayment(double amount){
 		if (amount == payment){
-			paid = true;
+			makePaid();
 		}
 		else{
-			paid = false;
+			//paid = false;
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){

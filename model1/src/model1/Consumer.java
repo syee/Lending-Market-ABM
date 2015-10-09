@@ -82,34 +82,49 @@ public class Consumer {
 			cBank.deposit(this, amount);
 		}
 		else{
+			//This is the case where the consumer has no bank and stores his savings under his mattress
 			addCash(amount);
 		}
 	}
 	
+	
+	//if consumer was looking at paying this back toward a loan, I would want to make sure cBank or whomever received their money before the consumer was deleted
+	//somewhere else, there will need to be a check to make sure creditor received the full amount they expected
 	public void withdrawSavings(double amount){
 		if (cBank != null){
 			double withdrawal = cBank.withdraw(this, amount);
 			if (withdrawal != amount){
-				//remove consumer
+				//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
+				//for example cBank.addAccount(savings(actualAmount), actualAMount)
 			}
+			//need to handle passing amount to creditor
 		}
 		else{
 			if (cash >= amount){
-				removeCash(amount);
+				double actualAmount = removeCash(amount);
+				//need to handle passing amount to creditor
 			}
 			else{
-				//remove consumer
+				double actualAmount = removeCash(cash);
+				//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
+				//for example cBank.addAccount(savings(actualAmount), actualAMount)
 			}
 		}
 	}
 	
-	public void joinBank(CommercialBank cBank){
-		if(cBank.addAccount(this, cash)){
+	//Before this method is called, you must check to make sure the consumer does not already have a banking relationship with cBank
+	public boolean joinBank(CommercialBank cBankNew){
+		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
+		if (this.cBank == null){
+			cBankNew.addAccount(this, cash);
 			removeCash(cash);
-			this.cBank = cBank;
+			this.cBank = cBankNew;
+			return true;
 		}
 		else{
-			//already joined bank
+			//Consumer already has a cBank so it doesn't need another one?
+			//May change this later to indicate consumer already has account at this cBank
+			return false;
 		}
 	}
 	
@@ -117,9 +132,10 @@ public class Consumer {
 		cash += amount;
 	}
 	
-	public void removeCash(double amount){
+	public double removeCash(double amount){
 		//error checking must be done before call
 		cash -= amount;
+		return amount;
 	}
 	
 	

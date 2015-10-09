@@ -56,7 +56,7 @@ public class InvestmentBank {
 			//change this to allow more than one commercial bank in future
 		}
 		else{
-			//already joined bank
+			//already joined the bank
 		}
 	}
 	
@@ -81,14 +81,14 @@ public class InvestmentBank {
 	}
 	
 	//how do I return reserves before killing bank?
-		//add listener for bank reserves == -1?
+	//add listener for bank reserves == -1?
 	public double removeReserves(double amount){
 		if (reserves <= -1){
 			//destroy this investment bank
 			return 0.0;
 		}
 		else{
-			if (amount > (reserves + 1)){
+			if (amount > reserves){
 				double lessThanFull = reserves;
 				reserves = -1.0;
 				return lessThanFull;
@@ -102,8 +102,11 @@ public class InvestmentBank {
 	}
 	
 	//investment bank tries to borrow money from its single commercial bank
-	public boolean requestLoanCB(double balance, double payment, String loanId){
+	//I may want to expand this for multiple commercial banks in the future
+	//I may want to incorporate waiting list similar to firms in the future
+	public boolean requestLoanCB(double balance, double payment){
 		if (cBank != null){
+			String loanId =  UUID.randomUUID().toString();
 			if(cBank.createLoan(this, balance, payment, loanId)){
 				addReserves(balance);
 				addLiabilities(payment);
@@ -122,7 +125,7 @@ public class InvestmentBank {
 		
 	
 	//investment banks cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
-	public void makeLoanPayments() throws Exception{
+	public void payBackAllLoans() throws Exception{
 		Collection<LoanFromCB> loanList = loansFromCB.values();
 		if (loanList != null){
 			Iterator<LoanFromCB> loans = loanList.iterator();
@@ -173,7 +176,6 @@ public class InvestmentBank {
 			}
 			else if (thisLoan.getPayment() == paymentOutcome){
 				//full payment made
-				removeReserves(amount);
 				removeAssets(amount);
 				removeLiabilities(amount);
 				return true;
@@ -181,19 +183,14 @@ public class InvestmentBank {
 			else{
 				//less than full payment made
 				//should I add a default counter?
-				removeReserves(amount);
-				removeAssets(amount);
-				removeLiabilities(amount);
+				removeAssets(paymentOutcome);
+				removeLiabilities(paymentOutcome);
 				//now remove remaining loan balance from this bank's accounting
 				double loss = thisLoan.getRemainingBalance();
 				removeAssets(loss);
 				removeLiabilities(loss);
 				//destroy this investment bank
-				///
-				///
 				// THIS BANK NEEDS TO BE DESTROYED
-				//
-				//
 				////
 				loansFromCB.remove(tempId);
 				return false;
@@ -201,6 +198,29 @@ public class InvestmentBank {
 		}
 		else{
 			throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
+		}
+	}
+	
+	public boolean createLoanFirm(Firm debtor, double balance, double payment, String loanId){
+		//I may want to incorporate reserve requirement type thing later
+		if (balance <= reserves){
+			removeReserves(balance);
+			addAssets(balance);
+			addLiabilities(balance);
+			//this assumes payment has already been calculated correctly by firm
+			LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
+			loansToFirms.put(loanId, newLoan);
+			return true;
+		}
+		else{
+			//investment bank tries to borrow money from commercial bank	
+			//adds this loan to list of loans to try to reconcile
+			LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
+			waitingLoans.put(loanId, newLoan);
+			
+			/*
+			/*/
+			return false;
 		}
 	}
 	
@@ -213,8 +233,9 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
 				//creating loan ID for investment bank from commercial bank
-				String newLoanId =  UUID.randomUUID().toString();
-				requestLoanCB(thisLoan.getRemainingBalance(), thisLoan.getPayment(), newLoanId);
+				//String newLoanId =  UUID.randomUUID().toString();
+				//I am just going to use the loan ID that was already created
+				requestLoanCB(thisLoan.getRemainingBalance(), thisLoan.getPayment(), thisLoan.getId());
 			}
 		}		
 	}
@@ -248,35 +269,6 @@ public class InvestmentBank {
 		}
 	}
 	
-	
-	public boolean createLoanFirm(Firm debtor, double balance, double payment, String loanId){
-		//I may want to incorporate reserve requirement type thing later
-		if (balance <= reserves){
-			removeReserves(balance);
-			addAssets(balance);
-			addLiabilities(balance);
-			//this assumes payment has already been calculated correctly by firm
-			LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
-			loansToFirms.put(loanId, newLoan);
-			return true;
-		}
-		else{
-			//investment bank tries to borrow money from commercial bank
-			
-			//adds this loan to list of loans to try to reconcile
-			LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
-			waitingLoans.put(loanId, newLoan);
-			
-			/*
-			/
-			
-			/
-			/
-			/
-			/*/
-			return false;
-		}
-	}
 	
 	//investment bank receiving payment from firm
 	public boolean receivePayment(String tempId, double amount) throws Exception{
@@ -329,6 +321,11 @@ public class InvestmentBank {
 					String tempId = thisLoan.getId();
 					receivePayment(tempId, 0.0);
 					//this will destroy the loan since it is delinquent
+					double loss = thisLoan.getRemainingBalance();
+					removeAssets(loss);
+					removeLiabilities(loss);
+					//destroy this loan
+					loansToFirms.remove(tempId);
 				}
 			}
 		}		

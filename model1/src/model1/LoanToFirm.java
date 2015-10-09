@@ -24,6 +24,10 @@ public class LoanToFirm {
 		paid = false;
 	}
 	
+	public void makePaid(){
+		paid = true;
+	}
+	
 	public boolean isPaid(){
 		return paid;
 	}
@@ -46,17 +50,17 @@ public class LoanToFirm {
 	
 	public double receivePayment(double amount){
 		if (amount == payment){
-			paid = true;
+			makePaid();
 		}
 		else{
-			paid = false;
+			;
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){
 			return -1.0;
 			//destroy this loan since it is paid
 		}
-		if (paid){
+		if (isPaid()){
 			return payment;
 		}
 		return amount;

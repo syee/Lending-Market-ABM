@@ -28,6 +28,10 @@ public class LoanFromCB {
 		return payment;
 	}
 	
+	public void makePaid(){
+		paid = true;
+	}
+	
 	public boolean isPaid(){
 		return paid;
 	}
@@ -42,18 +46,17 @@ public class LoanFromCB {
 	
 	public double makePayment(double amount) throws Exception{
 		if (amount == payment){
-			paid = true;
+			makePaid();
 			cBank.receivePayment(loanId, payment);
 		}
 		else{
-			paid = false;
 			cBank.receivePayment(loanId, amount);
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){
 			return -1.0;
 		}
-		if (paid){
+		if (isPaid()){
 			return payment;
 		}
 		return amount;

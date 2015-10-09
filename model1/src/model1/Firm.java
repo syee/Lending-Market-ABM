@@ -26,6 +26,7 @@ public class Firm {
 	private double revenue;
 	private double expenses;
 	private double reserves;
+	private double loanPaymentTotal;
 	private Random rand;
 	private double smallShockMult;
 	private double smallShockProb;
@@ -41,11 +42,12 @@ public class Firm {
 	private NormalDistribution revenueCurve;
 	private NormalDistribution expenseCurve;
 	private double FIRM_DEVIATION_PERCENT;
+	private double PROFIT_REMOVAL;
 	private double averageProfits;
 	private HashMap<String, LoanFromIB> loansFromIB;
 	private HashMap<String, LoanFromIB> waitingLoans;
 	
-	public Firm(ContinuousSpace<Object> space, Grid<Object> grid, double revenue, double expenses, double reserves, double FIRM_DEVIATION_PERCENT, double averageProfits, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double loanRateFirms, double firmLoanYears){
+	public Firm(ContinuousSpace<Object> space, Grid<Object> grid, double revenue, double expenses, double reserves, double FIRM_DEVIATION_PERCENT, double averageProfits, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double loanRateFirms, double firmLoanYears, double PROFIT_REMOVAL){
 		this.space = space;
 		this.grid = grid;
 		this.revenue = revenue;
@@ -59,6 +61,7 @@ public class Firm {
 		this.largeShockProb = largeShockProb;
 		this.loanRateFirms = loanRateFirms;
 		this.firmLoanYears = firmLoanYears;
+		this.PROFIT_REMOVAL = PROFIT_REMOVAL;
 		
 		this.revenueCurve = new NormalDistribution(revenue, FIRM_DEVIATION_PERCENT*revenue);
 		this.revenue = revenueCurve.sample();
@@ -68,6 +71,7 @@ public class Firm {
 		loansFromIB = new HashMap<String, LoanFromIB>();
 		waitingLoans = new HashMap<String, LoanFromIB>();
 		corporateProfits = 0;
+		loanPaymentTotal = 0;
 	}
 	
 	public void calculateRevenue(){
@@ -101,8 +105,8 @@ public class Firm {
 	}
 	
 	public void removeCorporateProfits(){
-		double removal = reserves * 0.5;
-		reserves -= removal;
+		double removal = reserves * PROFIT_REMOVAL;
+		removeReserves(removal);
 		corporateProfits += removal;
 	}
 	
@@ -120,12 +124,13 @@ public class Firm {
 	
 	public void joinBank(InvestmentBank iBank){
 //		if(cBank.addIBAccount(this)){
+		if(this.iBank != null){
 			this.iBank = iBank;
 			//change this to allow more than one commercial bank in future
-//		}
-//		else{
+		}
+		else{
 			//already joined bank
-//		}
+		}
 	}
 	
 	//firm calculates how much the tick payment would be for borrowing an amount
@@ -148,14 +153,20 @@ public class Firm {
 	
 	//firm calculates if it can borrow, or if it goes bankrupt
 	public boolean decisionBorrow(double amount){
-		return (amount <= calculateBalance());
+		double payment = calculateFirmTickPayment(amount);
+		return ((amount <= calculateBalance()) && (payment + loanPaymentTotal <= revenue));
 	}
 	
 	
 	//firm tries to borrow firm investment bank. balance would be equal to amount firm owes
 	//logic could be refined
-	public void createLoan(double balance){
+	public void askForLoan(double balance){
 		if (decisionBorrow(balance)){
+			//this adds the monthly payment to the firm's running tab of monthly loan payments
+			//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
+			//this will likely be adjusted later. possibly divide it by number of investment banks
+			loanPaymentTotal += calculateFirmTickPayment(balance);
+			
 			double tickPayment = calculateFirmTickPayment(balance);
 			String newLoanId =  UUID.randomUUID().toString();
 			LoanFromIB newLoan = new LoanFromIB(iBank, balance, tickPayment, newLoanId);
@@ -180,6 +191,7 @@ public class Firm {
 			Iterator<LoanFromIB> loans = loanList.iterator();
 			while (loans.hasNext()){
 				LoanFromIB thisLoan = loans.next();
+				//this actually would not have to be changed with multiple investment banks
 				InvestmentBank creditor = thisLoan.getInvestmentBank();
 				if (creditor.checkLoanStatus(thisLoan.getId())){
 					;
@@ -187,6 +199,8 @@ public class Firm {
 				else{
 					//this means the loan did not go through and the firm must go bankrupt
 					//all loans are assumed to be needed to prevent bankruptcy
+					
+					//I may want to adjust this situation later. I may want firms to have investment opportunities rather than only debt obligations
 					return false;
 				}
 			}
@@ -207,6 +221,12 @@ public class Firm {
 				//the -1 I force reserves to once they reach bankruptcy???
 				addReserves(1.0);
 			}
+			Collection<LoanFromIB> toDeleteLoanList = waitingLoans.values();
+			Iterator<LoanFromIB> loansDelete = toDeleteLoanList.iterator();
+			while (loansDelete.hasNext()){
+				LoanFromIB thisLoan = loansDelete.next();
+				waitingLoans.remove(thisLoan.getId());
+			}
 		}
 	}
 	
@@ -218,20 +238,17 @@ public class Firm {
 				double paymentOutcome = thisLoan.makePayment(amount);
 				if (paymentOutcome == -1.0){
 					//	removeReserves(amount); this already happens
-					removeReserves(amount);
 					//destroy this loan by removing it from map
 					loansFromIB.remove(tempId);
 					return true;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
 					//full payment made
-					removeReserves(amount);
 					return true;
 				}
 				else{
 					//less than full payment made
 					//should I add a default counter?
-					removeReserves(amount);
 					//now remove remaining loan balance from this firm's accounting
 					//destroy this firm
 					///
@@ -250,7 +267,7 @@ public class Firm {
 		}
 		
 		//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
-		public void makeLoanPayments() throws Exception{
+		public void payBackAllLoans() throws Exception{
 			Collection<LoanFromIB> loanList = loansFromIB.values();
 			if (loanList != null){
 				Iterator<LoanFromIB> loans = loanList.iterator();
