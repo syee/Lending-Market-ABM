@@ -33,6 +33,7 @@ public class Firm {
 	private double largeShockMult;
 	private double largeShockProb;
 	private double corporateProfits;
+	private boolean isUnpaid;
 	
 	//change this later to have multiple. list of investment banks
 	private InvestmentBank iBank = null;
@@ -62,6 +63,8 @@ public class Firm {
 		this.loanRateFirms = loanRateFirms;
 		this.firmLoanYears = firmLoanYears;
 		this.PROFIT_REMOVAL = PROFIT_REMOVAL;
+		//should this be set to true or false initially?
+		this.isUnpaid = false;
 		
 		this.revenueCurve = new NormalDistribution(revenue, FIRM_DEVIATION_PERCENT*revenue);
 		this.revenue = revenueCurve.sample();
@@ -79,7 +82,7 @@ public class Firm {
 	}
 	
 	public void calculateExpenses(){
-		expenses = expenseCurve.sample();
+		expenses = expenseCurve.sample() + loanPaymentTotal;
 	}
 	
 	public double calculateDisaster(){
@@ -161,27 +164,32 @@ public class Firm {
 	//firm tries to borrow firm investment bank. balance would be equal to amount firm owes
 	//logic could be refined
 	public void askForLoan(double balance){
-		if (decisionBorrow(balance)){
-			//this adds the monthly payment to the firm's running tab of monthly loan payments
-			//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
-			//this will likely be adjusted later. possibly divide it by number of investment banks
-			loanPaymentTotal += calculateFirmTickPayment(balance);
-			
-			double tickPayment = calculateFirmTickPayment(balance);
-			String newLoanId =  UUID.randomUUID().toString();
-			LoanFromIB newLoan = new LoanFromIB(iBank, balance, tickPayment, newLoanId);
-			if(iBank.createLoanFirm(this,  balance, tickPayment, newLoanId)){
-				reserves += balance;
-				loansFromIB.put(newLoanId, newLoan);
+		if (iBank != null){
+			if (decisionBorrow(balance)){
+				//this adds the monthly payment to the firm's running tab of monthly loan payments
+				//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
+				//this will likely be adjusted later. possibly divide it by number of investment banks
+				loanPaymentTotal += calculateFirmTickPayment(balance);
+				
+				double tickPayment = calculateFirmTickPayment(balance);
+				String newLoanId =  UUID.randomUUID().toString();
+				LoanFromIB newLoan = new LoanFromIB(iBank, balance, tickPayment, newLoanId);
+				if(iBank.createLoanFirm(this,  balance, tickPayment, newLoanId)){
+					reserves += balance;
+					loansFromIB.put(newLoanId, newLoan);
+				}
+				else{
+					waitingLoans.put(newLoanId, newLoan);
+				}
 			}
 			else{
-				waitingLoans.put(newLoanId, newLoan);
-			}
+				//firm goes bankrupt because it cannot meet its obligations
+				;
+			}	
 		}
 		else{
-			//firm goes bankrupt because it cannot meet its obligations
-			;
-		}		
+			//firm goes bankrupt since it cannot borrow money
+		}
 	}
 	
 	//firm sees if it received all of its necessary loans
@@ -221,72 +229,141 @@ public class Firm {
 				//the -1 I force reserves to once they reach bankruptcy???
 				addReserves(1.0);
 			}
-			Collection<LoanFromIB> toDeleteLoanList = waitingLoans.values();
-			Iterator<LoanFromIB> loansDelete = toDeleteLoanList.iterator();
-			while (loansDelete.hasNext()){
-				LoanFromIB thisLoan = loansDelete.next();
-				waitingLoans.remove(thisLoan.getId());
-			}
+			removeAllWaitingLoans();
+		}
+	}
+	
+	public void removeAllWaitingLoans(){
+		Collection<LoanFromIB> toDeleteLoanList = waitingLoans.values();
+		Iterator<LoanFromIB> loansDelete = toDeleteLoanList.iterator();
+		while (loansDelete.hasNext()){
+			LoanFromIB thisLoan = loansDelete.next();
+			waitingLoans.remove(thisLoan.getId());
 		}
 	}
 	
 	
 	//firm pays back investment bank for one loan
-		public boolean makeLoanPayment(String tempId, double amount) throws Exception{
-			if(loansFromIB.containsKey(tempId)){
-				LoanFromIB thisLoan = loansFromIB.get(tempId);
-				double paymentOutcome = thisLoan.makePayment(amount);
-				if (paymentOutcome == -1.0){
-					//	removeReserves(amount); this already happens
-					//destroy this loan by removing it from map
-					loansFromIB.remove(tempId);
-					return true;
-				}
-				else if (thisLoan.getPayment() == paymentOutcome){
+	public double makeLoanPayment(String tempId, double amount) throws Exception{
+		if(loansFromIB.containsKey(tempId)){
+			LoanFromIB thisLoan = loansFromIB.get(tempId);
+			double paymentOutcome = thisLoan.makePayment(amount);
+			if (paymentOutcome == -1.0){
+				//	removeReserves(amount); this already happens
+				//destroy this loan by removing it from map
+				loansFromIB.remove(tempId);
+				return amount;
+			}
+			else if (thisLoan.getPayment() == paymentOutcome){
+				//full payment made
+				return amount;
+			}
+			else{
+				//less than full payment made
+				//should I add a default counter?
+				//now remove remaining loan balance from this firm's accounting
+				//destroy this firm
+				///
+				///
+				// THIS FIRM NEEDS TO BE DESTROYED
+				//
+				//
+				////
+				loansFromIB.remove(tempId);
+				return paymentOutcome;
+			}
+		}
+		else{
+			throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
+		}
+	}
+	
+	//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
+	public void payBackAllLoans() throws Exception{
+		Collection<LoanFromIB> loanList = loansFromIB.values();
+		if (loanList != null){
+			Iterator<LoanFromIB> loans = loanList.iterator();
+			while (loans.hasNext()){
+				LoanFromIB thisLoan = loans.next();
+				String tempId = thisLoan.getId();
+				double paymentDue = thisLoan.getPayment();
+				double actualPayment = removeReserves(paymentDue);
+				
+				if (makeLoanPayment(tempId, actualPayment) == paymentDue){
 					//full payment made
-					return true;
+					;
 				}
 				else{
-					//less than full payment made
-					//should I add a default counter?
-					//now remove remaining loan balance from this firm's accounting
-					//destroy this firm
-					///
-					///
-					// THIS FIRM NEEDS TO BE DESTROYED
-					//
-					//
-					////
-					loansFromIB.remove(tempId);
-					return false;
+					//investment bank should be destroyed since it failed to make full payment
+					//appears to be handled in makeLoanPayment
+					;
+				}
+			}
+		}
+	}
+	
+	public void firms_balanceTick_1(){
+		calculateRevenue();
+		calculateExpenses();
+		double net = calculateNet();
+		if(iBank == null){
+			//search for a iBank
+			//joinBank()
+		}
+		if (net < 0){
+			if (reserves >= Math.abs(net)){
+				removeReserves(Math.abs(net));
+				isUnpaid = false;
+			}
+			else{
+				if (iBank != null){
+					askForLoan(net);
+					if (reserves >= Math.abs(net)){
+						removeReserves(Math.abs(net));
+						isUnpaid = false;
+					}
+					else{
+						isUnpaid = true;
+					}
+				}
+			}
+		}
+		else if (net >= 0){
+			isUnpaid = false;
+			//removeCorporateProfits();
+		}
+	}
+	
+	//firm sees if it's waiting list loans have all passed
+	public void firms_waitingStatus_44() throws Exception{
+		if (isUnpaid){
+			if(firmCheckLoanStatus()){
+				//If firmCheckLoanStatus() returns true, the firm should not go bankrupt this tick
+				collectLoans();
+				double net = calculateNet();
+				if (reserves >= Math.abs(net)){
+					removeReserves(Math.abs(net));
+					isUnpaid = false;
+				}
+				else{
+					//firm goes bankrupt
+					payBackAllLoans();
+					removeAllWaitingLoans();
 				}
 			}
 			else{
-				throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
+				//firm goes bankrupt
+				//this will cause firm to default on all loans it owes.
+				payBackAllLoans();
+				removeAllWaitingLoans();
 			}
 		}
-		
-		//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
-		public void payBackAllLoans() throws Exception{
-			Collection<LoanFromIB> loanList = loansFromIB.values();
-			if (loanList != null){
-				Iterator<LoanFromIB> loans = loanList.iterator();
-				while (loans.hasNext()){
-					LoanFromIB thisLoan = loans.next();
-					String tempId = thisLoan.getId();
-					double paymentDue = thisLoan.getPayment();
-					double actualPayment = removeReserves(paymentDue);
-					
-					if (makeLoanPayment(tempId, actualPayment)){
-						//full payment made
-						;
-					}
-					else{
-						//investment bank should be destroyed since it failed to make full payment
-						//appears to be handled in makeLoanPayment
-						;
-					}
-				}
-			}
-		}
+	}
+	
+	public void firms_makePayments_5() throws Exception{
+		payBackAllLoans();
+	}
+	
+	
+	
 }

@@ -27,6 +27,7 @@ public class Consumer {
 	private double smallShockProb;
 	private double largeShockMult;
 	private double largeShockProb;
+	private boolean isBankrupt;
 	
 	private NormalDistribution salaryCurve;
 	private NormalDistribution expenseCurve;
@@ -44,6 +45,7 @@ public class Consumer {
 		this.largeShockMult = largeShockMult;
 		this.smallShockProb = smallShockProb;
 		this.largeShockProb = largeShockProb;
+		this.isBankrupt = false;
 		
 		this.salaryCurve = new NormalDistribution(salary, CONSUMER_DEVIATION_PERCENT*salary);
 		this.salary = salaryCurve.sample();
@@ -96,6 +98,7 @@ public class Consumer {
 			if (withdrawal != amount){
 				//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
 				//for example cBank.addAccount(savings(actualAmount), actualAMount)
+				isBankrupt = true;
 			}
 			//need to handle passing amount to creditor
 		}
@@ -108,6 +111,7 @@ public class Consumer {
 				double actualAmount = removeCash(cash);
 				//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
 				//for example cBank.addAccount(savings(actualAmount), actualAMount)
+				isBankrupt = true;
 			}
 		}
 	}
@@ -128,6 +132,21 @@ public class Consumer {
 		}
 	}
 	
+	public boolean leaveBank(CommercialBank cBankDead){
+		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
+		if (this.cBank == cBankDead){
+			cBank = null;
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public CommercialBank getBank(){
+		return cBank;
+	}
+	
 	public void addCash(double amount){
 		cash += amount;
 	}
@@ -136,6 +155,31 @@ public class Consumer {
 		//error checking must be done before call
 		cash -= amount;
 		return amount;
+	}
+	
+	//first scheduled method
+	public void consumer_tick_9(){
+		calculateSalary();
+		calculateExpenses();
+		double net = calculateNet();
+		if (net < 0){
+			withdrawSavings(net);
+		}
+		else{
+			depositSavings(net);
+		}
+		if (getBank() == null){
+			//search for a bank
+			//joinBank()
+		}
+	}
+	
+	//one of last scheduled methods
+	public void consumer_check_104(){
+		if (isBankrupt){
+			getBank().removeAccount(this);
+			//consumer.die()			
+		}
 	}
 	
 	

@@ -36,6 +36,10 @@ public class LoanToIB {
 		return loanId;
 	}
 	
+	public InvestmentBank getBank(){
+		return bank;
+	}
+	
 	public double getPayment(){
 		return payment;
 	}
@@ -53,6 +57,7 @@ public class LoanToIB {
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){
+			makePaid();
 			return -1.0;
 			//destroy this loan since it is paid
 		}

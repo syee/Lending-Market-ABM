@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
@@ -62,6 +64,16 @@ public class CommercialBank {
 		}
 	}
 	
+	public boolean removeIBAAccount(InvestmentBank iBank){
+		if((iBanks.contains(iBank))){
+			iBanks.remove(iBank);
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	public boolean addAccount(Consumer holder, double amount){
 		if (!(Consumers.containsKey(holder))){
 			Consumers.put(holder, amount);
@@ -72,6 +84,20 @@ public class CommercialBank {
 		}
 		else{
 			//Consumer already has account at bank
+			return false;
+		}
+	}
+	
+	public boolean removeAccount(Consumer holder){
+		if (Consumers.containsKey(holder)){
+			double savings = Consumers.get(holder);
+			removeReserves(savings);
+			removeAssets(savings);
+			removeLiabilities(savings);
+			Consumers.remove(holder);
+			return true;
+		}
+		else{
 			return false;
 		}
 	}
@@ -160,6 +186,19 @@ public class CommercialBank {
 			//note that amountAvailable could be less than what consumer has if cBank is about to go bankrupt
 			return amountAvailable;
 		}
+	}
+	
+	//pay interest to all consumers
+	public void updateConsumers(){
+		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
+		if (consumerList != null){
+			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
+			while (consumers.hasNext()){
+				Map.Entry<Consumer, Double> consumer = consumers.next();
+				payInterest(consumer.getKey());
+			}
+		}
+		
 	}
 	
 	public void payInterest(Consumer holder){
@@ -262,6 +301,72 @@ public class CommercialBank {
 				}
 			}
 		}		
+	}
+	
+	public void collectFullLoans() throws Exception{
+		Collection<LoanToIB> loanList = loansToIB.values();
+		if (loanList != null){
+			Iterator<LoanToIB> loans = loanList.iterator();
+			//this collects on all loans
+			while (loans.hasNext()){
+				LoanToIB thisLoan = loans.next();
+				String tempId = thisLoan.getId();
+				double balance = thisLoan.getRemainingBalance();
+				InvestmentBank iBank = thisLoan.getBank();
+				double amountReceived = iBank.makeLoanPayment(tempId, balance);
+				//receivePayment(tempId, amountReceived); this happens in LoanFromCB.makePayment() called by iBank.makeLoanPayment
+				loansToIB.remove(tempId);
+			}
+		}
+		if (reserves == -1){
+			reserves = -2;
+		}
+	}
+	
+	public void removeAllConsumers(){
+		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
+		if (consumerList != null){
+			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
+			while (consumers.hasNext()){
+				Map.Entry<Consumer, Double> consumer = consumers.next();
+				//I may want to pass an argument here later if more than one cBank per consumer
+				removeAccount(consumer.getKey());
+				consumer.getKey().leaveBank(this);
+			}
+		}
+	}
+	
+	public void removeAllInvestmentBanks() throws Exception{
+		int numIBanks = iBanks.size();
+		for(int i = 0; i < numIBanks; i++){
+			InvestmentBank thisBank = iBanks.get(i);
+			thisBank.leaveBank(this);
+			removeIBAAccount(thisBank);
+		}
+	}
+	
+	//this method should be unnecessary. More of an error checking method for removing delinquent loans
+	public void commBank_getPayments_8() throws Exception{
+		checkAllLoans();
+	}
+	
+	//I want to turn this into a listener
+	public void commBank_trouble_listener() throws Exception{
+		if (reserves == -1){
+			collectFullLoans();
+		}
+	}
+	
+	public void commBank_check_103() throws Exception{
+		if (reserves <= -1){
+			removeAllConsumers();
+			removeAllInvestmentBanks();
+			//commercial bank goes bankrupt
+		}
+		else{
+			//pay interest on all consumer accounts
+			updateConsumers();
+		}
 	}
 
 

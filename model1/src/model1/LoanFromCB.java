@@ -36,6 +36,10 @@ public class LoanFromCB {
 		return paid;
 	}
 	
+	public CommercialBank getBank(){
+		return cBank;
+	}
+	
 	public double getRemainingBalance(){
 		return remainingBalance;
 	}
@@ -54,6 +58,7 @@ public class LoanFromCB {
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){
+			makePaid();
 			return -1.0;
 		}
 		if (isPaid()){

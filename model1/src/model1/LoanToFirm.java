@@ -57,6 +57,7 @@ public class LoanToFirm {
 		}
 		remainingBalance -= amount;
 		if (remainingBalance <= 0){
+			makePaid();
 			return -1.0;
 			//destroy this loan since it is paid
 		}
