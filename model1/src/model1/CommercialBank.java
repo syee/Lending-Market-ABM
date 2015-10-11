@@ -201,7 +201,7 @@ public class CommercialBank {
 	/** This method removes a positive amount from a cBank's reserves.
 	 * If the cBank does not have enough reserves, it returns its full reserves. Its reserves are set to -1.0 to indicate the bank has gone bankrupt.
 	 * @param amount Positive amount the cBank must produce from its reserves.
-	 * @return Maximum of desired amount and cBank's reserves.
+	 * @return Minimum of desired amount and cBank's reserves.
 	 * @throws Exception Throws exception if amount is less than 0.
 	 */
 	public double removeReserves(double amount) throws Exception{

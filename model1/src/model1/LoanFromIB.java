@@ -68,6 +68,10 @@ public class LoanFromIB {
 		return loanId;
 	}
 	
+	public InvestmentBank getBank(){
+		return iBank;
+	}
+	
 	
 	
 }

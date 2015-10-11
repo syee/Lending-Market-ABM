@@ -375,12 +375,12 @@ public class InvestmentBank {
 		}
 	}
 	
-	/** This method is how an iBank makes an individual payment on a loan to a cBank.
+	/** This method is how an iBank makes an individual full balance payment on a loan to a cBank.
 	 * This method identifies the loanFromCB object and call its makePayment().
 	 * This method is only used to make a full balance payment.
 	 * This is needed when a cBank calls collectFullLoans() or the iBank attempts to leave a cBank.
 	 * This method directly calls removeReserves().
-	 * In LoanFromCb.makePayment(), the money is transferred from the iBank to the cBank.
+	 * In LoanFromCB.makePayment(), the money is transferred from the iBank to the cBank.
 	 * @param tempId loanId.
 	 * @param amount Positive amount to be paid by iBank.
 	 * @return Returns the amount iBank actually paid. This is less than or equal to the intended amount.
