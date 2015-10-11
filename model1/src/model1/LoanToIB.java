@@ -48,7 +48,9 @@ public class LoanToIB {
 		return remainingBalance;
 	}
 	
+	//this assumes that all iBanks attempt to make payments on loans.
 	public double receivePayment(double amount){
+		paid = false;
 		if (amount == payment){
 			makePaid();
 		}

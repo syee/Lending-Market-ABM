@@ -35,6 +35,18 @@ public class Consumer {
 	private double averageSavings;
 	
 	
+	/** This method instantiates a Consumer Object.
+	 * @param space
+	 * @param grid
+	 * @param salary Default salary base.
+	 * @param cash Default cash amount.
+	 * @param CONSUMER_DEVIATION_PERCENT Standard deviation in consumer income and expenses.
+	 * @param averageSavings Net positive difference between salary and expenses.
+	 * @param smallShockMult Magnitude of a small shock.
+	 * @param largeShockMult Magnitude of a large shock.
+	 * @param smallShockProb Probability of a small shock.
+	 * @param largeShockProb Probability of a large shock.
+	 */
 	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb){
 		this.space = space;
 		this.grid = grid;
@@ -53,15 +65,27 @@ public class Consumer {
 		this.expenses = expenseCurve.sample();
 	}
 	
-	public void calculateSalary(){
+	/** This method samples the consumer's salary distribution to generate a salary for this month.
+	 * 
+	 */
+	public double calculateSalary(){
 		salary = salaryCurve.sample();
+		return salary;
 	}
 	
-	public void calculateExpenses(){
+	/** This method samples the consumer's expense distribution to generate expenses for this month.
+	 * 
+	 */
+	public double calculateExpenses(){
 		expenses = expenseCurve.sample();
+		return expenses;
 	}
 	
-	public double calculateDisaster(){
+	/** This method uses a probability to determine if the consumer is suffering a small, large, or no shock this period.
+	 * Compares probability to smallShockProb and largeShockProb.
+	 * @return The cost of shocks in this month. Returns 0.0 if no shock occurred.
+	 */
+	public double calculateShock(){
 		double probability = rand.nextDouble();
 		if (probability <= largeShockProb){
 			return largeShockMult * salary;
@@ -74,50 +98,83 @@ public class Consumer {
 		}
 	}
 	
+	/** This method calculates a consumer's net savings for a month. It subtracts expenses and shocks from a consumer's salary.
+	 * This method calls calculateSalary(), calculateExpenses(), and calculateShock().
+	 * @return The consumer's net savings for a month.
+	 */
 	public double calculateNet(){
-		double net = salary - expenses - calculateDisaster();
+		double net = calculateSalary() - calculateExpenses() - calculateShock();
 		return net;
 	}
 	
-	public void depositSavings(double amount){
-		if (cBank != null){
-			cBank.deposit(this, amount);
+	/** This method deposits a positive amount into a consumer's cBank account or his/her cash if the consumer has no cBank account.
+	 * @param amount This is the amount the consumer is depositing.
+	 * @throws Exception Throws exception if amount is less than 0.
+	 */
+	public void depositSavings(double amount) throws Exception{
+		if (amount >= 0.0){
+			if (cBank != null){
+				cBank.deposit(this, amount);
+			}
+			else{
+				//This is the case where the consumer has no bank and stores his savings under his mattress
+				addCash(amount);
+			}
 		}
 		else{
-			//This is the case where the consumer has no bank and stores his savings under his mattress
-			addCash(amount);
+			throw new Exception("Consumer cannot deposit a negative amount!");
 		}
 	}
 	
 	
 	//if consumer was looking at paying this back toward a loan, I would want to make sure cBank or whomever received their money before the consumer was deleted
 	//somewhere else, there will need to be a check to make sure creditor received the full amount they expected
-	public void withdrawSavings(double amount){
-		if (cBank != null){
-			double withdrawal = cBank.withdraw(this, amount);
-			if (withdrawal != amount){
-				//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
-				//for example cBank.addAccount(savings(actualAmount), actualAMount)
-				isBankrupt = true;
-			}
-			//need to handle passing amount to creditor
-		}
-		else{
-			if (cash >= amount){
-				double actualAmount = removeCash(amount);
+	/** This method withdraws money from a consumer's cBank account or his/her cash if the consumer has no cBank account.
+	 * If the consumer does not have enough savings to withdraw the full amount, the consumer is assumed to go bankrupt.
+	 * This method does not return amount to a creditor. Consumers currently have no actual creditors (10/10).
+	 * @param amount Positive amount the consumer needs to pay off monthly deficit.
+	 * @throws Exception Throws exception if amount is less than 0.
+	 */
+	public double withdrawSavings(double amount) throws Exception{
+		if (amount >= 0){
+			if (cBank != null){
+				double withdrawal = cBank.withdraw(this, amount);
+				if (withdrawal != amount){
+					//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
+					//for example cBank.addAccount(savings(actualAmount), actualAMount)
+					isBankrupt = true;
+				}
 				//need to handle passing amount to creditor
+				return withdrawal;
 			}
 			else{
-				double actualAmount = removeCash(cash);
-				//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
-				//for example cBank.addAccount(savings(actualAmount), actualAMount)
-				isBankrupt = true;
+				if (cash >= amount){
+					removeCash(amount);
+					//need to handle passing amount to creditor
+					return amount;
+				}
+				else{
+					removeCash(cash);
+					//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
+					//for example cBank.addAccount(savings(actualAmount), actualAMount)
+					isBankrupt = true;
+					return cash;
+				}
 			}
+		}
+		else{
+			throw new Exception("Consumer cannot withdraw a negative amount!");
 		}
 	}
 	
 	//Before this method is called, you must check to make sure the consumer does not already have a banking relationship with cBank
-	public boolean joinBank(CommercialBank cBankNew){
+	/** This method creates an account for a consumer at a cBank assuming no such account already exists.
+	 * Consumers are assumed to only have one cBank so they deposit all their cash into this bank.
+	 * @param cBankNew This is the cBank the consumer wishes to create an account at.
+	 * @return returns true if the consumer successfully created an account.
+	 * @throws Exception Throws exception if consumer has a negative cash pile value.
+	 */
+	public boolean joinBank(CommercialBank cBankNew) throws Exception{
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		if (this.cBank == null){
 			cBankNew.addAccount(this, cash);
@@ -132,9 +189,15 @@ public class Consumer {
 		}
 	}
 	
+	/** This method allows consumers to leave their cBank. A consumer is assumed to only leave their bank should the bank go bankrupt.
+	 * Hence consumers recover no money from their account. Calls cBank.removeAccount(). CONSUMERS LEAVING ACCOUNTS HANDLED HERE.
+	 * @param cBankDead This parameter is currently unnecessary as consumers only have a single cBank.
+	 * @return returns true if cBankDead matches consumer's account so consumer leaves the bank.
+	 */
 	public boolean leaveBank(CommercialBank cBankDead){
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		if (this.cBank == cBankDead){
+			cBank.removeAccount(this);
 			cBank = null;
 			return true;
 		}
@@ -143,27 +206,52 @@ public class Consumer {
 		}
 	}
 	
+	/** This method returns a consumer's cBank. This assumes consumer's only have one cBank
+	 * @return returns a consumer's cBank. null is returned if no cBank relationship exists.
+	 */
 	public CommercialBank getBank(){
 		return cBank;
 	}
 	
-	public void addCash(double amount){
-		cash += amount;
+	/** This method is called when a consumer has a net positive amount for a month, but does not have a cBank account.
+	 * @param amount This is the positive amount a consumer wishes to add to their cash pile.
+	 * @throws Exception  Throws exception if amount is less than 0.
+	 */
+	public void addCash(double amount) throws Exception{
+		if (amount >= 0){
+			cash += amount;
+		}
+		else{
+			throw new Exception("Consumer cannot add a negative cash amount!");
+		}
 	}
 	
-	public double removeCash(double amount){
-		//error checking must be done before call
-		cash -= amount;
-		return amount;
+	/** This method is called when a consumer needs to tap into their savings to pay off a monthly deficit but the consumer does not have a cBank account.
+	 * @param amount The positive amount a consumer wishes to remove from their cash pile.
+	 * @throws Exception Throws exception if consumer tries to remove a negative amount.
+	 */
+	public void removeCash(double amount) throws Exception{
+		if (amount >= 0){
+			cash -= amount;
+		}
+		else{
+			throw new Exception("Consumer cannot remove a negative cash amount!");
+		}
 	}
 	
-	//first scheduled method
-	public void consumer_tick_9(){
-		calculateSalary();
-		calculateExpenses();
+	/** This is the last basic scheduled method to be called.
+	 * This method calls calculateNet() to determine a consumer's net amount for a month.
+	 * If the amount is negative, the consumer must withdraw money to cover the deficit or go bankrupt.
+	 * If the full amount is not covered, the consumer's isBankrupt attribute is set to true.
+	 * If the amount is positive, the consumer deposits the amount.
+	 * The consumer also searches for a cBank if they do not already have one.
+	 * @throws Exception Withdrawal and Deposit amounts must be positive.
+	 * 
+	 */
+	public void consumer_tick_9() throws Exception{
 		double net = calculateNet();
 		if (net < 0){
-			withdrawSavings(net);
+			withdrawSavings(Math.abs(net));
 		}
 		else{
 			depositSavings(net);
@@ -175,9 +263,14 @@ public class Consumer {
 	}
 	
 	//one of last scheduled methods
+	/** This method forces a consumer to leave the environment if he or she is bankrupt.
+	 * If a consumer is bankrupt, their account is removed from their cBank.
+	 * If consumers reach a situation where isBankrupt is set to true, the contents of their bank accounts should have been withdrawn already.
+	 * 
+	 */
 	public void consumer_check_104(){
 		if (isBankrupt){
-			getBank().removeAccount(this);
+			leaveBank(getBank());
 			//consumer.die()			
 		}
 	}

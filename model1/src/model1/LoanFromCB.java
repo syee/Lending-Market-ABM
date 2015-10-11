@@ -57,7 +57,7 @@ public class LoanFromCB {
 			cBank.receivePayment(loanId, amount);
 		}
 		remainingBalance -= amount;
-		if (remainingBalance <= 0){
+		if (remainingBalance <= 0.0){
 			makePaid();
 			return -1.0;
 		}
