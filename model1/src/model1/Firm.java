@@ -163,7 +163,7 @@ public class Firm {
 	
 	//firm tries to borrow firm investment bank. balance would be equal to amount firm owes
 	//logic could be refined
-	public void askForLoan(double balance){
+	public void askForLoan(double balance) throws Exception{
 		if (iBank != null){
 			if (decisionBorrow(balance)){
 				//this adds the monthly payment to the firm's running tab of monthly loan payments
@@ -245,36 +245,82 @@ public class Firm {
 	
 	//firm pays back investment bank for one loan
 	public double makeLoanPayment(String tempId, double amount) throws Exception{
-		if(loansFromIB.containsKey(tempId)){
-			LoanFromIB thisLoan = loansFromIB.get(tempId);
-			double paymentOutcome = thisLoan.makePayment(amount);
-			if (paymentOutcome == -1.0){
-				//	removeReserves(amount); this already happens
-				//destroy this loan by removing it from map
-				loansFromIB.remove(tempId);
-				return amount;
-			}
-			else if (thisLoan.getPayment() == paymentOutcome){
-				//full payment made
-				return amount;
+		if (amount >= 0.0){
+			if(loansFromIB.containsKey(tempId)){
+				LoanFromIB thisLoan = loansFromIB.get(tempId);
+				double paymentOutcome = thisLoan.makePayment(amount);
+				if (paymentOutcome == -1.0){
+					//	removeReserves(amount); this already happens
+					//destroy this loan by removing it from map
+					loansFromIB.remove(tempId);
+					return amount;
+				}
+				else if (thisLoan.getPayment() == paymentOutcome){
+					//full payment made
+					return amount;
+				}
+				else{
+					//less than full payment made
+					//should I add a default counter?
+					//now remove remaining loan balance from this firm's accounting
+					//destroy this firm
+					///
+					///
+					// THIS FIRM NEEDS TO BE DESTROYED
+					//
+					//
+					////
+					loansFromIB.remove(tempId);
+					return paymentOutcome;
+				}
 			}
 			else{
-				//less than full payment made
-				//should I add a default counter?
-				//now remove remaining loan balance from this firm's accounting
-				//destroy this firm
-				///
-				///
-				// THIS FIRM NEEDS TO BE DESTROYED
-				//
-				//
-				////
-				loansFromIB.remove(tempId);
-				return paymentOutcome;
+				throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
 			}
 		}
 		else{
-			throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
+			throw new Exception("Firm cannot make a negative loan payment!");
+		}
+	}
+	
+	//firm pays back investment bank for one loan
+	public double makeFullBalancePayment(String tempId, double amount) throws Exception{
+		if (amount >= 0.0){
+			if(loansFromIB.containsKey(tempId)){
+				LoanFromIB thisLoan = loansFromIB.get(tempId);
+				double paymentOutcome = thisLoan.makePayment(amount);
+				removeReserves(amount);
+				if (paymentOutcome == -1.0){
+					//	removeReserves(amount); this already happens
+					//destroy this loan by removing it from map
+					loansFromIB.remove(tempId);
+					return amount;
+				}
+				else if (thisLoan.getPayment() == paymentOutcome){
+					//full payment made
+					return amount;
+				}
+				else{
+					//less than full payment made
+					//should I add a default counter?
+					//now remove remaining loan balance from this firm's accounting
+					//destroy this firm
+					///
+					///
+					// THIS FIRM NEEDS TO BE DESTROYED
+					//
+					//
+					////
+					loansFromIB.remove(tempId);
+					return paymentOutcome;
+				}
+			}
+			else{
+				throw new Exception("Investment Bank should not be making this payment to this Commercial Bank ");
+			}
+		}
+		else{
+			throw new Exception("Firm cannot make a negative loan payment!");
 		}
 	}
 	

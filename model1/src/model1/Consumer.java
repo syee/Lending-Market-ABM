@@ -193,8 +193,9 @@ public class Consumer {
 	 * Hence consumers recover no money from their account. Calls cBank.removeAccount(). CONSUMERS LEAVING ACCOUNTS HANDLED HERE.
 	 * @param cBankDead This parameter is currently unnecessary as consumers only have a single cBank.
 	 * @return returns true if cBankDead matches consumer's account so consumer leaves the bank.
+	 * @throws Exception 
 	 */
-	public boolean leaveBank(CommercialBank cBankDead){
+	public boolean leaveBank(CommercialBank cBankDead) throws Exception{
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		if (this.cBank == cBankDead){
 			cBank.removeAccount(this);
@@ -266,9 +267,10 @@ public class Consumer {
 	/** This method forces a consumer to leave the environment if he or she is bankrupt.
 	 * If a consumer is bankrupt, their account is removed from their cBank.
 	 * If consumers reach a situation where isBankrupt is set to true, the contents of their bank accounts should have been withdrawn already.
+	 * @throws Exception 
 	 * 
 	 */
-	public void consumer_check_104(){
+	public void consumer_check_104() throws Exception{
 		if (isBankrupt){
 			leaveBank(getBank());
 			//consumer.die()			

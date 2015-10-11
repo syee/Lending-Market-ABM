@@ -439,7 +439,7 @@ public class CommercialBank {
 				String tempId = thisLoan.getId();
 				double balance = thisLoan.getRemainingBalance();
 				InvestmentBank iBank = thisLoan.getBank();
-				iBank.makeLoanPayment(tempId, balance);
+				iBank.makeFullBalancePayment(tempId, balance);
 				//receivePayment(tempId, amountReceived); this happens in LoanFromCB.makePayment() called by iBank.makeLoanPayment
 				loansToIB.remove(tempId);
 			}
@@ -452,9 +452,10 @@ public class CommercialBank {
 	/** This method removes all Consumers from a cBank.
 	 * For each Consumer, it calls consumer.leaveBank() which removes references from the Consumer to the cBank.
 	 * consumer.leaveBank() also calls removeAccount() which removes references from this cBank to the Consumer.
+	 * @throws Exception 
 	 * 
 	 */
-	public void removeAllConsumers(){
+	public void removeAllConsumers() throws Exception{
 		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
 		if (consumerList != null){
 			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
