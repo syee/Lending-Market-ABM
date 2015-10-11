@@ -249,7 +249,8 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	public void consumer_tick_9() throws Exception{
+	public void consumer_tick_0() throws Exception{
+		//This method should either go last or first of the basic scheduled methods.
 		double net = calculateNet();
 		if (net < 0){
 			withdrawSavings(Math.abs(net));
