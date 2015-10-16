@@ -56,7 +56,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		int cBankCount = 1;
 		for (int i = 0; i < cBankCount; i++){
 			try {
-				context.add(new CommercialBank(space, grid, 20000.0, 1.0, 3.0, 5.0));
+				context.add(new CommercialBank(space, grid, 20000.0, 0.01, 0.03, 5.0));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -66,7 +66,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		int iBankCount = 1;
 		for (int i = 0; i < iBankCount; i++){
 			try {
-				context.add(new InvestmentBank(space, grid, 10000.0, 5.0, 3.0, 5.0, 5.0));
+				context.add(new InvestmentBank(space, grid, 10000.0, 0.05, 0.03, 5.0, 5.0));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

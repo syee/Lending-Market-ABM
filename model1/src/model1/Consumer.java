@@ -351,7 +351,7 @@ public class Consumer {
 		
 		GridPoint pointWithMostCBanks = null;
 //		if (cBank == null){
-			int maxCount = -1;
+			int maxCount = 0;
 			for (GridCell<CommercialBank> bank: gridCells){
 				if (bank.size() > maxCount){
 					pointWithMostCBanks = bank.getPoint();
