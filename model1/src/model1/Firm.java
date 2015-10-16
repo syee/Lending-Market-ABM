@@ -6,13 +6,21 @@ package model1;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
+import repast.simphony.query.space.grid.GridCell;
+import repast.simphony.query.space.grid.GridCellNgh;
+import repast.simphony.random.RandomHelper;
+import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
+import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.SimUtilities;
 
 /**
  * @author stevenyee
@@ -53,7 +61,6 @@ public class Firm {
 	 * @param space
 	 * @param grid
 	 * @param revenue
-	 * @param expenses
 	 * @param reserves
 	 * @param FIRM_DEVIATION_PERCENT
 	 * @param averageProfits
@@ -65,11 +72,10 @@ public class Firm {
 	 * @param firmLoanYears
 	 * @param PROFIT_REMOVAL
 	 */
-	public Firm(ContinuousSpace<Object> space, Grid<Object> grid, double revenue, double expenses, double reserves, double FIRM_DEVIATION_PERCENT, double averageProfits, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double loanRateFirms, double firmLoanYears, double PROFIT_REMOVAL){
+	public Firm(ContinuousSpace<Object> space, Grid<Object> grid, double revenue, double reserves, double FIRM_DEVIATION_PERCENT, double averageProfits, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double loanRateFirms, double firmLoanYears, double PROFIT_REMOVAL){
 		this.space = space;
 		this.grid = grid;
 		this.revenue = revenue;
-		this.expenses = expenses;
 		this.reserves = reserves;
 		this.FIRM_DEVIATION_PERCENT = FIRM_DEVIATION_PERCENT;
 		this.averageProfits = averageProfits;
@@ -515,6 +521,59 @@ public class Firm {
 			}
 		}
 	}
+	
+	
+	
+	public void firmMoveTowards(GridPoint pt){
+		//only move if we are not already in this grid location
+		if (pt == null){
+			//force consumers to move weird
+			double probabilityX = rand.nextDouble() * 4;
+			double probabilityY = rand.nextDouble() * 4;
+			NdPoint myPoint = space.getLocation(this);
+			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			space.moveByVector(this, 1, angle, 0);
+			myPoint = space.getLocation(this);
+			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+			
+		}
+		
+		if (!pt.equals(grid.getLocation(this))){
+			NdPoint myPoint = space.getLocation(this);
+			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
+			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			space.moveByVector(this, 1, angle, 0);
+			myPoint = space.getLocation(this);
+			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+			
+		}
+	}
+	
+	public void iBankMove(){
+		//get grid location of consumer
+		GridPoint pt = grid.getLocation(this);
+		//use GridCellNgh to create GridCells for the surrounding neighborhood
+		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 1, 4);
+		
+		List<GridCell<InvestmentBank>> gridCells = nghCreator.getNeighborhood(true);
+		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+		
+		GridPoint pointWithMostCBanks = null;
+		int maxCount = -1;
+		for (GridCell<InvestmentBank> bank: gridCells){
+			if (bank.size() > maxCount){
+				pointWithMostCBanks = bank.getPoint();
+				maxCount = bank.size();
+			}
+		}
+		firmMoveTowards(pointWithMostCBanks);
+		if (iBank == null){
+			//join bank
+		}		
+	}
+	
+	
 	
 	/** This scheduled basic method is the first to be called.
 	 * This method calculates a Firm's net amount for a month. If the amount is negative, the firm attempts to pay the deficit out of its reserves.

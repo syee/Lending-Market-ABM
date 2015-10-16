@@ -7,10 +7,19 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
+import repast.simphony.query.space.grid.GridCell;
+import repast.simphony.query.space.grid.GridCellNgh;
+import repast.simphony.random.RandomHelper;
+import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
+import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.SimUtilities;
 
 /**
  * @author stevenyee
@@ -29,6 +38,7 @@ public class InvestmentBank {
 	private CommercialBank cBank = null;
 	private double cBLoanYears;
 	private double firmLoanYears;
+	private Random rand;
 	
 	private HashMap<String, LoanFromCB> loansFromCB;
 	private HashMap<String, LoanToFirm> loansToFirms;	
@@ -703,6 +713,59 @@ public class InvestmentBank {
 			reserves = -2.0;
 		}
 	}
+	
+	
+	public void iBankMoveTowards(GridPoint pt){
+		//only move if we are not already in this grid location
+		if (pt == null){
+			//force consumers to move weird
+			double probabilityX = rand.nextDouble() * 4;
+			double probabilityY = rand.nextDouble() * 4;
+			NdPoint myPoint = space.getLocation(this);
+			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			space.moveByVector(this, 1, angle, 0);
+			myPoint = space.getLocation(this);
+			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+			
+		}
+		
+		if (!pt.equals(grid.getLocation(this))){
+			NdPoint myPoint = space.getLocation(this);
+			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
+			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			space.moveByVector(this, 1, angle, 0);
+			myPoint = space.getLocation(this);
+			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+			
+		}
+	}
+	
+	public void iBankMove(){
+		//get grid location of consumer
+		GridPoint pt = grid.getLocation(this);
+		//use GridCellNgh to create GridCells for the surrounding neighborhood
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 1, 4);
+		
+		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
+		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+		
+		GridPoint pointWithMostCBanks = null;
+		int maxCount = -1;
+		for (GridCell<CommercialBank> bank: gridCells){
+			if (bank.size() > maxCount){
+				pointWithMostCBanks = bank.getPoint();
+				maxCount = bank.size();
+			}
+		}
+		iBankMoveTowards(pointWithMostCBanks);
+		if (cBank == null){
+			//join bank
+		}		
+	}
+	
+	
+	
 	
 	/** This scheduled basic method checks all of an iBank's loans to make sure they have been paid in full.
 	 * This method should be unnecessary as payments on all loans will be made before this method is called.
