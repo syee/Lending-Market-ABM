@@ -344,7 +344,7 @@ public class Consumer {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 10, 10);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());

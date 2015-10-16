@@ -44,6 +44,8 @@ public class InvestmentBank {
 	private double cBLoanYears;
 	private double firmLoanYears;
 	private Random rand;
+	private double mortgagePaymentsIncoming;
+	private double mortgagePaymentsOutgoing;
 	
 	private HashMap<String, LoanFromCB> loansFromCB;
 	private HashMap<String, LoanToFirm> loansToFirms;	
@@ -68,6 +70,8 @@ public class InvestmentBank {
 		this.cBLoanYears = cBLoanYears;
 		this.firmLoanYears = firmLoanYears;
 		this.rand = new Random();
+		this.mortgagePaymentsIncoming = 0.0;
+		this.mortgagePaymentsOutgoing = 0.0;
 		
 		addAssets(reserves);
 		
@@ -133,6 +137,22 @@ public class InvestmentBank {
 	 */
 	public CommercialBank getBank(){
 		return cBank;
+	}
+	
+	public double getReserves(){
+		return reserves;
+	}
+	
+	public double getAssets(){
+		return assets;
+	}
+	
+	public double getNetWorth(){
+		return assets - liabilities;
+	}
+	
+	public double getLiabilities(){
+		return liabilities;
 	}
 	
 	/** This method adds a positive value to an iBank's reserves.
@@ -258,7 +278,9 @@ public class InvestmentBank {
 				if(cBank.createLoan(this, balance, paymentCB, loanId)){
 					addReserves(balance);
 					addLiabilities(balance);
+					mortgagePaymentsOutgoing += paymentCB;
 					double paymentFirm = calculateFirmTickPayment(balance);
+					mortgagePaymentsOutgoing += paymentFirm;
 					LoanFromCB newLoan = new LoanFromCB(cBank, balance, paymentFirm, loanId);
 					loansFromCB.put(loanId,  newLoan);
 				}
@@ -353,6 +375,14 @@ public class InvestmentBank {
 		}
 	}
 	
+	public double getMortgagePaymentsIncoming(){
+		return mortgagePaymentsIncoming;
+	}
+	
+	public double getMortgagePaymentsOutgoing(){
+		return mortgagePaymentsOutgoing;
+	}
+	
 	
 	//investment banks pays back commercial bank for one loan
 	/** This method is how an iBank makes an individual payment on a loan to a cBank.
@@ -374,7 +404,7 @@ public class InvestmentBank {
 				if (paymentOutcome == -1.0){
 					//	removeReserves(amount); this already happens
 					removeLiabilities(amount);
-					
+					mortgagePaymentsOutgoing -= amount;
 					//destroy this loan by removing it from map
 //					loansFromCB.remove(tempId); THIS NEEDS TO BE DONE ELSEWHERE
 					return amount;
@@ -390,6 +420,7 @@ public class InvestmentBank {
 					//should I add a default counter?
 					removeAssets(paymentOutcome);
 					removeLiabilities(paymentOutcome);
+					mortgagePaymentsOutgoing -= amount;
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
@@ -431,6 +462,7 @@ public class InvestmentBank {
 				if (paymentOutcome == -1.0){
 					//	removeReserves(amount); this already happens
 					removeLiabilities(amount);
+					mortgagePaymentsOutgoing -= amount;
 					
 					//destroy this loan by removing it from map
 					loansFromCB.remove(tempId);
@@ -440,6 +472,7 @@ public class InvestmentBank {
 					//full payment made
 					removeAssets(amount);
 					removeLiabilities(amount);
+					mortgagePaymentsOutgoing -= amount;
 					return amount;
 				}
 				else{
@@ -447,6 +480,7 @@ public class InvestmentBank {
 					//should I add a default counter?
 					removeAssets(paymentOutcome);
 					removeLiabilities(paymentOutcome);
+					mortgagePaymentsOutgoing -= amount;
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
@@ -484,9 +518,11 @@ public class InvestmentBank {
 			if (balance <= reserves){
 				removeReserves(balance);
 				addAssets(balance);
+				mortgagePaymentsIncoming += payment;
 				//this assumes payment has already been calculated correctly by firm
 				LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
 				loansToFirms.put(loanId, newLoan);
+				System.out.println("I am iBank " + this + ". I just loaned " + balance);
 				return true;
 			}
 			else{
@@ -814,7 +850,7 @@ public class InvestmentBank {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 10, 10);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
@@ -866,6 +902,13 @@ public class InvestmentBank {
 	 */
 	@ScheduledMethod(start = 3, interval = 13)
 	public void invBank_receiveRequests_3() throws Exception{
+		System.out.println("I am iBank " + this);
+		System.out.println("I have this much in reserves " + getReserves());
+		System.out.println("I have this much in assets " + getAssets());
+		System.out.println("I have this much in liabilities " + getLiabilities());
+		System.out.println("I have this much in mortgagePayments incoming " + getMortgagePaymentsIncoming());
+		System.out.println("I have this much in mortgagePayments outgoing" + getMortgagePaymentsOutgoing());
+		System.out.println("I have this much net worth" + getNetWorth());
 		iBankMove();
 		borrowWaitingLoans();
 	}

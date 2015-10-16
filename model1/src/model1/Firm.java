@@ -149,6 +149,14 @@ public class Firm {
 		return net;
 	}
 	
+	public double getReserves(){
+		return reserves;
+	}
+	
+	public double getLoanTotal(){
+		return loanPaymentTotal;
+	}
+	
 	/** This method adds a positive amount to a Firm's reserves.
 	 * @param amount Positive amount to be added.
 	 * @throws Exception Throws exception if amount is less than 0.
@@ -194,16 +202,16 @@ public class Firm {
 	}
 	
 	/** This method allows a Firm to create a relationship with an iBank.
-	 * @param iBank The iBank the Firm wishes to join.
+	 * @param iBankToJoin The iBank the Firm wishes to join.
 	 * @return Returns true if no previous relationship between this Firm and iBank existed.
 	 */
-	public boolean joinBank(InvestmentBank iBank){
+	public boolean joinBank(InvestmentBank iBankToJoin){
 //		if(cBank.addIBAccount(this)){
-		if (iBank == null){
+		if (iBankToJoin == null){
 			return false;
 		}
-		if(this.iBank != null){
-			this.iBank = iBank;
+		if(this.iBank == null){
+			this.iBank = iBankToJoin;
 			return true;
 			//change this to allow more than one commercial bank in future
 		}
@@ -211,6 +219,10 @@ public class Firm {
 			//already joined bank
 			return false;
 		}
+	}
+	
+	public InvestmentBank getBank(){
+		return iBank;
 	}
 	
 	/** This method allows a Firm to leave an iBank.
@@ -305,15 +317,15 @@ public class Firm {
 	 * @throws Exception
 	 */
 	public void askForLoan(double balance) throws Exception{
+		balance = balance * 1.05;
 		if (balance >= 0.0){
 			if (iBank != null){
 				if (decisionBorrow(balance)){
 					//this adds the monthly payment to the firm's running tab of monthly loan payments
 					//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
-					//this will likely be adjusted later. possibly divide it by number of investment banks
-					loanPaymentTotal += calculateFirmTickPayment(balance);
-					
+					//this will likely be adjusted later. possibly divide it by number of investment banks				
 					double tickPayment = calculateFirmTickPayment(balance);
+					loanPaymentTotal += tickPayment;
 					String newLoanId =  UUID.randomUUID().toString();
 					LoanFromIB newLoan = new LoanFromIB(iBank, balance, tickPayment, newLoanId);
 					if(iBank.createLoanFirm(this,  balance, tickPayment, newLoanId)){
@@ -382,6 +394,8 @@ public class Firm {
 				LoanFromIB thisLoan = loans.next();
 				loansFromIB.put(thisLoan.getId(), thisLoan);
 				addReserves(thisLoan.getRemainingBalance());
+				System.out.println("I am " + this + ". I just received a loan for "+ thisLoan.getRemainingBalance());
+				System.out.println("The monthly payment on the loan is " + thisLoan.getPayment());
 			}
 			removeAllWaitingLoans();
 		}
@@ -440,7 +454,7 @@ public class Firm {
 					//
 					////
 					loanPaymentTotal -= thisLoan.getPayment();
-					loansFromIB.remove(tempId);
+//					loansFromIB.remove(tempId); This is not the right place for this.
 					return paymentOutcome;
 				}
 			}
@@ -494,7 +508,7 @@ public class Firm {
 					//
 					////
 					loanPaymentTotal -= thisLoan.getPayment();
-					loansFromIB.remove(tempId);
+//					loansFromIB.remove(tempId);
 					return paymentOutcome;
 				}
 			}
@@ -546,7 +560,14 @@ public class Firm {
 					//investment bank should be destroyed since it failed to make full payment
 					//appears to be handled in makeLoanPayment
 					;
+					loanPaymentTotal -= paymentDue;
+					loans.remove();
 				}
+				if (thisLoan.getRemainingBalance() == 0){
+					loanPaymentTotal -= paymentDue;
+					loans.remove();
+				}
+				
 			}
 		}
 	}
@@ -619,7 +640,7 @@ public class Firm {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 10, 10);
+		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 50, 50);
 		
 		List<GridCell<InvestmentBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
@@ -655,6 +676,7 @@ public class Firm {
 	public void firms_balanceTick_2() throws Exception{
 		net = calculateNet() - loanPaymentTotal;
 		firmMove();
+		System.out.println("I am " + this + ". I made "+ net);
 		if (net < 0){
 			if (reserves >= Math.abs(net)){
 				removeReserves(Math.abs(net));
@@ -680,6 +702,7 @@ public class Firm {
 			addReserves(net);
 			//removeCorporateProfits();
 		}
+		System.out.println("I have this much " + getReserves() + " in my reserves!");
 	}
 	
 	//firm sees if it's waiting list loans have all passed

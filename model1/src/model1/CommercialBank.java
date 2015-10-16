@@ -32,7 +32,8 @@ public class CommercialBank {
 	private double annualSavingsYield;
 	private double loanYears;
 	private double loanRate;
-	private double mortgagePayments;
+	private double mortgagePaymentsIncoming;
+	private double loanTotal;
 	
 	private HashMap<Consumer, Double> Consumers;
 	private HashMap<String, LoanToIB> loansToIB;
@@ -56,7 +57,8 @@ public class CommercialBank {
 		this.annualSavingsYield = annualSavingsYield;
 		this.loanRate = loanRate;
 		this.loanYears = loanYears;
-		this.mortgagePayments = 0.0;
+		this.mortgagePaymentsIncoming = 0.0;
+		this.loanTotal = 0.0;
 		
 		addAssets(reserves);
 		Consumers = new HashMap<Consumer, Double>();
@@ -74,6 +76,7 @@ public class CommercialBank {
 		if (!(Consumers.containsKey(holder))){
 			Consumers.put(holder, amount);
 			addReserves(amount);
+			addAssets(amount);
 			addLiabilities(amount);
 			return true;
 		}
@@ -92,6 +95,7 @@ public class CommercialBank {
 		if (Consumers.containsKey(holder)){
 			double savings = Consumers.get(holder); //this value should be zero
 			removeReserves(savings);
+			removeAssets(savings);
 			removeLiabilities(savings);
 			Consumers.remove(holder);
 			return true;
@@ -112,6 +116,7 @@ public class CommercialBank {
 				double savings = Consumers.get(holder);
 				savings += amount;
 				addReserves(amount);
+				addAssets(amount);
 				addLiabilities(amount);
 				Consumers.put(holder, savings);
 			}
@@ -133,11 +138,31 @@ public class CommercialBank {
 	public void addReserves(double amount) throws Exception{
 		if (amount >= 0.0){
 			reserves += amount;
-			addAssets(amount);
+//			addAssets(amount);
 		}
 		else{
 			throw new Exception("Cannot add negative amount to reserves!");
 		}
+	}
+	
+	public double getReserves(){
+		return reserves;
+	}
+	
+	public double getAssets(){
+		return assets;
+	}
+	
+	public double getLiabilities(){
+		return liabilities;
+	}
+	
+	public double getMortgagePaymentsIncoming(){
+		return mortgagePaymentsIncoming;
+	}
+	
+	public double getLoanTotal(){
+		return loanTotal;
 	}
 	
 	/** This method adds a positive amount to cBank's assets.
@@ -263,6 +288,7 @@ public class CommercialBank {
 			if (savings >= amount){
 				//actualAmount must be equal to amount at this point. unnecessary checking?
 				double actualAmount = removeReserves(amount);
+				removeAssets(actualAmount);
 				removeLiabilities(actualAmount);
 				savings -= actualAmount;
 				Consumers.put(holder, savings);
@@ -271,6 +297,7 @@ public class CommercialBank {
 			else{
 				Consumers.put(holder, 0.0);
 				double amountAvailable = removeReserves(savings);
+				removeAssets(amountAvailable);
 				removeLiabilities(amountAvailable);
 				//consumer should be removed because he could not pay a full debt
 				Consumers.remove(holder);
@@ -348,7 +375,10 @@ public class CommercialBank {
 				//this assumes payment has already been calculated correctly by investment bank
 				LoanToIB newLoan = new LoanToIB(debtor, balance, payment, loanId);
 				loansToIB.put(loanId, newLoan);
-				mortgagePayments += payment;
+				mortgagePaymentsIncoming += payment;
+				loanTotal += balance;
+				System.out.println("I am cBank " + this + ". I just loaned " + balance);
+				System.out.println("The montly payment I will receive is" + payment);
 				return true;
 			}
 			else{
@@ -379,6 +409,7 @@ public class CommercialBank {
 				if (paymentOutcome == -1.0){
 					addReserves(amount);
 					removeAssets(amount);
+					loanTotal -= amount;
 					//destroy this loan by removing it from map
 //					loansToIB.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
 					return true;
@@ -387,6 +418,7 @@ public class CommercialBank {
 					//full payment made
 					addReserves(amount);
 					removeAssets(amount);
+					loanTotal -= amount;
 					return true;
 				}
 				else{
@@ -394,9 +426,11 @@ public class CommercialBank {
 					//should I add a default counter?
 					addReserves(paymentOutcome);
 					removeAssets(paymentOutcome);
+					loanTotal -= paymentOutcome;
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
+					loanTotal -= loss;
 					//destroy this loan
 					loansToIB.remove(tempId);
 					return false;
@@ -506,6 +540,13 @@ public class CommercialBank {
 	 */
 	@ScheduledMethod(start = 12, interval = 13)
 	public void commBank_check_12() throws Exception{
+		System.out.println("I am cBank " + this);
+		System.out.println("I have this much in reserves " + getReserves());
+		System.out.println("I have this much in assets " + getAssets());
+		System.out.println("I have this much in liabilities " + getLiabilities());
+		System.out.println("I have this much in mortgagePayments " + getMortgagePaymentsIncoming());
+		System.out.println("I have this much in loan total" + getLoanTotal());
+		System.out.println("I have this much net worth" + getNetWorth());
 		if (reserves <= -1){
 			removeAllConsumers();
 			//commercial bank goes bankrupt
