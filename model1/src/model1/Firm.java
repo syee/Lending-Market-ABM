@@ -3,6 +3,7 @@
  */
 package model1;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,6 +13,8 @@ import java.util.UUID;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
+import repast.simphony.context.Context;
+import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.random.RandomHelper;
@@ -20,6 +23,7 @@ import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.ContextUtils;
 import repast.simphony.util.SimUtilities;
 
 /**
@@ -89,6 +93,7 @@ public class Firm {
 		//should this be set to true or false initially?
 		this.isUnpaid = false;
 		this.net = 0.0;
+		this.rand = new Random();
 		
 		this.revenueCurve = new NormalDistribution(revenue, FIRM_DEVIATION_PERCENT*revenue);
 		this.revenue = revenueCurve.sample();
@@ -191,14 +196,19 @@ public class Firm {
 	 * @param iBank The iBank the Firm wishes to join.
 	 * @return Returns true if no previous relationship between this Firm and iBank existed.
 	 */
-	public void joinBank(InvestmentBank iBank){
+	public boolean joinBank(InvestmentBank iBank){
 //		if(cBank.addIBAccount(this)){
+		if (iBank == null){
+			return false;
+		}
 		if(this.iBank != null){
 			this.iBank = iBank;
+			return true;
 			//change this to allow more than one commercial bank in future
 		}
 		else{
 			//already joined bank
+			return false;
 		}
 	}
 	
@@ -209,6 +219,10 @@ public class Firm {
 	 * @throws Exception
 	 */
 	public boolean leaveBank(InvestmentBank iBankDone) throws Exception{
+		if (iBankDone == null){
+			return false;
+		}
+		
 		if (iBank == iBankDone){
 			//pay off any loans to the bank
 			Collection<LoanFromIB> loanList = loansFromIB.values();
@@ -406,7 +420,7 @@ public class Firm {
 					//	removeReserves(amount); this already happens
 					//destroy this loan by removing it from map
 					loanPaymentTotal -= thisLoan.getPayment();
-					loansFromIB.remove(tempId);
+//					loansFromIB.remove(tempId); DO THIS ELSEWHERE
 					return amount;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -492,6 +506,20 @@ public class Firm {
 		}
 	}
 	
+	//this method removes all loans that have been paid off
+	public void checkLoansForPaid(){
+		Collection<LoanFromIB> loanList = loansFromIB.values();
+		if (loanList != null){
+			Iterator<LoanFromIB> loans = loanList.iterator();
+			while (loans.hasNext()){
+				LoanFromIB thisLoan = loans.next();
+				if (thisLoan.getRemainingBalance() == 0){
+					loans.remove();
+				}
+			}
+		}
+	}
+	
 	//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
 	/** This method causes a Firm to make monthly payments on all loans from its iBank.
 	 * It cycles through loansFromIB, and accesses those objects. It gets the monthly payment due and attempts to remove that amount from its reserves.
@@ -531,7 +559,7 @@ public class Firm {
 			double probabilityX = rand.nextDouble() * 4;
 			double probabilityY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			space.moveByVector(this, 1, angle, 0);
 			myPoint = space.getLocation(this);
@@ -539,38 +567,69 @@ public class Firm {
 			
 		}
 		
-		if (!pt.equals(grid.getLocation(this))){
+		else if (!pt.equals(grid.getLocation(this))){
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			space.moveByVector(this, 1, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
-			
+		}
+		
+		else{ /* (pt.equals(grid.getLocation(this))){*/
+			if (iBank == null){
+				joinBank(identifyIBank());
+			}
 		}
 	}
 	
-	public void iBankMove(){
+	public InvestmentBank identifyIBank(){
+		GridPoint pt = grid.getLocation(this);
+		List<Object> invBanks = new ArrayList<Object>();
+		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
+			if (obj instanceof InvestmentBank){
+				invBanks.add(obj);
+			}
+		}
+		if (invBanks.size() > 0){
+			int index = RandomHelper.nextIntFromTo(0, invBanks.size() - 1);
+			Object obj = invBanks.get(index);
+			InvestmentBank toAdd = (InvestmentBank) obj;
+			return toAdd;
+		}
+			
+//			NdPoint spacePt = space.getLocation(obj);
+//			Context<Object> context = ContextUtils.getContext(obj);
+//			context.remove(obj);
+		return null;
+		
+	}
+	
+	public void firmMove(){
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 1, 4);
+		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 1, 10);
 		
 		List<GridCell<InvestmentBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
-		GridPoint pointWithMostCBanks = null;
-		int maxCount = -1;
-		for (GridCell<InvestmentBank> bank: gridCells){
-			if (bank.size() > maxCount){
-				pointWithMostCBanks = bank.getPoint();
-				maxCount = bank.size();
+		GridPoint pointWithMostIBanks = null;
+//		if (iBank == null){
+			int maxCount = -1;
+			for (GridCell<InvestmentBank> bank: gridCells){
+				if (bank.size() > maxCount){
+					pointWithMostIBanks = bank.getPoint();
+					maxCount = bank.size();
+				}
 			}
-		}
-		firmMoveTowards(pointWithMostCBanks);
-		if (iBank == null){
-			//join bank
-		}		
+//		}
+		firmMoveTowards(pointWithMostIBanks);
+	}
+	
+	public void firmDie(){
+		Context<Object> context = ContextUtils.getContext(this);
+		context.remove(this);
 	}
 	
 	
@@ -581,12 +640,10 @@ public class Firm {
 	 * If the Firm now has enough in reserves to cover the remanining balance, it will do so. Otherwise the Firm's loan request is pending and will be resolved in firms_waitingStatus_4()
 	 * @throws Exception
 	 */
-	public void firms_balanceTick_1() throws Exception{
+	@ScheduledMethod(start = 2, interval = 13)
+	public void firms_balanceTick_2() throws Exception{
 		net = calculateNet() - loanPaymentTotal;
-		if(iBank == null){
-			//search for a iBank
-			//joinBank()
-		}
+		firmMove();
 		if (net < 0){
 			if (reserves >= Math.abs(net)){
 				removeReserves(Math.abs(net));
@@ -622,7 +679,8 @@ public class Firm {
 	 * If not all approved, the Firm will still attempt to collect on any Loans that were approved. This could be a problem but I do not have a way of resolving it later. Ideally, iBanks only make their loans assuming all other iBanks will make the loans.
 	 * @throws Exception
 	 */
-	public void firms_waitingStatus_4() throws Exception{
+	@ScheduledMethod(start = 5, interval = 13)
+	public void firms_waitingStatus_5() throws Exception{
 		if (isUnpaid){
 			if(firmCheckLoanStatus()){
 				//If firmCheckLoanStatus() returns true, the firm should not go bankrupt this tick
@@ -638,6 +696,7 @@ public class Firm {
 					removeReserves(reserves); // I am assuming monthly deficit it senior to long term debt
 					makeMonthlyPaymentsAllLoans();
 					removeAllWaitingLoans();
+					firmDie();
 				}
 			}
 			else{
@@ -655,17 +714,20 @@ public class Firm {
 	 * In this method, Firms that had net positive months will now make all their monthly payments.
 	 * @throws Exception
 	 */
-	public void firms_makePayments_5() throws Exception{
+	@ScheduledMethod(start = 6, interval = 13)
+	public void firms_makePayments_6() throws Exception{
 		if (!(isUnpaid)){
 			makeMonthlyPaymentsAllLoans();
 		}
 	}
 	
-	public void firms_check_101() throws Exception{
+	@ScheduledMethod(start = 10, interval = 13)
+	public void firms_check_10() throws Exception{
 		if (reserves <= -1.0){
 			//firm has gone bankrupt
 			leaveBank(iBank);
 			removeAllWaitingLoans();
+			firmDie();
 		}
 		else{
 			//cycle starts again

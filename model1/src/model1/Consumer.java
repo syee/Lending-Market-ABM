@@ -3,11 +3,14 @@
  */
 package model1;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
+import repast.simphony.context.Context;
+import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.random.RandomHelper;
@@ -16,6 +19,7 @@ import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.ContextUtils;
 import repast.simphony.util.SimUtilities;
 
 /**
@@ -66,6 +70,7 @@ public class Consumer {
 		this.smallShockProb = smallShockProb;
 		this.largeShockProb = largeShockProb;
 		this.isBankrupt = false;
+		this.rand = new Random();
 		
 		this.salaryCurve = new NormalDistribution(salary, CONSUMER_DEVIATION_PERCENT*salary);
 		this.salary = salaryCurve.sample();
@@ -184,6 +189,10 @@ public class Consumer {
 	 */
 	public boolean joinBank(CommercialBank cBankNew) throws Exception{
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
+		if (cBankNew == null){
+			return false;
+		}
+		
 		if (this.cBank == null){
 			cBankNew.addAccount(this, cash);
 			removeCash(cash);
@@ -205,6 +214,10 @@ public class Consumer {
 	 */
 	public boolean leaveBank(CommercialBank cBankDead) throws Exception{
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
+		if (cBank == null){
+			return false;
+		}
+		
 		if (this.cBank == cBankDead){
 			cBank.removeAccount(this);
 			cBank = null;
@@ -250,14 +263,14 @@ public class Consumer {
 	
 	
 	
-	public void consumerMoveTowards(GridPoint pt){
+	public void consumerMoveTowards(GridPoint pt) throws Exception{
 		//only move if we are not already in this grid location
 		if (pt == null){
 			//force consumers to move weird
 			double probabilityX = rand.nextDouble() * 4;
 			double probabilityY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			space.moveByVector(this, 1, angle, 0);
 			myPoint = space.getLocation(this);
@@ -265,7 +278,7 @@ public class Consumer {
 			
 		}
 		
-		if (!pt.equals(grid.getLocation(this))){
+		else if (!pt.equals(grid.getLocation(this))){
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
@@ -274,9 +287,37 @@ public class Consumer {
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
+		
+		else{ /*(pt.equals(grid.getLocation(this))){*/
+			if (cBank == null){
+				joinBank(identifyCBank());
+			}
+		}
 	}
 	
-	public void consumerMove(){
+	public CommercialBank identifyCBank(){
+		GridPoint pt = grid.getLocation(this);
+		List<Object> comBanks = new ArrayList<Object>();
+		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
+			if (obj instanceof CommercialBank){
+				comBanks.add(obj);
+			}
+		}
+		if (comBanks.size() > 0){
+			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
+			Object obj = comBanks.get(index);
+			CommercialBank toAdd = (CommercialBank) obj;
+			return toAdd;
+		}
+			
+//			NdPoint spacePt = space.getLocation(obj);
+//			Context<Object> context = ContextUtils.getContext(obj);
+//			context.remove(obj);
+		return null;
+		
+	}
+	
+	public void consumerMove() throws Exception{
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
@@ -286,17 +327,22 @@ public class Consumer {
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostCBanks = null;
-		int maxCount = -1;
-		for (GridCell<CommercialBank> bank: gridCells){
-			if (bank.size() > maxCount){
-				pointWithMostCBanks = bank.getPoint();
-				maxCount = bank.size();
+//		if (cBank == null){
+			int maxCount = -1;
+			for (GridCell<CommercialBank> bank: gridCells){
+				if (bank.size() > maxCount){
+					pointWithMostCBanks = bank.getPoint();
+					maxCount = bank.size();
+				}
 			}
-		}
-		consumerMoveTowards(pointWithMostCBanks);
-		if (cBank == null){
-			//join bank
-		}		
+//		}
+		consumerMoveTowards(pointWithMostCBanks);	
+	}
+	
+	//this method removes the bankrupt consumer from the model
+	public void consumerDie(){
+		Context<Object> context = ContextUtils.getContext(this);
+		context.remove(this);
 	}
 	
 	
@@ -309,8 +355,10 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	public void consumer_tick_0() throws Exception{
+	@ScheduledMethod(start = 1, interval = 13)
+	public void consumer_tick_1() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
+		consumerMove();
 		double net = calculateNet();
 		if (net < 0){
 			withdrawSavings(Math.abs(net));
@@ -318,7 +366,7 @@ public class Consumer {
 		else{
 			depositSavings(net);
 		}
-		consumerMove();
+		
 	}
 	
 	//one of last scheduled methods
@@ -328,10 +376,12 @@ public class Consumer {
 	 * @throws Exception 
 	 * 
 	 */
-	public void consumer_check_104() throws Exception{
+	@ScheduledMethod(start = 11, interval = 13)
+	public void consumer_check_11() throws Exception{
 		if (isBankrupt){
 			leaveBank(getBank());
-			//consumer.die()			
+			//consumer.die()
+			consumerDie();
 		}
 	}
 	

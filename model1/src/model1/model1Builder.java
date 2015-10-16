@@ -27,8 +27,18 @@ public class model1Builder implements ContextBuilder<Object> {
 
 	@Override
 	public Context build(Context<Object> context) {
-		System.out.print("ASDKJHASDKLJHASD");
 		context.setId("model1");
+		
+		
+		NetworkBuilder<Object> consumers_cBanks_network = new NetworkBuilder<Object>("consumer_cBanks network", context, true);
+		consumers_cBanks_network.buildNetwork();
+		
+		NetworkBuilder<Object> cBanks_iBanks_network = new NetworkBuilder<Object>("cBanks_iBanks network", context, true);
+		cBanks_iBanks_network.buildNetwork();
+		
+		NetworkBuilder<Object> iBanks_firms_network = new NetworkBuilder<Object>("iBanks_firms network", context, true);
+		iBanks_firms_network.buildNetwork();
+		
 		
 		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
 		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context, new RandomCartesianAdder<Object>(), new repast.simphony.space.continuous.WrapAroundBorders(), 50, 50);
@@ -37,13 +47,13 @@ public class model1Builder implements ContextBuilder<Object> {
 		//correct import: import repast.simphony.space.grid.WrapAroundBorders;
 		Grid<Object> grid = gridFactory.createGrid("grid", context, new GridBuilderParameters<Object>(new WrapAroundBorders(), new SimpleGridAdder<Object>(), true, 50, 50));
 		
-		int consumerCount = 20;
+		int consumerCount = 1;
 		for (int i = 0; i < consumerCount; i++){
 			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.05, 1000.0, 0.0, 1.10, 0.0, 0.10));
 		}
 		
 		
-		int cBankCount = 2;
+		int cBankCount = 1;
 		for (int i = 0; i < cBankCount; i++){
 			try {
 				context.add(new CommercialBank(space, grid, 20000.0, 1.0, 3.0, 5.0));
@@ -53,7 +63,7 @@ public class model1Builder implements ContextBuilder<Object> {
 			}
 		}
 		
-		int iBankCount = 2;
+		int iBankCount = 1;
 		for (int i = 0; i < iBankCount; i++){
 			try {
 				context.add(new InvestmentBank(space, grid, 10000.0, 5.0, 3.0, 5.0, 5.0));
@@ -63,7 +73,7 @@ public class model1Builder implements ContextBuilder<Object> {
 			}
 		}
 		
-		int firmCount = 20;
+		int firmCount = 1;
 		for (int i = 0; i < firmCount; i++){
 			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 1200.0, 0.0, 1.4, 0.0, 0.10, 5.0, 5.0, 0.0));
 		}

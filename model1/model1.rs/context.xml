@@ -1,4 +1,8 @@
 <context id="model1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://repast.org/scenario/context">
   	<projection type="continuous space" id="space"/>
   	<projection type="grid" id="grid"/>
+  	
+  	<projection type="network" id="consumer_cBanks network"/>
+  	<projection type="network" id="cBanks_iBanks network"/>
+  	<projection type="network" id="iBanks_firms network"/>
 </context>

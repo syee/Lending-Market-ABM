@@ -3,6 +3,7 @@
  */
 package model1;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import repast.simphony.context.Context;
+import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.random.RandomHelper;
@@ -19,6 +22,7 @@ import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
+import repast.simphony.util.ContextUtils;
 import repast.simphony.util.SimUtilities;
 
 /**
@@ -62,6 +66,7 @@ public class InvestmentBank {
 		this.interestToCB = interestToCB;
 		this.cBLoanYears = cBLoanYears;
 		this.firmLoanYears = firmLoanYears;
+		this.rand = new Random();
 		
 		addAssets(reserves);
 		
@@ -75,6 +80,9 @@ public class InvestmentBank {
 	 * @return Returns true if no previous relationship between this cBank and iBank existed.
 	 */
 	public boolean joinBank(CommercialBank cBankNew){
+		if (cBankNew == null){
+			return false;
+		}
 		if(cBank != cBankNew){
 			cBank = cBankNew;
 			//change this to allow more than one commercial bank in future
@@ -104,7 +112,8 @@ public class InvestmentBank {
 					if (thisLoan.getBank() == cBankDone){
 						double balance = thisLoan.getRemainingBalance();
 						makeFullBalancePayment(tempId, balance);
-						loansFromCB.remove(thisLoan);
+//						loansFromCB.remove(thisLoan);
+						loans.remove();
 					}
 				}
 			}
@@ -264,6 +273,20 @@ public class InvestmentBank {
 			throw new Exception("Cannot borrow negative amount from cBank!");
 		}
 	}
+	
+	//this method removes loans that are fully paid off
+	public void checkLoansForPaid(){
+		Collection<LoanFromCB> loanList = loansFromCB.values();
+		if (loanList != null){
+			Iterator<LoanFromCB> loans = loanList.iterator();
+			while (loans.hasNext()){
+				LoanFromCB thisLoan = loans.next();
+				if (thisLoan.getRemainingBalance() <= 0.0){
+					loans.remove();
+				}
+			}
+		}
+	}
 		
 	
 	//investment banks cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
@@ -294,6 +317,7 @@ public class InvestmentBank {
 				}
 			}
 		}
+		checkLoansForPaid();
 	}
 	
 	//investment bank calculates how much the tick payment on a loan it should collect from a firm
@@ -351,7 +375,7 @@ public class InvestmentBank {
 					removeLiabilities(amount);
 					
 					//destroy this loan by removing it from map
-					loansFromCB.remove(tempId);
+//					loansFromCB.remove(tempId); THIS NEEDS TO BE DONE ELSEWHERE
 					return amount;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -526,7 +550,7 @@ public class InvestmentBank {
 		Iterator<LoanToFirm> loansDelete = toDeleteLoanList.iterator();
 		while (loansDelete.hasNext()){
 			LoanToFirm thisLoan = loansDelete.next();
-			waitingLoans.remove(thisLoan.getId());
+			loansDelete.remove();
 		}
 	}
 	
@@ -564,7 +588,7 @@ public class InvestmentBank {
 					addReserves(amount);
 					removeAssets(amount);
 					//destroy this loan by removing it from map
-					loansToFirms.remove(tempId);
+//					loansToFirms.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
 					return true;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -613,7 +637,8 @@ public class InvestmentBank {
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
 					//destroy this loan
-					loansToFirms.remove(tempId);
+//					loansToFirms.remove(tempId);
+					loans.remove();
 				}
 			}
 		}		
@@ -722,7 +747,7 @@ public class InvestmentBank {
 			double probabilityX = rand.nextDouble() * 4;
 			double probabilityY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			space.moveByVector(this, 1, angle, 0);
 			myPoint = space.getLocation(this);
@@ -730,7 +755,7 @@ public class InvestmentBank {
 			
 		}
 		
-		if (!pt.equals(grid.getLocation(this))){
+		else if (!pt.equals(grid.getLocation(this))){
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
@@ -739,6 +764,36 @@ public class InvestmentBank {
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
+		
+		else{ /* if (pt.equals(grid.getLocation(this))){*/
+			if (cBank == null){
+				joinBank(identifyCBank());
+			}
+		}
+		
+		
+	}
+	
+	public CommercialBank identifyCBank(){
+		GridPoint pt = grid.getLocation(this);
+		List<Object> comBanks = new ArrayList<Object>();
+		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
+			if (obj instanceof CommercialBank){
+				comBanks.add(obj);
+			}
+		}
+		if (comBanks.size() > 0){
+			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
+			Object obj = comBanks.get(index);
+			CommercialBank toAdd = (CommercialBank) obj;
+			return toAdd;
+		}
+			
+//			NdPoint spacePt = space.getLocation(obj);
+//			Context<Object> context = ContextUtils.getContext(obj);
+//			context.remove(obj);
+		return null;
+		
 	}
 	
 	public void iBankMove(){
@@ -751,17 +806,22 @@ public class InvestmentBank {
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostCBanks = null;
-		int maxCount = -1;
-		for (GridCell<CommercialBank> bank: gridCells){
-			if (bank.size() > maxCount){
-				pointWithMostCBanks = bank.getPoint();
-				maxCount = bank.size();
+		if (cBank == null){
+			int maxCount = -1;
+			for (GridCell<CommercialBank> bank: gridCells){
+				if (bank.size() > maxCount){
+					pointWithMostCBanks = bank.getPoint();
+					maxCount = bank.size();
+				}
 			}
 		}
-		iBankMoveTowards(pointWithMostCBanks);
-		if (cBank == null){
-			//join bank
-		}		
+		iBankMoveTowards(pointWithMostCBanks);	
+	}
+	
+	//This method removes the IBank from the simulation
+	public void iBankDie(){
+		Context<Object> context = ContextUtils.getContext(this);
+		context.remove(this);
 	}
 	
 	
@@ -771,7 +831,8 @@ public class InvestmentBank {
 	 * This method should be unnecessary as payments on all loans will be made before this method is called.
 	 * @throws Exception
 	 */
-	public void invBank_getPayments_6() throws Exception{
+	@ScheduledMethod(start = 7, interval = 13)
+	public void invBank_getPayments_7() throws Exception{
 		checkAllLoans();
 	}
 
@@ -779,18 +840,17 @@ public class InvestmentBank {
 	 * This method will call collectFullLoans() if the iBank does not have enough reserves to make at least one of its payments to a cBank.
 	 * @throws Exception
 	 */
-	public void invBank_makePayments_7() throws Exception{
+	@ScheduledMethod(start = 8, interval = 13)
+	public void invBank_makePayments_8() throws Exception{
 		makeMonthlyPaymentsAllLoans();
 	}
 	
 	/** This scheduled basic method allows an iBank to attempt to borrow money to make loans to firms. This should come after Firms have decided whether or not to borrow from iBanks.
 	 * @throws Exception
 	 */
-	public void invBank_receiveRequests_2() throws Exception{
-		if (cBank == null){
-			//search for a bank
-			//joinBank()
-		}
+	@ScheduledMethod(start = 3, interval = 13)
+	public void invBank_receiveRequests_3() throws Exception{
+		iBankMove();
 		borrowWaitingLoans();
 	}
 	
@@ -798,7 +858,8 @@ public class InvestmentBank {
 	/** This scheduled basic method immediately follows invBank_receiveRequests_2(). This method is where an iBank lends out any additional funds it was able to acquire to its waitingLoans.
 	 * @throws Exception
 	 */
-	public void invBank_borrowFunds_3() throws Exception{
+	@ScheduledMethod(start = 4, interval = 13)
+	public void invBank_borrowFunds_4() throws Exception{
 		resolveWaitingLoans();
 	}
 	
@@ -808,13 +869,15 @@ public class InvestmentBank {
 	 * If the iBank is not bankrupt, nothing happens. 
 	 * @throws Exception
 	 */
-	public void invBank_check_102() throws Exception{
+	@ScheduledMethod(start = 13, interval = 13)
+	public void invBank_check_13() throws Exception{
 		if (reserves <= -1){
 			removeAllLoansFromCB();
 			//this method should be redundant as collectFullLoans() should already have been called
 			removeAllLoansToFirms();
 			//this method should also be unnecessary given the timing of this scheduled method
 			removeAllWaitingLoans();
+			iBankDie();
 		}
 	}
 

@@ -10,8 +10,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import repast.simphony.context.Context;
+import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.util.ContextUtils;
 
 /**
  * @author stevenyee
@@ -365,7 +368,7 @@ public class CommercialBank {
 					addReserves(amount);
 					removeAssets(amount);
 					//destroy this loan by removing it from map
-					loansToIB.remove(tempId);
+//					loansToIB.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
 					return true;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -416,7 +419,7 @@ public class CommercialBank {
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
 					//destroy this loan
-					loansToIB.remove(tempId);
+					loans.remove();
 				}
 				else{
 					//loan payment has been made in full
@@ -449,6 +452,11 @@ public class CommercialBank {
 		}
 	}
 	
+	public void cBankDie(){
+		Context<Object> context = ContextUtils.getContext(this);
+		context.remove(this);
+	}
+	
 	/** This method removes all Consumers from a cBank.
 	 * For each Consumer, it calls consumer.leaveBank() which removes references from the Consumer to the cBank.
 	 * consumer.leaveBank() also calls removeAccount() which removes references from this cBank to the Consumer.
@@ -462,7 +470,8 @@ public class CommercialBank {
 			while (consumers.hasNext()){
 				Map.Entry<Consumer, Double> consumer = consumers.next();
 				//I may want to pass an argument here later if more than one cBank per consumer
-				consumer.getKey().leaveBank(this);
+//				consumer.getKey().leaveBank(this);
+				consumers.remove();
 			}
 		}
 	}
@@ -472,7 +481,8 @@ public class CommercialBank {
 	 * This method should be unnecessary as payments on all loans will be made before this method is called.
 	 * @throws Exception
 	 */
-	public void commBank_getPayments_8() throws Exception{
+	@ScheduledMethod(start = 9, interval = 13)
+	public void commBank_getPayments_9() throws Exception{
 		checkAllLoans();
 	}
 	
@@ -482,10 +492,12 @@ public class CommercialBank {
 	 * If the cBank is not bankrupt, it pays interest on all Consumer accounts.
 	 * @throws Exception
 	 */
-	public void commBank_check_103() throws Exception{
+	@ScheduledMethod(start = 12, interval = 13)
+	public void commBank_check_12() throws Exception{
 		if (reserves <= -1){
 			removeAllConsumers();
 			//commercial bank goes bankrupt
+			cBankDie();
 		}
 		else{
 			//pay interest on all consumer accounts
