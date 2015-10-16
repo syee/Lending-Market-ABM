@@ -2,7 +2,7 @@
   	<projection type="continuous space" id="space"/>
   	<projection type="grid" id="grid"/>
   	
-  	<projection type="network" id="consumer_cBanks network"/>
+  	<projection type="network" id="consumers_cBanks network"/>
   	<projection type="network" id="cBanks_iBanks network"/>
   	<projection type="network" id="iBanks_firms network"/>
 </context>

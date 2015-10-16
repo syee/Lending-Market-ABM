@@ -21,6 +21,7 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
+import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -567,24 +568,33 @@ public class Firm {
 			
 		}
 		
-		else if (!pt.equals(grid.getLocation(this))){
+		else{ /* if (!pt.equals(grid.getLocation(this))){*/
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
+			space.moveByVector(this, dist - 2, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
-		}
-		
-		else{ /* (pt.equals(grid.getLocation(this))){*/
+
 			if (iBank == null){
-				joinBank(identifyIBank());
+				InvestmentBank toAdd = identifyIBank(pt);
+				System.out.println(this + "I am trying to find a bank!!");
+				System.out.println("I found " + toAdd);
+				if (toAdd != null){
+					if (joinBank(toAdd)){
+						System.out.println("I am " + this + " and I just made a connection!");
+						Context<Object> context = ContextUtils.getContext(this);						
+						Network<Object> net = (Network<Object>) context.getProjection("iBanks_firms network");
+						net.addEdge(this, toAdd);
+					}
+				}
 			}
 		}
 	}
 	
-	public InvestmentBank identifyIBank(){
-		GridPoint pt = grid.getLocation(this);
+	public InvestmentBank identifyIBank(GridPoint pt){
+//		GridPoint pt = grid.getLocation(this);
 		List<Object> invBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof InvestmentBank){
@@ -609,14 +619,14 @@ public class Firm {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 1, 10);
+		GridCellNgh<InvestmentBank> nghCreator = new GridCellNgh<InvestmentBank>(grid, pt, InvestmentBank.class, 10, 10);
 		
 		List<GridCell<InvestmentBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostIBanks = null;
 //		if (iBank == null){
-			int maxCount = -1;
+			int maxCount = 0;
 			for (GridCell<InvestmentBank> bank: gridCells){
 				if (bank.size() > maxCount){
 					pointWithMostIBanks = bank.getPoint();
@@ -624,6 +634,7 @@ public class Firm {
 				}
 			}
 //		}
+		System.out.println("I am firm " + this + ". I found the point with the most banks at "+ pointWithMostIBanks);
 		firmMoveTowards(pointWithMostIBanks);
 	}
 	

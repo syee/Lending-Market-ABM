@@ -17,6 +17,7 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
+import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -136,6 +137,15 @@ public class Consumer {
 		}
 		else{
 			throw new Exception("Consumer cannot deposit a negative amount!");
+		}
+	}
+	
+	public double getSavings(){
+		if (cBank == null){
+			return cash;
+		}
+		else{
+			return cBank.returnBalance(this);
 		}
 	}
 	
@@ -278,25 +288,38 @@ public class Consumer {
 			
 		}
 		
-		else if (!pt.equals(grid.getLocation(this))){
+		else{ /* (!pt.equals(grid.getLocation(this))){*/
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
+			
+			
+			space.moveByVector(this, dist - 2, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
-		}
-		
-		else{ /*(pt.equals(grid.getLocation(this))){*/
 			if (cBank == null){
-				joinBank(identifyCBank());
+				CommercialBank toAdd = identifyCBank(pt);
+				System.out.println(this);
+				System.out.println(toAdd);
+				if (toAdd != null){
+					System.out.println("HERE");
+					if (joinBank(toAdd)){
+						System.out.println("THERE");
+						Context<Object> context = ContextUtils.getContext(this);
+						System.out.println(context);
+						Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
+						System.out.println(net);
+						net.addEdge(this, toAdd);
+					}
+				}
 			}
 		}
 	}
 	
-	public CommercialBank identifyCBank(){
-		GridPoint pt = grid.getLocation(this);
+	public CommercialBank identifyCBank(GridPoint pt){
+//		GridPoint pt = grid.getLocation(this);
 		List<Object> comBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
@@ -321,7 +344,7 @@ public class Consumer {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 1, 4);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 10, 10);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
@@ -336,6 +359,7 @@ public class Consumer {
 				}
 			}
 //		}
+		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
 		consumerMoveTowards(pointWithMostCBanks);	
 	}
 	
@@ -360,12 +384,14 @@ public class Consumer {
 		//This method should either go last or first of the basic scheduled methods.
 		consumerMove();
 		double net = calculateNet();
+		System.out.println("I am " + this + ". I made "+ net);
 		if (net < 0){
 			withdrawSavings(Math.abs(net));
 		}
 		else{
 			depositSavings(net);
 		}
+		System.out.println("I have this much " + getSavings() + " in my bank account!");
 		
 	}
 	

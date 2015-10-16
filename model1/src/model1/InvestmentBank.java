@@ -20,6 +20,7 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
+import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -755,27 +756,40 @@ public class InvestmentBank {
 			
 		}
 		
-		else if (!pt.equals(grid.getLocation(this))){
+		else{ /* if (!pt.equals(grid.getLocation(this))){*/
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
+			space.moveByVector(this, dist - 2, angle, 0);
 			myPoint = space.getLocation(this);
+			System.out.println("Other point " + otherPoint);
+			System.out.println(this);
+			System.out.println("My point " + myPoint);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
-		}
-		
-		else{ /* if (pt.equals(grid.getLocation(this))){*/
 			if (cBank == null){
-				joinBank(identifyCBank());
+				CommercialBank toAdd = identifyCBank(pt);
+				System.out.println(toAdd);
+				System.out.println(this);
+				if (toAdd != null){
+					if (joinBank(toAdd)){
+						System.out.println(this);
+						System.out.println(toAdd);
+						System.out.println("We just made a connection!");
+						Context<Object> context = ContextUtils.getContext(this);						
+						Network<Object> net = (Network<Object>) context.getProjection("cBanks_iBanks network");
+						net.addEdge(this, toAdd);
+					}
+				}
 			}
 		}
 		
 		
 	}
 	
-	public CommercialBank identifyCBank(){
-		GridPoint pt = grid.getLocation(this);
+	public CommercialBank identifyCBank(GridPoint pt){
+//		GridPoint pt = grid.getLocation(this);
 		List<Object> comBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
@@ -800,21 +814,23 @@ public class InvestmentBank {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 1, 4);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 10, 10);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostCBanks = null;
 		if (cBank == null){
-			int maxCount = -1;
+			int maxCount = 0;
 			for (GridCell<CommercialBank> bank: gridCells){
 				if (bank.size() > maxCount){
+					System.out.println("I am " + this +" and I found a Commercial Bank at " + bank.getPoint());
 					pointWithMostCBanks = bank.getPoint();
 					maxCount = bank.size();
 				}
 			}
 		}
+		System.out.println("I am iBank " + this + ". point with most cBanks is "+ pointWithMostCBanks);
 		iBankMoveTowards(pointWithMostCBanks);	
 	}
 	

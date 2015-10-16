@@ -30,7 +30,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		context.setId("model1");
 		
 		
-		NetworkBuilder<Object> consumers_cBanks_network = new NetworkBuilder<Object>("consumer_cBanks network", context, true);
+		NetworkBuilder<Object> consumers_cBanks_network = new NetworkBuilder<Object>("consumers_cBanks network", context, true);
 		consumers_cBanks_network.buildNetwork();
 		
 		NetworkBuilder<Object> cBanks_iBanks_network = new NetworkBuilder<Object>("cBanks_iBanks network", context, true);

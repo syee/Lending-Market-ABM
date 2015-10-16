@@ -133,6 +133,7 @@ public class CommercialBank {
 	public void addReserves(double amount) throws Exception{
 		if (amount >= 0.0){
 			reserves += amount;
+			addAssets(amount);
 		}
 		else{
 			throw new Exception("Cannot add negative amount to reserves!");
@@ -198,6 +199,15 @@ public class CommercialBank {
 		return assets - liabilities;
 	}
 	
+	public double returnBalance(Consumer holder){
+		if (Consumers.containsKey(holder)){
+			return Consumers.get(holder);
+		}
+		else{
+			return 0.0;
+		}
+	}
+	
 	
 	//how do I return reserves before killing bank?
 	//add listener for bank reserves == -1?
@@ -247,6 +257,8 @@ public class CommercialBank {
 	 */
 	public double withdraw(Consumer holder, double amount) throws Exception{
 		if (amount >= 0.0){
+			System.out.print(this);
+			System.out.print(Consumers);
 			double savings = Consumers.get(holder);
 			if (savings >= amount){
 				//actualAmount must be equal to amount at this point. unnecessary checking?
