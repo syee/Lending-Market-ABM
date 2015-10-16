@@ -47,7 +47,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		//correct import: import repast.simphony.space.grid.WrapAroundBorders;
 		Grid<Object> grid = gridFactory.createGrid("grid", context, new GridBuilderParameters<Object>(new WrapAroundBorders(), new SimpleGridAdder<Object>(), true, 50, 50));
 		
-		int consumerCount = 1;
+		int consumerCount = 5;
 		for (int i = 0; i < consumerCount; i++){
 			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.05, 1000.0, 0.0, 1.10, 0.0, 0.33));
 		}
@@ -63,20 +63,20 @@ public class model1Builder implements ContextBuilder<Object> {
 			}
 		}
 		
-		int iBankCount = 1;
-		for (int i = 0; i < iBankCount; i++){
-			try {
-				context.add(new InvestmentBank(space, grid, 5000.0, 0.05, 0.03, 5.0, 5.0));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		int firmCount = 1;
-		for (int i = 0; i < firmCount; i++){
-			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3200.0, 0.0, 1.4, 0.0, 0.33, 0.05, 5.0, 0.0));
-		}
+//		int iBankCount = 1;
+//		for (int i = 0; i < iBankCount; i++){
+//			try {
+//				context.add(new InvestmentBank(space, grid, 5000.0, 0.05, 0.03, 5.0, 5.0));
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		int firmCount = 1;
+//		for (int i = 0; i < firmCount; i++){
+//			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3200.0, 0.0, 1.4, 0.0, 0.33, 0.05, 5.0, 0.0));
+//		}
 		
 		for (Object obj : context){
 			NdPoint pt = space.getLocation(obj);
