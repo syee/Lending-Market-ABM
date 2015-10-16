@@ -166,3 +166,5 @@ java.io.FileNotFoundException: /Users/stevenyee/Documents/EconThesis/model1/mode
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+ERROR [AWT-EventQueue-0] 2015-10-16 01:46:24,504 repast.simphony.dataLoader.engine.MIContextXMLDataLoaderAction - ModelInitializer class was not found. Unable to initialize scenario
+ERROR [AWT-EventQueue-0] 2015-10-16 01:46:53,042 repast.simphony.dataLoader.engine.MIContextXMLDataLoaderAction - ModelInitializer class was not found. Unable to initialize scenario
