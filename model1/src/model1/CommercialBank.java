@@ -224,7 +224,7 @@ public class CommercialBank {
 		return assets - liabilities;
 	}
 	
-	public double returnBalance(Consumer holder){
+	public double returnConsumerBalance(Consumer holder){
 		if (Consumers.containsKey(holder)){
 			return Consumers.get(holder);
 		}
@@ -251,10 +251,13 @@ public class CommercialBank {
 			else{
 				if (amount > (reserves)){
 					//cBank attempts to pull in all of its loans to pay off this deficit.
-					collectFullLoans();
+//					collectFullLoans();
 					if (amount > (reserves)){
 						double lessThanFull = reserves;
 						reserves = -1.0;
+						if (lessThanFull == -1.0){
+							lessThanFull = 0.0;
+						}
 						return lessThanFull;
 						//listener should destroy this bank. Maybe I run a destroy method if reserves = -1 at last "tick" method call
 					}
@@ -282,27 +285,32 @@ public class CommercialBank {
 	 */
 	public double withdraw(Consumer holder, double amount) throws Exception{
 		if (amount >= 0.0){
-			System.out.print(this);
-			System.out.print(Consumers);
-			double savings = Consumers.get(holder);
-			if (savings >= amount){
-				//actualAmount must be equal to amount at this point. unnecessary checking?
-				double actualAmount = removeReserves(amount);
-				removeAssets(actualAmount);
-				removeLiabilities(actualAmount);
-				savings -= actualAmount;
-				Consumers.put(holder, savings);
-				return amount;
+			if (Consumers.containsKey(holder)){
+//				System.out.print(this);
+//				System.out.print(Consumers);
+				double savings = Consumers.get(holder);
+				if (savings >= amount){
+					//actualAmount must be equal to amount at this point. unnecessary checking?
+					double actualAmount = removeReserves(amount);
+					removeAssets(actualAmount);
+					removeLiabilities(actualAmount);
+					savings -= actualAmount;
+					Consumers.put(holder, savings);
+					return amount;
+				}
+				else{
+					Consumers.put(holder, 0.0);
+					double amountAvailable = removeReserves(savings);
+					removeAssets(amountAvailable);
+					removeLiabilities(amountAvailable);
+					//consumer should be removed because he could not pay a full debt
+					Consumers.remove(holder);
+					//note that amountAvailable could be less than what consumer has if cBank is about to go bankrupt
+					return amountAvailable;
+				}
 			}
 			else{
-				Consumers.put(holder, 0.0);
-				double amountAvailable = removeReserves(savings);
-				removeAssets(amountAvailable);
-				removeLiabilities(amountAvailable);
-				//consumer should be removed because he could not pay a full debt
-				Consumers.remove(holder);
-				//note that amountAvailable could be less than what consumer has if cBank is about to go bankrupt
-				return amountAvailable;
+				throw new Exception ("Consumer does not have an account here!");
 			}
 		}
 		else{
@@ -347,7 +355,7 @@ public class CommercialBank {
 	 * @throws Exception Throws exception if balance is negative.
 	 */
 	public double calculateTickPayment(double balance) throws Exception{
-		if (balance <= 0.0){
+		if (balance >= 0.0){
 			double payment = balance/(1/loanRate)/(1-(1/Math.pow((1+loanRate),loanYears)))/12;
 			return payment;
 		}
@@ -370,15 +378,17 @@ public class CommercialBank {
 		//I may want to incorporate reserve requirement type thing later
 		if ((balance >= 0.0) && (payment >= 0.0)){
 			if (balance <= reserves){
+				//transforming balance so it will match payments * 12 * firmLoanYears
+				double totalPayment = calculateTickPayment(balance) * 12 * loanYears;
 				removeReserves(balance);
-				addAssets(payment*12*loanYears); //total amount plus interest iBank will pay
+				addAssets(totalPayment); //total amount plus interest iBank will pay
 				//this assumes payment has already been calculated correctly by investment bank
-				LoanToIB newLoan = new LoanToIB(debtor, balance, payment, loanId);
+				LoanToIB newLoan = new LoanToIB(debtor, totalPayment, payment, loanId);
 				loansToIB.put(loanId, newLoan);
 				mortgagePaymentsIncoming += payment;
 				loanTotal += balance;
 				System.out.println("I am cBank " + this + ". I just loaned " + balance);
-				System.out.println("The montly payment I will receive is" + payment);
+				System.out.println("The monthly payment I will receive is" + payment);
 				return true;
 			}
 			else{
@@ -404,14 +414,14 @@ public class CommercialBank {
 	public boolean receivePayment(String tempId, double amount) throws Exception{
 		if (amount >= 0.0){
 			if(loansToIB.containsKey(tempId)){
+				System.out.println("I am the commercial bank accepting a loan payment with loan id " + tempId);
 				LoanToIB thisLoan = loansToIB.get(tempId);
 				double paymentOutcome = thisLoan.receivePayment(amount);
 				if (paymentOutcome == -1.0){
 					addReserves(amount);
 					removeAssets(amount);
 					loanTotal -= amount;
-					//destroy this loan by removing it from map
-//					loansToIB.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
+					loansToIB.remove(tempId);
 					return true;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -436,7 +446,7 @@ public class CommercialBank {
 					return false;
 				}			
 			}
-			else{
+			else{				
 				throw new Exception("Commercial bank should not be receiving this payment");
 			}
 		}
@@ -474,29 +484,29 @@ public class CommercialBank {
 		}		
 	}
 	
-	/** This method allows a cBank to call in all of its outstanding loan balances to prevent this cBank from going bankrupt.
-	 * This method is called whenever a cBank does not have enough reserves to meet a withdrawal request.
-	 * @throws Exception Throws exception if iBank attempts to make a negative payment on a loan.
-	 */
-	public void collectFullLoans() throws Exception{
-		Collection<LoanToIB> loanList = loansToIB.values();
-		if (loanList != null){
-			Iterator<LoanToIB> loans = loanList.iterator();
-			//this collects on all loans
-			while (loans.hasNext()){
-				LoanToIB thisLoan = loans.next();
-				String tempId = thisLoan.getId();
-				double balance = thisLoan.getRemainingBalance();
-				InvestmentBank iBank = thisLoan.getBank();
-				iBank.makeFullBalancePayment(tempId, balance);
-				//receivePayment(tempId, amountReceived); this happens in LoanFromCB.makePayment() called by iBank.makeLoanPayment
-				loansToIB.remove(tempId);
-			}
-		}
-		if (reserves == -1.0){
-			reserves = -2.0;
-		}
-	}
+//	/** This method allows a cBank to call in all of its outstanding loan balances to prevent this cBank from going bankrupt.
+//	 * This method is called whenever a cBank does not have enough reserves to meet a withdrawal request.
+//	 * @throws Exception Throws exception if iBank attempts to make a negative payment on a loan.
+//	 */
+//	public void collectFullLoans() throws Exception{
+//		Collection<LoanToIB> loanList = loansToIB.values();
+//		if (loanList != null){
+//			Iterator<LoanToIB> loans = loanList.iterator();
+//			//this collects on all loans
+//			while (loans.hasNext()){
+//				LoanToIB thisLoan = loans.next();
+//				String tempId = thisLoan.getId();
+//				double balance = thisLoan.getRemainingBalance();
+//				InvestmentBank iBank = thisLoan.getBank();
+//				iBank.makeFullBalancePayment(tempId, balance);
+//				//receivePayment(tempId, amountReceived); this happens in LoanFromCB.makePayment() called by iBank.makeLoanPayment
+//				loansToIB.remove(tempId);
+//			}
+//		}
+//		if (reserves == -1.0){
+//			reserves = -2.0;
+//		}
+//	}
 	
 	public void cBankDie(){
 		Context<Object> context = ContextUtils.getContext(this);
@@ -529,7 +539,7 @@ public class CommercialBank {
 	 */
 	@ScheduledMethod(start = 9, interval = 13)
 	public void commBank_getPayments_9() throws Exception{
-		checkAllLoans();
+		//checkAllLoans();
 	}
 	
 	/** This scheduled status method determines if a cBank has gone bankrupt or not.

@@ -189,6 +189,9 @@ public class Firm {
 			if (reserves < amount){
 				double toReturn = reserves;
 				reserves = -1.0;
+				if (toReturn == -1.0){
+					toReturn = 0.0;
+				}
 				return toReturn;
 			}
 			else{
@@ -247,7 +250,7 @@ public class Firm {
 					if (thisLoan.getBank() == iBankDone){
 						double balance = thisLoan.getRemainingBalance();
 						makeFullBalancePayment(tempId, balance);
-						loansFromIB.remove(thisLoan);
+						loans.remove();
 					}
 				}
 			}
@@ -409,7 +412,7 @@ public class Firm {
 		Iterator<LoanFromIB> loansDelete = toDeleteLoanList.iterator();
 		while (loansDelete.hasNext()){
 			LoanFromIB thisLoan = loansDelete.next();
-			waitingLoans.remove(thisLoan.getId());
+			loansDelete.remove();
 		}
 	}
 	
@@ -489,7 +492,6 @@ public class Firm {
 					//	removeReserves(amount); this already happens
 					//destroy this loan by removing it from map
 					loanPaymentTotal -= thisLoan.getPayment();
-					loansFromIB.remove(tempId);
 					return amount;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
@@ -543,6 +545,7 @@ public class Firm {
 	 * @throws Exception
 	 */
 	public void makeMonthlyPaymentsAllLoans() throws Exception{
+		checkLoansForPaid();
 		Collection<LoanFromIB> loanList = loansFromIB.values();
 		if (loanList != null){
 			Iterator<LoanFromIB> loans = loanList.iterator();
@@ -550,20 +553,23 @@ public class Firm {
 				LoanFromIB thisLoan = loans.next();
 				String tempId = thisLoan.getId();
 				double paymentDue = thisLoan.getPayment();
+				System.out.println("Loan Id "+ tempId);
+				System.out.println("Payment Due "+ paymentDue);
 				double actualPayment = removeReserves(paymentDue);
+				System.out.println("Actual Payment "+ actualPayment);
+				System.out.println("Remaining Balance "+ thisLoan.getRemainingBalance());
 				
 				if (makeLoanPayment(tempId, actualPayment) == paymentDue){
 					//full payment made
-					;
+					if (thisLoan.getRemainingBalance() == 0){
+						loanPaymentTotal -= paymentDue;
+						loans.remove();
+					}
 				}
 				else{
 					//investment bank should be destroyed since it failed to make full payment
 					//appears to be handled in makeLoanPayment
 					;
-					loanPaymentTotal -= paymentDue;
-					loans.remove();
-				}
-				if (thisLoan.getRemainingBalance() == 0){
 					loanPaymentTotal -= paymentDue;
 					loans.remove();
 				}
@@ -578,20 +584,22 @@ public class Firm {
 		//only move if we are not already in this grid location
 		if (pt == null){
 			//force consumers to move weird
-			double probabilityX = rand.nextDouble() * 4;
-			double probabilityY = rand.nextDouble() * 4;
+			double probabilityX = rand.nextDouble() * 8;
+			double probabilityY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			space.moveByVector(this, 5, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
 		
 		else{ /* if (!pt.equals(grid.getLocation(this))){*/
+			double probabilityX = rand.nextDouble() * 8;
+			double probabilityY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
+			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY()+ probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
 			space.moveByVector(this, dist - 2, angle, 0);
@@ -686,14 +694,24 @@ public class Firm {
 				if (iBank != null){
 					net = net + reserves;
 					removeReserves(reserves);
+					System.out.println(net);
 					askForLoan(Math.abs(net));
 					if (reserves >= Math.abs(net)){
+						System.out.println("enough net " +net);
 						removeReserves(Math.abs(net));
 						isUnpaid = false;
 					}
 					else{
 						isUnpaid = true;
+						net = net + getReserves();
+						System.out.println("not enough net " +net);
+						removeReserves(getReserves());
 					}
+				}
+				else{
+					net = net + getReserves();
+					removeReserves(getReserves());
+					System.out.println("not enough net " + net);
 				}
 			}
 		}

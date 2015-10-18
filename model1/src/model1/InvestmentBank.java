@@ -117,7 +117,6 @@ public class InvestmentBank {
 					if (thisLoan.getBank() == cBankDone){
 						double balance = thisLoan.getRemainingBalance();
 						makeFullBalancePayment(tempId, balance);
-//						loansFromCB.remove(thisLoan);
 						loans.remove();
 					}
 				}
@@ -162,6 +161,7 @@ public class InvestmentBank {
 	public void addReserves(double amount) throws Exception{
 		if (amount >= 0.0){
 			reserves += amount;
+			addAssets(amount);
 		}
 		else{
 			throw new Exception("Cannot add a negative amount to iBank reserves!");
@@ -231,25 +231,24 @@ public class InvestmentBank {
 	 */
 	public double removeReserves(double amount) throws Exception{
 		if (amount >= 0.0){
-			if (reserves <= -1){
-				//destroy this investment bank
+			if (reserves <= -1.0){
 				return 0.0;
 			}
 			else{
 				if (amount > reserves){
-					collectFullLoans();
-					if (amount > reserves){
-						double lessThanFull = reserves;
-						reserves = -1.0;
-						return lessThanFull;
-						//listener should destroy this investment bank
+					double lessThanFull = reserves;
+					reserves = -1.0;
+					if (lessThanFull == -1.0){
+						lessThanFull = 0.0;
+						assets = 0.0;
 					}
 					else{
-						reserves -= amount;
-						return amount;
+						removeAssets(lessThanFull);
 					}
+					return lessThanFull;
 				}
 				else{
+					removeAssets(amount);
 					reserves -= amount;
 					return amount;
 				}
@@ -274,14 +273,17 @@ public class InvestmentBank {
 	public boolean requestLoanCB(double balance, String loanId) throws Exception{
 		if (balance >= 0.0){
 			if (cBank != null){
+				System.out.println("The balance requested is " + balance);
 				double paymentCB = calculateCBTickPayment(balance);
 				if(cBank.createLoan(this, balance, paymentCB, loanId)){
+					double totalPayment = paymentCB * 12 * cBLoanYears;
 					addReserves(balance);
-					addLiabilities(balance);
+					addLiabilities(totalPayment);
 					mortgagePaymentsOutgoing += paymentCB;
-					double paymentFirm = calculateFirmTickPayment(balance);
-					mortgagePaymentsOutgoing += paymentFirm;
-					LoanFromCB newLoan = new LoanFromCB(cBank, balance, paymentFirm, loanId);
+					LoanFromCB newLoan = new LoanFromCB(cBank, totalPayment, paymentCB, loanId);
+					System.out.println("I am iBank " + this);
+					System.out.println("I will pay back this sum in 60 months " + totalPayment);
+					System.out.println("I will pay this much monthtly " + paymentCB);
 					loansFromCB.put(loanId,  newLoan);
 				}
 				else{
@@ -327,20 +329,19 @@ public class InvestmentBank {
 				LoanFromCB thisLoan = loans.next();
 				String tempId = thisLoan.getId();
 				double paymentDue = thisLoan.getPayment();
-				double actualPayment = removeReserves(paymentDue);
+				double paymentResult = makeLoanPayment(tempId, paymentDue);
 				
-				if (makeLoanPayment(tempId, actualPayment) == paymentDue){
+				if (paymentResult == paymentDue){
 					//full payment made
-					;
+					if (thisLoan.getRemainingBalance() <= 0.0){
+						loans.remove();
+					}
 				}
 				else{
-					//investment bank should be destroyed since it failed to make full payment
-					//appears to be handled in makeLoanPayment via removeReserves
-					;
+					loans.remove();
 				}
 			}
 		}
-		checkLoansForPaid();
 	}
 	
 	//investment bank calculates how much the tick payment on a loan it should collect from a firm
@@ -381,8 +382,7 @@ public class InvestmentBank {
 	
 	public double getMortgagePaymentsOutgoing(){
 		return mortgagePaymentsOutgoing;
-	}
-	
+	}	
 	
 	//investment banks pays back commercial bank for one loan
 	/** This method is how an iBank makes an individual payment on a loan to a cBank.
@@ -400,10 +400,10 @@ public class InvestmentBank {
 		if (amount >= 0.0){
 			if(loansFromCB.containsKey(tempId)){
 				LoanFromCB thisLoan = loansFromCB.get(tempId);
-				double paymentOutcome = thisLoan.makePayment(amount);
+				double actualPayment = removeReserves(amount);
+				double paymentOutcome = thisLoan.makePayment(actualPayment);
 				if (paymentOutcome == -1.0){
-					//	removeReserves(amount); this already happens
-					removeLiabilities(amount);
+					removeLiabilities(actualPayment);
 					mortgagePaymentsOutgoing -= amount;
 					//destroy this loan by removing it from map
 //					loansFromCB.remove(tempId); THIS NEEDS TO BE DONE ELSEWHERE
@@ -411,24 +411,21 @@ public class InvestmentBank {
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
 					//full payment made
-					removeAssets(amount);
-					removeLiabilities(amount);
+					removeLiabilities(actualPayment);
 					return amount;
 				}
 				else{
 					//less than full payment made
 					//should I add a default counter?
-					removeAssets(paymentOutcome);
 					removeLiabilities(paymentOutcome);
 					mortgagePaymentsOutgoing -= amount;
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
-					removeAssets(loss);
 					removeLiabilities(loss);
 					//destroy this investment bank
 					// THIS BANK NEEDS TO BE DESTROYED
 					////
-					loansFromCB.remove(tempId);
+//					loansFromCB.remove(tempId);
 					return paymentOutcome;
 				}
 			}
@@ -456,21 +453,10 @@ public class InvestmentBank {
 		if (amount >= 0.0){
 			if(loansFromCB.containsKey(tempId)){
 				LoanFromCB thisLoan = loansFromCB.get(tempId);
-				double paymentOutcome = thisLoan.makePayment(amount);
 				//The line below is the only difference between this method and makeLoanPayment().
-				removeReserves(amount);
+				double actualPayment = removeReserves(amount);
+				double paymentOutcome = thisLoan.makePayment(actualPayment);
 				if (paymentOutcome == -1.0){
-					//	removeReserves(amount); this already happens
-					removeLiabilities(amount);
-					mortgagePaymentsOutgoing -= amount;
-					
-					//destroy this loan by removing it from map
-					loansFromCB.remove(tempId);
-					return amount;
-				}
-				else if (thisLoan.getPayment() == paymentOutcome){
-					//full payment made
-					removeAssets(amount);
 					removeLiabilities(amount);
 					mortgagePaymentsOutgoing -= amount;
 					return amount;
@@ -478,17 +464,11 @@ public class InvestmentBank {
 				else{
 					//less than full payment made
 					//should I add a default counter?
-					removeAssets(paymentOutcome);
 					removeLiabilities(paymentOutcome);
 					mortgagePaymentsOutgoing -= amount;
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
-					removeAssets(loss);
 					removeLiabilities(loss);
-					//destroy this investment bank
-					// THIS BANK NEEDS TO BE DESTROYED
-					////
-					loansFromCB.remove(tempId);
 					return paymentOutcome;
 				}
 			}
@@ -516,13 +496,15 @@ public class InvestmentBank {
 		if ((balance >= 0.0) && (payment >= 0.0)){
 			//I may want to incorporate reserve requirement type thing later
 			if (balance <= reserves){
+				double totalPayments = payment * 12 * firmLoanYears;
 				removeReserves(balance);
-				addAssets(balance);
+				addAssets(totalPayments);
 				mortgagePaymentsIncoming += payment;
 				//this assumes payment has already been calculated correctly by firm
-				LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
+				LoanToFirm newLoan = new LoanToFirm(debtor, totalPayments, payment, loanId);
 				loansToFirms.put(loanId, newLoan);
 				System.out.println("I am iBank " + this + ". I just loaned " + balance);
+				System.out.println("The monthly payment I will receive is" + payment);
 				return true;
 			}
 			else{
@@ -549,9 +531,6 @@ public class InvestmentBank {
 			Iterator<LoanToFirm> loans = loanList.iterator();
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
-				//creating loan ID for investment bank from commercial bank
-				//String newLoanId =  UUID.randomUUID().toString();
-				//I am just going to use the loan ID that was already created
 				if (cBank != null){
 					requestLoanCB(thisLoan.getRemainingBalance(), thisLoan.getId());
 				}
@@ -572,7 +551,8 @@ public class InvestmentBank {
 			Iterator<LoanToFirm> loans = loanList.iterator();
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
-				createLoanFirm(thisLoan.getFirm(), thisLoan.getRemainingBalance(), thisLoan.getPayment(), thisLoan.getId());
+				double totalPayment = 12 * firmLoanYears * thisLoan.getPayment();
+				createLoanFirm(thisLoan.getFirm(), totalPayment, thisLoan.getPayment(), thisLoan.getId());
 			}
 			//removing all loans from waiting loan list now
 			removeAllWaitingLoans();
@@ -624,6 +604,7 @@ public class InvestmentBank {
 				if (paymentOutcome == -1.0){
 					addReserves(amount);
 					removeAssets(amount);
+					mortgagePaymentsIncoming -= amount;
 					//destroy this loan by removing it from map
 //					loansToFirms.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
 					return true;
@@ -642,7 +623,6 @@ public class InvestmentBank {
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
-					//destroy this loan
 					loansToFirms.remove(tempId);
 					return false;
 				}			
@@ -656,30 +636,47 @@ public class InvestmentBank {
 		}
 	}
 	
-	//making sure firms have paid up all loans
-	/** This method searches for any delinquent loans that an iBank owns. This method is in theory redundant because all loans should have payments made on them.
-	 * If the payment made on a loan is less than the full amount, that loan should be removed in receivePayment().
-	 * @throws Exception Throws Exception if any loan balance is negative.
-	 */
-	public void checkAllLoans() throws Exception{
-		Collection<LoanToFirm> loanList = loansToFirms.values();
-		if (loanList != null){
-			Iterator<LoanToFirm> loans = loanList.iterator();
-			while (loans.hasNext()){
-				LoanToFirm thisLoan = loans.next();
-				if (!(thisLoan.isPaid())){
-					String tempId = thisLoan.getId();
-					receivePayment(tempId, 0.0);
-					//this will destroy the loan since it is delinquent
-					double loss = thisLoan.getRemainingBalance();
-					removeAssets(loss);
-					//destroy this loan
-//					loansToFirms.remove(tempId);
-					loans.remove();
-				}
+	//This method is to remove the full loan without payment. this is called when a iBank goes bankrupt.
+	//do not call this method except in removeAllLoansFirms()
+		public void receiveDeadPayment(String tempId) throws Exception{
+			if(loansToFirms.containsKey(tempId)){
+				LoanToFirm thisLoan = loansToFirms.get(tempId);
+				double paymentOutcome = thisLoan.receivePayment(0.0);
+				double loss = thisLoan.getRemainingBalance();
+				removeAssets(loss);		
 			}
-		}		
-	}
+			else{
+				throw new Exception("investment bank should not be receiving this payment");
+			}
+		}
+	
+	
+	
+	//I will insteand handle removal in receivePayment()
+//	//making sure firms have paid up all loans
+//	/** This method searches for any delinquent loans that an iBank owns. This method is in theory redundant because all loans should have payments made on them.
+//	 * If the payment made on a loan is less than the full amount, that loan should be removed in receivePayment().
+//	 * @throws Exception Throws Exception if any loan balance is negative.
+//	 */
+//	public void checkAllLoans() throws Exception{
+//		Collection<LoanToFirm> loanList = loansToFirms.values();
+//		if (loanList != null){
+//			Iterator<LoanToFirm> loans = loanList.iterator();
+//			while (loans.hasNext()){
+//				LoanToFirm thisLoan = loans.next();
+//				if (!(thisLoan.isPaid())){
+//					String tempId = thisLoan.getId();
+//					//this will destroy the loan since it is delinquent
+//					double loss = thisLoan.getRemainingBalance();
+//					removeAssets(loss);
+//					//destroy this loan
+////					loansToFirms.remove(tempId);
+//					receivePayment(tempId, 0.0);
+//					loans.remove();
+//				}
+//			}
+//		}		
+//	}
 	
 	/** This method removes all loans between the iBank and any cBanks.
 	 * This method is only called when an iBank is going bankrupt.
@@ -693,6 +690,7 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanFromCB thisLoan = loans.next();
 				removeSingleLoanFromCB(thisLoan);
+				loans.remove();
 			}
 		}
 	}
@@ -709,7 +707,6 @@ public class InvestmentBank {
 		if(loansFromCB.containsValue(thisLoan)){
 			String tempId = thisLoan.getId();
 			makeFullBalancePayment(tempId, 0);
-			loansFromCB.remove(tempId);
 		}
 		else{
 			;
@@ -729,6 +726,7 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
 				removeSingleLoanToFirm(thisLoan);
+				loans.remove();
 			}
 		}
 	}
@@ -741,67 +739,60 @@ public class InvestmentBank {
 	public void removeSingleLoanToFirm(LoanToFirm thisLoan) throws Exception{
 		if(loansToFirms.containsValue(thisLoan)){
 			String tempId = thisLoan.getId();
-			receivePayment(tempId, 0.0);
-			double balance = thisLoan.getRemainingBalance();
-			removeAssets(balance);
-			removeLiabilities(balance);
-			loansToFirms.remove(tempId);
+			receiveDeadPayment(tempId);
 		}
 		else{
-			;
+			throw new Exception("This loan does not exist for iBank " + this);
 		}
 	}
-	
-	/** This method allows an iBank to call in all of its outstanding loan balances to prevent this iBank from going bankrupt.
-	 * This method is called whenever an iBank does not have enough reserves to make a loan payment to a cBank.
-	 * @throws Exception Throws exception if Firm attempts to make a negative payment on a loan.
-	 */
-	public void collectFullLoans() throws Exception{
-		Collection<LoanToFirm> loanList = loansToFirms.values();
-		if (loanList != null){
-			Iterator<LoanToFirm> loans = loanList.iterator();
-			//this collects on all loans
-			while (loans.hasNext()){
-				LoanToFirm thisLoan = loans.next();
-				String tempId = thisLoan.getId();
-				double balance = thisLoan.getRemainingBalance();
-				Firm firm = thisLoan.getFirm();
-				double amountReceived = firm.makeFullBalancePayment(tempId, balance);
-//				receivePayment(tempId, amountReceived); already called in above line
-				loansToFirms.remove(tempId);
-			}
-		}
-		if (reserves == -1.0){
-			reserves = -2.0;
-		}
-	}
+//	
+//	/** This method allows an iBank to call in all of its outstanding loan balances to prevent this iBank from going bankrupt.
+//	 * This method is called whenever an iBank does not have enough reserves to make a loan payment to a cBank.
+//	 * @throws Exception Throws exception if Firm attempts to make a negative payment on a loan.
+//	 */
+//	public void collectFullLoans() throws Exception{
+//		Collection<LoanToFirm> loanList = loansToFirms.values();
+//		if (loanList != null){
+//			Iterator<LoanToFirm> loans = loanList.iterator();
+//			//this collects on all loans
+//			while (loans.hasNext()){
+//				LoanToFirm thisLoan = loans.next();
+//				String tempId = thisLoan.getId();
+//				double balance = thisLoan.getRemainingBalance();
+//				Firm firm = thisLoan.getFirm();
+//				double amountReceived = firm.makeFullBalancePayment(tempId, balance);
+////				receivePayment(tempId, amountReceived); already called in above line
+//				loansToFirms.remove(tempId);
+//			}
+//		}
+//		if (reserves == -1.0){
+//			reserves = -2.0;
+//		}
+//	}
 	
 	
 	public void iBankMoveTowards(GridPoint pt){
-		//only move if we are not already in this grid location
 		if (pt == null){
-			//force consumers to move weird
-			double probabilityX = rand.nextDouble() * 4;
-			double probabilityY = rand.nextDouble() * 4;
+			//force iBanks to move weird
+			double probabilityX = rand.nextDouble() * 8;
+			double probabilityY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			space.moveByVector(this, 4, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
-			
 		}
 		
 		else{ /* if (!pt.equals(grid.getLocation(this))){*/
+			double probabilityX = rand.nextDouble() * 5;
+			double probabilityY = rand.nextDouble() * 5;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
+			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
-			space.moveByVector(this, dist - 2, angle, 0);
+			space.moveByVector(this, dist - 1, angle, 0);
 			myPoint = space.getLocation(this);
-			System.out.println("Other point " + otherPoint);
-			System.out.println(this);
-			System.out.println("My point " + myPoint);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 			if (cBank == null){
@@ -826,18 +817,22 @@ public class InvestmentBank {
 	
 	public CommercialBank identifyCBank(GridPoint pt){
 //		GridPoint pt = grid.getLocation(this);
-		List<Object> comBanks = new ArrayList<Object>();
+//		List<Object> comBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
-				comBanks.add(obj);
+				CommercialBank temp = (CommercialBank) obj;
+				if (temp == cBank){
+//					comBanks.add(obj);
+					return temp;
+				}
 			}
 		}
-		if (comBanks.size() > 0){
-			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
-			Object obj = comBanks.get(index);
-			CommercialBank toAdd = (CommercialBank) obj;
-			return toAdd;
-		}
+//		if (comBanks.size() > 0){
+//			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
+//			Object obj = comBanks.get(index);
+//			CommercialBank toAdd = (CommercialBank) obj;
+//			return toAdd;
+//		}
 			
 //			NdPoint spacePt = space.getLocation(obj);
 //			Context<Object> context = ContextUtils.getContext(obj);
@@ -867,7 +862,7 @@ public class InvestmentBank {
 			}
 		}
 		System.out.println("I am iBank " + this + ". point with most cBanks is "+ pointWithMostCBanks);
-		iBankMoveTowards(pointWithMostCBanks);	
+		iBankMoveTowards(pt);	
 	}
 	
 	//This method removes the IBank from the simulation
@@ -885,7 +880,7 @@ public class InvestmentBank {
 	 */
 	@ScheduledMethod(start = 7, interval = 13)
 	public void invBank_getPayments_7() throws Exception{
-		checkAllLoans();
+//		checkAllLoans();
 	}
 
 	/** This scheduled basic method forces an iBank to make monthly payments on all of its loans. This method should come after the iBank receives all monthly payments from Firms.

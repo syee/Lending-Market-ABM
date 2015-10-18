@@ -145,7 +145,7 @@ public class Consumer {
 			return cash;
 		}
 		else{
-			return cBank.returnBalance(this);
+			return cBank.returnConsumerBalance(this);
 		}
 	}
 	
@@ -277,20 +277,22 @@ public class Consumer {
 		//only move if we are not already in this grid location
 		if (pt == null){
 			//force consumers to move weird
-			double probabilityX = rand.nextDouble() * 4;
-			double probabilityY = rand.nextDouble() * 4;
+			double probabilityX = rand.nextDouble() * 8;
+			double probabilityY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 1, angle, 0);
+			space.moveByVector(this, 5, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
 		
 		else{ /* (!pt.equals(grid.getLocation(this))){*/
+			double probabilityX = rand.nextDouble() * 4;
+			double probabilityY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX(), pt.getY());
+			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
 			
@@ -301,16 +303,16 @@ public class Consumer {
 			
 			if (cBank == null){
 				CommercialBank toAdd = identifyCBank(pt);
-				System.out.println(this);
-				System.out.println(toAdd);
+//				System.out.println(this);
+//				System.out.println(toAdd);
 				if (toAdd != null){
-					System.out.println("HERE");
+//					System.out.println("HERE");
 					if (joinBank(toAdd)){
-						System.out.println("THERE");
+//						System.out.println("THERE");
 						Context<Object> context = ContextUtils.getContext(this);
-						System.out.println(context);
+//						System.out.println(context);
 						Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
-						System.out.println(net);
+//						System.out.println(net);
 						net.addEdge(this, toAdd);
 					}
 				}
@@ -332,19 +334,15 @@ public class Consumer {
 			CommercialBank toAdd = (CommercialBank) obj;
 			return toAdd;
 		}
-			
-//			NdPoint spacePt = space.getLocation(obj);
-//			Context<Object> context = ContextUtils.getContext(obj);
-//			context.remove(obj);
+
 		return null;
-		
 	}
 	
 	public void consumerMove() throws Exception{
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 5, 5);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
@@ -359,7 +357,7 @@ public class Consumer {
 				}
 			}
 //		}
-		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
+//		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
 		consumerMoveTowards(pointWithMostCBanks);	
 	}
 	
@@ -370,7 +368,7 @@ public class Consumer {
 	}
 	
 	
-	/** This is the last basic scheduled method to be called.
+	/** This is the first basic scheduled method to be called.
 	 * This method calls calculateNet() to determine a consumer's net amount for a month.
 	 * If the amount is negative, the consumer must withdraw money to cover the deficit or go bankrupt.
 	 * If the full amount is not covered, the consumer's isBankrupt attribute is set to true.
