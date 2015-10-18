@@ -284,6 +284,7 @@ public class InvestmentBank {
 					System.out.println("I am iBank " + this);
 					System.out.println("I will pay back this sum in 60 months " + totalPayment);
 					System.out.println("I will pay this much monthtly " + paymentCB);
+					System.out.println("I am " + this + " and My reserves are now " + reserves);
 					loansFromCB.put(loanId,  newLoan);
 				}
 				else{
@@ -492,7 +493,9 @@ public class InvestmentBank {
 	 * @return Returns true if successful.
 	 * @throws Exception 
 	 */
-	public boolean createLoanFirm(Firm debtor, double balance, double payment, String loanId) throws Exception{
+	public boolean createFirstLoanFirm(Firm debtor, double balance, double payment, String loanId) throws Exception{
+		System.out.println("I am " + this + ". I am in createLoanFirm and My reserves are now " + reserves);
+		System.out.println("I am " + this + " and the requested balance is " + balance);
 		if ((balance >= 0.0) && (payment >= 0.0)){
 			//I may want to incorporate reserve requirement type thing later
 			if (balance <= reserves){
@@ -521,6 +524,44 @@ public class InvestmentBank {
 			throw new Exception("Cannot create a negative loan!");
 		}
 	}
+	
+	
+	/** This method creates a loan from the iBank to a Firm.
+	 * This loan is created whenever the iBank has enough reserves to cover the balance.
+	 * If the iBank does not have enough reserves, it attempts to borrow the money from a cBank.
+	 * It adds the loan to the iBank's waitingLoans which will be resolved by borrowWaitingLoans() and then resolveWaitingLoans().
+	 * @param debtor Firm that wishes to borrow money.
+	 * @param balance Positive amount Firm wishes to borrow.
+	 * @param payment Positive amount that Firm will pay to iBank each month.
+	 * @param loanId LoanId that is created by Firm.
+	 * @return Returns true if successful.
+	 * @throws Exception 
+	 */
+	public boolean createSecondLoanFirm(Firm debtor, double balance, double payment, String loanId) throws Exception{
+		if ((balance >= 0.0) && (payment >= 0.0)){
+			//I may want to incorporate reserve requirement type thing later
+			System.out.println("iBank is inside secondLoanFirm to resolve loan of totalPayment " + balance + " and monthly payment " + payment);
+			double reducedBalance = balance * 0.8658953341;
+			if (reducedBalance <= reserves){
+				double totalPayments = payment * 12 * firmLoanYears;
+				removeReserves(reducedBalance);
+				addAssets(totalPayments);
+				mortgagePaymentsIncoming += payment;
+				//this assumes payment has already been calculated correctly by firm
+				LoanToFirm newLoan = new LoanToFirm(debtor, totalPayments, payment, loanId);
+				System.out.println("iBank creating loan " + newLoan.getId());
+				loansToFirms.put(loanId, newLoan);
+				System.out.println("I am iBank " + this + ". I just loaned " + reducedBalance);
+				System.out.println("The monthly payment I will receive is" + payment);
+				return true;
+			}
+			return false;
+		}
+		else{
+			throw new Exception("Cannot create a negative loan!");
+		}
+	}
+	
 	
 	
 	//investment bank cycles through its wait list loans and calls requestLoanCB()
@@ -556,7 +597,7 @@ public class InvestmentBank {
 				LoanToFirm thisLoan = loans.next();
 				double totalPayment = 12 * firmLoanYears * thisLoan.getPayment();
 				System.out.println("iBank trying to resolve loan " + thisLoan.getId());
-				createLoanFirm(thisLoan.getFirm(), totalPayment, thisLoan.getPayment(), thisLoan.getId());
+				createSecondLoanFirm(thisLoan.getFirm(), totalPayment, thisLoan.getPayment(), thisLoan.getId());
 			}
 			//removing all loans from waiting loan list now
 			removeAllWaitingLoans();
@@ -779,80 +820,73 @@ public class InvestmentBank {
 //	}
 	
 	
-	public void iBankMoveTowards(GridPoint pt){
+	
+	public void consumerMoveTowards(GridPoint pt) throws Exception{
+		//only move if we are not already in this grid location
 		if (pt == null){
-			//force iBanks to move weird
+			//force consumers to move weird
 			double probabilityX = rand.nextDouble() * 8;
 			double probabilityY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 4, angle, 0);
+			space.moveByVector(this, 5, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+			
 		}
 		
-		else{ /* if (!pt.equals(grid.getLocation(this))){*/
-			double probabilityX = rand.nextDouble() * 5;
-			double probabilityY = rand.nextDouble() * 5;
+		else{ /* (!pt.equals(grid.getLocation(this))){*/
+			double probabilityX = rand.nextDouble() * 4;
+			double probabilityY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
-			space.moveByVector(this, dist - 1, angle, 0);
+			
+			
+			space.moveByVector(this, dist - 2, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 			if (cBank == null){
 				CommercialBank toAdd = identifyCBank(pt);
-				System.out.println(toAdd);
-				System.out.println(this);
+//				System.out.println(this);
+//				System.out.println(toAdd);
 				if (toAdd != null){
+//					System.out.println("HERE");
 					if (joinBank(toAdd)){
-						System.out.println(this);
-						System.out.println(toAdd);
-						System.out.println("We just made a connection!");
-						Context<Object> context = ContextUtils.getContext(this);						
+//						System.out.println("THERE");
+						Context<Object> context = ContextUtils.getContext(this);
+//						System.out.println(context);
 						Network<Object> net = (Network<Object>) context.getProjection("cBanks_iBanks network");
+//						System.out.println(net);
 						net.addEdge(this, toAdd);
 					}
 				}
 			}
 		}
-		
-		
 	}
 	
 	public CommercialBank identifyCBank(GridPoint pt){
 //		GridPoint pt = grid.getLocation(this);
-//		List<Object> comBanks = new ArrayList<Object>();
+		List<Object> comBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
-				CommercialBank temp = (CommercialBank) obj;
-				if (cBank == null){
-					return temp;
-				}
-				if (temp == cBank){
-//					comBanks.add(obj);
-					return temp;
-				}
+				comBanks.add(obj);
 			}
 		}
-//		if (comBanks.size() > 0){
-//			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
-//			Object obj = comBanks.get(index);
-//			CommercialBank toAdd = (CommercialBank) obj;
-//			return toAdd;
-//		}
-			
-//			NdPoint spacePt = space.getLocation(obj);
-//			Context<Object> context = ContextUtils.getContext(obj);
-//			context.remove(obj);
+		if (comBanks.size() > 0){
+			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
+			Object obj = comBanks.get(index);
+			CommercialBank toAdd = (CommercialBank) obj;
+			return toAdd;
+		}
+
 		return null;
-		
 	}
 	
-	public void iBankMove(){
+	public void iBankMove() throws Exception{
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
@@ -862,19 +896,122 @@ public class InvestmentBank {
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostCBanks = null;
-		if (cBank == null){
+//		if (cBank == null){
 			int maxCount = 0;
 			for (GridCell<CommercialBank> bank: gridCells){
 				if (bank.size() > maxCount){
-					System.out.println("I am " + this +" and I found a Commercial Bank at " + bank.getPoint());
 					pointWithMostCBanks = bank.getPoint();
 					maxCount = bank.size();
 				}
 			}
-		}
-		System.out.println("I am iBank " + this + ". point with most cBanks is "+ pointWithMostCBanks);
-		iBankMoveTowards(pt);	
+//		}
+//		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
+		consumerMoveTowards(pointWithMostCBanks);	
 	}
+	
+	
+	
+	
+	
+	
+//	public void iBankMoveTowards(GridPoint pt){
+//		if (pt == null){
+//			//force iBanks to move weird
+//			double probabilityX = rand.nextDouble() * 8;
+//			double probabilityY = rand.nextDouble() * 8;
+//			NdPoint myPoint = space.getLocation(this);
+//			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
+//			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+//			space.moveByVector(this, 4, angle, 0);
+//			myPoint = space.getLocation(this);
+//			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+//		}
+//		
+//		else{ /* if (!pt.equals(grid.getLocation(this))){*/
+//			double probabilityX = rand.nextDouble() * 4;
+//			double probabilityY = rand.nextDouble() * 4;
+//			NdPoint myPoint = space.getLocation(this);
+//			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
+//			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+//			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
+//			space.moveByVector(this, dist - 2, angle, 0);
+//			myPoint = space.getLocation(this);
+//			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
+//			
+//			if (cBank == null){
+//				CommercialBank toAdd = identifyCBank(pt);
+//				System.out.println(toAdd);
+//				System.out.println(this);
+//				if (toAdd != null){
+//					if (joinBank(toAdd)){
+//						System.out.println(this);
+//						System.out.println(toAdd);
+//						System.out.println("We just made a connection!");
+//						Context<Object> context = ContextUtils.getContext(this);						
+//						Network<Object> net = (Network<Object>) context.getProjection("cBanks_iBanks network");
+//						net.addEdge(this, toAdd);
+//					}
+//				}
+//			}
+//		}
+//		
+//		
+//	}
+//	
+//	public CommercialBank identifyCBank(GridPoint pt){
+////		GridPoint pt = grid.getLocation(this);
+//		List<Object> comBanks = new ArrayList<Object>();
+//		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
+//			if (obj instanceof CommercialBank){
+////				CommercialBank temp = (CommercialBank) obj;
+////				if (cBank == null){
+////					return temp;
+////				}
+////				if (temp == cBank){
+//					comBanks.add(obj);
+////					return temp;
+////				}
+//			}
+//		}
+//		
+//		if (comBanks.size() > 0){
+//			int index = RandomHelper.nextIntFromTo(0, comBanks.size() - 1);
+//			Object obj = comBanks.get(index);
+//			System.out.print("1 cBanks found");
+//			CommercialBank toAdd = (CommercialBank) obj;
+//			return toAdd;
+//		}
+//			
+////			NdPoint spacePt = space.getLocation(obj);
+////			Context<Object> context = ContextUtils.getContext(obj);
+////			context.remove(obj);
+//		return null;
+//		
+//	}
+//	
+//	public void iBankMove(){
+//		//get grid location of consumer
+//		GridPoint pt = grid.getLocation(this);
+//		//use GridCellNgh to create GridCells for the surrounding neighborhood
+//		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+//		
+//		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
+//		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+//		
+//		GridPoint pointWithMostCBanks = null;
+//		if (cBank == null){
+//			int maxCount = 0;
+//			for (GridCell<CommercialBank> bank: gridCells){
+//				if (bank.size() > maxCount){
+//					System.out.println("I am " + this +" and I found a Commercial Bank at " + bank.getPoint());
+//					pointWithMostCBanks = bank.getPoint();
+//					maxCount = bank.size();
+//				}
+//			}
+//		}
+//		System.out.println("I am iBank " + this + ". point with most cBanks is "+ pointWithMostCBanks);
+//		iBankMoveTowards(pt);	
+//	}
 	
 	//This method removes the IBank from the simulation
 	public void iBankDie(){

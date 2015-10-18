@@ -271,6 +271,7 @@ public class Firm {
 	public double calculateFirmTickPayment(double balance) throws Exception{
 		if (balance >= 0.0){
 			double payment = balance/(1/loanRateFirms)/(1-(1/Math.pow((1+loanRateFirms),firmLoanYears)))/12;
+			System.out.println("the payment is " + payment);
 			return payment;
 		}
 		else{
@@ -303,6 +304,8 @@ public class Firm {
 	public boolean decisionBorrow(double balance) throws Exception{
 		if (balance >= 0.0){
 			double payment = calculateFirmTickPayment(balance);
+			System.out.println("My loanPaymentTotal is is " + loanPaymentTotal);
+			System.out.println("My payment is is " + payment);
 			return (payment + loanPaymentTotal <= averageProfits);
 		}
 		else{
@@ -320,9 +323,13 @@ public class Firm {
 	 */
 	public void askForLoan(double balance) throws Exception{
 		balance = balance * 1.05;
+		System.out.println("loan balance is " + balance);
+		System.out.println("My iBank is " + iBank);
+		System.out.println("My average profits are " + averageProfits);
 		if (balance >= 0.0){
 			if (iBank != null){
 				if (decisionBorrow(balance)){
+					System.out.println("Firm wants to borrow " + balance);
 					//this adds the monthly payment to the firm's running tab of monthly loan payments
 					//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
 					//this will likely be adjusted later. possibly divide it by number of investment banks				
@@ -331,7 +338,7 @@ public class Firm {
 					loanPaymentTotal += tickPayment;
 					String newLoanId =  UUID.randomUUID().toString();
 					LoanFromIB newLoan = new LoanFromIB(iBank, totalPayment, tickPayment, newLoanId);
-					if(iBank.createLoanFirm(this,  balance, tickPayment, newLoanId)){
+					if(iBank.createFirstLoanFirm(this,  balance, tickPayment, newLoanId)){
 						addReserves(balance);
 						loansFromIB.put(newLoanId, newLoan);
 					}

@@ -140,7 +140,7 @@ public class Consumer {
 		}
 	}
 	
-	public double getSavings(){
+	public double getSavings() throws Exception{
 		if (cBank == null){
 			return cash;
 		}
@@ -166,6 +166,7 @@ public class Consumer {
 					//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
 					//for example cBank.addAccount(savings(actualAmount), actualAMount)
 					isBankrupt = true;
+					leaveBank(cBank);
 				}
 				//need to handle passing amount to creditor
 				return withdrawal;
@@ -342,7 +343,7 @@ public class Consumer {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 5, 5);
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
 		
 		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());

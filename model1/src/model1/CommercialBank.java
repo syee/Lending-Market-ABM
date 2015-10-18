@@ -14,6 +14,7 @@ import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
 
 /**
@@ -63,6 +64,7 @@ public class CommercialBank {
 		addAssets(reserves);
 		Consumers = new HashMap<Consumer, Double>();
 		loansToIB = new HashMap<String, LoanToIB>();
+		
 	}
 	
 	/** This method creates an account at this cBank for a consumer.
@@ -73,11 +75,12 @@ public class CommercialBank {
 	 * @throws Exception Throws exception if negative amount is given.
 	 */
 	public boolean addAccount(Consumer holder, double amount) throws Exception{
+		System.out.println("cBank trying to add " + holder + " with " + amount);
 		if (!(Consumers.containsKey(holder))){
 			Consumers.put(holder, amount);
 			addReserves(amount);
-			addAssets(amount);
 			addLiabilities(amount);
+			System.out.println("cBank successfully add " + holder + " with " + amount);
 			return true;
 		}
 		else{
@@ -95,7 +98,6 @@ public class CommercialBank {
 		if (Consumers.containsKey(holder)){
 			double savings = Consumers.get(holder); //this value should be zero
 			removeReserves(savings);
-			removeAssets(savings);
 			removeLiabilities(savings);
 			Consumers.remove(holder);
 			return true;
@@ -116,7 +118,6 @@ public class CommercialBank {
 				double savings = Consumers.get(holder);
 				savings += amount;
 				addReserves(amount);
-				addAssets(amount);
 				addLiabilities(amount);
 				Consumers.put(holder, savings);
 			}
@@ -138,7 +139,7 @@ public class CommercialBank {
 	public void addReserves(double amount) throws Exception{
 		if (amount >= 0.0){
 			reserves += amount;
-//			addAssets(amount);
+			addAssets(amount);
 		}
 		else{
 			throw new Exception("Cannot add negative amount to reserves!");
@@ -224,12 +225,12 @@ public class CommercialBank {
 		return assets - liabilities;
 	}
 	
-	public double returnConsumerBalance(Consumer holder){
+	public double returnConsumerBalance(Consumer holder) throws Exception{
 		if (Consumers.containsKey(holder)){
 			return Consumers.get(holder);
 		}
 		else{
-			return 0.0;
+			throw new Exception(holder + " does not have an account at this cBank");
 		}
 	}
 	
@@ -257,17 +258,23 @@ public class CommercialBank {
 						reserves = -1.0;
 						if (lessThanFull == -1.0){
 							lessThanFull = 0.0;
+							assets = 0.0;
+						}
+						else{
+							removeAssets(lessThanFull);
 						}
 						return lessThanFull;
 						//listener should destroy this bank. Maybe I run a destroy method if reserves = -1 at last "tick" method call
 					}
 					else{
 						reserves -= amount;
+						removeAssets(amount);
 						return amount;
 					}
 				}
 				else{
 					reserves -= amount;
+					removeAssets(amount);
 					return amount;
 				}
 			}
@@ -292,16 +299,14 @@ public class CommercialBank {
 				if (savings >= amount){
 					//actualAmount must be equal to amount at this point. unnecessary checking?
 					double actualAmount = removeReserves(amount);
-					removeAssets(actualAmount);
 					removeLiabilities(actualAmount);
 					savings -= actualAmount;
 					Consumers.put(holder, savings);
-					return amount;
+					return actualAmount;
 				}
 				else{
 					Consumers.put(holder, 0.0);
 					double amountAvailable = removeReserves(savings);
-					removeAssets(amountAvailable);
 					removeLiabilities(amountAvailable);
 					//consumer should be removed because he could not pay a full debt
 					Consumers.remove(holder);
@@ -386,7 +391,7 @@ public class CommercialBank {
 				LoanToIB newLoan = new LoanToIB(debtor, totalPayment, payment, loanId);
 				loansToIB.put(loanId, newLoan);
 				mortgagePaymentsIncoming += payment;
-				loanTotal += balance;
+				loanTotal += totalPayment;
 				System.out.println("I am cBank " + this + ". I just loaned " + balance);
 				System.out.println("The monthly payment I will receive is" + payment);
 				return true;
@@ -420,6 +425,7 @@ public class CommercialBank {
 				if (paymentOutcome == -4.0){
 					addReserves(amount);
 					removeAssets(amount);
+					mortgagePaymentsIncoming -= thisLoan.getPayment();
 					loanTotal -= amount;
 					loansToIB.remove(tempId);
 					return true;
@@ -437,6 +443,7 @@ public class CommercialBank {
 					addReserves(paymentOutcome);
 					removeAssets(paymentOutcome);
 					loanTotal -= paymentOutcome;
+					mortgagePaymentsIncoming -= thisLoan.getPayment();
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
 					removeAssets(loss);
@@ -455,34 +462,34 @@ public class CommercialBank {
 		}
 	}
 	
-	//making sure investment banks have paid up all loans
-	//in theory, this method is made redundant by receivePayment()
-	//any loans that are not paid in full should be deleted in receivePayment()
-	/** This method searches for any delinquent loans that a cBank owns. This method is in theory redundant because all loans should have payments made on them.
-	 * If the payment made on a loan is less than the full amount, that loan should be removed in receivePayment().
-	 * @throws Exception Throws Exception if any loan balance is negative.
-	 */
-	public void checkAllLoans() throws Exception{
-		Collection<LoanToIB> loanList = loansToIB.values();
-		if (loanList != null){
-			Iterator<LoanToIB> loans = loanList.iterator();
-			while (loans.hasNext()){
-				LoanToIB thisLoan = loans.next();
-				if (!(thisLoan.isPaid())){
-					String tempId = thisLoan.getId();
-					receivePayment(tempId, 0.0);
-					//this will destroy the loan since it is delinquent
-					double loss = thisLoan.getRemainingBalance();
-					removeAssets(loss);
-					//destroy this loan
-					loans.remove();
-				}
-				else{
-					//loan payment has been made in full
-				}
-			}
-		}		
-	}
+//	//making sure investment banks have paid up all loans
+//	//in theory, this method is made redundant by receivePayment()
+//	//any loans that are not paid in full should be deleted in receivePayment()
+//	/** This method searches for any delinquent loans that a cBank owns. This method is in theory redundant because all loans should have payments made on them.
+//	 * If the payment made on a loan is less than the full amount, that loan should be removed in receivePayment().
+//	 * @throws Exception Throws Exception if any loan balance is negative.
+//	 */
+//	public void checkAllLoans() throws Exception{
+//		Collection<LoanToIB> loanList = loansToIB.values();
+//		if (loanList != null){
+//			Iterator<LoanToIB> loans = loanList.iterator();
+//			while (loans.hasNext()){
+//				LoanToIB thisLoan = loans.next();
+//				if (!(thisLoan.isPaid())){
+//					String tempId = thisLoan.getId();
+//					receivePayment(tempId, 0.0);
+//					//this will destroy the loan since it is delinquent
+//					double loss = thisLoan.getRemainingBalance();
+//					removeAssets(loss);
+//					//destroy this loan
+//					loans.remove();
+//				}
+//				else{
+//					//loan payment has been made in full
+//				}
+//			}
+//		}		
+//	}
 	
 //	/** This method allows a cBank to call in all of its outstanding loan balances to prevent this cBank from going bankrupt.
 //	 * This method is called whenever a cBank does not have enough reserves to meet a withdrawal request.
@@ -550,13 +557,6 @@ public class CommercialBank {
 	 */
 	@ScheduledMethod(start = 12, interval = 13)
 	public void commBank_check_12() throws Exception{
-		System.out.println("I am cBank " + this);
-		System.out.println("I have this much in reserves " + getReserves());
-		System.out.println("I have this much in assets " + getAssets());
-		System.out.println("I have this much in liabilities " + getLiabilities());
-		System.out.println("I have this much in mortgagePayments " + getMortgagePaymentsIncoming());
-		System.out.println("I have this much in loan total" + getLoanTotal());
-		System.out.println("I have this much net worth" + getNetWorth());
 		if (reserves <= -1){
 			removeAllConsumers();
 			//commercial bank goes bankrupt
@@ -566,6 +566,13 @@ public class CommercialBank {
 			//pay interest on all consumer accounts
 			updateConsumers();
 		}
+		System.out.println("I am cBank " + this);
+		System.out.println("I have this much in reserves " + getReserves());
+		System.out.println("I have this much in assets " + getAssets());
+		System.out.println("I have this much in liabilities " + getLiabilities());
+		System.out.println("I have this much in mortgagePayments " + getMortgagePaymentsIncoming());
+		System.out.println("I have this much in loan total" + getLoanTotal());
+		System.out.println("I have this much net worth" + getNetWorth());
 	}
 
 
