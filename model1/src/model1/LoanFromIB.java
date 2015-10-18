@@ -25,6 +25,7 @@ public class LoanFromIB {
 	}
 	
 	public double makePayment(double amount) throws Exception{
+		paid = false;
 		if (amount == payment){
 			makePaid();
 			iBank.receivePayment(loanId, payment);
@@ -36,7 +37,7 @@ public class LoanFromIB {
 		remainingBalance -= amount;
 		if (remainingBalance <= 0.0){
 			makePaid();
-			return -1.0;
+			return -4.0;
 		}
 		if (isPaid()){
 			return payment;

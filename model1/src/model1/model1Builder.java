@@ -75,7 +75,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		
 		int firmCount = 1;
 		for (int i = 0; i < firmCount; i++){
-			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3200.0, 0.0, 1.4, 0.0, 0.25, 0.05, 5.0, 0.0));
+			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3200.0, 0.0, 1.4, 0.0, 0.70, 0.05, 5.0, 0.0));
 		}
 		
 		for (Object obj : context){

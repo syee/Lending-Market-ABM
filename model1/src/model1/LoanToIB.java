@@ -58,9 +58,9 @@ public class LoanToIB {
 			//paid = false;
 		}
 		remainingBalance -= amount;
-		if (remainingBalance <= 0){
+		if (remainingBalance <= 0.0){
 			makePaid();
-			return -1.0;
+			return -4.0;
 			//destroy this loan since it is paid
 		}
 		if (paid){

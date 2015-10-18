@@ -238,7 +238,6 @@ public class Firm {
 		if (iBankDone == null){
 			return false;
 		}
-		
 		if (iBank == iBankDone){
 			//pay off any loans to the bank
 			Collection<LoanFromIB> loanList = loansFromIB.values();
@@ -328,9 +327,10 @@ public class Firm {
 					//this may need to be adjusted later. This works if each firm only asks one investment bank for x dollars. Doesn't work if firm approaches multiple banks
 					//this will likely be adjusted later. possibly divide it by number of investment banks				
 					double tickPayment = calculateFirmTickPayment(balance);
+					double totalPayment = 12 * firmLoanYears * tickPayment;
 					loanPaymentTotal += tickPayment;
 					String newLoanId =  UUID.randomUUID().toString();
-					LoanFromIB newLoan = new LoanFromIB(iBank, balance, tickPayment, newLoanId);
+					LoanFromIB newLoan = new LoanFromIB(iBank, totalPayment, tickPayment, newLoanId);
 					if(iBank.createLoanFirm(this,  balance, tickPayment, newLoanId)){
 						addReserves(balance);
 						loansFromIB.put(newLoanId, newLoan);
@@ -395,10 +395,13 @@ public class Firm {
 			Iterator<LoanFromIB> loans = loanList.iterator();
 			while (loans.hasNext()){
 				LoanFromIB thisLoan = loans.next();
-				loansFromIB.put(thisLoan.getId(), thisLoan);
-				addReserves(thisLoan.getRemainingBalance());
-				System.out.println("I am " + this + ". I just received a loan for "+ thisLoan.getRemainingBalance());
-				System.out.println("The monthly payment on the loan is " + thisLoan.getPayment());
+				if (iBank.checkLoanStatus(thisLoan.getId())){
+					loansFromIB.put(thisLoan.getId(), thisLoan);
+					double balance = thisLoan.getRemainingBalance() * 0.8658953341; //this is the constant ratio between balance and total payment
+					addReserves(balance);
+					System.out.println("I am " + this + ". I just received a loan for "+ balance);
+					System.out.println("The monthly payment on the loan is " + thisLoan.getPayment());
+				}
 			}
 			removeAllWaitingLoans();
 		}
@@ -433,10 +436,9 @@ public class Firm {
 		if (amount >= 0.0){
 			if(loansFromIB.containsKey(tempId)){
 				LoanFromIB thisLoan = loansFromIB.get(tempId);
-				double paymentOutcome = thisLoan.makePayment(amount);
-				if (paymentOutcome == -1.0){
-					//	removeReserves(amount); this already happens
-					//destroy this loan by removing it from map
+				double actualPayment = removeReserves(amount);
+				double paymentOutcome = thisLoan.makePayment(actualPayment);
+				if (paymentOutcome == -4.0){
 					loanPaymentTotal -= thisLoan.getPayment();
 //					loansFromIB.remove(tempId); DO THIS ELSEWHERE
 					return amount;
@@ -450,12 +452,6 @@ public class Firm {
 					//should I add a default counter?
 					//now remove remaining loan balance from this firm's accounting
 					//destroy this firm
-					///
-					///
-					// THIS FIRM NEEDS TO BE DESTROYED
-					//
-					//
-					////
 					loanPaymentTotal -= thisLoan.getPayment();
 //					loansFromIB.remove(tempId); This is not the right place for this.
 					return paymentOutcome;
@@ -486,16 +482,12 @@ public class Firm {
 		if (amount >= 0.0){
 			if(loansFromIB.containsKey(tempId)){
 				LoanFromIB thisLoan = loansFromIB.get(tempId);
-				double paymentOutcome = thisLoan.makePayment(amount);
-				removeReserves(amount);
+				double actualPayment = removeReserves(amount);
+				double paymentOutcome = thisLoan.makePayment(actualPayment);
 				if (paymentOutcome == -1.0){
 					//	removeReserves(amount); this already happens
 					//destroy this loan by removing it from map
 					loanPaymentTotal -= thisLoan.getPayment();
-					return amount;
-				}
-				else if (thisLoan.getPayment() == paymentOutcome){
-					//full payment made
 					return amount;
 				}
 				else{
@@ -503,11 +495,6 @@ public class Firm {
 					//should I add a default counter?
 					//now remove remaining loan balance from this firm's accounting
 					//destroy this firm
-					///
-					///
-					// THIS FIRM NEEDS TO BE DESTROYED
-					//
-					//
 					////
 					loanPaymentTotal -= thisLoan.getPayment();
 //					loansFromIB.remove(tempId);
@@ -523,19 +510,19 @@ public class Firm {
 		}
 	}
 	
-	//this method removes all loans that have been paid off
-	public void checkLoansForPaid(){
-		Collection<LoanFromIB> loanList = loansFromIB.values();
-		if (loanList != null){
-			Iterator<LoanFromIB> loans = loanList.iterator();
-			while (loans.hasNext()){
-				LoanFromIB thisLoan = loans.next();
-				if (thisLoan.getRemainingBalance() == 0){
-					loans.remove();
-				}
-			}
-		}
-	}
+//	//this method removes all loans that have been paid off
+//	public void checkLoansForPaid(){
+//		Collection<LoanFromIB> loanList = loansFromIB.values();
+//		if (loanList != null){
+//			Iterator<LoanFromIB> loans = loanList.iterator();
+//			while (loans.hasNext()){
+//				LoanFromIB thisLoan = loans.next();
+//				if (thisLoan.getRemainingBalance() == 0){
+//					loans.remove();
+//				}
+//			}
+//		}
+//	}
 	
 	//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
 	/** This method causes a Firm to make monthly payments on all loans from its iBank.
@@ -545,7 +532,7 @@ public class Firm {
 	 * @throws Exception
 	 */
 	public void makeMonthlyPaymentsAllLoans() throws Exception{
-		checkLoansForPaid();
+//		checkLoansForPaid();
 		Collection<LoanFromIB> loanList = loansFromIB.values();
 		if (loanList != null){
 			Iterator<LoanFromIB> loans = loanList.iterator();
@@ -555,22 +542,19 @@ public class Firm {
 				double paymentDue = thisLoan.getPayment();
 				System.out.println("Loan Id "+ tempId);
 				System.out.println("Payment Due "+ paymentDue);
-				double actualPayment = removeReserves(paymentDue);
-				System.out.println("Actual Payment "+ actualPayment);
+				double paymentResult = makeLoanPayment(tempId, paymentDue);
+				System.out.println("Actual Payment "+ paymentResult);
 				System.out.println("Remaining Balance "+ thisLoan.getRemainingBalance());
 				
-				if (makeLoanPayment(tempId, actualPayment) == paymentDue){
+				if (paymentResult == paymentDue){
 					//full payment made
-					if (thisLoan.getRemainingBalance() == 0){
-						loanPaymentTotal -= paymentDue;
+					if (thisLoan.getRemainingBalance() <= 0.0){
 						loans.remove();
 					}
 				}
 				else{
 					//investment bank should be destroyed since it failed to make full payment
 					//appears to be handled in makeLoanPayment
-					;
-					loanPaymentTotal -= paymentDue;
 					loans.remove();
 				}
 				
@@ -589,20 +573,20 @@ public class Firm {
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 5, angle, 0);
+			space.moveByVector(this, 4, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
 		
 		else{ /* if (!pt.equals(grid.getLocation(this))){*/
-			double probabilityX = rand.nextDouble() * 8;
-			double probabilityY = rand.nextDouble() * 8;
+			double probabilityX = rand.nextDouble() * 5;
+			double probabilityY = rand.nextDouble() * 5;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY()+ probabilityY);
 			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
 			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
-			space.moveByVector(this, dist - 2, angle, 0);
+			space.moveByVector(this, dist - 1, angle, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 
@@ -624,18 +608,25 @@ public class Firm {
 	
 	public InvestmentBank identifyIBank(GridPoint pt){
 //		GridPoint pt = grid.getLocation(this);
-		List<Object> invBanks = new ArrayList<Object>();
+//		List<Object> invBanks = new ArrayList<Object>();
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof InvestmentBank){
-				invBanks.add(obj);
+				InvestmentBank temp = (InvestmentBank) obj;
+				if (iBank == null){
+					return temp;
+				}
+				if (temp == iBank){
+					return temp;
+				}
+//				invBanks.add(obj);
 			}
 		}
-		if (invBanks.size() > 0){
-			int index = RandomHelper.nextIntFromTo(0, invBanks.size() - 1);
-			Object obj = invBanks.get(index);
-			InvestmentBank toAdd = (InvestmentBank) obj;
-			return toAdd;
-		}
+//		if (invBanks.size() > 0){
+//			int index = RandomHelper.nextIntFromTo(0, invBanks.size() - 1);
+//			Object obj = invBanks.get(index);
+//			InvestmentBank toAdd = (InvestmentBank) obj;
+//			return toAdd;
+//		}
 			
 //			NdPoint spacePt = space.getLocation(obj);
 //			Context<Object> context = ContextUtils.getContext(obj);
@@ -682,8 +673,8 @@ public class Firm {
 	 */
 	@ScheduledMethod(start = 2, interval = 13)
 	public void firms_balanceTick_2() throws Exception{
-		net = calculateNet() - loanPaymentTotal;
 		firmMove();
+		net = calculateNet() - loanPaymentTotal;
 		System.out.println("I am " + this + ". I made "+ net);
 		if (net < 0){
 			if (reserves >= Math.abs(net)){
@@ -697,7 +688,7 @@ public class Firm {
 					System.out.println(net);
 					askForLoan(Math.abs(net));
 					if (reserves >= Math.abs(net)){
-						System.out.println("enough net " +net);
+						System.out.println("I received a loan so I have enough net " + net);
 						removeReserves(Math.abs(net));
 						isUnpaid = false;
 					}
@@ -712,6 +703,7 @@ public class Firm {
 					net = net + getReserves();
 					removeReserves(getReserves());
 					System.out.println("not enough net " + net);
+					isUnpaid = true;
 				}
 			}
 		}
@@ -720,7 +712,7 @@ public class Firm {
 			addReserves(net);
 			//removeCorporateProfits();
 		}
-		System.out.println("I have this much " + getReserves() + " in my reserves!");
+		System.out.println("I have this much " + getReserves() + " in my reserves after tick2!");
 	}
 	
 	//firm sees if it's waiting list loans have all passed
@@ -744,6 +736,7 @@ public class Firm {
 					removeAllWaitingLoans();
 				}
 				else{
+					//this case should not happen as it is identical to below
 					//firm goes bankrupt
 					removeReserves(reserves); // I am assuming monthly deficit it senior to long term debt
 					makeMonthlyPaymentsAllLoans();
@@ -758,6 +751,7 @@ public class Firm {
 				//this will cause firm to default on all loans it owes.
 				makeMonthlyPaymentsAllLoans();
 				removeAllWaitingLoans();
+				firmDie();
 			}
 		}
 	}
@@ -778,7 +772,6 @@ public class Firm {
 		if (reserves <= -1.0){
 			//firm has gone bankrupt
 			leaveBank(iBank);
-			removeAllWaitingLoans();
 			firmDie();
 		}
 		else{
@@ -786,7 +779,6 @@ public class Firm {
 			isUnpaid = true;
 		}
 	}
-	
 	
 	
 }

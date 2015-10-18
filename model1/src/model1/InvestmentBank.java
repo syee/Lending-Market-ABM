@@ -502,6 +502,7 @@ public class InvestmentBank {
 				mortgagePaymentsIncoming += payment;
 				//this assumes payment has already been calculated correctly by firm
 				LoanToFirm newLoan = new LoanToFirm(debtor, totalPayments, payment, loanId);
+				System.out.println("iBank creating loan " + newLoan.getId());
 				loansToFirms.put(loanId, newLoan);
 				System.out.println("I am iBank " + this + ". I just loaned " + balance);
 				System.out.println("The monthly payment I will receive is" + payment);
@@ -511,6 +512,7 @@ public class InvestmentBank {
 				//investment bank tries to borrow money from commercial bank	
 				//adds this loan to list of loans to try to reconcile
 				LoanToFirm newLoan = new LoanToFirm(debtor, balance, payment, loanId);
+				System.out.println("iBank just added waiting loan " + newLoan);
 				waitingLoans.put(loanId, newLoan);
 				return false;
 			}
@@ -532,6 +534,7 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
 				if (cBank != null){
+					System.out.println("iBank trying to borrow loan " + thisLoan.getId());
 					requestLoanCB(thisLoan.getRemainingBalance(), thisLoan.getId());
 				}
 			}
@@ -552,6 +555,7 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
 				double totalPayment = 12 * firmLoanYears * thisLoan.getPayment();
+				System.out.println("iBank trying to resolve loan " + thisLoan.getId());
 				createLoanFirm(thisLoan.getFirm(), totalPayment, thisLoan.getPayment(), thisLoan.getId());
 			}
 			//removing all loans from waiting loan list now
@@ -601,16 +605,18 @@ public class InvestmentBank {
 			if(loansToFirms.containsKey(tempId)){
 				LoanToFirm thisLoan = loansToFirms.get(tempId);
 				double paymentOutcome = thisLoan.receivePayment(amount);
-				if (paymentOutcome == -1.0){
+				if (paymentOutcome == -4.0){
 					addReserves(amount);
 					removeAssets(amount);
-					mortgagePaymentsIncoming -= amount;
+					mortgagePaymentsIncoming -= thisLoan.getPayment();
 					//destroy this loan by removing it from map
 //					loansToFirms.remove(tempId); THIS SHOULD HAPPEN ELSEWHERE
+					System.out.println("loan paid off in full");
 					return true;
 				}
 				else if (thisLoan.getPayment() == paymentOutcome){
 					//full payment made
+					System.out.println("tickly payment made of " + thisLoan.getPayment());
 					addReserves(amount);
 					removeAssets(amount);
 					return true;
@@ -622,7 +628,9 @@ public class InvestmentBank {
 					removeAssets(amount);
 					//now remove remaining loan balance from this bank's accounting
 					double loss = thisLoan.getRemainingBalance();
+					mortgagePaymentsIncoming -= thisLoan.getPayment();
 					removeAssets(loss);
+					System.out.println("loan gone bankrupt");
 					loansToFirms.remove(tempId);
 					return false;
 				}			
@@ -821,6 +829,9 @@ public class InvestmentBank {
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
 				CommercialBank temp = (CommercialBank) obj;
+				if (cBank == null){
+					return temp;
+				}
 				if (temp == cBank){
 //					comBanks.add(obj);
 					return temp;

@@ -1198,3 +1198,70 @@ Caused by: java.lang.Exception: investment bank should not be receiving this pay
 	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:562)
 	at model1.Firm.firms_waitingStatus_5(Firm.java:759)
 	... 10 more
+FATAL [Thread-6] 2015-10-18 03:35:09,087 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (18.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.Exception: investment bank should not be receiving this payment
+	at model1.InvestmentBank.receivePayment(InvestmentBank.java:631)
+	at model1.LoanFromIB.makePayment(LoanFromIB.java:34)
+	at model1.Firm.makeLoanPayment(Firm.java:438)
+	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:543)
+	at model1.Firm.firms_waitingStatus_5(Firm.java:750)
+	... 10 more
+FATAL [Thread-6] 2015-10-18 03:54:55,431 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (317.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.Exception: investment bank should not be receiving this payment
+	at model1.InvestmentBank.receivePayment(InvestmentBank.java:636)
+	at model1.LoanFromIB.makePayment(LoanFromIB.java:34)
+	at model1.Firm.makeLoanPayment(Firm.java:438)
+	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:543)
+	at model1.Firm.firms_waitingStatus_5(Firm.java:750)
+	... 10 more
+FATAL [Thread-6] 2015-10-18 04:02:48,384 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (288.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.NullPointerException
+	at model1.InvestmentBank.createLoanFirm(InvestmentBank.java:507)
+	at model1.Firm.askForLoan(Firm.java:334)
+	at model1.Firm.firms_balanceTick_2(Firm.java:689)
+	... 10 more

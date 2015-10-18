@@ -417,7 +417,7 @@ public class CommercialBank {
 				System.out.println("I am the commercial bank accepting a loan payment with loan id " + tempId);
 				LoanToIB thisLoan = loansToIB.get(tempId);
 				double paymentOutcome = thisLoan.receivePayment(amount);
-				if (paymentOutcome == -1.0){
+				if (paymentOutcome == -4.0){
 					addReserves(amount);
 					removeAssets(amount);
 					loanTotal -= amount;

@@ -49,6 +49,7 @@ public class LoanToFirm {
 	}
 	
 	public double receivePayment(double amount){
+		paid = false;
 		if (amount == payment){
 			makePaid();
 		}
@@ -56,14 +57,15 @@ public class LoanToFirm {
 			;
 		}
 		remainingBalance -= amount;
-		if (remainingBalance <= 0){
+		if (remainingBalance <= 0.0){
 			makePaid();
-			return -1.0;
+			return -4.0;
 			//destroy this loan since it is paid
 		}
 		if (isPaid()){
 			return payment;
 		}
+		System.out.println("Loan to firm is about to return " + amount);
 		return amount;
 	}
 }
