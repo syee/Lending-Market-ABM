@@ -239,6 +239,12 @@ public class Consumer {
 		}
 	}
 	
+	public boolean forcedToLeaveBank(CommercialBank cBankDead) throws Exception{
+		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
+		cBank = null;
+		return true;
+	}
+	
 	/** This method returns a consumer's cBank. This assumes consumer's only have one cBank
 	 * @return returns a consumer's cBank. null is returned if no cBank relationship exists.
 	 */

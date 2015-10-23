@@ -228,6 +228,15 @@ public class Firm {
 		return iBank;
 	}
 	
+	public void deleteLoan(String loanId){
+		if (loansFromIB.containsKey(loanId)){
+			LoanFromIB temp = loansFromIB.get(loanId);
+			loanPaymentTotal -= temp.getPayment();
+			loansFromIB.remove(loanId);
+		}
+	}
+	
+	
 	/** This method allows a Firm to leave an iBank.
 	 * The Firm must first pay off all of its loans to that iBank to sever the relationship.
 	 * @param iBankDone iBank the Firm wishes to leave.
@@ -249,6 +258,7 @@ public class Firm {
 					if (thisLoan.getBank() == iBankDone){
 						double balance = thisLoan.getRemainingBalance();
 						makeFullBalancePayment(tempId, balance);
+						System.out.println("firm deleting loan in leaveBank() " + thisLoan.getId());
 						loans.remove();
 					}
 				}
@@ -271,7 +281,7 @@ public class Firm {
 	public double calculateFirmTickPayment(double balance) throws Exception{
 		if (balance >= 0.0){
 			double payment = balance/(1/loanRateFirms)/(1-(1/Math.pow((1+loanRateFirms),firmLoanYears)))/12;
-			System.out.println("the payment is " + payment);
+//			System.out.println("the payment is " + payment);
 			return payment;
 		}
 		else{
@@ -304,8 +314,8 @@ public class Firm {
 	public boolean decisionBorrow(double balance) throws Exception{
 		if (balance >= 0.0){
 			double payment = calculateFirmTickPayment(balance);
-			System.out.println("My loanPaymentTotal is is " + loanPaymentTotal);
-			System.out.println("My payment is is " + payment);
+//			System.out.println("My loanPaymentTotal is is " + loanPaymentTotal);
+//			System.out.println("My payment is is " + payment);
 			return (payment + loanPaymentTotal <= averageProfits);
 		}
 		else{
@@ -323,9 +333,9 @@ public class Firm {
 	 */
 	public void askForLoan(double balance) throws Exception{
 		balance = balance * 1.05;
-		System.out.println("loan balance is " + balance);
-		System.out.println("My iBank is " + iBank);
-		System.out.println("My average profits are " + averageProfits);
+//		System.out.println("loan balance is " + balance);
+//		System.out.println("My iBank is " + iBank);
+//		System.out.println("My average profits are " + averageProfits);
 		if (balance >= 0.0){
 			if (iBank != null){
 				if (decisionBorrow(balance)){
@@ -339,6 +349,7 @@ public class Firm {
 					String newLoanId =  UUID.randomUUID().toString();
 					LoanFromIB newLoan = new LoanFromIB(iBank, totalPayment, tickPayment, newLoanId);
 					if(iBank.createFirstLoanFirm(this,  balance, tickPayment, newLoanId)){
+						System.out.println("I am " + this + ". I justa adsf sdfsdf received a loan for "+ balance + " from " + iBank);
 						addReserves(balance);
 						loansFromIB.put(newLoanId, newLoan);
 					}
@@ -408,6 +419,8 @@ public class Firm {
 					addReserves(balance);
 					System.out.println("I am " + this + ". I just received a loan for "+ balance);
 					System.out.println("The monthly payment on the loan is " + thisLoan.getPayment());
+					System.out.println("The LOAN IS " + thisLoan.getId());
+					
 				}
 			}
 			removeAllWaitingLoans();
@@ -442,6 +455,7 @@ public class Firm {
 	public double makeLoanPayment(String tempId, double amount) throws Exception{
 		if (amount >= 0.0){
 			if(loansFromIB.containsKey(tempId)){
+				System.out.println("I am " + this + ". I am making a payment on loan " + tempId +". for " + amount);
 				LoanFromIB thisLoan = loansFromIB.get(tempId);
 				double actualPayment = removeReserves(amount);
 				double paymentOutcome = thisLoan.makePayment(actualPayment);
@@ -556,18 +570,61 @@ public class Firm {
 				if (paymentResult == paymentDue){
 					//full payment made
 					if (thisLoan.getRemainingBalance() <= 0.0){
+						System.out.println("firm deleting loan in monthly Success" + thisLoan.getId());
 						loans.remove();
 					}
 				}
 				else{
 					//investment bank should be destroyed since it failed to make full payment
 					//appears to be handled in makeLoanPayment
+					System.out.println("firm deleting loan in monthly failure " + thisLoan.getId());
 					loans.remove();
 				}
 				
 			}
 		}
 	}
+	
+	
+	//firm cycles through its outstanding loan payments and pays them, calls makeLoanPayment()
+		/** This method causes a Firm to make monthly payments on all loans from its iBank.
+		 * It cycles through loansFromIB, and accesses those objects. It gets the monthly payment due and attempts to remove that amount from its reserves.
+		 * The money is transferred to the iBank via makeLoanPayment() which calls LoanFromIB.makePayment()
+		 * If the full amount is not transferred, this will be caught in removeReserves()
+		 * @throws Exception
+		 */
+		public void makeFullPaymentsAllLoans() throws Exception{
+//			checkLoansForPaid();
+			Collection<LoanFromIB> loanList = loansFromIB.values();
+			if (loanList != null){
+				Iterator<LoanFromIB> loans = loanList.iterator();
+				while (loans.hasNext()){
+					LoanFromIB thisLoan = loans.next();
+					String tempId = thisLoan.getId();
+					double paymentDue = thisLoan.getRemainingBalance();
+					System.out.println("Loan Id "+ tempId);
+					System.out.println("Full Balance Due "+ paymentDue);
+					double paymentResult = makeFullBalancePayment(tempId, paymentDue);
+					System.out.println("Actual Payment "+ paymentResult);
+					System.out.println("Remaining Balance "+ thisLoan.getRemainingBalance());
+					
+					if (paymentResult == paymentDue){
+						//full payment made
+						if (thisLoan.getRemainingBalance() <= 0.0){
+							System.out.println("firm deleting in monthlyFULL loan " + thisLoan.getId());
+							loans.remove();
+						}
+					}
+					else{
+						//investment bank should be destroyed since it failed to make full payment
+						//appears to be handled in makeLoanPayment
+						System.out.println("firm deleting in monthlyFULL loan " + thisLoan.getId());
+						loans.remove();
+					}
+					
+				}
+			}
+		}
 	
 	
 	
@@ -599,11 +656,8 @@ public class Firm {
 
 			if (iBank == null){
 				InvestmentBank toAdd = identifyIBank(pt);
-				System.out.println(this + "I am trying to find a bank!!");
-				System.out.println("I found " + toAdd);
 				if (toAdd != null){
 					if (joinBank(toAdd)){
-						System.out.println("I am " + this + " and I just made a connection!");
 						Context<Object> context = ContextUtils.getContext(this);						
 						Network<Object> net = (Network<Object>) context.getProjection("iBanks_firms network");
 						net.addEdge(this, toAdd);
@@ -661,7 +715,7 @@ public class Firm {
 				}
 			}
 //		}
-		System.out.println("I am firm " + this + ". I found the point with the most banks at "+ pointWithMostIBanks);
+//		System.out.println("I am firm " + this + ". I found the point with the most banks at "+ pointWithMostIBanks);
 		firmMoveTowards(pointWithMostIBanks);
 	}
 	
@@ -695,21 +749,20 @@ public class Firm {
 					System.out.println(net);
 					askForLoan(Math.abs(net));
 					if (reserves >= Math.abs(net)){
-						System.out.println("I received a loan so I have enough net " + net);
+						System.out.println(this + " I received a loan so I have enough net " + net);
 						removeReserves(Math.abs(net));
 						isUnpaid = false;
 					}
 					else{
 						isUnpaid = true;
-						net = net + getReserves();
-						System.out.println("not enough net " +net);
+//						System.out.println("not enough net. will wait for loans " +net);
 						removeReserves(getReserves());
 					}
 				}
 				else{
 					net = net + getReserves();
 					removeReserves(getReserves());
-					System.out.println("not enough net " + net);
+//					System.out.println("not enough net " + net);
 					isUnpaid = true;
 				}
 			}
@@ -719,7 +772,7 @@ public class Firm {
 			addReserves(net);
 			//removeCorporateProfits();
 		}
-		System.out.println("I have this much " + getReserves() + " in my reserves after tick2!");
+//		System.out.println("I have this much " + getReserves() + " in my reserves after tick2!");
 	}
 	
 	//firm sees if it's waiting list loans have all passed
@@ -752,7 +805,9 @@ public class Firm {
 				}
 			}
 			else{
+				System.out.println("I am dfskjlkjdlfsgjkdfsgl firm " + this);
 				collectLoans(); // I am assuming monthly deficit is senior to long term debt
+				System.out.println("I am dfskjlkjdlfsgjkdfsgl firm " + this);
 				removeReserves(reserves);
 				//firm goes bankrupt
 				//this will cause firm to default on all loans it owes.

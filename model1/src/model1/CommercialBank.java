@@ -515,6 +515,24 @@ public class CommercialBank {
 //		}
 //	}
 	
+	//This method is called when a cBank goes bankrupt to eliminate any lingering connections with iBanks.
+	public void deleteAllIBLoans() throws Exception{
+		Collection<LoanToIB> loanList = loansToIB.values();
+		if (loanList != null){
+			Iterator<LoanToIB> loans = loanList.iterator();
+			//this collects on all loans
+			while (loans.hasNext()){
+				LoanToIB thisLoan = loans.next();
+				String tempId = thisLoan.getId();
+				InvestmentBank iBank = thisLoan.getBank();
+				iBank.deleteLoan(tempId);
+				loansToIB.remove(tempId);
+			}
+		}
+	}
+	
+	
+	
 	public void cBankDie(){
 		Context<Object> context = ContextUtils.getContext(this);
 		context.remove(this);
@@ -533,7 +551,7 @@ public class CommercialBank {
 			while (consumers.hasNext()){
 				Map.Entry<Consumer, Double> consumer = consumers.next();
 				//I may want to pass an argument here later if more than one cBank per consumer
-//				consumer.getKey().leaveBank(this);
+				consumer.getKey().forcedToLeaveBank(this);
 				consumers.remove();
 			}
 		}
@@ -559,6 +577,7 @@ public class CommercialBank {
 	public void commBank_check_12() throws Exception{
 		if (reserves <= -1){
 			removeAllConsumers();
+			deleteAllIBLoans();
 			//commercial bank goes bankrupt
 			cBankDie();
 		}

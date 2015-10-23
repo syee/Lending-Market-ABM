@@ -623,10 +623,12 @@ public class InvestmentBank {
 	 * @return Returns true if loan was made.
 	 */
 	public boolean checkLoanStatus(String loanId){
-		if (loansToFirms.get(loanId) != null){
+		if (loansToFirms.containsKey(loanId)){
+			System.out.println(this + " I ASKJLDFHLKASJDFHKLJSAHDFJKLS " + loanId);
 			return true;
 		}
 		else{
+			System.out.println(this + " I ABSOLUTELY DO NOT CONTAIN " + loanId);
 			return false;
 		}
 	}
@@ -671,13 +673,16 @@ public class InvestmentBank {
 					double loss = thisLoan.getRemainingBalance();
 					mortgagePaymentsIncoming -= thisLoan.getPayment();
 					removeAssets(loss);
-					System.out.println("loan gone bankrupt");
+					System.out.println("iBank deleting loan " + thisLoan.getId());
 					loansToFirms.remove(tempId);
 					return false;
 				}			
 			}
 			else{
+				System.out.println(this + " I DO NOT CONTAIN " + tempId);
 				throw new Exception("investment bank should not be receiving this payment");
+				//Error here. Uncomment line 680
+//				return false;
 			}
 		}
 		else{
@@ -744,6 +749,14 @@ public class InvestmentBank {
 		}
 	}
 	
+	public void deleteLoan(String loanId){
+		if (loansFromCB.containsKey(loanId)){
+			LoanFromCB temp = loansFromCB.get(loanId);
+			mortgagePaymentsOutgoing -= temp.getPayment();
+			loansFromCB.remove(loanId);
+		}
+	}
+	
 	/** This method makes a fullBalancePayment() of 0 on the loan. This will register on the cBank side as the iBank defaulting on the loan.
 	 * The cBank will then remove the loan from its side.
 	 * @param thisLoan Loan to be defaulted on.
@@ -775,6 +788,9 @@ public class InvestmentBank {
 			while (loans.hasNext()){
 				LoanToFirm thisLoan = loans.next();
 				removeSingleLoanToFirm(thisLoan);
+				Firm temp = thisLoan.getFirm();
+				temp.deleteLoan(thisLoan.getId());
+				System.out.println("iBank removing REMOVE ALL loan " + thisLoan.getId());
 				loans.remove();
 			}
 		}
@@ -896,7 +912,7 @@ public class InvestmentBank {
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostCBanks = null;
-//		if (cBank == null){
+		if (cBank == null){
 			int maxCount = 0;
 			for (GridCell<CommercialBank> bank: gridCells){
 				if (bank.size() > maxCount){
@@ -904,7 +920,7 @@ public class InvestmentBank {
 					maxCount = bank.size();
 				}
 			}
-//		}
+		}
 //		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
 		consumerMoveTowards(pointWithMostCBanks);	
 	}
