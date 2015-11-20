@@ -75,12 +75,12 @@ public class CommercialBank {
 	 * @throws Exception Throws exception if negative amount is given.
 	 */
 	public boolean addAccount(Consumer holder, double amount) throws Exception{
-		System.out.println("cBank trying to add " + holder + " with " + amount);
+//		System.out.println("cBank trying to add " + holder + " with " + amount);
 		if (!(Consumers.containsKey(holder))){
 			Consumers.put(holder, amount);
 			addReserves(amount);
 			addLiabilities(amount);
-			System.out.println("cBank successfully add " + holder + " with " + amount);
+//			System.out.println("cBank successfully add " + holder + " with " + amount);
 			return true;
 		}
 		else{
@@ -562,8 +562,8 @@ public class CommercialBank {
 	 * This method should be unnecessary as payments on all loans will be made before this method is called.
 	 * @throws Exception
 	 */
-	@ScheduledMethod(start = 9, interval = 13)
-	public void commBank_getPayments_9() throws Exception{
+	@ScheduledMethod(start = 10, interval = 14)
+	public void commBank_getPayments_10() throws Exception{
 		//checkAllLoans();
 	}
 	
@@ -573,8 +573,8 @@ public class CommercialBank {
 	 * If the cBank is not bankrupt, it pays interest on all Consumer accounts.
 	 * @throws Exception
 	 */
-	@ScheduledMethod(start = 12, interval = 13)
-	public void commBank_check_12() throws Exception{
+	@ScheduledMethod(start = 13, interval = 14)
+	public void commBank_check_13() throws Exception{
 		if (reserves <= -1){
 			removeAllConsumers();
 			deleteAllIBLoans();
@@ -585,13 +585,13 @@ public class CommercialBank {
 			//pay interest on all consumer accounts
 			updateConsumers();
 		}
-		System.out.println("I am cBank " + this);
-		System.out.println("I have this much in reserves " + getReserves());
-		System.out.println("I have this much in assets " + getAssets());
-		System.out.println("I have this much in liabilities " + getLiabilities());
-		System.out.println("I have this much in mortgagePayments " + getMortgagePaymentsIncoming());
-		System.out.println("I have this much in loan total" + getLoanTotal());
-		System.out.println("I have this much net worth" + getNetWorth());
+//		System.out.println("I am cBank " + this);
+//		System.out.println("I have this much in reserves " + getReserves());
+//		System.out.println("I have this much in assets " + getAssets());
+//		System.out.println("I have this much in liabilities " + getLiabilities());
+//		System.out.println("I have this much in mortgagePayments " + getMortgagePaymentsIncoming());
+//		System.out.println("I have this much in loan total" + getLoanTotal());
+//		System.out.println("I have this much net worth" + getNetWorth());
 	}
 
 

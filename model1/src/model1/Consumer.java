@@ -9,6 +9,7 @@ import java.util.Random;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
+import bsh.This;
 import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
@@ -28,6 +29,10 @@ import repast.simphony.util.SimUtilities;
  *
  */
 public class Consumer {
+	//this value is 1.96 standard deviations from mean of 0.85
+	private static final double FEAR_CUTOFF = 0.90268;
+	private static final double FEAR_WITHDRAWAL_PROPORTION = 1.00;
+	private static final int CUSTOMER_LEARN_COUNT = 10;
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	
@@ -40,10 +45,11 @@ public class Consumer {
 	private double smallShockProb;
 	private double largeShockMult;
 	private double largeShockProb;
+	private double consumptionDemand;
 	private boolean isBankrupt;
 	
 	private NormalDistribution salaryCurve;
-	private NormalDistribution expenseCurve;
+	private NormalDistribution consumptionCurve;
 	private double CONSUMER_DEVIATION_PERCENT;
 	private double averageSavings;
 	
@@ -60,7 +66,7 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb){
 		this.space = space;
 		this.grid = grid;
 		this.cash = cash;
@@ -72,11 +78,13 @@ public class Consumer {
 		this.largeShockProb = largeShockProb;
 		this.isBankrupt = false;
 		this.rand = new Random();
+		this.consumptionDemand = 0;
 		
 		this.salaryCurve = new NormalDistribution(salary, CONSUMER_DEVIATION_PERCENT*salary);
-		this.salary = salaryCurve.sample();
-		this.expenseCurve = new NormalDistribution(salary - averageSavings, CONSUMER_DEVIATION_PERCENT*(salary - averageSavings));
-		this.expenses = expenseCurve.sample();
+//		this.salary = salaryCurve.sample();
+		this.consumptionCurve = new NormalDistribution(consumptionMean, CONSUMER_DEVIATION_PERCENT*consumptionMean);
+		initialConsumptionDemand();
+//		this.expenses = consumptionDemand * salaryCurve.sample();
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -91,7 +99,7 @@ public class Consumer {
 	 * 
 	 */
 	public double calculateExpenses(){
-		expenses = expenseCurve.sample();
+		expenses = consumptionDemand * salaryCurve.sample();
 		return expenses;
 	}
 	
@@ -252,6 +260,101 @@ public class Consumer {
 		return cBank;
 	}
 	
+	public void initialConsumptionDemand(){
+		consumptionDemand = consumptionCurve.sample();
+		while ((consumptionDemand > 1.0) || (consumptionDemand < 0.0)){
+			consumptionDemand = consumptionCurve.sample();
+		}
+	}
+	
+	public double getConsumption(){
+		return consumptionDemand;
+	}
+	
+	public void consumerProximityLearning(){
+		GridPoint pt = grid.getLocation(this);
+		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 10, 10);
+		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
+		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+		int customerCount = 0;
+		double othersConsumption = 0.0;
+		for (GridCell<Consumer> location: gridCells){
+			if (location.size() > 0){
+				GridPoint otherPt = location.getPoint();
+				for (Object obj : grid.getObjectsAt(otherPt.getX(), otherPt.getY())){
+					//only look at the first 10 customers
+					if (customerCount < CUSTOMER_LEARN_COUNT + 1){
+						if (obj instanceof Consumer){
+//							System.out.println("I am " + this + ". I just looked at " + ((Consumer) obj) + " and saw " + ((Consumer) obj).getConsumption());
+							othersConsumption += ((Consumer) obj).getConsumption();
+							customerCount++;
+						}
+					}
+					else{
+						break;
+					}
+				}
+				
+			}
+		}
+		if (customerCount > 1){
+			//my method includes the customer in their own calculation. this corrects for that.
+			othersConsumption -= consumptionDemand;
+			customerCount -= 1;
+			
+//			System.out.println(this + " I looked around and saw " + othersConsumption + " from this many consumers: " + customerCount);
+//			System.out.println(this + " My consumption demand was " + consumptionDemand);
+			//50% of the new consumptionDemand comes the previous period's consumptionDemand
+			double whiteNoise = rand.nextDouble() / 5 - 0.10;
+			consumptionDemand = consumptionDemand / 2 - whiteNoise;
+//			System.out.println(whiteNoise + " is white noise");
+			//50% of the new consumptionDemand comes the consumptionDemands of the 10 nearest consumers in this period
+			consumptionDemand += othersConsumption / customerCount / 2;
+			if (consumptionDemand > 1.0){
+				consumptionDemand = 1.0;
+			}
+//			System.out.println(this + " My consumption demand is now " + consumptionDemand);
+		}
+	}
+	
+	/** This is the primary method of the second basic scheduled method to be called.
+	 * This method calls calculateNet() to determine a consumer's net amount for a month.
+	 * If the amount is negative, the consumer must withdraw money to cover the deficit or go bankrupt.
+	 * If the full amount is not covered, the consumer's isBankrupt attribute is set to true.
+	 * If the amount it positive, the consumer deposits the amount.
+	 * If the consumer has a cBank and has enough savings to cover a deficit, the consumer considers his/her fear of a bank run.
+	 * Based on the average consumption demands of the nearest 10 consumers from consumerProximityLearning(),
+	 * The consumer makes a decision on whether or not to withdraw a portion of their remaining savings out of fear.
+	 * @throws Exception
+	 */
+	public void panicBasedConsumption() throws Exception{
+		double net = calculateNet();
+		consumerProximityLearning();
+//		System.out.println("HERERE");
+//		System.out.println("My consumptionDemand is " + consumptionDemand);
+//		if (consumptionDemand > FEAR_CUTOFF){
+//			System.out.println(this + " is very scared");
+//		}
+		if (net < 0){
+			double amountPaid = withdrawSavings(Math.abs(net));
+			double difference = net + amountPaid;
+		}
+		else{
+			depositSavings(net);
+		}
+		if (cBank != null){
+			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
+			if (consumptionDemand > FEAR_CUTOFF){
+				double remainingSavings = getSavings();
+				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
+				double fearWithdrawalAmount = remainingSavings * FEAR_WITHDRAWAL_PROPORTION;
+				cash += withdrawSavings(fearWithdrawalAmount);
+				leaveBank(cBank);
+				System.out.println(this + " just made a complete fear withdrawal because their consumptionDemand was " + consumptionDemand);
+			}
+		}
+	}
+	
 	/** This method is called when a consumer has a net positive amount for a month, but does not have a cBank account.
 	 * @param amount This is the positive amount a consumer wishes to add to their cash pile.
 	 * @throws Exception  Throws exception if amount is less than 0.
@@ -283,45 +386,41 @@ public class Consumer {
 	public void consumerMoveTowards(GridPoint pt) throws Exception{
 		//only move if we are not already in this grid location
 		if (pt == null){
-			//force consumers to move weird
-			double probabilityX = rand.nextDouble() * 8;
-			double probabilityY = rand.nextDouble() * 8;
+			//force consumers to move randomly
+			double targetX = rand.nextDouble() * 8;
+			double targetY = rand.nextDouble() * 8;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(myPoint.getX() + probabilityX, myPoint.getY() + probabilityY);
-			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			space.moveByVector(this, 5, angle, 0);
+			NdPoint otherPoint = new NdPoint(myPoint.getX() + targetX, myPoint.getY() + targetY);
+			double angleToMove = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			int distanceToMove = 5;
+			space.moveByVector(this, distanceToMove, angleToMove, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
 		}
-		
-		else{ /* (!pt.equals(grid.getLocation(this))){*/
-			double probabilityX = rand.nextDouble() * 4;
-			double probabilityY = rand.nextDouble() * 4;
+		else{
+			double targetX = rand.nextDouble() * 4;
+			double targetY = rand.nextDouble() * 4;
 			NdPoint myPoint = space.getLocation(this);
-			NdPoint otherPoint = new NdPoint(pt.getX() + probabilityX, pt.getY() + probabilityY);
-			double angle = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
-			float dist = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
-			
-			
-			space.moveByVector(this, dist - 2, angle, 0);
+			NdPoint otherPoint = new NdPoint(pt.getX() + targetX, pt.getY() + targetY);
+			double angelToMove = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
+			float distanceToMove = (float) Math.sqrt(Math.pow(otherPoint.getX() - myPoint.getX(), 2) +Math.pow(otherPoint.getY() - myPoint.getY(), 2));
+			space.moveByVector(this, distanceToMove - 2, angelToMove, 0);
 			myPoint = space.getLocation(this);
 			grid.moveTo(this,  (int)myPoint.getX(), (int)myPoint.getY());
 			
-			if (cBank == null){
-				CommercialBank toAdd = identifyCBank(pt);
+			CommercialBank toAdd = identifyCBank(pt);
 //				System.out.println(this);
 //				System.out.println(toAdd);
-				if (toAdd != null){
+			if (toAdd != null){
 //					System.out.println("HERE");
-					if (joinBank(toAdd)){
+				if (joinBank(toAdd)){
 //						System.out.println("THERE");
-						Context<Object> context = ContextUtils.getContext(this);
+					Context<Object> context = ContextUtils.getContext(this);
 //						System.out.println(context);
-						Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
+					Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
 //						System.out.println(net);
-						net.addEdge(this, toAdd);
-					}
+					net.addEdge(this, toAdd);
 				}
 			}
 		}
@@ -333,6 +432,7 @@ public class Consumer {
 		for (Object obj : grid.getObjectsAt(pt.getX(), pt.getY())){
 			if (obj instanceof CommercialBank){
 				comBanks.add(obj);
+				break;
 			}
 		}
 		if (comBanks.size() > 0){
@@ -348,14 +448,13 @@ public class Consumer {
 	public void consumerMove() throws Exception{
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
-		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
-		
-		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
-		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		
 		GridPoint pointWithMostCBanks = null;
-//		if (cBank == null){
+		if(cBank == null){
+			//use GridCellNgh to create GridCells for the surrounding neighborhood
+			GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+			
+			List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
+			SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 			int maxCount = 0;
 			for (GridCell<CommercialBank> bank: gridCells){
 				if (bank.size() > maxCount){
@@ -363,7 +462,7 @@ public class Consumer {
 					maxCount = bank.size();
 				}
 			}
-//		}
+		}
 //		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
 		consumerMoveTowards(pointWithMostCBanks);	
 	}
@@ -384,19 +483,39 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	@ScheduledMethod(start = 1, interval = 13)
+	@ScheduledMethod(start = 1, interval = 14)
 	public void consumer_tick_1() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
 		consumerMove();
-		double net = calculateNet();
-		System.out.println("I am " + this + ". I made "+ net);
-		if (net < 0){
-			withdrawSavings(Math.abs(net));
-		}
-		else{
-			depositSavings(net);
-		}
-		System.out.println("I have this much " + getSavings() + " in my bank account!");
+//		System.out.println("I am " + this + ". I made "+ net);
+//		if (net < 0){
+//			withdrawSavings(Math.abs(net));
+//		}
+//		else{
+//			depositSavings(net);
+//		}
+//		System.out.println("I have this much " + getSavings() + " in my bank account!");
+		
+	}
+	
+	/** This is the first basic scheduled method to be called.
+	 * The consumer initializes its consumption demand.
+	 * The consumer than moves around to search for banks or just move
+	 * This provides the basis of consumers passing information to each other. 
+	 */
+	@ScheduledMethod(start = 2, interval = 14)
+	public void consumer_tick_2() throws Exception{
+		//This method should either go last or first of the basic scheduled methods.
+//		double net = calculateNet();
+//		System.out.println("I am " + this + ". I made "+ net);
+//		if (net < 0){
+//			withdrawSavings(Math.abs(net));
+//		}
+//		else{
+//			depositSavings(net);
+//		}
+//		System.out.println("I have this much " + getSavings() + " in my bank account!");
+		panicBasedConsumption();
 		
 	}
 	
@@ -407,8 +526,8 @@ public class Consumer {
 	 * @throws Exception 
 	 * 
 	 */
-	@ScheduledMethod(start = 11, interval = 13)
-	public void consumer_check_11() throws Exception{
+	@ScheduledMethod(start = 12, interval = 14)
+	public void consumer_check_12() throws Exception{
 		if (isBankrupt){
 			leaveBank(getBank());
 			//consumer.die()
