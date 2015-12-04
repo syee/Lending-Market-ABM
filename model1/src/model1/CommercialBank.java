@@ -309,7 +309,8 @@ public class CommercialBank {
 					double amountAvailable = removeReserves(savings);
 					removeLiabilities(amountAvailable);
 					//consumer should be removed because he could not pay a full debt
-					Consumers.remove(holder);
+					//this was changed so that the consumer will remove himself later in his scheduled method
+//					Consumers.remove(holder);
 					//note that amountAvailable could be less than what consumer has if cBank is about to go bankrupt
 					return amountAvailable;
 				}
@@ -545,6 +546,7 @@ public class CommercialBank {
 	 * 
 	 */
 	public void removeAllConsumers() throws Exception{
+		System.out.println("BANK BLOW UP " + this);
 		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
 		if (consumerList != null){
 			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
@@ -562,8 +564,8 @@ public class CommercialBank {
 	 * This method should be unnecessary as payments on all loans will be made before this method is called.
 	 * @throws Exception
 	 */
-	@ScheduledMethod(start = 10, interval = 14)
-	public void commBank_getPayments_10() throws Exception{
+	@ScheduledMethod(start = 12, interval = 16)
+	public void commBank_getPayments_12() throws Exception{
 		//checkAllLoans();
 	}
 	
@@ -573,8 +575,8 @@ public class CommercialBank {
 	 * If the cBank is not bankrupt, it pays interest on all Consumer accounts.
 	 * @throws Exception
 	 */
-	@ScheduledMethod(start = 13, interval = 14)
-	public void commBank_check_13() throws Exception{
+	@ScheduledMethod(start = 15, interval = 16)
+	public void commBank_check_15() throws Exception{
 		if (reserves <= -1){
 			removeAllConsumers();
 			deleteAllIBLoans();

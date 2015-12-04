@@ -53,6 +53,11 @@ public class Consumer {
 	private double CONSUMER_DEVIATION_PERCENT;
 	private double averageSavings;
 	
+	private double difference;
+	private double net;
+	private boolean panicFlag;
+	private double othersConsumption;
+	
 	
 	/** This method instantiates a Consumer Object.
 	 * @param space
@@ -85,6 +90,10 @@ public class Consumer {
 		this.consumptionCurve = new NormalDistribution(consumptionMean, CONSUMER_DEVIATION_PERCENT*consumptionMean);
 		initialConsumptionDemand();
 //		this.expenses = consumptionDemand * salaryCurve.sample();
+		this.difference = 0.0;
+		this.net = 0.0;
+		this.panicFlag = false;
+		this.othersConsumption = 0.0;
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -95,11 +104,11 @@ public class Consumer {
 		return salary;
 	}
 	
-	/** This method samples the consumer's expense distribution to generate expenses for this month.
+	/** This method samples the consumer'jhdjhgdjkgdkdjhgsjkhgs expense distribution to generate expenses for this month.
 	 * 
 	 */
 	public double calculateExpenses(){
-		expenses = consumptionDemand * salaryCurve.sample();
+		expenses = consumptionDemand * salary;
 		return expenses;
 	}
 	
@@ -148,13 +157,18 @@ public class Consumer {
 		}
 	}
 	
-	public double getSavings() throws Exception{
+	public double getBankSavings() throws Exception{
 		if (cBank == null){
-			return cash;
+			//this case should never happen
+			return 0;
 		}
 		else{
 			return cBank.returnConsumerBalance(this);
 		}
+	}
+	
+	public double getCash(){
+		return cash;
 	}
 	
 	
@@ -170,23 +184,24 @@ public class Consumer {
 		if (amount >= 0){
 			if (cBank != null){
 				double withdrawal = cBank.withdraw(this, amount);
+				cash += withdrawal;
 				if (withdrawal != amount){
 					//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
 					//for example cBank.addAccount(savings(actualAmount), actualAMount)
 					isBankrupt = true;
-					leaveBank(cBank);
+//					leaveBank(cBank);
 				}
 				//need to handle passing amount to creditor
 				return withdrawal;
 			}
 			else{
 				if (cash >= amount){
-					removeCash(amount);
+					//removeCash(amount);
 					//need to handle passing amount to creditor
 					return amount;
 				}
 				else{
-					removeCash(cash);
+					//removeCash(cash);
 					//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
 					//for example cBank.addAccount(savings(actualAmount), actualAMount)
 					isBankrupt = true;
@@ -232,6 +247,7 @@ public class Consumer {
 	 * @throws Exception 
 	 */
 	public boolean leaveBank(CommercialBank cBankDead) throws Exception{
+		System.out.println("I am " + this + " and I am trying to leave " + cBankDead);
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		if (cBank == null){
 			return false;
@@ -271,23 +287,33 @@ public class Consumer {
 		return consumptionDemand;
 	}
 	
+	public boolean getPanicFlag(){
+		return panicFlag;
+	}
+	
 	public void consumerProximityLearning(){
+		System.out.println("HERE");
 		GridPoint pt = grid.getLocation(this);
-		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 10, 10);
+		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 50, 50);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		int customerCount = 0;
-		double othersConsumption = 0.0;
+		othersConsumption = 0.0;
 		for (GridCell<Consumer> location: gridCells){
 			if (location.size() > 0){
+				System.out.println("HEREa " + location.size());
 				GridPoint otherPt = location.getPoint();
 				for (Object obj : grid.getObjectsAt(otherPt.getX(), otherPt.getY())){
 					//only look at the first 10 customers
+					System.out.println("HEREb ");
 					if (customerCount < CUSTOMER_LEARN_COUNT + 1){
 						if (obj instanceof Consumer){
-//							System.out.println("I am " + this + ". I just looked at " + ((Consumer) obj) + " and saw " + ((Consumer) obj).getConsumption());
-							othersConsumption += ((Consumer) obj).getConsumption();
-							customerCount++;
+							System.out.println("I am " + this + ". I just looked at " + ((Consumer) obj) + " and saw " + ((Consumer) obj).getConsumption());
+							if (((Consumer) obj).getBank() != null){
+								othersConsumption += ((Consumer) obj).getCash();
+								System.out.println("Did " + ((Consumer) obj) + "panic?: " + ((Consumer) obj).getPanicFlag());
+								customerCount++;
+							}
 						}
 					}
 					else{
@@ -299,20 +325,22 @@ public class Consumer {
 		}
 		if (customerCount > 1){
 			//my method includes the customer in their own calculation. this corrects for that.
-			othersConsumption -= consumptionDemand;
+			othersConsumption -= getCash();
 			customerCount -= 1;
 			
 //			System.out.println(this + " I looked around and saw " + othersConsumption + " from this many consumers: " + customerCount);
 //			System.out.println(this + " My consumption demand was " + consumptionDemand);
 			//50% of the new consumptionDemand comes the previous period's consumptionDemand
-			double whiteNoise = rand.nextDouble() / 5 - 0.10;
-			consumptionDemand = consumptionDemand / 2 - whiteNoise;
+//			double whiteNoise = rand.nextDouble() / 5 - 0.10;
+//			consumptionDemand = consumptionDemand / 2 - whiteNoise;
+//			
+//			consumptionDemand = consumptionDemand / 2;
 //			System.out.println(whiteNoise + " is white noise");
 			//50% of the new consumptionDemand comes the consumptionDemands of the 10 nearest consumers in this period
-			consumptionDemand += othersConsumption / customerCount / 2;
-			if (consumptionDemand > 1.0){
-				consumptionDemand = 1.0;
-			}
+			othersConsumption = othersConsumption / customerCount;
+//			if (othersConsumption > FEAR_CUTOFF * salaryCurve.getMean()){
+//				consumptionDemand = 1.0;
+//			}
 //			System.out.println(this + " My consumption demand is now " + consumptionDemand);
 		}
 	}
@@ -327,9 +355,8 @@ public class Consumer {
 	 * The consumer makes a decision on whether or not to withdraw a portion of their remaining savings out of fear.
 	 * @throws Exception
 	 */
-	public void panicBasedConsumption() throws Exception{
-		double net = calculateNet();
-		consumerProximityLearning();
+	public void discoverInitialNet() throws Exception{
+		net = calculateNet();
 //		System.out.println("HERERE");
 //		System.out.println("My consumptionDemand is " + consumptionDemand);
 //		if (consumptionDemand > FEAR_CUTOFF){
@@ -337,23 +364,48 @@ public class Consumer {
 //		}
 		if (net < 0){
 			double amountPaid = withdrawSavings(Math.abs(net));
-			double difference = net + amountPaid;
+			difference = net + amountPaid;
 		}
 		else{
 			depositSavings(net);
 		}
+		
+	}
+	
+	/** Part 2 of consumer paying out. Consumer looks around at neighbors wallets
+	 * @throws Exception
+	 */
+	public void panicBasedConsumption() throws Exception{
+		consumerProximityLearning();
 		if (cBank != null){
 			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
-			if (consumptionDemand > FEAR_CUTOFF){
-				double remainingSavings = getSavings();
+			if (othersConsumption > 0){
+				double remainingSavings = getBankSavings();
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
 				double fearWithdrawalAmount = remainingSavings * FEAR_WITHDRAWAL_PROPORTION;
 				cash += withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
-				System.out.println(this + " just made a complete fear withdrawal because their consumptionDemand was " + consumptionDemand);
+				panicFlag = true;
+				System.out.println(this + " just made a complete fear withdrawal of " + remainingSavings + " because their othersConsumption was " + othersConsumption);
+			}
+			else{
+				System.out.println(this + "did not make a fear withdrawal because my othersConsumption is " + othersConsumption);
 			}
 		}
 	}
+	
+	/** Part 3 of consumer paying out. Consumer actually pays out money
+	 * @throws Exception 
+	 * 
+	 */
+	public void payingBills() throws Exception{
+		if (net < 0){
+			double amountPaid = Math.abs(net - difference);
+			removeCash(amountPaid);
+		}
+	}
+	
+	
 	
 	/** This method is called when a consumer has a net positive amount for a month, but does not have a cBank account.
 	 * @param amount This is the positive amount a consumer wishes to add to their cash pile.
@@ -421,6 +473,7 @@ public class Consumer {
 					Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
 //						System.out.println(net);
 					net.addEdge(this, toAdd);
+					System.out.println("I am " + this + " and I just joined " + toAdd);
 				}
 			}
 		}
@@ -483,10 +536,12 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	@ScheduledMethod(start = 1, interval = 14)
+	@ScheduledMethod(start = 1, interval = 16)
 	public void consumer_tick_1() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
 		consumerMove();
+//		discoverInitialNet();
+//		panicBasedConsumption();
 //		System.out.println("I am " + this + ". I made "+ net);
 //		if (net < 0){
 //			withdrawSavings(Math.abs(net));
@@ -498,13 +553,23 @@ public class Consumer {
 		
 	}
 	
+	@ScheduledMethod(start = 2, interval = 16)
+	public void consumer_tick_2() throws Exception{
+		discoverInitialNet();
+	}
+	
+	@ScheduledMethod(start = 3, interval = 16)
+	public void consumer_tick_3() throws Exception{
+		panicBasedConsumption();
+	}
+	
 	/** This is the first basic scheduled method to be called.
 	 * The consumer initializes its consumption demand.
 	 * The consumer than moves around to search for banks or just move
 	 * This provides the basis of consumers passing information to each other. 
 	 */
-	@ScheduledMethod(start = 2, interval = 14)
-	public void consumer_tick_2() throws Exception{
+	@ScheduledMethod(start = 4, interval = 16)
+	public void consumer_tick_4() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
 //		double net = calculateNet();
 //		System.out.println("I am " + this + ". I made "+ net);
@@ -515,7 +580,8 @@ public class Consumer {
 //			depositSavings(net);
 //		}
 //		System.out.println("I have this much " + getSavings() + " in my bank account!");
-		panicBasedConsumption();
+//		discoverInitialNet();
+		payingBills();
 		
 	}
 	
@@ -526,12 +592,16 @@ public class Consumer {
 	 * @throws Exception 
 	 * 
 	 */
-	@ScheduledMethod(start = 12, interval = 14)
-	public void consumer_check_12() throws Exception{
+	@ScheduledMethod(start = 14, interval = 16)
+	public void consumer_check_14() throws Exception{
 		if (isBankrupt){
+			System.out.println("I am " + this + " and I just went bankrupt so I am about to leave my bank " + getBank());
 			leaveBank(getBank());
 			//consumer.die()
 			consumerDie();
+		}
+		else{
+			panicFlag = false;
 		}
 	}
 	
