@@ -53,10 +53,18 @@ public class Consumer {
 	private double CONSUMER_DEVIATION_PERCENT;
 	private double averageSavings;
 	
+	
+	//proximity based learning stuff
 	private double difference;
 	private double net;
 	private boolean panicFlag;
 	private double othersConsumption;
+	
+	//illiquidity stuff
+	private double shortTermPayout;
+	private double longTermPayout;
+	private double shortTermAssets;
+	private double longTermAssets;
 	
 	
 	/** This method instantiates a Consumer Object.
@@ -309,7 +317,7 @@ public class Consumer {
 					if (customerCount < CUSTOMER_LEARN_COUNT + 1){
 						if (obj instanceof Consumer){
 							System.out.println("I am " + this + ". I just looked at " + ((Consumer) obj) + " and saw " + ((Consumer) obj).getConsumption());
-							if (((Consumer) obj).getBank() != null){
+							if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
 								othersConsumption += ((Consumer) obj).getCash();
 								System.out.println("Did " + ((Consumer) obj) + "panic?: " + ((Consumer) obj).getPanicFlag());
 								customerCount++;
