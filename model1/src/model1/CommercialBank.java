@@ -36,6 +36,13 @@ public class CommercialBank {
 	private double mortgagePaymentsIncoming;
 	private double loanTotal;
 	
+	//illiquidity stuff
+	private double shortTermPayout; //needs to be lower than consumer value
+	private double longTermPayout; // needs to be higher than consumer value
+	//differences are profits
+	private double shortTermAssets;
+	private double longTermAssets;
+	
 	private HashMap<Consumer, Double> Consumers;
 	private HashMap<String, LoanToIB> loansToIB;
 	

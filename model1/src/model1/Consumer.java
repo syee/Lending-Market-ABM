@@ -65,6 +65,7 @@ public class Consumer {
 	private double longTermPayout;
 	private double shortTermAssets;
 	private double longTermAssets;
+	private double totalAssets;
 	
 	
 	/** This method instantiates a Consumer Object.
@@ -79,7 +80,7 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double shortTermPayout, double longTermPayout){
 		this.space = space;
 		this.grid = grid;
 		this.cash = cash;
@@ -102,6 +103,12 @@ public class Consumer {
 		this.net = 0.0;
 		this.panicFlag = false;
 		this.othersConsumption = 0.0;
+		
+		this.shortTermPayout = shortTermPayout;
+		this.longTermPayout = longTermPayout;
+		this.shortTermAssets = 0.0;
+		this.longTermAssets = 0.0;
+		this.totalAssets = cash;
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -298,6 +305,33 @@ public class Consumer {
 	public boolean getPanicFlag(){
 		return panicFlag;
 	}
+	
+	
+	
+	
+	
+	
+	
+	public double getTotalAssets(){
+		return totalAssets;
+	}
+	
+	public void transferMoney(){
+		cash += longTermAssets * longTermPayout;
+		longTermAssets = shortTermAssets;
+		shortTermAssets = 0;
+	}
+	
+	public double calculateTotalAssets(){
+		totalAssets = cash + shortTermAssets + longTermAssets * shortTermPayout;
+		return totalAssets;
+	}
+	
+	
+	
+	
+	
+	
 	
 	public void consumerProximityLearning(){
 		System.out.println("HERE");
