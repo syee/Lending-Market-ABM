@@ -4,12 +4,13 @@
 package model1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 
-import bsh.This;
 import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
@@ -41,23 +42,22 @@ public class Consumer {
 	private double expenses;
 	private CommercialBank cBank = null;
 	private Random rand;
-	private double smallShockMult;
-	private double smallShockProb;
+//	private double smallShockMult;
+//	private double smallShockProb;
 	private double largeShockMult;
 	private double largeShockProb;
+	private boolean shocked = false;
 	private double consumptionDemand;
 	private boolean isBankrupt;
 	
 	private NormalDistribution salaryCurve;
-	private NormalDistribution consumptionCurve;
-	private double CONSUMER_DEVIATION_PERCENT;
-	private double averageSavings;
-	
+	private NormalDistribution consumptionCurve;	
 	
 	//proximity based learning stuff
 	private double difference;
 	private double net;
 	private boolean panicFlag;
+	private int panicCount; 
 	private double othersConsumption;
 	
 	//illiquidity stuff
@@ -80,15 +80,11 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double averageSavings, double smallShockMult, double largeShockMult, double smallShockProb, double largeShockProb, double shortTermPayout, double longTermPayout){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout){
 		this.space = space;
 		this.grid = grid;
 		this.cash = cash;
-		this.CONSUMER_DEVIATION_PERCENT = CONSUMER_DEVIATION_PERCENT;
-		this.averageSavings = averageSavings;
-		this.smallShockMult = smallShockMult;
 		this.largeShockMult = largeShockMult;
-		this.smallShockProb = smallShockProb;
 		this.largeShockProb = largeShockProb;
 		this.isBankrupt = false;
 		this.rand = new Random();
@@ -102,6 +98,7 @@ public class Consumer {
 		this.difference = 0.0;
 		this.net = 0.0;
 		this.panicFlag = false;
+		this.panicCount = 0;
 		this.othersConsumption = 0.0;
 		
 		this.shortTermPayout = shortTermPayout;
@@ -134,11 +131,12 @@ public class Consumer {
 	public double calculateShock(){
 		double probability = rand.nextDouble();
 		if (probability <= largeShockProb){
+			shocked = true;
 			return largeShockMult * salary;
 		}
-		else if (probability <= smallShockProb){
-			return smallShockMult * salary;
-		}
+//		else if (probability <= smallShockProb){
+//			return smallShockMult * salary;
+//		}
 		else{
 			return 0;
 		}
@@ -328,7 +326,9 @@ public class Consumer {
 	}
 	
 	
-	
+	public boolean getShockedStatus(){
+		return shocked;
+	}
 	
 	
 	
@@ -340,21 +340,27 @@ public class Consumer {
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		int customerCount = 0;
+		panicCount = 0;
 		othersConsumption = 0.0;
+		HashSet<Consumer> neighbors = new HashSet<Consumer>(10);
 		for (GridCell<Consumer> location: gridCells){
 			if (location.size() > 0){
-				System.out.println("HEREa " + location.size());
 				GridPoint otherPt = location.getPoint();
 				for (Object obj : grid.getObjectsAt(otherPt.getX(), otherPt.getY())){
 					//only look at the first 10 customers
-					System.out.println("HEREb ");
-					if (customerCount < CUSTOMER_LEARN_COUNT + 1){
+					if (customerCount < CUSTOMER_LEARN_COUNT){
 						if (obj instanceof Consumer){
-							System.out.println("I am " + this + ". I just looked at " + ((Consumer) obj) + " and saw " + ((Consumer) obj).getConsumption());
-							if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
-								othersConsumption += ((Consumer) obj).getCash();
-								System.out.println("Did " + ((Consumer) obj) + "panic?: " + ((Consumer) obj).getPanicFlag());
-								customerCount++;
+							if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
+								if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
+									othersConsumption += ((Consumer) obj).getCash();
+									if (((Consumer) obj).getPanicFlag()){
+										panicCount++;
+									}
+									customerCount++;
+								}
+							}
+							else{
+								System.out.println("I already contain this consumer...why am I trying to add it twice");
 							}
 						}
 					}
@@ -365,10 +371,17 @@ public class Consumer {
 				
 			}
 		}
-		if (customerCount > 1){
-			//my method includes the customer in their own calculation. this corrects for that.
-			othersConsumption -= getCash();
-			customerCount -= 1;
+		System.out.println("I am " + this + " and I looked at");
+		Iterator<Consumer> temps = neighbors.iterator();
+		while (temps.hasNext()){
+			Consumer thing = temps.next();
+			System.out.println(thing);
+			System.out.println(thing.getPanicFlag());
+			
+		}
+		System.out.println("ASIDASDASD");
+		if (customerCount > 0){
+
 			
 //			System.out.println(this + " I looked around and saw " + othersConsumption + " from this many consumers: " + customerCount);
 //			System.out.println(this + " My consumption demand was " + consumptionDemand);
@@ -421,7 +434,7 @@ public class Consumer {
 		consumerProximityLearning();
 		if (cBank != null){
 			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
-			if (othersConsumption > 0){
+			if ((othersConsumption >=500) || (panicCount > 2)){
 				double remainingSavings = getBankSavings();
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
 				double fearWithdrawalAmount = remainingSavings * FEAR_WITHDRAWAL_PROPORTION;
@@ -582,6 +595,7 @@ public class Consumer {
 	public void consumer_tick_1() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
 		consumerMove();
+		shocked = false;
 //		discoverInitialNet();
 //		panicBasedConsumption();
 //		System.out.println("I am " + this + ". I made "+ net);
@@ -602,7 +616,12 @@ public class Consumer {
 	
 	@ScheduledMethod(start = 3, interval = 16)
 	public void consumer_tick_3() throws Exception{
-		panicBasedConsumption();
+		if (!shocked){
+			panicBasedConsumption();
+		}
+		else{
+			System.out.println("I am " + this + " and I was shocked :(");
+		}
 	}
 	
 	/** This is the first basic scheduled method to be called.
