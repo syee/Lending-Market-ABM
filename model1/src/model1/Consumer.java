@@ -31,12 +31,12 @@ import repast.simphony.util.SimUtilities;
  */
 public class Consumer {
 	//this value is 1.96 standard deviations from mean of 0.85
-	private static final double FEAR_CUTOFF = 0.90268;
 	private static final double FEAR_WITHDRAWAL_PROPORTION = 1.00;
 	private static final int CUSTOMER_LEARN_COUNT = 10;
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	
+	private int age = 0;
 	private double salary;
 	private double cash;
 	private double expenses;
@@ -57,7 +57,8 @@ public class Consumer {
 	private double difference;
 	private double net;
 	private boolean panicFlag;
-	private int panicCount; 
+	private int neighborPanicCount; 
+	private int myPanicCount;
 	private double othersConsumption;
 	
 	//illiquidity stuff
@@ -98,7 +99,8 @@ public class Consumer {
 		this.difference = 0.0;
 		this.net = 0.0;
 		this.panicFlag = false;
-		this.panicCount = 0;
+		this.neighborPanicCount = 0;
+		this.myPanicCount = 0;
 		this.othersConsumption = 0.0;
 		
 		this.shortTermPayout = shortTermPayout;
@@ -134,9 +136,6 @@ public class Consumer {
 			shocked = true;
 			return largeShockMult * salary;
 		}
-//		else if (probability <= smallShockProb){
-//			return smallShockMult * salary;
-//		}
 		else{
 			return 0;
 		}
@@ -158,6 +157,7 @@ public class Consumer {
 	public void depositSavings(double amount) throws Exception{
 		if (amount >= 0.0){
 			if (cBank != null){
+				shortTermAssets += amount;
 				cBank.deposit(this, amount);
 			}
 			else{
@@ -170,14 +170,67 @@ public class Consumer {
 		}
 	}
 	
-	public double getBankSavings() throws Exception{
-		if (cBank == null){
-			//this case should never happen
-			return 0;
+//	public double getBankSavings() throws Exception{
+//		if (cBank == null){
+//			//this case should never happen
+//			return 0;
+//		}
+//		else{
+//			return cBank.returnConsumerBalance(this);
+//		}
+//	}
+	
+	public double getLongTermAssets(){
+		return longTermAssets;
+	}
+	
+	public double getShortTermAssets(){
+		return shortTermAssets;
+	}
+	
+	public double getTotalAssets(){
+		totalAssets = longTermAssets * shortTermPayout + shortTermAssets + cash;
+		return totalAssets;
+	}
+	
+	public double withdrawLongTerm(double desiredAmount){
+		double longTermHeld = getLongTermAssets() * shortTermPayout;
+		if (desiredAmount > longTermHeld){
+//			cBank.removeAssets(longTermHeld);
+			longTermAssets = 0;
+			getTotalAssets();
+			return longTermHeld;
 		}
 		else{
-			return cBank.returnConsumerBalance(this);
+			longTermAssets -= desiredAmount / shortTermPayout;
+			getTotalAssets();
+//			cBank.removeAssets(desiredAmount);
+			return desiredAmount;
 		}
+	}
+	
+	public double withdrawShortTerm(double desiredAmount){
+		double shortTermHeld = getShortTermAssets();
+		if (desiredAmount > shortTermHeld){
+//			cBank.removeAssets(shortTermHeld);
+			shortTermAssets = 0;
+			getTotalAssets();
+			return shortTermHeld;
+		}
+		else{
+			shortTermAssets -= desiredAmount;
+			getTotalAssets();
+//			cBank.removeAssets(desiredAmount);
+			return desiredAmount;
+		}
+	}
+	
+	//This method happens at end of consumer tick
+	public void transferMoney(){
+		double temp = longTermAssets * longTermPayout;
+		longTermAssets = shortTermAssets;
+		shortTermAssets = temp;
+		getTotalAssets();
 	}
 	
 	public double getCash(){
@@ -193,33 +246,43 @@ public class Consumer {
 	 * @param amount Positive amount the consumer needs to pay off monthly deficit.
 	 * @throws Exception Throws exception if amount is less than 0.
 	 */
-	public double withdrawSavings(double amount) throws Exception{
-		if (amount >= 0){
+	public double withdrawSavings(double originalAmount) throws Exception{
+		double leftOver = originalAmount;
+		System.out.println(this + " My leftover is " + leftOver);
+		if (leftOver >= 0.0){
 			if (cBank != null){
-				double withdrawal = cBank.withdraw(this, amount);
-				cash += withdrawal;
-				if (withdrawal != amount){
-					//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
-					//for example cBank.addAccount(savings(actualAmount), actualAMount)
-					isBankrupt = true;
-//					leaveBank(cBank);
-				}
-				//need to handle passing amount to creditor
-				return withdrawal;
-			}
-			else{
-				if (cash >= amount){
-					//removeCash(amount);
-					//need to handle passing amount to creditor
-					return amount;
+				if (leftOver <= cash){
+					System.out.println("My satisfactory cash amount is " + cash);
+					cash -= leftOver;
+					getTotalAssets();
+					return leftOver;
 				}
 				else{
-					//removeCash(cash);
-					//remove consumer//add a method from creditor and pass it actualAmount so they get their money back before the consumer is destroyed
-					//for example cBank.addAccount(savings(actualAmount), actualAMount)
-					isBankrupt = true;
-					return cash;
+					leftOver -= cash;
+					System.out.println("My not enough cash amount is " + cash);
+					cash = 0;
+					leftOver -= withdrawShortTerm(leftOver);
+					System.out.println("After using my shortTerm funds, I owe " + leftOver);
+					leftOver -= withdrawLongTerm(leftOver);
+					System.out.println("After using my longTerm funds, I owe " + leftOver);
+					if (leftOver <= 0.0){
+						getTotalAssets();
+						return originalAmount;
+					}
+					else{
+						isBankrupt = true;
+						getTotalAssets();
+						System.out.println("I went bankrupt. My assets are now " + totalAssets);
+						System.out.println("I still owe " + leftOver);
+						System.out.println("FINISHED " + this);
+						return originalAmount - leftOver;
+					}
 				}
+			}
+			else{
+				isBankrupt = true;
+				getTotalAssets();
+				return 0.0;
 			}
 		}
 		else{
@@ -242,7 +305,9 @@ public class Consumer {
 		
 		if (this.cBank == null){
 			cBankNew.addAccount(this, cash);
+			shortTermAssets += cash;
 			removeCash(cash);
+			getTotalAssets();
 			this.cBank = cBankNew;
 			return true;
 		}
@@ -269,6 +334,11 @@ public class Consumer {
 		if (this.cBank == cBankDead){
 			cBank.removeAccount(this);
 			cBank = null;
+			double temp = getTotalAssets();
+			shortTermAssets = 0;
+			longTermAssets = 0;
+			cash = temp;
+			getTotalAssets();
 			return true;
 		}
 		else{
@@ -279,6 +349,9 @@ public class Consumer {
 	public boolean forcedToLeaveBank(CommercialBank cBankDead) throws Exception{
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		cBank = null;
+		shortTermAssets = 0;
+		longTermAssets = 0;
+		getTotalAssets();
 		return true;
 	}
 	
@@ -304,43 +377,30 @@ public class Consumer {
 		return panicFlag;
 	}
 	
-	
-	
-	
-	
-	
-	
-	public double getTotalAssets(){
-		return totalAssets;
+	public double getOthersConsumption(){
+		return othersConsumption;
 	}
-	
-	public void transferMoney(){
-		cash += longTermAssets * longTermPayout;
-		longTermAssets = shortTermAssets;
-		shortTermAssets = 0;
-	}
-	
-	public double calculateTotalAssets(){
-		totalAssets = cash + shortTermAssets + longTermAssets * shortTermPayout;
-		return totalAssets;
-	}
-	
 	
 	public boolean getShockedStatus(){
 		return shocked;
 	}
 	
+	public int getNeighborPanicCount(){
+		return neighborPanicCount;
+	}
 	
+	public int getMyPanicCount(){
+		return myPanicCount;
+	}
 	
 	
 	public void consumerProximityLearning(){
-		System.out.println("HERE");
 		GridPoint pt = grid.getLocation(this);
 		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 50, 50);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		int customerCount = 0;
-		panicCount = 0;
+		neighborPanicCount = 0;
 		othersConsumption = 0.0;
 		HashSet<Consumer> neighbors = new HashSet<Consumer>(10);
 		for (GridCell<Consumer> location: gridCells){
@@ -354,7 +414,7 @@ public class Consumer {
 								if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
 									othersConsumption += ((Consumer) obj).getCash();
 									if (((Consumer) obj).getPanicFlag()){
-										panicCount++;
+										neighborPanicCount++;
 									}
 									customerCount++;
 								}
@@ -371,15 +431,6 @@ public class Consumer {
 				
 			}
 		}
-		System.out.println("I am " + this + " and I looked at");
-		Iterator<Consumer> temps = neighbors.iterator();
-		while (temps.hasNext()){
-			Consumer thing = temps.next();
-			System.out.println(thing);
-			System.out.println(thing.getPanicFlag());
-			
-		}
-		System.out.println("ASIDASDASD");
 		if (customerCount > 0){
 
 			
@@ -418,8 +469,7 @@ public class Consumer {
 //			System.out.println(this + " is very scared");
 //		}
 		if (net < 0){
-			double amountPaid = withdrawSavings(Math.abs(net));
-			difference = net + amountPaid;
+			cash = withdrawSavings(Math.abs(net));
 		}
 		else{
 			depositSavings(net);
@@ -434,14 +484,15 @@ public class Consumer {
 		consumerProximityLearning();
 		if (cBank != null){
 			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
-			if ((othersConsumption >=500) || (panicCount > 2)){
-				double remainingSavings = getBankSavings();
+			//age * 1500 represents accumulation of savings to living consumers
+			if ((othersConsumption >= 500 + (age * 1500)) || (neighborPanicCount > 2)){
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
-				double fearWithdrawalAmount = remainingSavings * FEAR_WITHDRAWAL_PROPORTION;
-				cash += withdrawSavings(fearWithdrawalAmount);
+				double fearWithdrawalAmount = totalAssets * FEAR_WITHDRAWAL_PROPORTION;
+				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
 				panicFlag = true;
-				System.out.println(this + " just made a complete fear withdrawal of " + remainingSavings + " because their othersConsumption was " + othersConsumption);
+				myPanicCount++;
+				System.out.println(this + " just made a complete fear withdrawal of " + fearWithdrawalAmount + " because their othersConsumption was " + othersConsumption);
 			}
 			else{
 				System.out.println(this + "did not make a fear withdrawal because my othersConsumption is " + othersConsumption);
@@ -455,8 +506,8 @@ public class Consumer {
 	 */
 	public void payingBills() throws Exception{
 		if (net < 0){
-			double amountPaid = Math.abs(net - difference);
-			removeCash(amountPaid);
+			removeCash(cash);
+			getLongTermAssets();
 		}
 	}
 	
@@ -486,6 +537,10 @@ public class Consumer {
 		else{
 			throw new Exception("Consumer cannot remove a negative cash amount!");
 		}
+	}
+	
+	public int getAge(){
+		return age;
 	}
 	
 	
@@ -632,16 +687,6 @@ public class Consumer {
 	@ScheduledMethod(start = 4, interval = 16)
 	public void consumer_tick_4() throws Exception{
 		//This method should either go last or first of the basic scheduled methods.
-//		double net = calculateNet();
-//		System.out.println("I am " + this + ". I made "+ net);
-//		if (net < 0){
-//			withdrawSavings(Math.abs(net));
-//		}
-//		else{
-//			depositSavings(net);
-//		}
-//		System.out.println("I have this much " + getSavings() + " in my bank account!");
-//		discoverInitialNet();
 		payingBills();
 		
 	}
@@ -662,6 +707,8 @@ public class Consumer {
 			consumerDie();
 		}
 		else{
+			age++;
+			transferMoney();
 			panicFlag = false;
 		}
 	}

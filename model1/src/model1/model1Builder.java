@@ -47,9 +47,9 @@ public class model1Builder implements ContextBuilder<Object> {
 		//correct import: import repast.simphony.space.grid.WrapAroundBorders;
 		Grid<Object> grid = gridFactory.createGrid("grid", context, new GridBuilderParameters<Object>(new WrapAroundBorders(), new SimpleGridAdder<Object>(), true, 50, 50));
 		
-		int consumerCount = 50;
+		int consumerCount = 1;
 		for (int i = 0; i < consumerCount; i++){
-			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.10, 0.85, 1.4, 0.25, 0.0, 0.50));
+			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.10, 0.85, 1.4, 0.25, 1.1, 1.30));
 		}
 		
 		
