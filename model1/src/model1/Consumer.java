@@ -333,6 +333,8 @@ public class Consumer {
 		
 		if (this.cBank == cBankDead){
 			cBank.removeAccount(this);
+			cBank.consumerWithdrawShortTerm(shortTermAssets);
+			cBank.consumerWithdrawLongTerm(longTermAssets);
 			cBank = null;
 			double temp = getTotalAssets();
 			shortTermAssets = 0;
