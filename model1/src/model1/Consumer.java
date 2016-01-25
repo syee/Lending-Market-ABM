@@ -335,7 +335,7 @@ public class Consumer {
 		
 		if (this.cBank == cBankDead){
 			cBank.consumerWithdrawShortTerm(this, shortTermAssets);
-			cBank.consumerWithdrawLongTerm(this, longTermAssets);
+			cBank.consumerWithdrawLongTerm(this, longTermAssets * shortTermPayout);
 			cBank.removeAccount(this);
 			cBank = null;
 			double temp = getTotalAssets();
@@ -491,7 +491,7 @@ public class Consumer {
 			//age * 1500 represents accumulation of savings to living consumers
 			if ((othersConsumption >= 500 + (age * 1500)) || (neighborPanicCount > 2)){
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
-				double fearWithdrawalAmount = totalAssets * FEAR_WITHDRAWAL_PROPORTION;
+				double fearWithdrawalAmount = getTotalAssets() * FEAR_WITHDRAWAL_PROPORTION;
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
 				panicFlag = true;
