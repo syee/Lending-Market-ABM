@@ -193,10 +193,10 @@ public class Consumer {
 		return totalAssets;
 	}
 	
-	public double withdrawLongTerm(double desiredAmount){
+	public double withdrawLongTerm(double desiredAmount) throws Exception{
 		double longTermHeld = getLongTermAssets() * shortTermPayout;
 		if (desiredAmount > longTermHeld){
-//			cBank.removeAssets(longTermHeld);
+			cBank.consumerWithdrawLongTerm(this, longTermHeld);
 			longTermAssets = 0;
 			getTotalAssets();
 			return longTermHeld;
@@ -204,15 +204,16 @@ public class Consumer {
 		else{
 			longTermAssets -= desiredAmount / shortTermPayout;
 			getTotalAssets();
+			cBank.consumerWithdrawLongTerm(this, desiredAmount);
 //			cBank.removeAssets(desiredAmount);
 			return desiredAmount;
 		}
 	}
 	
-	public double withdrawShortTerm(double desiredAmount){
+	public double withdrawShortTerm(double desiredAmount) throws Exception{
 		double shortTermHeld = getShortTermAssets();
 		if (desiredAmount > shortTermHeld){
-//			cBank.removeAssets(shortTermHeld);
+			cBank.consumerWithdrawShortTerm(this, shortTermHeld);
 			shortTermAssets = 0;
 			getTotalAssets();
 			return shortTermHeld;
@@ -220,7 +221,7 @@ public class Consumer {
 		else{
 			shortTermAssets -= desiredAmount;
 			getTotalAssets();
-//			cBank.removeAssets(desiredAmount);
+			cBank.consumerWithdrawShortTerm(this, desiredAmount);
 			return desiredAmount;
 		}
 	}
@@ -261,6 +262,7 @@ public class Consumer {
 					leftOver -= cash;
 					System.out.println("My not enough cash amount is " + cash);
 					cash = 0;
+					System.out.println("The first leftover amount is " + leftOver);
 					leftOver -= withdrawShortTerm(leftOver);
 					System.out.println("After using my shortTerm funds, I owe " + leftOver);
 					leftOver -= withdrawLongTerm(leftOver);
@@ -332,9 +334,9 @@ public class Consumer {
 		}
 		
 		if (this.cBank == cBankDead){
+			cBank.consumerWithdrawShortTerm(this, shortTermAssets);
+			cBank.consumerWithdrawLongTerm(this, longTermAssets);
 			cBank.removeAccount(this);
-			cBank.consumerWithdrawShortTerm(shortTermAssets);
-			cBank.consumerWithdrawLongTerm(longTermAssets);
 			cBank = null;
 			double temp = getTotalAssets();
 			shortTermAssets = 0;

@@ -49,14 +49,14 @@ public class model1Builder implements ContextBuilder<Object> {
 		
 		int consumerCount = 1;
 		for (int i = 0; i < consumerCount; i++){
-			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.10, 0.85, 1.4, 0.25, 1.1, 1.30));
+			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.10, 0.85, 1.4, 0.5, 1.1, 1.30));
 		}
 		
 		
 		int cBankCount = 1;
 		for (int i = 0; i < cBankCount; i++){
 			try {
-				context.add(new CommercialBank(space, grid, 20000.0, 0.01, 0.03, 5.0));
+				context.add(new CommercialBank(space, grid, 20000.0, 1.10, 1.3, 1.05, 1.40));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

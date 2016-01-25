@@ -142,7 +142,7 @@ public class CommercialBank {
 			else{
 				//consumer does not have account here
 				//error
-				;
+				throw new Exception("Consumer has no account here");
 			}
 		}
 		else{
@@ -167,6 +167,14 @@ public class CommercialBank {
 	public double getTotalLiabilities(){
 		totalLiabilities = shortTermLiabilities + longTermLiabilities * consumerShortTermPayout;
 		return totalLiabilities;
+	}
+	
+	public double getShortTermLiabilities(){
+		return shortTermLiabilities;
+	}
+	
+	public double getLongTermLiabilities(){
+		return longTermLiabilities;
 	}
 	
 //	public double getMortgagePaymentsIncoming(){
@@ -249,18 +257,28 @@ public class CommercialBank {
 		}
 	}
 	
-	public double consumerWithdrawShortTerm(double desiredAmount) throws Exception{
-		double amountReturned = consumerWithdraw(desiredAmount);
-		shortTermLiabilities -= amountReturned;
-		getTotalLiabilities();
-		return amountReturned;
+	public double consumerWithdrawShortTerm(Consumer holder, double desiredAmount) throws Exception{
+		if (Consumers.contains(holder)){
+			double amountReturned = consumerWithdraw(desiredAmount);
+			shortTermLiabilities -= amountReturned;
+			getTotalLiabilities();
+			return amountReturned;
+		}
+		else{
+			throw new Exception("Bank does not service consumer " + holder);
+		}
 	}
 	
-	public double consumerWithdrawLongTerm(double desiredAmount) throws Exception{
-		double amountReturned = consumerWithdraw(desiredAmount);
-		longTermLiabilities -= amountReturned * consumerShortTermPayout;
-		getTotalLiabilities();
-		return amountReturned;
+	public double consumerWithdrawLongTerm(Consumer holder, double desiredAmount) throws Exception{
+		if (Consumers.contains(holder)){
+			double amountReturned = consumerWithdraw(desiredAmount);
+			longTermLiabilities -= amountReturned / consumerShortTermPayout;
+			getTotalLiabilities();
+			return amountReturned;
+		}
+		else{
+			throw new Exception("Bank does not service consumer " + holder);
+		}
 	}
 	
 //	
@@ -299,6 +317,10 @@ public class CommercialBank {
 		getTotalAssets();
 		getTotalLiabilities();
 		return totalAssets - totalLiabilities;
+	}
+	
+	public int getAge(){
+		return age;
 	}
 	
 //	public double returnConsumerBalance(Consumer holder) throws Exception{
@@ -639,17 +661,29 @@ public class CommercialBank {
 	 */
 	public void removeAllConsumers() throws Exception{
 		System.out.println("BANK BLOW UP " + this);
-		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
+		Iterator<Consumer> consumerList = Consumers.iterator();
 		if (consumerList != null){
-			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
-			while (consumers.hasNext()){
-				Map.Entry<Consumer, Double> consumer = consumers.next();
+			while (consumerList.hasNext()){
+				Consumer consumer = consumerList.next();
 				//I may want to pass an argument here later if more than one cBank per consumer
-				consumer.getKey().forcedToLeaveBank(this);
-				consumers.remove();
+				consumer.forcedToLeaveBank(this);
+				consumerList.remove();
 			}
 		}
 	}
+//	public void removeAllConsumers() throws Exception{
+//		System.out.println("BANK BLOW UP " + this);
+//		Set<Map.Entry<Consumer, Double>> consumerList = Consumers.entrySet();
+//		if (consumerList != null){
+//			Iterator<Map.Entry<Consumer, Double>> consumers = consumerList.iterator();
+//			while (consumers.hasNext()){
+//				Map.Entry<Consumer, Double> consumer = consumers.next();
+//				//I may want to pass an argument here later if more than one cBank per consumer
+//				consumer.getKey().forcedToLeaveBank(this);
+//				consumers.remove();
+//			}
+//		}
+//	}
 	
 	//this method should be unnecessary. More of an error checking method for removing delinquent loans
 	/** This scheduled basic method checks all of a cBank's loans to make sure they have been paid in full.
@@ -677,6 +711,7 @@ public class CommercialBank {
 		}
 		else{
 			//pay interest on all consumer accounts
+			age++;
 			transfers();
 		}
 //		System.out.println("I am cBank " + this);

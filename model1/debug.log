@@ -617,3 +617,24 @@ Caused by: java.lang.Exception: model1.Consumer@142ea9a2 does not have an accoun
 	at model1.Consumer.panicBasedConsumption(Consumer.java:383)
 	at model1.Consumer.consumer_tick_1(Consumer.java:541)
 	... 10 more
+FATAL [Thread-6] 2016-01-24 23:47:14,892 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (46.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.Exception: Bank does not service consumer model1.Consumer@40e2a124
+	at model1.CommercialBank.consumerWithdrawShortTerm(CommercialBank.java:268)
+	at model1.Consumer.leaveBank(Consumer.java:338)
+	at model1.Consumer.consumer_check_14(Consumer.java:709)
+	... 10 more
