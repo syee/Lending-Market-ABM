@@ -20,6 +20,7 @@ import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.graph.Network;
+import repast.simphony.space.graph.RepastEdge;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -30,9 +31,12 @@ import repast.simphony.util.SimUtilities;
  *
  */
 public class Consumer {
-	//this value is 1.96 standard deviations from mean of 0.85
-	private static final double FEAR_WITHDRAWAL_PROPORTION = 1.00;
-	private static final int CUSTOMER_LEARN_COUNT = 10;
+	
+	
+	private final static double FEAR_WITHDRAWAL_PROPORTION = 1.00;
+	private int CUSTOMER_LEARN_COUNT = 10;
+	private double WITHDRAWAL_MULTIPLIER = 1.25;
+	
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	
@@ -60,6 +64,7 @@ public class Consumer {
 	private int neighborPanicCount; 
 	private int myPanicCount;
 	private double othersConsumption;
+	private RepastEdge<Object> bankEdge = null;
 	
 	//illiquidity stuff
 	private double shortTermPayout;
@@ -81,7 +86,7 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout, int CUSTOMER_LEARN_COUNT, double WITHDRAWAL_MULTIPLIER){
 		this.space = space;
 		this.grid = grid;
 		this.cash = cash;
@@ -102,6 +107,8 @@ public class Consumer {
 		this.neighborPanicCount = 0;
 		this.myPanicCount = 0;
 		this.othersConsumption = 0.0;
+		this.CUSTOMER_LEARN_COUNT = CUSTOMER_LEARN_COUNT;
+		this.WITHDRAWAL_MULTIPLIER = WITHDRAWAL_MULTIPLIER;
 		
 		this.shortTermPayout = shortTermPayout;
 		this.longTermPayout = longTermPayout;
@@ -173,15 +180,6 @@ public class Consumer {
 		}
 	}
 	
-//	public double getBankSavings() throws Exception{
-//		if (cBank == null){
-//			//this case should never happen
-//			return 0;
-//		}
-//		else{
-//			return cBank.returnConsumerBalance(this);
-//		}
-//	}
 	
 	public double getLongTermAssets(){
 		return longTermAssets;
@@ -285,9 +283,7 @@ public class Consumer {
 				}
 			}
 			else{
-				isBankrupt = true;
-				getTotalAssets();
-				return 0.0;
+				throw new Exception("ERROR from :" + this);
 			}
 		}
 		else{
@@ -346,6 +342,11 @@ public class Consumer {
 			longTermAssets = 0;
 			cash = temp;
 			getTotalAssets();
+			
+			Context<Object> context = ContextUtils.getContext(this);
+			Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
+			net.removeEdge(bankEdge);
+			
 			return true;
 		}
 		else{
@@ -476,12 +477,17 @@ public class Consumer {
 //			System.out.println(this + " is very scared");
 //		}
 		if (net < 0){
-			cash = withdrawSavings(Math.abs(net));
+			if (cBank != null){
+				cash = withdrawSavings(Math.abs(net));
+			}
+			else{
+				//consumer already holds all assets as cash
+				;
+			}
 		}
 		else{
 			depositSavings(net);
 		}
-		
 	}
 	
 	/** Part 2 of consumer paying out. Consumer looks around at neighbors wallets
@@ -492,8 +498,10 @@ public class Consumer {
 		if (cBank != null){
 			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
 			//age * 1500 represents accumulation of savings to living consumers
-			if ((othersConsumption >= 500 + (age * 1500)) || (neighborPanicCount > 2)){
+			if (/*(othersConsumption >= (salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age) * FEAR_WITHDRAWAL_PROPORTION * WITHDRAWAL_MULTIPLIER) ||*/ (neighborPanicCount > CUSTOMER_LEARN_COUNT * largeShockProb)){
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
+				
+//				(salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age))
 				double fearWithdrawalAmount = getTotalAssets() * FEAR_WITHDRAWAL_PROPORTION;
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
@@ -513,7 +521,7 @@ public class Consumer {
 	 */
 	public void payingBills() throws Exception{
 		if (net < 0){
-			removeCash(cash);
+			removeCash(Math.abs(net));
 			getLongTermAssets();
 		}
 	}
@@ -527,6 +535,7 @@ public class Consumer {
 	public void addCash(double amount) throws Exception{
 		if (amount >= 0){
 			cash += amount;
+			getLongTermAssets();
 		}
 		else{
 			throw new Exception("Consumer cannot add a negative cash amount!");
@@ -539,7 +548,13 @@ public class Consumer {
 	 */
 	public void removeCash(double amount) throws Exception{
 		if (amount >= 0){
-			cash -= amount;
+			if (cash >= amount){
+				cash -= amount;
+			}
+			else{
+				cash = 0;
+				isBankrupt = true;
+			}
 		}
 		else{
 			throw new Exception("Consumer cannot remove a negative cash amount!");
@@ -589,7 +604,7 @@ public class Consumer {
 //						System.out.println(context);
 					Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
 //						System.out.println(net);
-					net.addEdge(this, toAdd);
+					bankEdge = net.addEdge(this, toAdd);
 					System.out.println("I am " + this + " and I just joined " + toAdd);
 				}
 			}

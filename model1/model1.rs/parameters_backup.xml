@@ -24,12 +24,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Consumer Withdrawal Multiplier" displayName="Consumer Withdrawal Multiplier" type="double" 
-						defaultValue="1.25" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
 				<parameter name="Consumer Shock Multiplier" displayName="Consumer Shock Multiplier" type="double" 
 						defaultValue="1.4" 
 						isReadOnly="false" 

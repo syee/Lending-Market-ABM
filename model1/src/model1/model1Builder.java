@@ -47,37 +47,54 @@ public class model1Builder implements ContextBuilder<Object> {
 		//correct import: import repast.simphony.space.grid.WrapAroundBorders;
 		Grid<Object> grid = gridFactory.createGrid("grid", context, new GridBuilderParameters<Object>(new WrapAroundBorders(), new SimpleGridAdder<Object>(), true, 50, 50));
 		
-		int consumerCount = 100;
+		Parameters params = RunEnvironment.getInstance().getParameters();
+		
+		double consumerReserves = (double)params.getValue("Consumer Initial Endowment");
+		double consumerSalary = (double)params.getValue("Consumer Income");
+		double consumerDeviationPercent = (double)params.getValue("Consumer Distribution Deviation");
+		double consumerConsumptionMean = (double)params.getValue("Consumer Mean Rate of Consumption");
+		double consumerShockMultiplier = (double)params.getValue("Consumer Shock Multiplier");
+		double consumerShockProbability = (double)params.getValue("Consumer Shock Probability");
+		double consumerShortTermRate = (double)params.getValue("Consumer Short Term Payout");
+		double consumerLongTermRate = (double)params.getValue("Consumer Long Term Payout");
+		int consumerGroupSize = (Integer)params.getValue("Consumer Group Size");
+		double consumerWithdrawalMult = (double)params.getValue("Consumer Withdrawal Multiplier");
+		int consumerCount = (Integer)params.getValue("Consumer Count");
+		
+		int bankCount = (Integer)params.getValue("Bank Count");
+		double bankReserves = (double)params.getValue("Bank Initial Endowment");
+		double bankShortTermRate = (double)params.getValue("Bank Short Term Asset Return");
+		double bankLongTermRate = (double)params.getValue("Bank Long Term Asset Return");
+
 		for (int i = 0; i < consumerCount; i++){
-			context.add(new Consumer(space, grid, 10000.0, 1000.0, 0.10, 0.85, 1.4, 0.75, 1.10, 1.30));
+			context.add(new Consumer(space, grid, consumerSalary, consumerReserves, consumerDeviationPercent, consumerConsumptionMean, consumerShockMultiplier, consumerShockProbability, consumerShortTermRate, consumerLongTermRate, consumerGroupSize, consumerWithdrawalMult));
 		}
 		
 		
-		int cBankCount = 1;
-		for (int i = 0; i < cBankCount; i++){
+		for (int i = 0; i < bankCount; i++){
 			try {
-				context.add(new CommercialBank(space, grid, 20000.0, 1.10, 1.30, 1.05, 1.40));
+				context.add(new CommercialBank(space, grid, bankReserves, consumerShortTermRate, consumerLongTermRate, bankShortTermRate, bankLongTermRate));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		int iBankCount = 0;
-		for (int i = 0; i < iBankCount; i++){
-			try {
-				context.add(new InvestmentBank(space, grid, 10000.0, 0.05, 0.03, 5.0, 5.0));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		int firmCount = 0;
-		for (int i = 0; i < firmCount; i++){
-			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3000.0, 0.0, 1.4, 0.0, 0.50, 0.05, 5.0, 0.00));
-		}
-		
+//		int iBankCount = 0;
+//		for (int i = 0; i < iBankCount; i++){
+//			try {
+//				context.add(new InvestmentBank(space, grid, 10000.0, 0.05, 0.03, 5.0, 5.0));
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		int firmCount = 0;
+//		for (int i = 0; i < firmCount; i++){
+//			context.add(new Firm(space, grid, 10000.0, 10000.0, 0.05, 3000.0, 0.0, 1.4, 0.0, 0.50, 0.05, 5.0, 0.00));
+//		}
+//		
 		for (Object obj : context){
 			NdPoint pt = space.getLocation(obj);
 			grid.moveTo(obj,  (int)pt.getX(), (int)pt.getY());
