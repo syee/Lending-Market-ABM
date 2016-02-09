@@ -54,7 +54,7 @@ public class Consumer {
 	private NormalDistribution consumptionCurve;	
 	
 	//proximity based learning stuff
-	private double difference;
+//	private double difference;
 	private double net;
 	private boolean panicFlag;
 	private int neighborPanicCount; 
@@ -96,7 +96,7 @@ public class Consumer {
 		this.consumptionCurve = new NormalDistribution(consumptionMean, CONSUMER_DEVIATION_PERCENT*consumptionMean);
 		initialConsumptionDemand();
 //		this.expenses = consumptionDemand * salaryCurve.sample();
-		this.difference = 0.0;
+//		this.difference = 0.0;
 		this.net = 0.0;
 		this.panicFlag = false;
 		this.neighborPanicCount = 0;
@@ -118,7 +118,10 @@ public class Consumer {
 		return salary;
 	}
 	
-	/** This method samples the consumer'jhdjhgdjkgdkdjhgsjkhgs expense distribution to generate expenses for this month.
+
+	
+	
+	/** This method samples the consumer's expense distribution to generate expenses for this month.
 	 * 
 	 */
 	public double calculateExpenses(){
