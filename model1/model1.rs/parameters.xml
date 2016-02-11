@@ -7,7 +7,7 @@
 									
 		/>
 				<parameter name="Consumer Initial Endowment" displayName="Consumer Initial Endowment" type="double" 
-						defaultValue="1000.0" 
+						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -31,7 +31,7 @@
 									
 		/>
 				<parameter name="Consumer Shock Multiplier" displayName="Consumer Shock Multiplier" type="double" 
-						defaultValue="1.4" 
+						defaultValue="0.75" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -85,7 +85,7 @@
 									
 		/>
 				<parameter name="Consumer Count" displayName="Consumer Count" type="int" 
-						defaultValue="10" 
+						defaultValue="100" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

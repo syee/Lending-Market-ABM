@@ -401,6 +401,10 @@ public class Consumer {
 		return neighborPanicCount;
 	}
 	
+	public int getNeighborShockCount(){
+		return neighborShockCount;
+	}
+	
 	public int getMyPanicCount(){
 		return myPanicCount;
 	}
@@ -408,7 +412,7 @@ public class Consumer {
 	
 	public void consumerProximityLearning(){
 		GridPoint pt = grid.getLocation(this);
-		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 50, 50);
+		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 5, 5);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		int customerCount = 0;
@@ -739,6 +743,8 @@ public class Consumer {
 		else{
 			age++;
 			transferMoney();
+			neighborShockCount = 0;
+			neighborPanicCount = 0;
 			othersConsumption = 0.0;
 			panicFlag = false;
 		}
