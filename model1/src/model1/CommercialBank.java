@@ -132,7 +132,7 @@ public class CommercialBank {
 	 * @throws Exception Throws exception if amount is less than 0.
 	 */
 	public void deposit(Consumer holder, double amount) throws Exception{
-		if (amount >= 0.0){
+		if (amount >= -1.0){
 			if (Consumers.contains(holder)){
 				shortTermAssets += amount;
 				shortTermLiabilities += amount;
@@ -244,7 +244,7 @@ public class CommercialBank {
 	public double consumerWithdraw(double desiredAmount) throws Exception{
 		double leftOver = desiredAmount;
 		System.out.println(this + " My leftover is " + leftOver);
-		if (leftOver >= 0.0){
+		if (leftOver >= -1.0){
 			leftOver -= removeShortTerm(leftOver);
 			if (leftOver >= 0.0){
 				System.out.println(this + " had to tap into its long term assets to cover the remaining " + leftOver);

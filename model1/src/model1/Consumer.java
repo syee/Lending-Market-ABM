@@ -35,7 +35,10 @@ public class Consumer {
 	
 	private final static double FEAR_WITHDRAWAL_PROPORTION = 1.00;
 	private int CUSTOMER_LEARN_COUNT = 10;
+	
+	//check these two
 	private double WITHDRAWAL_MULTIPLIER = 1.25;
+	private double gamma = 1.5;
 	
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
@@ -61,7 +64,8 @@ public class Consumer {
 //	private double difference;
 	private double net;
 	private boolean panicFlag;
-	private int neighborPanicCount; 
+	private int neighborPanicCount;
+	private int neighborShockCount; 
 	private int myPanicCount;
 	private double othersConsumption;
 	private RepastEdge<Object> bankEdge = null;
@@ -165,7 +169,7 @@ public class Consumer {
 	 * @throws Exception Throws exception if amount is less than 0.
 	 */
 	public void depositSavings(double amount) throws Exception{
-		if (amount >= 0.0){
+		if (amount >= -1.0){
 			if (cBank != null){
 				shortTermAssets += amount;
 				cBank.deposit(this, amount);
@@ -251,7 +255,7 @@ public class Consumer {
 	public double withdrawSavings(double originalAmount) throws Exception{
 		double leftOver = originalAmount;
 		System.out.println(this + " My leftover is " + leftOver);
-		if (leftOver >= 0.0){
+		if (leftOver >= -1.0){
 			if (cBank != null){
 				if (leftOver <= cash){
 					System.out.println("My satisfactory cash amount is " + cash);
@@ -409,6 +413,7 @@ public class Consumer {
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		int customerCount = 0;
 		neighborPanicCount = 0;
+		neighborShockCount = 0;
 		othersConsumption = 0.0;
 		HashSet<Consumer> neighbors = new HashSet<Consumer>(10);
 		for (GridCell<Consumer> location: gridCells){
@@ -419,10 +424,13 @@ public class Consumer {
 					if (customerCount < CUSTOMER_LEARN_COUNT){
 						if (obj instanceof Consumer){
 							if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
-								if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
+								if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getShockedStatus() || ((Consumer) obj).getPanicFlag()){
 									othersConsumption += ((Consumer) obj).getCash();
 									if (((Consumer) obj).getPanicFlag()){
 										neighborPanicCount++;
+									}
+									if (((Consumer) obj).getShockedStatus()){
+										neighborShockCount++;
 									}
 									customerCount++;
 								}
@@ -498,7 +506,7 @@ public class Consumer {
 		if (cBank != null){
 			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
 			//age * 1500 represents accumulation of savings to living consumers
-			if (/*(othersConsumption >= (salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age) * FEAR_WITHDRAWAL_PROPORTION * WITHDRAWAL_MULTIPLIER) ||*/ (neighborPanicCount > CUSTOMER_LEARN_COUNT * largeShockProb)){
+			if (/*(othersConsumption >= (salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age) * FEAR_WITHDRAWAL_PROPORTION * WITHDRAWAL_MULTIPLIER) ||*/ (neighborPanicCount + neighborShockCount > CUSTOMER_LEARN_COUNT * largeShockProb * gamma)){
 				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
 				
 //				(salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age))
@@ -731,6 +739,7 @@ public class Consumer {
 		else{
 			age++;
 			transferMoney();
+			othersConsumption = 0.0;
 			panicFlag = false;
 		}
 	}
