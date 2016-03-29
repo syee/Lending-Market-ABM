@@ -33,24 +33,19 @@ import repast.simphony.util.SimUtilities;
 public class Consumer {
 	
 	
-	private final static double FEAR_WITHDRAWAL_PROPORTION = 1.00;
-	private int CUSTOMER_LEARN_COUNT = 10;
-	
-	//check these two
-	private double WITHDRAWAL_MULTIPLIER = 1.25;
-	private double gamma = 1.5;
-	
+	private int CUSTOMER_LEARN_COUNT;
+		
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	
 	private int age = 0;
 	private double salary;
+	private double initialEndowment;
 	private double cash;
 	private double expenses;
 	private CommercialBank cBank = null;
 	private Random rand;
-//	private double smallShockMult;
-//	private double smallShockProb;
+
 	private double largeShockMult;
 	private double largeShockProb;
 	private boolean shocked = false;
@@ -63,7 +58,12 @@ public class Consumer {
 	//proximity based learning stuff
 //	private double difference;
 	private double net;
+	private double trueLiquidityDemand;
 	private boolean panicFlag;
+	private boolean liquidityPanic;
+	private boolean panicPanic;
+	
+	private double consumerPBCount;
 	private int neighborPanicCount;
 	private int neighborShockCount; 
 	private int myPanicCount;
@@ -76,6 +76,16 @@ public class Consumer {
 	private double shortTermAssets;
 	private double longTermAssets;
 	private double totalAssets;
+	
+	private DiamondDybvig DD;
+	private int placeInLine;
+	private boolean unnecessaryPanic;
+	private double bankShortTermPayout;
+	private double bankLongTermPayout;
+	private double bankCost1;
+	private double bankCost2;
+	private boolean allConsumersVisible;
+	private boolean bankVisible;
 	
 	
 	/** This method instantiates a Consumer Object.
@@ -90,10 +100,9 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double cash, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout, int CUSTOMER_LEARN_COUNT, double WITHDRAWAL_MULTIPLIER){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double shortTermEndowment, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout, int CUSTOMER_LEARN_COUNT, DiamondDybvig DD, double bankShortTermPayout, double bankLongTermPayout, double bankCost1, double bankCost2, boolean allConsumersVisible, boolean bankVisible){
 		this.space = space;
 		this.grid = grid;
-		this.cash = cash;
 		this.largeShockMult = largeShockMult;
 		this.largeShockProb = largeShockProb;
 		this.isBankrupt = false;
@@ -108,17 +117,27 @@ public class Consumer {
 //		this.difference = 0.0;
 		this.net = 0.0;
 		this.panicFlag = false;
+		this.liquidityPanic = false;
+		this.panicPanic = false;
 		this.neighborPanicCount = 0;
 		this.myPanicCount = 0;
 		this.othersConsumption = 0.0;
 		this.CUSTOMER_LEARN_COUNT = CUSTOMER_LEARN_COUNT;
-		this.WITHDRAWAL_MULTIPLIER = WITHDRAWAL_MULTIPLIER;
 		
 		this.shortTermPayout = shortTermPayout;
 		this.longTermPayout = longTermPayout;
-		this.shortTermAssets = 0.0;
-		this.longTermAssets = 0.0;
+		this.initialEndowment = shortTermEndowment;
+		this.shortTermAssets = shortTermEndowment;
+		this.longTermAssets = shortTermEndowment / longTermPayout;
 		this.totalAssets = cash;
+		
+		this.DD = DD;
+		this.bankShortTermPayout = bankShortTermPayout;
+		this.bankLongTermPayout = bankLongTermPayout;
+		this.bankCost1 = bankCost1;
+		this.bankCost2 = bankCost2;
+		this.allConsumersVisible = allConsumersVisible;
+		this.bankVisible = bankVisible;
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -126,10 +145,11 @@ public class Consumer {
 	 */
 	public double calculateSalary(){
 		salary = salaryCurve.sample();
+		while (salary < 0){
+			salary = salaryCurve.sample();
+		}
 		return salary;
 	}
-	
-
 	
 	
 	/** This method samples the consumer's expense distribution to generate expenses for this month.
@@ -159,9 +179,9 @@ public class Consumer {
 	 * This method calls calculateSalary(), calculateExpenses(), and calculateShock().
 	 * @return The consumer's net savings for a month.
 	 */
-	public double calculateNet(){
-		double net = calculateSalary() - calculateExpenses() - calculateShock();
-		return net;
+	public void calculateNet(){
+		net = calculateSalary() - calculateExpenses() - calculateShock();
+		trueLiquidityDemand = net;
 	}
 	
 	/** This method deposits a positive amount into a consumer's cBank account or his/her cash if the consumer has no cBank account.
@@ -184,6 +204,10 @@ public class Consumer {
 		}
 	}
 	
+		
+	public double getTrueLiquidityDemand(){
+		return trueLiquidityDemand;
+	}
 	
 	public double getLongTermAssets(){
 		return longTermAssets;
@@ -210,7 +234,6 @@ public class Consumer {
 			longTermAssets -= desiredAmount / shortTermPayout;
 			getTotalAssets();
 			cBank.consumerWithdrawLongTerm(this, desiredAmount);
-//			cBank.removeAssets(desiredAmount);
 			return desiredAmount;
 		}
 	}
@@ -255,7 +278,7 @@ public class Consumer {
 	public double withdrawSavings(double originalAmount) throws Exception{
 		double leftOver = originalAmount;
 		System.out.println(this + " My leftover is " + leftOver);
-		if (leftOver >= -1.0){
+		if (leftOver >= -0.2){
 			if (cBank != null){
 				if (leftOver <= cash){
 					System.out.println("My satisfactory cash amount is " + cash);
@@ -272,7 +295,7 @@ public class Consumer {
 					System.out.println("After using my shortTerm funds, I owe " + leftOver);
 					leftOver -= withdrawLongTerm(leftOver);
 					System.out.println("After using my longTerm funds, I owe " + leftOver);
-					if (leftOver <= 0.0){
+					if (leftOver <= 0.2){
 						getTotalAssets();
 						return originalAmount;
 					}
@@ -309,7 +332,7 @@ public class Consumer {
 		}
 		
 		if (this.cBank == null){
-			cBankNew.addAccount(this, cash);
+			cBankNew.addAccount(this, (cash + shortTermAssets), longTermAssets);
 			shortTermAssets += cash;
 			removeCash(cash);
 			getTotalAssets();
@@ -389,6 +412,17 @@ public class Consumer {
 		return panicFlag;
 	}
 	
+	public String getPanicType(){
+		if(panicFlag){
+			if(panicPanic){
+				return "Panic Panic";
+			}
+			return "Liquidity Panic";
+		}
+		return "None";
+	}
+	
+	
 	public double getOthersConsumption(){
 		return othersConsumption;
 	}
@@ -401,10 +435,6 @@ public class Consumer {
 		return neighborPanicCount;
 	}
 	
-	public int getNeighborShockCount(){
-		return neighborShockCount;
-	}
-	
 	public int getMyPanicCount(){
 		return myPanicCount;
 	}
@@ -412,10 +442,10 @@ public class Consumer {
 	
 	public void consumerProximityLearning(){
 		GridPoint pt = grid.getLocation(this);
-		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, 5, 5);
+		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, CUSTOMER_LEARN_COUNT, CUSTOMER_LEARN_COUNT);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		int customerCount = 0;
+		consumerPBCount = 0;
 		neighborPanicCount = 0;
 		neighborShockCount = 0;
 		othersConsumption = 0.0;
@@ -425,18 +455,16 @@ public class Consumer {
 				GridPoint otherPt = location.getPoint();
 				for (Object obj : grid.getObjectsAt(otherPt.getX(), otherPt.getY())){
 					//only look at the first 10 customers
-					if (customerCount < CUSTOMER_LEARN_COUNT){
+					if (consumerPBCount < CUSTOMER_LEARN_COUNT){
 						if (obj instanceof Consumer){
-							if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
-								if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getShockedStatus() || ((Consumer) obj).getPanicFlag()){
+							if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
+								if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
 									othersConsumption += ((Consumer) obj).getCash();
+									System.out.println("I am " + this);
 									if (((Consumer) obj).getPanicFlag()){
 										neighborPanicCount++;
 									}
-									if (((Consumer) obj).getShockedStatus()){
-										neighborShockCount++;
-									}
-									customerCount++;
+									consumerPBCount++;
 								}
 							}
 							else{
@@ -451,23 +479,8 @@ public class Consumer {
 				
 			}
 		}
-		if (customerCount > 0){
-
-			
-//			System.out.println(this + " I looked around and saw " + othersConsumption + " from this many consumers: " + customerCount);
-//			System.out.println(this + " My consumption demand was " + consumptionDemand);
-			//50% of the new consumptionDemand comes the previous period's consumptionDemand
-//			double whiteNoise = rand.nextDouble() / 5 - 0.10;
-//			consumptionDemand = consumptionDemand / 2 - whiteNoise;
-//			
-//			consumptionDemand = consumptionDemand / 2;
-//			System.out.println(whiteNoise + " is white noise");
-			//50% of the new consumptionDemand comes the consumptionDemands of the 10 nearest consumers in this period
-			othersConsumption = othersConsumption / customerCount;
-//			if (othersConsumption > FEAR_CUTOFF * salaryCurve.getMean()){
-//				consumptionDemand = 1.0;
-//			}
-//			System.out.println(this + " My consumption demand is now " + consumptionDemand);
+		if (consumerPBCount > 0){
+			othersConsumption = othersConsumption / consumerPBCount;
 		}
 	}
 	
@@ -482,47 +495,126 @@ public class Consumer {
 	 * @throws Exception
 	 */
 	public void discoverInitialNet() throws Exception{
-		net = calculateNet();
-//		System.out.println("HERERE");
-//		System.out.println("My consumptionDemand is " + consumptionDemand);
-//		if (consumptionDemand > FEAR_CUTOFF){
-//			System.out.println(this + " is very scared");
-//		}
+		calculateNet();
 		if (net < 0){
 			if (cBank != null){
+				DD.addInitialWithdrawals(net);
 				cash = withdrawSavings(Math.abs(net));
 			}
 			else{
-				//consumer already holds all assets as cash
 				;
 			}
 		}
 		else{
+			if (cBank != null){
+				DD.addInitialWithdrawals(net);
+			}
 			depositSavings(net);
 		}
 	}
+	
+	
+	public boolean liquidityChecker(double othersConsumption, double estimatedBankShortTermAssets, double estimatedBankLongTermAssets){
+		double estimatedWithdrawals = othersConsumption;
+		double tempBankShort = estimatedBankShortTermAssets;
+		double tempBankLong = estimatedBankLongTermAssets;
+		
+		if (estimatedWithdrawals > tempBankShort){
+			estimatedWithdrawals -= tempBankShort;
+			tempBankShort = 0.0;
+			if (estimatedWithdrawals <= tempBankLong){
+				tempBankLong -= estimatedWithdrawals;
+				estimatedWithdrawals = 0.0;
+			}
+			else{
+				estimatedWithdrawals -= tempBankLong;
+				tempBankLong = 0.0;
+			}
+		}else{
+			tempBankShort -= estimatedWithdrawals;
+			estimatedWithdrawals = 0.0;
+		}
+		
+		double assetsFuture = bankShortTermPayout * (tempBankShort - bankCost1) + bankLongTermPayout * tempBankLong - bankCost2;		
+		double expectedWithdrawals = (longTermPayout - 1) * initialEndowment * DD.getConsumerCount();
+		
+		return (assetsFuture >= expectedWithdrawals);		
+	}
+	
 	
 	/** Part 2 of consumer paying out. Consumer looks around at neighbors wallets
 	 * @throws Exception
 	 */
 	public void panicBasedConsumption() throws Exception{
-		consumerProximityLearning();
 		if (cBank != null){
-			//Decision to withdraw is based on comparison of average consumption demands of 10 nearest consumers with FEAR_CUTOFF
-			//age * 1500 represents accumulation of savings to living consumers
-			if (/*(othersConsumption >= (salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age) * FEAR_WITHDRAWAL_PROPORTION * WITHDRAWAL_MULTIPLIER) ||*/ (neighborPanicCount + neighborShockCount > CUSTOMER_LEARN_COUNT * largeShockProb * gamma)){
-				//Consumer withdraws portion of their remaining savings after paying expenses. proportion currently 100%
-				
-//				(salaryCurve.getMean() * (1 - consumptionCurve.getMean()) * ((shortTermPayout + longTermPayout)/2) - (salaryCurve.getMean() * largeShockMult * largeShockProb)) * Math.pow(((shortTermPayout + longTermPayout)/2), age))
-				double fearWithdrawalAmount = getTotalAssets() * FEAR_WITHDRAWAL_PROPORTION;
+			consumerProximityLearning();
+			panicPanic = false;
+			liquidityPanic = false;
+			panicFlag = false;
+			DD.addPlaceInLine();
+			placeInLine = DD.getPlaceInLine();
+						
+
+			if ((!allConsumersVisible) && (!bankVisible)){
+				double estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount;
+				if (!liquidityChecker(estimatedPanicWithdrawal * DD.getConsumerCount(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				else{
+					if (!liquidityChecker(othersConsumption * DD.getConsumerCount(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+						liquidityPanic = true;
+						panicFlag = true;
+					}
+				}
+			}
+			else if ((allConsumersVisible) && (!bankVisible)){
+				double estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount;
+				if (!liquidityChecker(estimatedPanicWithdrawal * DD.getConsumerCount(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				else{
+					if (!liquidityChecker(-DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+						liquidityPanic = true;
+						panicFlag = true;
+					}
+				}
+			}
+			else if ((!allConsumersVisible) && (bankVisible)){
+				double estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount;
+				if (!liquidityChecker(estimatedPanicWithdrawal * DD.getConsumerCount(), DD.getBankShort(), DD.getBankLong())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				else{
+					if (!liquidityChecker(-DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+						liquidityPanic = true;
+						panicFlag = true;
+					}
+				}
+			}
+			else {
+				double estimatedPanicWithdrawal = (DD.getBankShort() / DD.getConsumerCount() + shortTermPayout * DD.getBankLong() / DD.getConsumerCount()) * neighborPanicCount / consumerPBCount;
+				if (!liquidityChecker(estimatedPanicWithdrawal * DD.getConsumerCount(), DD.getBankShort(), DD.getBankLong())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				else{
+					if (!liquidityChecker(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+						liquidityPanic = true;
+						panicFlag = true;
+					}
+				}
+			}
+			
+
+			if (panicFlag){
+				unnecessaryPanic = DD.getUnnecessary();	
+				double fearWithdrawalAmount = getTotalAssets();
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
-				panicFlag = true;
 				myPanicCount++;
-				System.out.println(this + " just made a complete fear withdrawal of " + fearWithdrawalAmount + " because their othersConsumption was " + othersConsumption);
-			}
-			else{
-				System.out.println(this + "did not make a fear withdrawal because my othersConsumption is " + othersConsumption);
 			}
 		}
 	}
@@ -534,7 +626,7 @@ public class Consumer {
 	public void payingBills() throws Exception{
 		if (net < 0){
 			removeCash(Math.abs(net));
-			getLongTermAssets();
+			getTotalAssets();
 		}
 	}
 	
@@ -575,6 +667,10 @@ public class Consumer {
 	
 	public int getAge(){
 		return age;
+	}
+	
+	public int getPlaceInLine(){
+		return placeInLine;
 	}
 	
 	
@@ -680,37 +776,22 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	@ScheduledMethod(start = 1, interval = 16)
-	public void consumer_tick_1() throws Exception{
-		//This method should either go last or first of the basic scheduled methods.
+	@ScheduledMethod(start = 1, interval = 10)
+	public void consumer_move_1() throws Exception{
 		consumerMove();
 		shocked = false;
-//		discoverInitialNet();
-//		panicBasedConsumption();
-//		System.out.println("I am " + this + ". I made "+ net);
-//		if (net < 0){
-//			withdrawSavings(Math.abs(net));
-//		}
-//		else{
-//			depositSavings(net);
-//		}
-//		System.out.println("I have this much " + getSavings() + " in my bank account!");
-		
+		othersConsumption = 0.0;
+		placeInLine = 0;
 	}
 	
-	@ScheduledMethod(start = 2, interval = 16)
-	public void consumer_tick_2() throws Exception{
+	@ScheduledMethod(start = 4, interval = 10)
+	public void consumer_initialNet_4() throws Exception{
 		discoverInitialNet();
 	}
 	
-	@ScheduledMethod(start = 3, interval = 16)
-	public void consumer_tick_3() throws Exception{
-		if (!shocked){
-			panicBasedConsumption();
-		}
-		else{
-			System.out.println("I am " + this + " and I was shocked :(");
-		}
+	@ScheduledMethod(start = 7, interval = 10)
+	public void consumer_pblm_7() throws Exception{
+		panicBasedConsumption();
 	}
 	
 	/** This is the first basic scheduled method to be called.
@@ -718,11 +799,9 @@ public class Consumer {
 	 * The consumer than moves around to search for banks or just move
 	 * This provides the basis of consumers passing information to each other. 
 	 */
-	@ScheduledMethod(start = 4, interval = 16)
-	public void consumer_tick_4() throws Exception{
-		//This method should either go last or first of the basic scheduled methods.
+	@ScheduledMethod(start = 8, interval = 10)
+	public void consumer_payBills_8() throws Exception{
 		payingBills();
-		
 	}
 	
 	//one of last scheduled methods
@@ -732,21 +811,17 @@ public class Consumer {
 	 * @throws Exception 
 	 * 
 	 */
-	@ScheduledMethod(start = 14, interval = 16)
+	@ScheduledMethod(start = 10, interval = 10)
 	public void consumer_check_14() throws Exception{
 		if (isBankrupt){
 			System.out.println("I am " + this + " and I just went bankrupt so I am about to leave my bank " + getBank());
 			leaveBank(getBank());
-			//consumer.die()
+			DD.removeConsumer();
 			consumerDie();
 		}
 		else{
 			age++;
 			transferMoney();
-			neighborShockCount = 0;
-			neighborPanicCount = 0;
-			othersConsumption = 0.0;
-			panicFlag = false;
 		}
 	}
 	

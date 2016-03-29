@@ -3,15 +3,7 @@
   <type>2D</type>
   <styles>
     <entry>
-      <string>model1.Firm</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
-    </entry>
-    <entry>
       <string>model1.Consumer</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
-    </entry>
-    <entry>
-      <string>model1.InvestmentBank</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
@@ -21,16 +13,8 @@
   </styles>
   <editedStyles>
     <entry>
-      <string>model1.Firm</string>
-      <string>model1.Firm.style_2.xml</string>
-    </entry>
-    <entry>
       <string>model1.Consumer</string>
       <string>model1.Consumer.style_2.xml</string>
-    </entry>
-    <entry>
-      <string>model1.InvestmentBank</string>
-      <string>model1.InvestmentBank.style_2.xml</string>
     </entry>
     <entry>
       <string>model1.CommercialBank</string>
@@ -39,27 +23,11 @@
   </editedStyles>
   <netStyles>
     <entry>
-      <string>iBanks_firms network</string>
-      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
-    </entry>
-    <entry>
-      <string>cBanks_iBanks network</string>
-      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
-    </entry>
-    <entry>
       <string>consumers_cBanks network</string>
       <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
     </entry>
   </netStyles>
   <editedNetStyles>
-    <entry>
-      <string>iBanks_firms network</string>
-      <string>iBanks_firmsnetwork.style_1.xml</string>
-    </entry>
-    <entry>
-      <string>cBanks_iBanks network</string>
-      <string>cBanks_iBanksnetwork.style_1.xml</string>
-    </entry>
     <entry>
       <string>consumers_cBanks network</string>
       <string>consumers_cBanksnetwork.style_0.xml</string>
@@ -80,16 +48,8 @@
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>model1.Firm</string>
-      <int>1</int>
-    </entry>
-    <entry>
       <string>model1.Consumer</string>
       <int>2</int>
-    </entry>
-    <entry>
-      <string>model1.InvestmentBank</string>
-      <int>0</int>
     </entry>
     <entry>
       <string>model1.CommercialBank</string>
@@ -107,35 +67,11 @@
       <attributes/>
       <type>network</type>
     </repast.simphony.scenario.data.ProjectionData>
-    <repast.simphony.scenario.data.ProjectionData>
-      <id>iBanks_firms network</id>
-      <attributes/>
-      <type>network</type>
-    </repast.simphony.scenario.data.ProjectionData>
-    <repast.simphony.scenario.data.ProjectionData>
-      <id>cBanks_iBanks network</id>
-      <attributes/>
-      <type>network</type>
-    </repast.simphony.scenario.data.ProjectionData>
   </projections>
   <visualizationProperties class="repast.simphony.visualization.UnitSizeLayoutProperties">
     <unitSize>15.0</unitSize>
   </visualizationProperties>
   <projectionDescriptors>
-    <entry>
-      <string>iBanks_firms network</string>
-      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[3]"/>
-        <props/>
-      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-    </entry>
-    <entry>
-      <string>cBanks_iBanks network</string>
-      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[4]"/>
-        <props/>
-      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-    </entry>
     <entry>
       <string>consumers_cBanks network</string>
       <repast.simphony.visualization.engine.DefaultProjectionDescriptor>

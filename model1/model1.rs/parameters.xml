@@ -24,10 +24,10 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Consumer Withdrawal Multiplier" displayName="Consumer Withdrawal Multiplier" type="double" 
-						defaultValue="1.25" 
+				<parameter name="Bank Assets Visible" displayName="Bank Assets Visible" type="boolean" 
+						defaultValue="false" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
 		/>
 				<parameter name="Consumer Shock Multiplier" displayName="Consumer Shock Multiplier" type="double" 
@@ -40,6 +40,12 @@
 						defaultValue="20000.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="All Consumers Visible" displayName="All Consumers Visible" type="boolean" 
+						defaultValue="false" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
 									
 		/>
 				<parameter name="Consumer Mean Rate of Consumption" displayName="Consumer Mean Rate of Consumption" type="double" 
@@ -90,10 +96,22 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="Bank Cost 2" displayName="Bank Cost 2" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
 				<parameter name="Consumer Group Size" displayName="Consumer Group Size" type="int" 
 						defaultValue="10" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="Bank Cost 1" displayName="Bank Cost 1" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 		</parameters>
