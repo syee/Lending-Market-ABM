@@ -6,14 +6,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Consumer Initial Endowment" displayName="Consumer Initial Endowment" type="double" 
-						defaultValue="0.0" 
+				<parameter name="Consumer Distribution Deviation" displayName="Consumer Distribution Deviation" type="double" 
+						defaultValue="0.1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Consumer Distribution Deviation" displayName="Consumer Distribution Deviation" type="double" 
-						defaultValue="0.1" 
+				<parameter name="Consumer Initial Endowment" displayName="Consumer Initial Endowment" type="double" 
+						defaultValue="10000.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -36,16 +36,16 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Bank Initial Endowment" displayName="Bank Initial Endowment" type="double" 
-						defaultValue="20000.0" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
 				<parameter name="All Consumers Visible" displayName="All Consumers Visible" type="boolean" 
 						defaultValue="false" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									
+		/>
+				<parameter name="Bank Initial Endowment" displayName="Bank Initial Endowment" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="Consumer Mean Rate of Consumption" displayName="Consumer Mean Rate of Consumption" type="double" 
@@ -67,7 +67,7 @@
 									
 		/>
 				<parameter name="Bank Short Term Asset Return" displayName="Bank Short Term Asset Return" type="double" 
-						defaultValue="1.05" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
