@@ -62,6 +62,8 @@ public class Consumer {
 	private boolean panicFlag;
 	private boolean liquidityPanic;
 	private boolean panicPanic;
+	private boolean purePanic;
+	private boolean shockedButStanding;
 	
 	private int consumerPBCount;
 	private int neighborPanicCount;
@@ -247,7 +249,7 @@ public class Consumer {
 	}
 	
 	public double withdrawShortTerm(double desiredAmount) throws Exception{
-		double shortTermHeld = getShortTermAssets();
+		double shortTermHeld = shortTermAssets;
 		if (desiredAmount > shortTermHeld){
 			cBank.consumerWithdrawShortTerm(this, shortTermHeld);
 			shortTermAssets = 0;
@@ -305,6 +307,7 @@ public class Consumer {
 					System.out.println("After using my longTerm funds, I owe " + leftOver);
 					if (leftOver <= 0.2){
 						getTotalAssets();
+						shockedButStanding = true;
 						return originalAmount;
 					}
 					else{
@@ -420,6 +423,14 @@ public class Consumer {
 		return panicFlag;
 	}
 	
+	public boolean getPurePanic(){
+		return purePanic;
+	}
+	
+	public boolean getPartialShock(){
+		return shockedButStanding;
+	}
+	
 	public int getConsumerPBCount(){
 		return consumerPBCount;
 	}
@@ -480,10 +491,6 @@ public class Consumer {
 		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, CUSTOMER_LEARN_COUNT, CUSTOMER_LEARN_COUNT);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		consumerPBCount = 0;
-		neighborPanicCount = 0;
-		neighborShockCount = 0;
-		othersConsumption = 0.0;
 		HashSet<Consumer> neighbors = new HashSet<Consumer>(10);
 		for (GridCell<Consumer> location: gridCells){
 			if (location.size() > 0){
@@ -549,8 +556,8 @@ public class Consumer {
 	}
 	
 	
-	public boolean liquidityCheckerP(double othersConsumption, double estimatedBankShortTermAssets, double estimatedBankLongTermAssets){
-		double estimatedWithdrawals = othersConsumption;
+	public boolean liquidityCheckerP(double othersConsumption1, double estimatedBankShortTermAssets, double estimatedBankLongTermAssets){
+		double estimatedWithdrawals = othersConsumption1;
 		double tempBankShort = estimatedBankShortTermAssets;
 		double tempBankLong = estimatedBankLongTermAssets;
 		
@@ -575,8 +582,8 @@ public class Consumer {
 		return (assetsFutureP >= expectedWithdrawalsP);		
 	}
 	
-	public boolean liquidityCheckerL(double othersConsumption, double estimatedBankShortTermAssets, double estimatedBankLongTermAssets){
-		double estimatedWithdrawals = othersConsumption;
+	public boolean liquidityCheckerL(double othersConsumption1, double estimatedBankShortTermAssets, double estimatedBankLongTermAssets){
+		double estimatedWithdrawals = othersConsumption1;
 		double tempBankShort = estimatedBankShortTermAssets;
 		double tempBankLong = estimatedBankLongTermAssets;
 		
@@ -615,18 +622,21 @@ public class Consumer {
 			if ((!allConsumersVisible) && (!bankVisible)){
 				estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
 				if (neighborPanicCount > 0){
+					DD.addPanicEstimateCount();
+					DD.addPanicsEstimate(estimatedPanicWithdrawal);
+				}
+				if (neighborPanicCount > 0){
 					if (!liquidityCheckerP(estimatedPanicWithdrawal, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
 							panicPanic = true;
 							panicFlag = true;
 					}
-					else{
-						if (!liquidityCheckerL(othersConsumption, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
-							liquidityPanic = true;
-							panicFlag = true;
-						}
+					if (!liquidityCheckerL(othersConsumption, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+						liquidityPanic = true;
+						panicFlag = true;
 					}
 				}
 				else{
+					estimatedPanicWithdrawal = 0.0001;
 					if (!liquidityCheckerL(othersConsumption, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
 						liquidityPanic = true;
 						panicFlag = true;
@@ -677,6 +687,7 @@ public class Consumer {
 			if (panicFlag){
 				unnecessaryPanic = DD.getUnnecessary();	
 				double fearWithdrawalAmount = getTotalAssets();
+				purePanic = (panicFlag && (shockedButStanding || !shocked));
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
 				myPanicCount++;
@@ -756,8 +767,8 @@ public class Consumer {
 			
 		}
 		else{
-			double targetX = rand.nextDouble() * 4;
-			double targetY = rand.nextDouble() * 4;
+			double targetX = rand.nextDouble() * 2;
+			double targetY = rand.nextDouble() * 2;
 			NdPoint myPoint = space.getLocation(this);
 			NdPoint otherPoint = new NdPoint(pt.getX() + targetX, pt.getY() + targetY);
 			double angelToMove = SpatialMath.calcAngleFor2DMovement(space,  myPoint,  otherPoint);
@@ -807,18 +818,17 @@ public class Consumer {
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
 		GridPoint pointWithMostCBanks = null;
-		if(cBank == null){
-			//use GridCellNgh to create GridCells for the surrounding neighborhood
-			GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
-			
-			List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
-			SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-			int maxCount = 0;
-			for (GridCell<CommercialBank> bank: gridCells){
-				if (bank.size() > maxCount){
-					pointWithMostCBanks = bank.getPoint();
-					maxCount = bank.size();
-				}
+
+		//use GridCellNgh to create GridCells for the surrounding neighborhood
+		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+		
+		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
+		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+		int maxCount = 0;
+		for (GridCell<CommercialBank> bank: gridCells){
+			if (bank.size() > maxCount){
+				pointWithMostCBanks = bank.getPoint();
+				maxCount = bank.size();
 			}
 		}
 //		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
@@ -845,16 +855,22 @@ public class Consumer {
 	public void consumer_move_1() throws Exception{
 		consumerMove();
 		shocked = false;
-		othersConsumption = 0.0;
 		panicPanic = false;
 		liquidityPanic = false;
 		panicFlag = false;
+		purePanic = false;
+		shockedButStanding = false;
 		placeInLine = 0;
-		estimatedPanicWithdrawal = 0.0;
-		expectedWithdrawalsP = 0.0;
-		assetsFutureP = 0.0;
-		expectedWithdrawalsL = 0.0;
-		assetsFutureL = 0.0;
+		estimatedPanicWithdrawal = 0.0001;
+		expectedWithdrawalsP = 0.0001;
+		assetsFutureP = 0.0001;
+		expectedWithdrawalsL = 0.0001;
+		assetsFutureL = 0.0001;
+		trueLiquidityDemand = 0.0001;
+		consumerPBCount = 0;
+		neighborPanicCount = 0;
+		neighborShockCount = 0;
+		othersConsumption = 0.0001;
 	}
 	
 	@ScheduledMethod(start = 4, interval = 10)

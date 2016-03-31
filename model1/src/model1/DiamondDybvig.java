@@ -33,6 +33,11 @@ public class DiamondDybvig {
 	private double bankCost1;
 	private double bankCost2;
 	
+	private double panicEstimate = 0.0;
+	private double averagePanicEstimate = 0.0;
+	
+	private int panicEstimatesCount = 0;
+	
 	private boolean isUnnecessary;
 	
 	
@@ -76,9 +81,41 @@ public class DiamondDybvig {
 		return placeInLine;
 	}
 	
+	public int getPanicEstimatesCount(){
+		return panicEstimatesCount;
+	}
+	
+	public void addPanicEstimateCount(){
+		panicEstimatesCount +=1;
+	}
+	
+	public void resetPanicEstimatesCount(){
+		panicEstimatesCount = 0;
+	}
+	
+	public double getPanicEstimate(){
+		return panicEstimate;
+	}
+	
+	public void addPanicsEstimate(double amount){
+		panicEstimate += amount;
+	}
+	
+	public void resetPanicsEstimate(){
+		panicEstimate = 0;
+	}
+	
+	public double getAveragePanicEstimate(){
+		if (panicEstimatesCount == 0){
+			return 0.0;
+		}
+		averagePanicEstimate = panicEstimate / panicEstimatesCount;
+		return averagePanicEstimate;
+	}
+	
 	
 	public void addInitialWithdrawals(double amount){
-		initialWithdrawals += amount;
+		initialWithdrawals -= amount;
 	}
 	
 	public void resetInitialWithdrawals(){
@@ -160,6 +197,9 @@ public class DiamondDybvig {
 	public void DD_reset_2() throws Exception{
 		initialWithdrawals = 0.0;
 		placeInLine = 0;
+		panicEstimate = 0.0;
+		panicEstimatesCount = 0;
+		averagePanicEstimate = 0.0;
 	}
 	
 	@ScheduledMethod(start = 6, interval = 10)

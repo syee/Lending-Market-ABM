@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
 					<parameter name="Consumer Shock Probability" displayName="Consumer Shock Probability" type="double" 
-						defaultValue="0.25" 
+						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -31,7 +31,7 @@
 									
 		/>
 				<parameter name="Consumer Shock Multiplier" displayName="Consumer Shock Multiplier" type="double" 
-						defaultValue="0.75" 
+						defaultValue="3.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

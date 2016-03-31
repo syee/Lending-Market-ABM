@@ -1,0 +1,29 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>ModelOutput</name>
+  <dataSet>Aggregate</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>Consumer Total Panics</string>
+    <string>Consumer Liquidity Panics</string>
+    <string>Consumer Panic Panics</string>
+    <string>Consumer Estimated Liquidity Withdrawals</string>
+    <string>Consumer Estimated Panic Withdrawals</string>
+    <string>Consumer Estimated Bank Assets - Liquidity</string>
+    <string>Consumer Estimated Bank Assets - Panics</string>
+    <string>Consumer People Seen Panic</string>
+    <string>Consumers Shocked</string>
+    <string>Consumer Cash</string>
+    <string>Consumer Pure Panic</string>
+    <string>Bank Total Assets</string>
+    <string>Bank Total Liabilities</string>
+    <string>Bank Short Term Assets</string>
+    <string>Bank Long Term Assets</string>
+    <string>tick</string>
+    <string>DD Initial Withdrawals</string>
+    <string>Consumer Partial Shock</string>
+    <string>Consumer Count</string>
+  </sourceIds>
+  <fileName>ModelOutput.csv</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>
