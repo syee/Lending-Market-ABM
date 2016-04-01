@@ -152,6 +152,11 @@ public class CommercialBank {
 		return totalAssets;
 	}
 	
+	public double getTotalAssetsAfterInitialDraws(){
+		totalAssets = shortTermAssets + longTermAssets * bankShortTermPayout;
+		return totalAssets;
+	}
+	
 	public double getShortTermAssets(){
 		return shortTermAssets;
 	}
@@ -326,6 +331,7 @@ public class CommercialBank {
 	public void bank_updatesDD_5() throws Exception{
 		DD.setBankShort(shortTermAssets);
 		DD.setBankLong(longTermAssets);
+		getTotalAssetsAfterInitialDraws();
 	}
 
 	

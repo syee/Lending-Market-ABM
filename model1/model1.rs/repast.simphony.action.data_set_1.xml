@@ -1,6 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Aggregate</name>
-  <type>AGGREGATE</type>
+  <name>Consumer</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>model1.Consumer</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>true</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -11,209 +12,92 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>2140477568</hashCode>
+    <hashCode>-317213221</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Consumer Total Panics</string>
+      <string>PlaceInLine</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Total Panics</id>
+        <id>PlaceInLine</id>
+        <className>model1.Consumer</className>
+        <methodName>getPlaceInLine</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>PanicFlag</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>PanicFlag</id>
         <className>model1.Consumer</className>
         <methodName>getPanicFlag</methodName>
-        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Consumer Liquidity Panics</string>
+      <string>PanicPanic</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Liquidity Panics</id>
-        <className>model1.Consumer</className>
-        <methodName>getLiquidityPanic</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Panic Panics</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Panic Panics</id>
+        <id>PanicPanic</id>
         <className>model1.Consumer</className>
         <methodName>getPanicPanic</methodName>
-        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Consumer Estimated Liquidity Withdrawals</string>
+      <string>LiquidityPanic</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Estimated Liquidity Withdrawals</id>
+        <id>LiquidityPanic</id>
         <className>model1.Consumer</className>
-        <methodName>getOthersConsumption</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getLiquidityPanic</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Consumer Estimated Bank Assets - Liquidity</string>
+      <string>PartialShock</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Estimated Bank Assets - Liquidity</id>
-        <className>model1.Consumer</className>
-        <methodName>getAssetsFutureL</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Estimated Bank Assets - Panics</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Estimated Bank Assets - Panics</id>
-        <className>model1.Consumer</className>
-        <methodName>getAssetsFutureP</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer People Seen Panic</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer People Seen Panic</id>
-        <className>model1.Consumer</className>
-        <methodName>getNeighborPanicCount</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumers Shocked</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumers Shocked</id>
-        <className>model1.Consumer</className>
-        <methodName>getShockedStatus</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Cash</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Cash</id>
-        <className>model1.Consumer</className>
-        <methodName>getCash</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Pure Panic</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Pure Panic</id>
-        <className>model1.Consumer</className>
-        <methodName>getPurePanic</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Bank Total Liabilities</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Bank Total Liabilities</id>
-        <className>model1.CommercialBank</className>
-        <methodName>getLongTermLiabilities</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Bank Short Term Assets</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Bank Short Term Assets</id>
-        <className>model1.CommercialBank</className>
-        <methodName>getShortTermAssets</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Bank Long Term Assets</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Bank Long Term Assets</id>
-        <className>model1.CommercialBank</className>
-        <methodName>getLongTermAssets</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>DD Initial Withdrawals</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>DD Initial Withdrawals</id>
-        <className>model1.DiamondDybvig</className>
-        <methodName>getInitialWithdrawals</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Partial Shock</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Partial Shock</id>
+        <id>PartialShock</id>
         <className>model1.Consumer</className>
         <methodName>getPartialShock</methodName>
-        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Consumer Estimated Panic Withdrawals</string>
+      <string>PurePanic</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Estimated Panic Withdrawals</id>
-        <className>model1.DiamondDybvig</className>
-        <methodName>getAveragePanicEstimate</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Bank Total Assets</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Bank Total Assets</id>
-        <className>model1.CommercialBank</className>
-        <methodName>getTotalAssets</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Total Assets</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Total Assets</id>
+        <id>PurePanic</id>
         <className>model1.Consumer</className>
-        <methodName>getTotalAssets</methodName>
-        <aggType>SUM</aggType>
+        <methodName>getPurePanic</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Bank Failures</string>
+      <string>NeighborPanicCount</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Bank Failures</id>
-        <className>model1.DiamondDybvig</className>
-        <methodName>getBankFail</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Consumer Average Panic Withdrawals</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Average Panic Withdrawals</id>
+        <id>NeighborPanicCount</id>
         <className>model1.Consumer</className>
-        <methodName>getEstimatedPanicWithdrawal</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getNeighborPanicCount</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Consumer Seen Panic Proportion</string>
+      <string>OthersConsumption</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Consumer Seen Panic Proportion</id>
+        <id>OthersConsumption</id>
+        <className>model1.Consumer</className>
+        <methodName>getOthersConsumption</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ShockedStatus</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ShockedStatus</id>
+        <className>model1.Consumer</className>
+        <methodName>getShockedStatus</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>PanicProportion</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>PanicProportion</id>
         <className>model1.Consumer</className>
         <methodName>getPanicProportion</methodName>
-        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>
-  <countSources class="linked-hash-map">
-    <entry>
-      <string>Consumer Count</string>
-      <repast.simphony.data2.engine.CountSourceDefinition>
-        <typeName>model1.Consumer</typeName>
-        <id>Consumer Count</id>
-      </repast.simphony.data2.engine.CountSourceDefinition>
-    </entry>
-  </countSources>
+  <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>
   <customAggDataSources class="linked-hash-map"/>
 </repast.simphony.data2.engine.DataSetDescriptor>

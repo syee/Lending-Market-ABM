@@ -80,6 +80,7 @@ public class Consumer {
 	private double shortTermAssets;
 	private double longTermAssets;
 	private double totalAssets;
+	private double currentBankAssetsEstimate = 0.0;
 	
 	private DiamondDybvig DD;
 	private int placeInLine;
@@ -149,6 +150,7 @@ public class Consumer {
 		this.bankVisible = bankVisible;
 		
 		this.probExpectedWithdrawal = averageWithdrawal;
+		calculateBankAssets();
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -226,6 +228,14 @@ public class Consumer {
 	
 	public double getShortTermAssets(){
 		return shortTermAssets;
+	}
+	
+	public void calculateBankAssets(){
+		currentBankAssetsEstimate =  shortTermAssets * DD.getConsumerCount() + longTermAssets * DD.getConsumerCount() * bankShortTermPayout;
+	}
+	
+	public double getCurrentBankAssetsEstimate(){
+		return currentBankAssetsEstimate;
 	}
 	
 	public double getTotalAssets(){
@@ -540,7 +550,7 @@ public class Consumer {
 			othersConsumption = othersConsumption / consumerPBCount * DD.getConsumerCount();
 		}
 		else{
-			othersConsumption = 0.0001;
+			othersConsumption = cash + 0.0001;
 		}
 	}
 	
@@ -902,6 +912,7 @@ public class Consumer {
 	@ScheduledMethod(start = 4, interval = 10)
 	public void consumer_initialNet_4() throws Exception{
 		discoverInitialNet();
+		calculateBankAssets();
 	}
 	
 	@ScheduledMethod(start = 7, interval = 10)
