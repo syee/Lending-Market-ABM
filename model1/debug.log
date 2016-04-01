@@ -1,1133 +1,666 @@
-FATAL [Thread-6] 2015-10-21 23:58:06,958 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (222.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+INFO  [Thread-5] 2016-03-31 11:24:25,507 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@7d5dc96b and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@7d5dc96b and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@2a930ec6 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@2a930ec6 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@37532f09 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@37532f09 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@352c7b39 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@352c7b39 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@55b2cdcb and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@55b2cdcb and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1a8bfac8 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1a8bfac8 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,508 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@3487a5d1 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@3487a5d1 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@25a85c9 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@25a85c9 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@40ff1065 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@40ff1065 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - model1.Consumer@23e2bcbe My leftover is 26628.335126980102
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 26628.335126980102
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 5364.860637964104
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,509 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 21263.474489016
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 21263.474489016
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - I still owe 21263.474489016
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.Consumer@6150ed89 My leftover is 25315.715627319863
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 25315.715627319863
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 25315.715627319863
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 10989.561000823649
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 14326.154626496214
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - I still owe 14326.154626496214
+INFO  [Thread-5] 2016-03-31 11:24:25,510 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - model1.Consumer@305c8bf My leftover is 22685.34884316992
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 22685.34884316992
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 7973.056194967727
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 14712.292648202192
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 14712.292648202192
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I still owe 14712.292648202192
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,511 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.Consumer@6150ed89 My leftover is 10989.561000823649
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 10989.561000823649
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.Consumer@305c8bf My leftover is 7973.056194967727
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 7973.056194967727
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,512 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.Consumer@1c81f231 My leftover is 5013.989086215354
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 5013.989086215354
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 5013.989086215354
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.Consumer@23e2bcbe My leftover is 5364.860637964102
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 5364.860637964102
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,513 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,536 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@305c8bf and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@23e2bcbe and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@6150ed89 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - model1.Consumer@49588fc8 My leftover is 22399.011452762956
+INFO  [Thread-5] 2016-03-31 11:24:25,537 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 22399.011452762956
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 22399.011452762956
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 17385.0223665476
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.Consumer@67aa514a My leftover is 24407.628999529552
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 24407.628999529552
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 9957.834307759607
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 9957.834307759607
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 14449.794691769945
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 1195.2704866125716
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 1195.2704866125716
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 13254.524205157373
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,538 repast.simphony.batch.ssh.LocalSession - I still owe 13254.524205157373
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - model1.Consumer@49588fc8 My leftover is 24786.36873906051
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 22399.011452762956
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 2387.3572862975525
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 182.38879586539406
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 2204.9684904321584
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 2204.968490432158
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 4.547473508864641E-13
+INFO  [Thread-5] 2016-03-31 11:24:25,539 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.Consumer@144ea41a My leftover is 7831.795209770385
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 7831.795209770385
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 290.39592347407415
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 7541.3992862963105
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 7541.3992862963105
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 5788.821514982752
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,540 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.Consumer@67aa514a My leftover is 11153.104794372179
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 11153.104794372179
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - model1.Consumer@1c81f231 My leftover is 6134.821079684378
+INFO  [Thread-5] 2016-03-31 11:24:25,541 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 6134.821079684378
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 6134.821079684378
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 6134.821079684378
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67aa514a and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,542 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,546 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8 and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.Consumer@144ea41a My leftover is 28895.877866205785
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 28895.877866205785
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 7831.795209770385
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 21064.0826564354
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 21064.0826564354
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - I still owe 21064.0826564354
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - model1.Consumer@49588fc8 My leftover is 23727.020122666854
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,547 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 23727.020122666854
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 2387.3572862975525
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 21339.6628363693
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 21339.6628363693
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - I still owe 21339.6628363693
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.Consumer@7150a0ed My leftover is 20865.95781925694
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 20865.95781925694
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 20865.95781925694
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a
+INFO  [Thread-5] 2016-03-31 11:24:25,548 repast.simphony.batch.ssh.LocalSession - model1.Consumer@144ea41a My leftover is 7831.795209770386
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 7831.795209770386
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.Consumer@49588fc8 My leftover is 2387.3572862975525
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 2387.3572862975525
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - model1.Consumer@1c81f231 My leftover is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,549 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.Consumer@62465dfb My leftover is 19889.197215912063
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 19889.197215912063
+INFO  [Thread-5] 2016-03-31 11:24:25,550 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 4701.0952281637055
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 15188.101987748358
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 15188.101987748358
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 2.0008883439004423E-12
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@49588fc8 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@144ea41a and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.Consumer@1c81f231 My leftover is 20586.593638404433
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 20586.593638404433
+INFO  [Thread-5] 2016-03-31 11:24:25,551 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 13111.375710514305
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 13111.375710514305
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - I still owe 13111.375710514305
+INFO  [Thread-5] 2016-03-31 11:24:25,552 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.Consumer@1c81f231 My leftover is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 7475.217927890128
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.Consumer@62465dfb My leftover is 21713.200432299356
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 21713.200432299356
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 21713.200432299356
+INFO  [Thread-5] 2016-03-31 11:24:25,571 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,572 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1c81f231 and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,596 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I just joined model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,596 repast.simphony.batch.ssh.LocalSession - model1.Consumer@7150a0ed My leftover is 21147.65726095674
+INFO  [Thread-5] 2016-03-31 11:24:25,596 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,596 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 21147.65726095674
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 2900.1304484086836
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 18247.526812548058
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 3106.5288681842426
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 15140.997944363815
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I still owe 15140.997944363815
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@7150a0ed
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.Consumer@7150a0ed My leftover is 6006.659316592926
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 6006.659316592926
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@7150a0ed and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@7150a0ed and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@7150a0ed and I am trying to leave null
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.Consumer@62465dfb My leftover is 20590.18322972751
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 20590.18322972751
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 20590.18322972751
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 20590.18322972751
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 18799.36906188518
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.Consumer@62465dfb My leftover is 19480.42264792385
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - My not enough cash amount is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - The first leftover amount is 19480.42264792385
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 6265.086743882492
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my shortTerm funds, I owe 13215.335904041358
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - After using my longTerm funds, I owe 13215.335904041358
+INFO  [Thread-5] 2016-03-31 11:24:25,597 repast.simphony.batch.ssh.LocalSession - I went bankrupt. My assets are now 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - I still owe 13215.335904041358
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - FINISHED model1.Consumer@62465dfb
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - model1.Consumer@62465dfb My leftover is 6265.086743882492
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - My satisfactory cash amount is 6265.086743882492
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I am trying to leave model1.CommercialBank@5e51ac41
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 My leftover is 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - model1.CommercialBank@5e51ac41 had to tap into its long term assets to cover the remaining 0.0
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I just went bankrupt so I am about to leave my bank null
+INFO  [Thread-5] 2016-03-31 11:24:25,598 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@62465dfb and I am trying to leave null
+INFO  [pool-3-thread-1] 2016-03-31 11:24:47,439 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459437821206 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-03-31 11:24:47,449 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0158
+INFO  [SwingWorker-pool-1-thread-2] 2016-03-31 11:24:47,464 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459437821206
+INFO  [SwingWorker-pool-1-thread-2] 2016-03-31 11:24:47,490 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-03-31 11:24:47,514 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0011
+INFO  [SwingWorker-pool-1-thread-2] 2016-03-31 11:24:47,515 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.1061
+INFO  [AWT-EventQueue-0] 2016-03-31 11:29:52,468 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 11:29:52,471 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:30:06,739 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost6555777635472376405.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:30:07,357 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:30:07,358 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0879
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:30:07,358 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080/stevenyee_localhost6555777635472376405.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:30:08,243 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-4-thread-1] 2016-03-31 11:31:08,242 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:32:08,241 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:33:08,242 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:34:08,240 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:35:08,241 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:36:08,245 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:37:08,244 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:38:08,247 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:39:08,245 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:40:08,244 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:41:08,248 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:42:08,251 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:43:08,254 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [pool-4-thread-1] 2016-03-31 11:44:08,253 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459438202080 for DONE:  no
+INFO  [AWT-EventQueue-0] 2016-03-31 11:46:34,339 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 11:46:34,702 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:47:03,422 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost8395073789786312963.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439214324 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:47:04,373 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:47:04,383 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.1676
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:47:04,384 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439214324/stevenyee_localhost8395073789786312963.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:47:05,967 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-03-31 11:48:05,985 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439214324 for DONE:  no
+INFO  [pool-2-thread-1] 2016-03-31 11:49:05,983 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439214324 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:49:05,985 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.0267
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:49:06,047 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439214324
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:49:06,100 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:49:06,134 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0025
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 11:49:06,134 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.1976
+INFO  [AWT-EventQueue-0] 2016-03-31 11:50:09,518 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 11:50:09,526 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [AWT-EventQueue-0] 2016-03-31 11:50:35,462 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 11:50:35,465 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:51:01,969 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost7080704089248319415.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:51:03,139 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:51:03,143 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.1969
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:51:03,146 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331/stevenyee_localhost7080704089248319415.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 11:51:05,558 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-03-31 11:52:05,592 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:53:05,590 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:54:05,592 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:55:05,592 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:56:05,423 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:57:05,424 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:58:05,424 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 11:59:05,424 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:00:05,427 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:01:05,430 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:02:05,429 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:03:05,429 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:04:05,429 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:05:05,428 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:06:05,427 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:07:05,430 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:08:05,433 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:09:05,435 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:10:05,438 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:11:05,439 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:12:05,442 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:13:05,442 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:14:05,443 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:15:05,445 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:16:05,445 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:17:05,444 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:18:05,444 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:19:05,446 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459439451331 for DONE:  no
+INFO  [AWT-EventQueue-0] 2016-03-31 12:20:27,020 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 12:20:27,575 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-03-31 12:21:07,689 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost7434356461461284244.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441255496 ...
+ERROR [SwingWorker-pool-1-thread-1] 2016-03-31 12:21:07,770 repast.simphony.batch.ssh.SessionsDriver - Error while copying /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost7434356461461284244.zip to /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441255496/stevenyee_localhost7434356461461284244.zip
+java.io.IOException: No space left on device
+	at sun.nio.ch.FileDispatcherImpl.pwrite0(Native Method)
+	at sun.nio.ch.FileDispatcherImpl.pwrite(FileDispatcherImpl.java:66)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:89)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.FileChannelImpl.writeInternal(FileChannelImpl.java:745)
+	at sun.nio.ch.FileChannelImpl.write(FileChannelImpl.java:731)
+	at sun.nio.ch.FileChannelImpl.transferFromFileChannel(FileChannelImpl.java:603)
+	at sun.nio.ch.FileChannelImpl.transferFrom(FileChannelImpl.java:675)
+	at repast.simphony.util.FileUtils.copyFile(FileUtils.java:61)
+	at repast.simphony.batch.ssh.LocalSession.initModelArchive(LocalSession.java:297)
+	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:58)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javax.swing.SwingWorker.run(SwingWorker.java:334)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: model1.Consumer@681aa8fe does not have an account at this cBank
-	at model1.CommercialBank.returnConsumerBalance(CommercialBank.java:233)
-	at model1.Consumer.getSavings(Consumer.java:148)
-	at model1.Consumer.consumer_tick_1(Consumer.java:393)
-	... 10 more
-FATAL [Thread-6] 2015-10-22 00:00:00,526 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (83.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+INFO  [AWT-EventQueue-0] 2016-03-31 12:22:31,853 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 12:22:32,157 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [AWT-EventQueue-0] 2016-03-31 12:22:47,877 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 12:22:47,881 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+ERROR [SwingWorker-pool-1-thread-2] 2016-03-31 12:23:01,227 repast.simphony.batch.ssh.SessionsDriver - Error while preparing zip file for distributions
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:315)
+	at java.util.zip.DeflaterOutputStream.deflate(DeflaterOutputStream.java:253)
+	at java.util.zip.DeflaterOutputStream.write(DeflaterOutputStream.java:211)
+	at java.util.zip.ZipOutputStream.write(ZipOutputStream.java:332)
+	at repast.simphony.batch.ssh.ModelArchiveConfigurator.copy(ModelArchiveConfigurator.java:94)
+	at repast.simphony.batch.ssh.ModelArchiveConfigurator.configure(ModelArchiveConfigurator.java:56)
+	at repast.simphony.batch.ssh.LocalSession.initModelArchive(LocalSession.java:284)
+	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:58)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javax.swing.SwingWorker.run(SwingWorker.java:334)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:759)
-	... 10 more
-FATAL [Thread-6] 2015-10-22 00:07:20,414 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (207.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.CommercialBank$$FastClassByCGLIB$$2fd7654c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.util.ConcurrentModificationException
-	at java.util.HashMap$HashIterator.remove(HashMap.java:1443)
-	at model1.CommercialBank.removeAllConsumers(CommercialBank.java:537)
-	at model1.CommercialBank.commBank_check_12(CommercialBank.java:561)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-10-22 00:11:39,570 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:11:39,953 repast.simphony.ui.widget.MovieMaker - Movie capture has finished metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:12:08,829 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-FATAL [Thread-8] 2015-10-22 00:12:09,763 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (83.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:759)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-10-22 00:16:48,010 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:20:17,831 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-FATAL [Thread-6] 2015-10-22 00:20:20,215 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (70.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeFullBalancePayment(Firm.java:493)
-	at model1.Firm.makeFullPaymentsAllLoans(Firm.java:591)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-10-22 00:23:56,171 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-FATAL [Thread-6] 2015-10-22 00:24:12,677 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-10-22 00:27:16,222 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-FATAL [Thread-8] 2015-10-22 00:27:33,608 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-FATAL [Thread-10] 2015-10-22 00:38:19,899 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-10-22 00:39:32,333 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:40:38,028 repast.simphony.ui.widget.MovieMaker - Movie capture has finished metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:41:38,778 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-10-22 00:43:59,765 repast.simphony.ui.widget.MovieMaker - Movie capture has finished metaData=[STATUS]
-FATAL [Thread-6] 2015-10-23 00:13:30,602 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:680)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 00:32:27,433 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (70.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 00:33:55,073 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:447)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:552)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:798)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 00:39:36,383 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (70.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:448)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:553)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:800)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 00:42:33,685 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:449)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:554)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:802)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 01:11:44,756 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (96.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:449)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:554)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:801)
-	... 10 more
-FATAL [Thread-13] 2015-10-23 01:29:35,841 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (71.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:31)
-	at model1.Firm.makeLoanPayment(Firm.java:451)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:556)
-	at model1.Firm.firms_makePayments_6(Firm.java:814)
-	... 10 more
-FATAL [Thread-7] 2015-10-23 01:35:53,322 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (149.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:695)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:31)
-	at model1.Firm.makeLoanPayment(Firm.java:452)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:557)
-	at model1.Firm.firms_makePayments_6(Firm.java:819)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 01:42:40,477 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (135.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Firm$$FastClassByCGLIB$$df325264.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: investment bank should not be receiving this payment
-	at model1.InvestmentBank.receivePayment(InvestmentBank.java:689)
-	at model1.LoanFromIB.makePayment(LoanFromIB.java:35)
-	at model1.Firm.makeLoanPayment(Firm.java:452)
-	at model1.Firm.makeMonthlyPaymentsAllLoans(Firm.java:557)
-	at model1.Firm.firms_waitingStatus_5(Firm.java:805)
-	... 10 more
-FATAL [Thread-6] 2015-10-23 01:56:43,910 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (78.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.InvestmentBank$$FastClassByCGLIB$$fff055.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.util.ConcurrentModificationException
-	at java.util.HashMap$HashIterator.remove(HashMap.java:1443)
-	at model1.InvestmentBank.removeAllLoansToFirms(InvestmentBank.java:792)
-	at model1.InvestmentBank.invBank_check_13(InvestmentBank.java:1093)
-	... 10 more
-ERROR [AWT-EventQueue-0] 2015-11-20 01:20:57,861 repast.simphony.visualizationOGL2D.DisplayOGL2D - Error initializing OGL 2D display. JOGL must be installed and computer must support open gl rendering
-javax.media.opengl.GLException: Profile GL2 is not available on null, but: []
-	at javax.media.opengl.GLProfile.get(GLProfile.java:962)
-	at javax.media.opengl.GLProfile.get(GLProfile.java:975)
-	at saf.v3d.Canvas2D.<init>(Canvas2D.java:82)
-	at repast.simphony.visualizationOGL2D.DisplayOGL2D.<init>(DisplayOGL2D.java:91)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:66)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2015-11-20 01:20:57,915 repast.simphony.visualization.engine.DisplayComponentControllerAction - Error while creating displays
-repast.simphony.visualization.engine.DisplayCreationException: Error while creating display.
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:102)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-Caused by: java.lang.NullPointerException
-	at repast.simphony.visualizationOGL2D.DisplayOGL2D.<init>(DisplayOGL2D.java:101)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:66)
-	... 49 more
-FATAL [Thread-6] 2015-12-04 09:53:50,387 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: model1.Consumer@58b546f7 does not have an account at this cBank
-	at model1.CommercialBank.returnConsumerBalance(CommercialBank.java:233)
-	at model1.Consumer.getBankSavings(Consumer.java:166)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:382)
-	at model1.Consumer.consumer_tick_1(Consumer.java:539)
-	... 10 more
-FATAL [Thread-6] 2015-12-04 09:57:06,296 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: model1.Consumer@1ef82d65 does not have an account at this cBank
-	at model1.CommercialBank.returnConsumerBalance(CommercialBank.java:233)
-	at model1.Consumer.getBankSavings(Consumer.java:166)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:382)
-	at model1.Consumer.consumer_tick_1(Consumer.java:539)
-	... 10 more
-FATAL [Thread-6] 2015-12-04 10:00:30,226 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (15.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: model1.Consumer@57ad13ac does not have an account at this cBank
-	at model1.CommercialBank.returnConsumerBalance(CommercialBank.java:233)
-	at model1.Consumer.getBankSavings(Consumer.java:166)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:382)
-	at model1.Consumer.consumer_tick_1(Consumer.java:540)
-	... 10 more
-FATAL [Thread-6] 2015-12-04 10:04:32,312 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: model1.Consumer@142ea9a2 does not have an account at this cBank
-	at model1.CommercialBank.returnConsumerBalance(CommercialBank.java:233)
-	at model1.Consumer.getBankSavings(Consumer.java:166)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:383)
-	at model1.Consumer.consumer_tick_1(Consumer.java:541)
-	... 10 more
-FATAL [Thread-6] 2016-01-24 23:47:14,892 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (46.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: Bank does not service consumer model1.Consumer@40e2a124
-	at model1.CommercialBank.consumerWithdrawShortTerm(CommercialBank.java:268)
-	at model1.Consumer.leaveBank(Consumer.java:338)
-	at model1.Consumer.consumer_check_14(Consumer.java:709)
-	... 10 more
-ERROR [AWT-EventQueue-0] 2016-02-09 16:31:10,827 repast.simphony.ui.RSApplication - Error while initializing simulation
-repast.simphony.parameter.IllegalParameterException: Parameter 'Consumer Distribution Deviation (% of mean)' not found in the schema.
-	at repast.simphony.parameter.DefaultParameters.getValue(DefaultParameters.java:213)
-	at model1.model1Builder.build(model1Builder.java:54)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2016-02-09 16:32:50,814 repast.simphony.ui.RSApplication - Error while initializing simulation
-repast.simphony.parameter.IllegalParameterException: Parameter 'Consumer Withdrawal Multiplier' not found in the schema.
-	at repast.simphony.parameter.DefaultParameters.getValue(DefaultParameters.java:213)
-	at model1.model1Builder.build(model1Builder.java:61)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-FATAL [Thread-6] 2016-02-09 16:34:39,794 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.NullPointerException
-	at repast.simphony.query.space.grid.GridCellNgh.setupMinMax(GridCellNgh.java:80)
-	at repast.simphony.query.space.grid.GridCellNgh.<init>(GridCellNgh.java:48)
-	at model1.Consumer.consumerMove(Consumer.java:639)
-	at model1.Consumer.consumer_tick_1(Consumer.java:674)
-	... 10 more
-FATAL [Thread-6] 2016-02-09 16:36:55,070 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.NullPointerException
-	at repast.simphony.query.space.grid.GridCellNgh.setupMinMax(GridCellNgh.java:80)
-	at repast.simphony.query.space.grid.GridCellNgh.<init>(GridCellNgh.java:48)
-	at model1.Consumer.consumerMove(Consumer.java:640)
-	at model1.Consumer.consumer_tick_1(Consumer.java:675)
-	... 10 more
-FATAL [Thread-6] 2016-02-11 03:07:02,679 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (19.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Exception: Consumer cannot withdraw a negative amount!
-	at model1.CommercialBank.consumerWithdraw(CommercialBank.java:256)
-	at model1.CommercialBank.consumerWithdrawLongTerm(CommercialBank.java:274)
-	at model1.Consumer.leaveBank(Consumer.java:341)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:515)
-	at model1.Consumer.consumer_tick_3(Consumer.java:705)
-	... 10 more
-ERROR [AWT-EventQueue-0] 2016-03-29 02:57:07,024 repast.simphony.ui.RSApplication - Error while initializing simulation
-repast.simphony.parameter.IllegalParameterException: Parameter 'Consumer Withdrawal Multiplier' not found in the schema.
-	at repast.simphony.parameter.DefaultParameters.getValue(DefaultParameters.java:213)
-	at model1.model1Builder.build(model1Builder.java:61)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2016-03-29 02:58:11,402 repast.simphony.visualization.engine.DisplayComponentControllerAction - Error while creating displays
-repast.simphony.visualization.engine.DisplayCreationException: Error while creating display.
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:102)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-Caused by: java.lang.ClassNotFoundException: model1.InvestmentBank
-	at org.java.plugin.standard.StandardPluginClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:344)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:87)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:34)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:79)
-	... 49 more
-ERROR [AWT-EventQueue-0] 2016-03-29 02:58:34,060 repast.simphony.visualization.engine.DisplayComponentControllerAction - Error while creating displays
-repast.simphony.visualization.engine.DisplayCreationException: Error while creating display.
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:102)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-Caused by: java.lang.ClassNotFoundException: model1.InvestmentBank
-	at org.java.plugin.standard.StandardPluginClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:344)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:87)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:34)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:79)
-	... 49 more
-ERROR [AWT-EventQueue-0] 2016-03-29 02:59:33,555 repast.simphony.visualization.engine.DisplayComponentControllerAction - Error while creating displays
-repast.simphony.visualization.engine.DisplayCreationException: Error while creating display.
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:102)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-Caused by: java.lang.ClassNotFoundException: model1.InvestmentBank
-	at org.java.plugin.standard.StandardPluginClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:344)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:87)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:34)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:79)
-	... 49 more
-ERROR [AWT-EventQueue-0] 2016-03-29 03:00:39,026 repast.simphony.visualization.engine.DisplayComponentControllerAction - Error while creating displays
-repast.simphony.visualization.engine.DisplayCreationException: Error while creating display.
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:102)
-	at repast.simphony.visualization.engine.DisplayProducer.createDisplay(DisplayProducer.java:45)
-	at repast.simphony.visualization.engine.DisplayComponentControllerAction.runInitialize(DisplayComponentControllerAction.java:104)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-Caused by: java.lang.ClassNotFoundException: model1.InvestmentBank
-	at org.java.plugin.standard.StandardPluginClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:344)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:87)
-	at repast.simphony.visualization.engine.StyleRegistrar.registerStyles(StyleRegistrar.java:34)
-	at repast.simphony.visualization.engine.DisplayCreatorOGL2D.createDisplay(DisplayCreatorOGL2D.java:79)
-	... 49 more
-FATAL [Thread-6] 2016-03-29 03:16:40,212 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (7.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at model1.Consumer$$FastClassByCGLIB$$7eb45d1c.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.Error: Unresolved compilation problem: 
-	The method prinlnt(String) is undefined for the type PrintStream
-
-	at model1.Consumer.consumerProximityLearning(Consumer.java:463)
-	at model1.Consumer.panicBasedConsumption(Consumer.java:550)
-	at model1.Consumer.consumer_pblm_7(Consumer.java:793)
-	... 10 more
+INFO  [AWT-EventQueue-0] 2016-03-31 12:26:53,112 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 12:26:53,120 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:27:08,332 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost1383275592252666913.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441623529 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:27:08,834 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:27:08,837 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0884
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:27:08,838 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441623529/stevenyee_localhost1383275592252666913.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:27:09,711 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-03-31 12:28:09,745 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441623529 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:28:09,746 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0151
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:28:09,825 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441623529
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:28:09,889 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:28:09,946 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0033
+INFO  [SwingWorker-pool-1-thread-3] 2016-03-31 12:28:09,947 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.1080
+INFO  [AWT-EventQueue-0] 2016-03-31 12:29:29,496 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-03-31 12:29:29,504 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:29:44,495 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost7196229126199479206.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 ...
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:29:44,982 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:29:44,983 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0877
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:29:44,983 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723/stevenyee_localhost7196229126199479206.zip
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:29:45,829 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-03-31 12:30:45,831 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:31:45,832 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:32:45,832 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:33:45,831 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 for DONE:  no
+INFO  [pool-3-thread-1] 2016-03-31 12:34:45,833 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:34:45,834 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0142
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:34:45,855 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459441779723
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:34:45,864 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:34:46,602 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0128
+INFO  [SwingWorker-pool-1-thread-4] 2016-03-31 12:34:46,602 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1173
+INFO  [AWT-EventQueue-0] 2016-04-01 08:09:23,822 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-01 08:09:24,238 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:09:58,108 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost6953998480206976150.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:09:58,645 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:09:58,671 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0718
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:09:58,672 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340/stevenyee_localhost6953998480206976150.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:09:59,337 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-01 08:10:59,348 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:11:59,345 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:12:59,345 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:13:59,345 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:14:59,343 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:15:59,349 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:16:59,355 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-01 08:17:59,361 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:17:59,366 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0116
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:17:59,431 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459512594340
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:17:59,477 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:18:02,774 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0568
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-01 08:18:02,774 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1421
+INFO  [AWT-EventQueue-0] 2016-04-01 09:40:36,074 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-01 09:40:36,080 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:40:47,934 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost5156695467985479271.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459518044156 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:40:48,446 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:40:48,446 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0715
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:40:48,447 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459518044156/stevenyee_localhost5156695467985479271.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:40:49,148 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-01 09:41:49,150 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459518044156 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-01 09:42:49,149 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459518044156 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:42:49,151 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.0117
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:42:49,167 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459518044156
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:42:49,184 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:42:49,401 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0042
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-01 09:42:49,402 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.0880

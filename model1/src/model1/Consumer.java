@@ -68,6 +68,7 @@ public class Consumer {
 	private int consumerPBCount;
 	private int neighborPanicCount;
 	private int neighborShockCount;
+	private double neighborPanicProportion;
 	private double estimatedPanicWithdrawal;
 	private int myPanicCount;
 	private double othersConsumption;
@@ -85,12 +86,11 @@ public class Consumer {
 	private boolean unnecessaryPanic;
 	private double bankShortTermPayout;
 	private double bankLongTermPayout;
-	private double bankCost1;
 	private double bankCost2;
 	private boolean allConsumersVisible;
 	private boolean bankVisible;
 	
-	
+	private double probExpectedWithdrawal;
 	
 	private double assetsFutureP;
 	private double expectedWithdrawalsP;
@@ -110,7 +110,7 @@ public class Consumer {
 	 * @param smallShockProb Probability of a small shock.
 	 * @param largeShockProb Probability of a large shock.
 	 */
-	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double shortTermEndowment, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout, int CUSTOMER_LEARN_COUNT, DiamondDybvig DD, double bankShortTermPayout, double bankLongTermPayout, double bankCost1, double bankCost2, boolean allConsumersVisible, boolean bankVisible){
+	public Consumer(ContinuousSpace<Object> space, Grid<Object> grid, double salary, double shortTermEndowment, double CONSUMER_DEVIATION_PERCENT, double consumptionMean, double largeShockMult, double largeShockProb, double shortTermPayout, double longTermPayout, int CUSTOMER_LEARN_COUNT, DiamondDybvig DD, double bankShortTermPayout, double bankLongTermPayout, double bankCost2, double averageWithdrawal, boolean allConsumersVisible, boolean bankVisible){
 		this.space = space;
 		this.grid = grid;
 		this.largeShockMult = largeShockMult;
@@ -144,10 +144,11 @@ public class Consumer {
 		this.DD = DD;
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
-		this.bankCost1 = bankCost1;
 		this.bankCost2 = bankCost2;
 		this.allConsumersVisible = allConsumersVisible;
 		this.bankVisible = bankVisible;
+		
+		this.probExpectedWithdrawal = averageWithdrawal;
 	}
 	
 	/** This method samples the consumer's salary distribution to generate a salary for this month.
@@ -287,24 +288,24 @@ public class Consumer {
 	 */
 	public double withdrawSavings(double originalAmount) throws Exception{
 		double leftOver = originalAmount;
-		System.out.println(this + " My leftover is " + leftOver);
+//		System.out.println(this + " My leftover is " + leftOver);
 		if (leftOver >= -0.2){
 			if (cBank != null){
 				if (leftOver <= cash){
-					System.out.println("My satisfactory cash amount is " + cash);
+//					System.out.println("My satisfactory cash amount is " + cash);
 					cash -= leftOver;
 					getTotalAssets();
 					return leftOver;
 				}
 				else{
 					leftOver -= cash;
-					System.out.println("My not enough cash amount is " + cash);
+//					System.out.println("My not enough cash amount is " + cash);
 					cash = 0;
-					System.out.println("The first leftover amount is " + leftOver);
+//					System.out.println("The first leftover amount is " + leftOver);
 					leftOver -= withdrawShortTerm(leftOver);
-					System.out.println("After using my shortTerm funds, I owe " + leftOver);
+//					System.out.println("After using my shortTerm funds, I owe " + leftOver);
 					leftOver -= withdrawLongTerm(leftOver);
-					System.out.println("After using my longTerm funds, I owe " + leftOver);
+//					System.out.println("After using my longTerm funds, I owe " + leftOver);
 					if (leftOver <= 0.2){
 						getTotalAssets();
 						shockedButStanding = true;
@@ -313,9 +314,9 @@ public class Consumer {
 					else{
 						isBankrupt = true;
 						getTotalAssets();
-						System.out.println("I went bankrupt. My assets are now " + totalAssets);
-						System.out.println("I still owe " + leftOver);
-						System.out.println("FINISHED " + this);
+//						System.out.println("I went bankrupt. My assets are now " + totalAssets);
+//						System.out.println("I still owe " + leftOver);
+//						System.out.println("FINISHED " + this);
 						return originalAmount - leftOver;
 					}
 				}
@@ -364,7 +365,7 @@ public class Consumer {
 	 * @throws Exception 
 	 */
 	public boolean leaveBank(CommercialBank cBankDead) throws Exception{
-		System.out.println("I am " + this + " and I am trying to leave " + cBankDead);
+//		System.out.println("I am " + this + " and I am trying to leave " + cBankDead);
 		//I may want to eventually switch this to searching a list of the consumer's cBanks. This assumes each consumer has only one cBank
 		if (cBank == null){
 			return false;
@@ -468,6 +469,19 @@ public class Consumer {
 		return estimatedPanicWithdrawal;
 	}
 	
+	public double getPanicProportion(){
+		return neighborPanicProportion;
+	}
+	
+	public void setPanicProportion(){
+		if (consumerPBCount > 0){
+			neighborPanicProportion = neighborPanicCount / consumerPBCount;
+		}
+		else{
+			neighborPanicProportion = 0.0000001;
+		}
+	}
+	
 	
 	public double getAssetsFutureP(){
 		return assetsFutureP;
@@ -502,7 +516,7 @@ public class Consumer {
 							if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
 								if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
 									othersConsumption += ((Consumer) obj).getCash();
-									System.out.println("I am " + this);
+//									System.out.println("I am " + this);
 									if (((Consumer) obj).getPanicFlag()){
 										neighborPanicCount++;
 									}
@@ -510,7 +524,7 @@ public class Consumer {
 								}
 							}
 							else{
-								System.out.println("I already contain this consumer...why am I trying to add it twice");
+//								System.out.println("I already contain this consumer...why am I trying to add it twice");
 							}
 						}
 					}
@@ -521,8 +535,12 @@ public class Consumer {
 				
 			}
 		}
+		setPanicProportion();
 		if (consumerPBCount > 0){
 			othersConsumption = othersConsumption / consumerPBCount * DD.getConsumerCount();
+		}
+		else{
+			othersConsumption = 0.0001;
 		}
 	}
 	
@@ -576,8 +594,8 @@ public class Consumer {
 			tempBankShort -= estimatedWithdrawals;
 			estimatedWithdrawals = 0.0;
 		}
-		assetsFutureP = bankShortTermPayout * (tempBankShort - bankCost1) + bankLongTermPayout * tempBankLong - bankCost2;		
-		expectedWithdrawalsP = (longTermPayout - 1) * initialEndowment * DD.getConsumerCount();
+		assetsFutureP = bankShortTermPayout * tempBankShort + bankLongTermPayout * tempBankLong - bankCost2;		
+		expectedWithdrawalsP = probExpectedWithdrawal * DD.getConsumerCount();
 		
 		return (assetsFutureP >= expectedWithdrawalsP);		
 	}
@@ -602,8 +620,8 @@ public class Consumer {
 			tempBankShort -= estimatedWithdrawals;
 			estimatedWithdrawals = 0.0;
 		}
-		assetsFutureL = bankShortTermPayout * (tempBankShort - bankCost1) + bankLongTermPayout * tempBankLong - bankCost2;		
-		expectedWithdrawalsL = (longTermPayout - 1) * initialEndowment * DD.getConsumerCount();
+		assetsFutureL = bankShortTermPayout * tempBankShort + bankLongTermPayout * tempBankLong - bankCost2;		
+		expectedWithdrawalsL = probExpectedWithdrawal * DD.getConsumerCount();
 		
 		return (assetsFutureL >= expectedWithdrawalsL);		
 	}
@@ -620,7 +638,12 @@ public class Consumer {
 						
 
 			if ((!allConsumersVisible) && (!bankVisible)){
-				estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+				if (consumerPBCount == 0){
+					estimatedPanicWithdrawal = 0.0001;
+				}
+				else{
+					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+				}
 				if (neighborPanicCount > 0){
 					DD.addPanicEstimateCount();
 					DD.addPanicsEstimate(estimatedPanicWithdrawal);
@@ -650,7 +673,7 @@ public class Consumer {
 //					panicFlag = true;
 //				}
 //				else{
-//					if (liquidityCheckerL(-DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+//					if (liquidityCheckerL(DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
 //						liquidityPanic = true;
 //						panicFlag = true;
 //					}
@@ -663,7 +686,7 @@ public class Consumer {
 //					panicFlag = true;
 //				}
 //				else{
-//					if (!liquidityCheckerL(-DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+//					if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
 //						liquidityPanic = true;
 //						panicFlag = true;
 //					}
@@ -789,7 +812,7 @@ public class Consumer {
 					Network<Object> net = (Network<Object>) context.getProjection("consumers_cBanks network");
 //						System.out.println(net);
 					bankEdge = net.addEdge(this, toAdd);
-					System.out.println("I am " + this + " and I just joined " + toAdd);
+//					System.out.println("I am " + this + " and I just joined " + toAdd);
 				}
 			}
 		}
@@ -817,18 +840,20 @@ public class Consumer {
 	public void consumerMove() throws Exception{
 		//get grid location of consumer
 		GridPoint pt = grid.getLocation(this);
-		GridPoint pointWithMostCBanks = null;
-
-		//use GridCellNgh to create GridCells for the surrounding neighborhood
-		GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+		GridPoint pointWithMostCBanks = pt;
 		
-		List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
-		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		int maxCount = 0;
-		for (GridCell<CommercialBank> bank: gridCells){
-			if (bank.size() > maxCount){
-				pointWithMostCBanks = bank.getPoint();
-				maxCount = bank.size();
+		if (cBank == null){
+			//use GridCellNgh to create GridCells for the surrounding neighborhood
+			GridCellNgh<CommercialBank> nghCreator = new GridCellNgh<CommercialBank>(grid, pt, CommercialBank.class, 50, 50);
+			
+			List<GridCell<CommercialBank>> gridCells = nghCreator.getNeighborhood(true);
+			SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
+			int maxCount = 0;
+			for (GridCell<CommercialBank> bank: gridCells){
+				if (bank.size() > maxCount){
+					pointWithMostCBanks = bank.getPoint();
+					maxCount = bank.size();
+				}
 			}
 		}
 //		System.out.println("I am consumer " + this + ". I found the point with the most banks at "+ pointWithMostCBanks);
@@ -871,6 +896,7 @@ public class Consumer {
 		neighborPanicCount = 0;
 		neighborShockCount = 0;
 		othersConsumption = 0.0001;
+		neighborPanicProportion = 0.0000001;
 	}
 	
 	@ScheduledMethod(start = 4, interval = 10)
@@ -903,7 +929,7 @@ public class Consumer {
 	@ScheduledMethod(start = 10, interval = 10)
 	public void consumer_check_14() throws Exception{
 		if (isBankrupt){
-			System.out.println("I am " + this + " and I just went bankrupt so I am about to leave my bank " + getBank());
+//			System.out.println("I am " + this + " and I just went bankrupt so I am about to leave my bank " + getBank());
 			leaveBank(getBank());
 			DD.removeConsumer();
 			consumerDie();

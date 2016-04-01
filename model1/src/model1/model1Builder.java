@@ -59,26 +59,28 @@ public class model1Builder implements ContextBuilder<Object> {
 		double bankShortTermRate = (double)params.getValue("Bank Short Term Asset Return");
 		double bankLongTermRate = (double)params.getValue("Bank Long Term Asset Return");
 		
-		double bankCost1 = (double)params.getValue("Bank Cost 1");
 		double bankCost2 = (double)params.getValue("Bank Cost 2");
+		double blank = (double)params.getValue("Blank");
+		
+		double probWithdrawal = (double)params.getValue("Expected Average Withdrawal");
 		
 		boolean allConsumersVisible = (boolean)params.getValue("All Consumers Visible");
 		boolean bankVisible = (boolean)params.getValue("Bank Assets Visible");
 		
-		DiamondDybvig DD = new DiamondDybvig(space, grid, consumerLongTermRate, shortTermEndowment, bankShortTermRate, bankLongTermRate, bankCost1, bankCost2, consumerCount);
+		DiamondDybvig DD = new DiamondDybvig(space, grid, consumerLongTermRate, shortTermEndowment, bankShortTermRate, bankLongTermRate, bankCost2, consumerCount, probWithdrawal, blank);
 
 		context.add(DD);
 		
 		
 		for (int i = 0; i < consumerCount; i++){
-			context.add(new Consumer(space, grid, consumerSalary, shortTermEndowment, consumerDeviationPercent, consumerConsumptionMean, consumerShockMultiplier, consumerShockProbability, consumerShortTermRate, consumerLongTermRate, consumerGroupSize, DD, bankShortTermRate, bankLongTermRate, bankCost1, bankCost2, allConsumersVisible, bankVisible));
+			context.add(new Consumer(space, grid, consumerSalary, shortTermEndowment, consumerDeviationPercent, consumerConsumptionMean, consumerShockMultiplier, consumerShockProbability, consumerShortTermRate, consumerLongTermRate, consumerGroupSize, DD, bankShortTermRate, bankLongTermRate, bankCost2, probWithdrawal, allConsumersVisible, bankVisible));
 			DD.addConsumer();
 		}
 		
 		
 		for (int i = 0; i < bankCount; i++){
 			try {
-				context.add(new CommercialBank(space, grid, bankReserves, consumerShortTermRate, consumerLongTermRate, bankShortTermRate, bankLongTermRate, bankCost1, bankCost2, DD));
+				context.add(new CommercialBank(space, grid, bankReserves, consumerShortTermRate, consumerLongTermRate, bankShortTermRate, bankLongTermRate, bankCost2, DD, consumerCount));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

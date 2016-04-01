@@ -3,9 +3,12 @@
  */
 package model1;
 
+import repast.simphony.context.Context;
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.util.ContextUtils;
 
 /**
  * @author stevenyee
@@ -30,28 +33,29 @@ public class DiamondDybvig {
 	private double bankShortTermPayout; //needs to be lower than consumer value
 	private double bankLongTermPayout; // needs to be higher than consumer value
 	
-	private double bankCost1;
 	private double bankCost2;
 	
 	private double panicEstimate = 0.0;
 	private double averagePanicEstimate = 0.0;
 	
+	private double probWithdrawal;
+	
 	private int panicEstimatesCount = 0;
 	
 	private boolean isUnnecessary;
+	private boolean bankFail = false;
 	
 	
 	
-	public DiamondDybvig(ContinuousSpace<Object> space, Grid<Object> grid, double consumerLongTermPayout, double consumerInitialEndowment, double bankShortTermPayout, double bankLongTermPayout, double bankCost1, double bankCost2, double consumerInitialCount){
+	public DiamondDybvig(ContinuousSpace<Object> space, Grid<Object> grid, double consumerLongTermPayout, double consumerInitialEndowment, double bankShortTermPayout, double bankLongTermPayout, double bankCost2, double consumerInitialCount, double probWithdrawal, double blank){
 		this.space = space;
 		this.grid = grid;
 		this.consumerLongTermPayout = consumerLongTermPayout;
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
 		
-		this.bankCost1 = bankCost1;
 		this.bankCost2 = bankCost2;
-		
+		this.probWithdrawal = probWithdrawal;
 		this.consumerInitialEndowment = consumerInitialEndowment;
 	}
 	
@@ -183,14 +187,22 @@ public class DiamondDybvig {
 			tempWithdrawals = 0.0;
 		}
 		
-		double assetsFuture = bankShortTermPayout * (tempBankShort - bankCost1) + bankLongTermPayout * tempBankLong - bankCost2;
-		double expectedWithdrawals = (consumerLongTermPayout - 1) * consumerInitialEndowment * consumerCount;
+		double assetsFuture = bankShortTermPayout * tempBankShort + bankLongTermPayout * tempBankLong - bankCost2;
+		double expectedWithdrawals = probWithdrawal * consumerCount;
 		
 		isUnnecessary = (assetsFuture >= expectedWithdrawals);
 	}
 	
 	public boolean getUnnecessary(){
 		return isUnnecessary;
+	}
+	
+	public boolean getBankFail(){
+		return bankFail;
+	}
+	
+	public void updateBankFail(){
+		bankFail = true;
 	}
 	
 	@ScheduledMethod(start = 2, interval = 10)
@@ -200,6 +212,13 @@ public class DiamondDybvig {
 		panicEstimate = 0.0;
 		panicEstimatesCount = 0;
 		averagePanicEstimate = 0.0;
+		bankFail = false;
+		
+		Context<Object> context = ContextUtils.getContext(this);
+		if (context.getObjects(Consumer.class).size() == 0){
+			RunEnvironment.getInstance().endRun();
+		}
+		RunEnvironment.getInstance().endAt(300);
 	}
 	
 	@ScheduledMethod(start = 6, interval = 10)

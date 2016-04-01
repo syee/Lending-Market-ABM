@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
 					<parameter name="Consumer Shock Probability" displayName="Consumer Shock Probability" type="double" 
-						defaultValue="0.25" 
+						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="Consumer Distribution Deviation" displayName="Consumer Distribution Deviation" type="double" 
 						defaultValue="0.1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="Consumer Initial Endowment" displayName="Consumer Initial Endowment" type="double" 
+						defaultValue="10000.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -25,7 +31,7 @@
 									
 		/>
 				<parameter name="Consumer Shock Multiplier" displayName="Consumer Shock Multiplier" type="double" 
-						defaultValue="0.75" 
+						defaultValue="3.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -78,8 +84,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="Expected Average Withdrawal" displayName="Expected Average Withdrawal" type="double" 
+						defaultValue="10000.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
 				<parameter name="Bank Count" displayName="Bank Count" type="int" 
-						defaultValue="2" 
+						defaultValue="1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -100,12 +112,6 @@
 						defaultValue="10" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="Bank Cost 1" displayName="Bank Cost 1" type="double" 
-						defaultValue="0.0" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 		</parameters>

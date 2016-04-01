@@ -45,8 +45,9 @@ public class CommercialBank {
 	private double longTermLiabilities;
 	
 	private DiamondDybvig DD;
-	private double bankCost1;
 	private double bankCost2;
+	
+	private int consumerCount = 0;
 	
 	private HashSet<Consumer> Consumers;
 	
@@ -60,7 +61,7 @@ public class CommercialBank {
 	 * @param loanYears
 	 * @throws Exception 
 	 */
-	public CommercialBank(ContinuousSpace<Object> space, Grid<Object> grid, double reserves, double consumerShortTermPayout, double consumerLongTermPayout, double bankShortTermPayout, double bankLongTermPayout, double bankCost1, double bankCost2, DiamondDybvig DD) throws Exception{
+	public CommercialBank(ContinuousSpace<Object> space, Grid<Object> grid, double reserves, double consumerShortTermPayout, double consumerLongTermPayout, double bankShortTermPayout, double bankLongTermPayout, double bankCost2, DiamondDybvig DD, int consumerCount) throws Exception{
 		this.space = space;
 		this.grid = grid;
 		
@@ -69,9 +70,10 @@ public class CommercialBank {
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
 		
-		this.bankCost1 = bankCost1;
 		this.bankCost2 = bankCost2;
 		this.DD = DD;
+		
+		this.consumerCount = consumerCount;
 		
 		shortTermAssets  = reserves;
 		Consumers = new HashSet<Consumer>();
@@ -220,11 +222,11 @@ public class CommercialBank {
 	
 	public double consumerWithdraw(double desiredAmount) throws Exception{
 		double leftOver = desiredAmount;
-		System.out.println(this + " My leftover is " + leftOver);
+//		System.out.println(this + " My leftover is " + leftOver);
 		if (leftOver >= -1.0){
 			leftOver -= removeShortTerm(leftOver);
 			if (leftOver >= 0.0){
-				System.out.println(this + " had to tap into its long term assets to cover the remaining " + leftOver);
+//				System.out.println(this + " had to tap into its long term assets to cover the remaining " + leftOver);
 				leftOver -= removeLongTerm(leftOver);
 			}
 			return desiredAmount - leftOver;
@@ -301,7 +303,8 @@ public class CommercialBank {
 	 * 
 	 */
 	public void removeAllConsumers() throws Exception{
-		System.out.println("BANK BLOW UP " + this);
+//		System.out.println("BANK BLOW UP " + this);
+		DD.updateBankFail();
 		Iterator<Consumer> consumerList = Consumers.iterator();
 		if (consumerList != null){
 			while (consumerList.hasNext()){
@@ -315,7 +318,7 @@ public class CommercialBank {
 	@ScheduledMethod(start = 3, interval = 10)
 	public void bank_payCost2_3() throws Exception{
 		if (age > 0){
-			payOperatingCosts(bankCost2);
+			payOperatingCosts(bankCost2 * consumerCount);
 		}
 	}
 	
@@ -341,7 +344,6 @@ public class CommercialBank {
 		else{
 			//pay interest on all consumer accounts
 			//pay bank operating costs
-			payOperatingCosts(bankCost1);
 			if (longTermAssets <= -1){
 				removeAllConsumers();
 				cBankDie();

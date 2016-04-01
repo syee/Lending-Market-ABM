@@ -23,6 +23,10 @@
     <string>DD Initial Withdrawals</string>
     <string>Consumer Partial Shock</string>
     <string>Consumer Count</string>
+    <string>Consumer Total Assets</string>
+    <string>Bank Failures</string>
+    <string>Consumer Average Panic Withdrawals</string>
+    <string>Consumer Seen Panic Proportion</string>
   </sourceIds>
   <fileName>ModelOutput.csv</fileName>
   <addTimeStamp>true</addTimeStamp>

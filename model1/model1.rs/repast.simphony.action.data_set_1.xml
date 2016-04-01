@@ -168,6 +168,42 @@
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>Consumer Total Assets</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Consumer Total Assets</id>
+        <className>model1.Consumer</className>
+        <methodName>getTotalAssets</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Bank Failures</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Bank Failures</id>
+        <className>model1.DiamondDybvig</className>
+        <methodName>getBankFail</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Consumer Average Panic Withdrawals</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Consumer Average Panic Withdrawals</id>
+        <className>model1.Consumer</className>
+        <methodName>getEstimatedPanicWithdrawal</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Consumer Seen Panic Proportion</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Consumer Seen Panic Proportion</id>
+        <className>model1.Consumer</className>
+        <methodName>getPanicProportion</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map">
     <entry>

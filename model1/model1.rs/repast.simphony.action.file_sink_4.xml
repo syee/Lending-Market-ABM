@@ -1,0 +1,19 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>ConsumerOutput</name>
+  <dataSet>Consumer</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>PlaceInLine</string>
+    <string>PanicFlag</string>
+    <string>PanicPanic</string>
+    <string>LiquidityPanic</string>
+    <string>PartialShock</string>
+    <string>PurePanic</string>
+    <string>NeighborPanicCount</string>
+    <string>OthersConsumption</string>
+    <string>tick</string>
+  </sourceIds>
+  <fileName>ConsumerOutput.csv</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>
