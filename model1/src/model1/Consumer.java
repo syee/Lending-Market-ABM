@@ -516,7 +516,7 @@ public class Consumer {
 						if (obj instanceof Consumer){
 							if ((((Consumer) obj).getBank() != null) || ((Consumer) obj).getPanicFlag()){
 								if (((Consumer) obj != this) && (neighbors.add((Consumer) obj))){
-									othersConsumption += ((Consumer) obj).getCash();
+									othersConsumption -= ((Consumer) obj).getTrueLiquidityDemand();
 //									System.out.println("I am " + this);
 									if (((Consumer) obj).getPanicFlag()){
 										neighborPanicCount++;
@@ -647,7 +647,6 @@ public class Consumer {
 				else{
 					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
 					neighborPanicProportion = neighborPanicCount / (double) consumerPBCount;
-					System.out.println("My name is " + this + " and I saw " + neighborPanicCount + " divided by " + consumerPBCount + " = " + getNeighborPanicProportion());
 				}
 				if (neighborPanicCount > 0){
 					DD.addPanicEstimateCount();
@@ -671,45 +670,60 @@ public class Consumer {
 					}
 				}
 			}
-//			else if ((allConsumersVisible) && (!bankVisible)){
-//				double estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
-//				if (liquidityCheckerP(estimatedPanicWithdrawal, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
-//					panicPanic = true;
-//					panicFlag = true;
-//				}
-//				else{
-//					if (liquidityCheckerL(DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
-//						liquidityPanic = true;
-//						panicFlag = true;
-//					}
-//				}
-//			}
-//			else if ((!allConsumersVisible) && (bankVisible)){
-//				double estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
-//				if (!liquidityCheckerP(estimatedPanicWithdrawal, DD.getBankShort(), DD.getBankLong())){
-//					panicPanic = true;
-//					panicFlag = true;
-//				}
-//				else{
-//					if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
-//						liquidityPanic = true;
-//						panicFlag = true;
-//					}
-//				}
-//			}
-//			else {
-//				double estimatedPanicWithdrawal = (DD.getBankShort() / DD.getConsumerCount() + shortTermPayout * DD.getBankLong() / DD.getConsumerCount()) * neighborPanicCount / consumerPBCount;
-//				if (!liquidityCheckerP(estimatedPanicWithdrawal * DD.getConsumerCount(), DD.getBankShort(), DD.getBankLong())){
-//					panicPanic = true;
-//					panicFlag = true;
-//				}
-//				else{
-//					if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
-//						liquidityPanic = true;
-//						panicFlag = true;
-//					}
-//				}
-//			}
+			else if ((allConsumersVisible) && (!bankVisible)){
+				if (consumerPBCount == 0){
+					estimatedPanicWithdrawal = 0.0001;
+					neighborPanicProportion = 0.00001;
+				}
+				else{
+					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+					neighborPanicProportion = neighborPanicCount / (double) consumerPBCount;
+				}
+				if (liquidityCheckerP(estimatedPanicWithdrawal, shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				if (liquidityCheckerL(DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					liquidityPanic = true;
+					panicFlag = true;
+				}
+			}
+			else if ((!allConsumersVisible) && (bankVisible)){
+				if (consumerPBCount == 0){
+					estimatedPanicWithdrawal = 0.0001;
+					neighborPanicProportion = 0.00001;
+				}
+				else{
+					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+					neighborPanicProportion = neighborPanicCount / (double) consumerPBCount;
+				}
+				if (!liquidityCheckerP(estimatedPanicWithdrawal, DD.getBankShort(), DD.getBankLong())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				if (!liquidityCheckerL(othersConsumption, DD.getBankShort(), DD.getBankLong())){
+					liquidityPanic = true;
+					panicFlag = true;
+				}
+			}
+			else{
+				if (consumerPBCount == 0){
+					estimatedPanicWithdrawal = 0.0001;
+					neighborPanicProportion = 0.00001;
+				}
+				else{
+					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+					neighborPanicProportion = neighborPanicCount / (double) consumerPBCount;
+				}
+				if (!liquidityCheckerP(estimatedPanicWithdrawal * DD.getConsumerCount(), DD.getBankShort(), DD.getBankLong())){
+					panicPanic = true;
+					panicFlag = true;
+				}
+				if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+					liquidityPanic = true;
+					panicFlag = true;
+				}
+			}
 			
 
 			if (panicFlag){

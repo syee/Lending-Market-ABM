@@ -54,7 +54,7 @@ public class DiamondDybvig {
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
 		
-		this.bankCost2 = bankCost2;
+		this.bankCost2 = bankCost2 * 100;
 		this.probWithdrawal = probWithdrawal;
 		this.consumerInitialEndowment = consumerInitialEndowment;
 	}

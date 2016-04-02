@@ -1,214 +1,336 @@
-ERROR [AWT-EventQueue-0] 2016-04-02 00:41:41,797 repast.simphony.context.DefaultContext - Projection 'space' has already been added
-Note that projection factories automatically add the projection to the context.
-java.lang.IllegalArgumentException: Duplicate projections added.
-	at repast.simphony.context.AbstractContext.addProjection(AbstractContext.java:360)
-	at repast.simphony.context.space.continuous.DefaultContinuousSpaceFactory.createContinuousSpace(DefaultContinuousSpaceFactory.java:16)
-	at model1.model1Builder.build(model1Builder.java:38)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:55)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2016-04-02 00:41:41,798 repast.simphony.context.DefaultContext - Projection 'grid' has already been added
-Note that projection factories automatically add the projection to the context.
-java.lang.IllegalArgumentException: Duplicate projections added.
-	at repast.simphony.context.AbstractContext.addProjection(AbstractContext.java:360)
-	at repast.simphony.context.space.grid.DefaultGridFactory.createGrid(DefaultGridFactory.java:26)
-	at model1.model1Builder.build(model1Builder.java:42)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:55)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2016-04-02 00:41:41,853 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at model1.model1Builder.build(model1Builder.java:92)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:55)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-ERROR [AWT-EventQueue-0] 2016-04-02 00:42:48,488 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at repast.simphony.data2.AbstractDataSetManager.runStarted(AbstractDataSetManager.java:218)
-	at repast.simphony.data2.SingleRunDataSetManager.runStarted(SingleRunDataSetManager.java:67)
-	at repast.simphony.data2.engine.DataInitActionCreator$1.runInitialize(DataInitActionCreator.java:61)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.RSApplication.start(RSApplication.java:189)
-	at repast.simphony.ui.action.StartRun.actionPerformed(StartRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
-	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
-	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
-	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
-	at java.awt.Component.processMouseEvent(Component.java:6525)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
-	at java.awt.Component.processEvent(Component.java:6290)
-	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4881)
-	at java.awt.Container.dispatchEventImpl(Container.java:2292)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
-	at java.awt.Container.dispatchEventImpl(Container.java:2278)
-	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4703)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@659d856e and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62bb8771 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@20ad0885 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4ab8ecdd and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31b99ff5 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@41b9869d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4dec66bf and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@14d05010 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@551d4224 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@28d912ee and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@78290a0f and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@55cf7213 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7a2d08d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2deac3d2 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5854558d and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@430b9df3 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@15c5f5d9 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31284874 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@156365bc and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@33c9d9ad and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a7369e3 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62ac2389 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4829a610 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6df0a810 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e7f12db and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49844978 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1560c00f and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@68544dba and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@189fcd0 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1d3a9048 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2debdc8a and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@39c74d52 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf4ee and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@980a73d and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4fdd1cfb and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3984e336 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@624ba937 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@57f185e6 and I saw 0 divided by 1 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e7f12db and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@20ad0885 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4dec66bf and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@659d856e and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2deac3d2 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31284874 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@72934888 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@68544dba and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4ab8ecdd and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@551d4224 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@15c5f5d9 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@55cf7213 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1d3a9048 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@689754d0 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1143544e and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7a2d08d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@14d05010 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6df0a810 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61575e12 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4fdd1cfb and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@41b9869d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@624ba937 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4829a610 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@57f185e6 and I saw 0 divided by 1 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9486dd9 and I saw 0 divided by 3 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@92de976 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a7369e3 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31b99ff5 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@156365bc and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@38979a58 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@39c74d52 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@527ba114 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf4ee and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49844978 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@73dcd5d9 and I saw 0 divided by 1 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@430b9df3 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5854558d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2debdc8a and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@189fcd0 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@33c9d9ad and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3984e336 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1560c00f and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62ac2389 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@78290a0f and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62bb8771 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a2c6be9 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@980a73d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@56417800 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6f6a4404 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13d112c8 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@783fa365 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25394609 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@a0887a4 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25f6fdf9 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@401c055d and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7b045db and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@26a2b4b2 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64b670c and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,015 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@288aee32 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,015 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3d071dfb and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1a184f5a and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1b99d625 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@65c60c34 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,017 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@c5d7e11 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,017 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@17563aea and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@44dc7e65 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e3bf6c and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@79d9753b and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a5d7398 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@51a73ec8 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5cbb0be4 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49f7ba55 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@415deab5 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7f410f1c and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@53eadb43 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31319418 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9ecb891 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@69a2f3dd and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2115a2cb and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@21fe4782 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4cb1eee and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1395e569 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@217def53 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@75282d5a and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2c5fa102 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e0946ff and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61d0584c and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5878eb8d and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@443ab337 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@40bcbf30 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2e4fc822 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3bd59894 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6b64a278 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@29b27943 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1132be06 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a726147 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a6f049 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64329dff and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13f47949 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@ad47396 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1506ea0f and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@662b29aa and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@197362cc and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6ea653f and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1f527e1f and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5b4dbc7 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf1c7d and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a13600 and I saw 0 divided by 2 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3f837310 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3245fbb9 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5e5fd45 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@36dc284 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@47f0e132 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@dc55b28 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@37949a0c and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@170dc33a and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@16a71084 and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@517d2b82 and I saw 0 divided by 9 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9f22eb8 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@bb32f16 and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e5962a2 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,183 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6711381d and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@65c60c34 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a6f049 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31319418 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,274 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@288aee32 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,275 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7f410f1c and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,281 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64b670c and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,286 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1f527e1f and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,291 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49f7ba55 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,291 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@69a2f3dd and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,295 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a13600 and I saw 0 divided by 1 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,297 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61d0584c and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@662b29aa and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e0946ff and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6f6a4404 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@dc55b28 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@170dc33a and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@36dc284 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6ea653f and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@37949a0c and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@40bcbf30 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@217def53 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2115a2cb and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3d071dfb and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@75282d5a and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13d112c8 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@47f0e132 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@517d2b82 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a726147 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1395e569 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1a184f5a and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6b64a278 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e3bf6c and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@51a73ec8 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@415deab5 and I saw 0 divided by 10 = 0.0
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25394609 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1132be06 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@29b27943 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3245fbb9 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@21fe4782 and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4cb1eee and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@16a71084 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@44dc7e65 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5878eb8d and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@ad47396 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6711381d and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7b045db and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@197362cc and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@56417800 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@c5d7e11 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13f47949 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@53eadb43 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@a0887a4 and I saw 1 divided by 10 = 0.1
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64329dff and I saw 4 divided by 10 = 0.4
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2e4fc822 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@783fa365 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25f6fdf9 and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@443ab337 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf1c7d and I saw 2 divided by 10 = 0.2
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5cbb0be4 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2c5fa102 and I saw 3 divided by 10 = 0.3
+INFO  [Thread-4] 2016-04-02 14:20:09,306 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5b4dbc7 and I saw 1 divided by 10 = 0.1
+INFO  [AWT-EventQueue-0] 2016-04-02 14:21:03,206 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 14:21:03,699 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:40,876 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost4242662073822453691.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,403 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,404 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.2175
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,404 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352/stevenyee_localhost4242662073822453691.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:43,040 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 14:22:43,062 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 14:23:43,069 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 14:24:43,077 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 14:25:43,079 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 14:26:43,082 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,083 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0280
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,125 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,180 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,804 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0120
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,805 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.2599
+INFO  [AWT-EventQueue-0] 2016-04-02 14:27:51,096 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 14:27:51,102 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:05,543 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost201013736796349789.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,064 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,065 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0868
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,069 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860/stevenyee_localhost201013736796349789.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,885 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-02 14:29:06,888 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:30:06,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:31:06,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:32:06,893 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:33:06,901 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:34:06,901 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:35:06,903 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 14:36:06,903 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,904 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0139
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,941 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,944 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:08,335 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0238
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:08,336 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1265
+INFO  [AWT-EventQueue-0] 2016-04-02 14:38:01,480 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 14:38:01,484 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:16,506 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost2243042430738713860.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,038 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,039 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0878
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,044 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771/stevenyee_localhost2243042430738713860.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,857 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-4-thread-1] 2016-04-02 14:39:17,861 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:40:17,868 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:41:17,870 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:42:17,872 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:43:17,876 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:44:17,883 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:45:17,884 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:46:17,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-02 14:47:17,891 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,892 repast.simphony.batch.ssh.SessionsDriver - Run Time: 9.0141
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,917 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,921 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:19,159 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0211
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:19,160 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 9.1249
+INFO  [AWT-EventQueue-0] 2016-04-02 15:37:27,093 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 15:37:27,637 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,273 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost9011350970053248897.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,902 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,903 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0875
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,903 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655/stevenyee_localhost9011350970053248897.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:10,855 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 15:39:10,875 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 15:40:10,877 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 15:41:10,878 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 15:42:10,885 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 15:43:10,885 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:10,886 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0164
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:10,959 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:11,005 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:12,340 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0242
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:12,341 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1305
+INFO  [AWT-EventQueue-0] 2016-04-02 15:50:51,697 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 15:50:51,702 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [AWT-EventQueue-0] 2016-04-02 15:51:03,390 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 15:51:03,394 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,133 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost5979413171505879934.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,655 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,656 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0833
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,659 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660/stevenyee_localhost5979413171505879934.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:18,462 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-02 15:52:18,472 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 15:53:18,475 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 15:54:18,487 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 15:55:18,489 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,490 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0138
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,511 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,521 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:19,862 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0229
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:19,862 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.1222
