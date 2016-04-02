@@ -205,7 +205,7 @@ public class DiamondDybvig {
 		bankFail = true;
 	}
 	
-	@ScheduledMethod(start = 2, interval = 10)
+	@ScheduledMethod(start = 2, interval = 12)
 	public void DD_reset_2() throws Exception{
 		initialWithdrawals = 0.0;
 		placeInLine = 0;
@@ -213,17 +213,21 @@ public class DiamondDybvig {
 		panicEstimatesCount = 0;
 		averagePanicEstimate = 0.0;
 		bankFail = false;
-		
-		Context<Object> context = ContextUtils.getContext(this);
-		if (context.getObjects(Consumer.class).size() == 0){
-			RunEnvironment.getInstance().endRun();
-		}
-		RunEnvironment.getInstance().endAt(300);
 	}
 	
-	@ScheduledMethod(start = 6, interval = 10)
+	@ScheduledMethod(start = 6, interval = 12)
 	public void DD_checkUnnecessary_6() throws Exception{
 		checkUnnecessary();
+	}
+	
+	@ScheduledMethod(start = 12, interval = 12)
+	public void DD_deathCheck() throws Exception{
+		checkUnnecessary();
+		Context<Object> context = ContextUtils.getContext(this);
+		if ((context.getObjects(Consumer.class).size() == 0) || (context.getObjects(CommercialBank.class).size() == 0)){
+			RunEnvironment.getInstance().endRun();
+		}
+		RunEnvironment.getInstance().endAt(150);
 	}
 	
 }

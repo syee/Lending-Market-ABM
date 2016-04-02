@@ -320,20 +320,26 @@ public class CommercialBank {
 		}
 	}
 	
-	@ScheduledMethod(start = 3, interval = 10)
+	@ScheduledMethod(start = 3, interval = 12)
 	public void bank_payCost2_3() throws Exception{
 		if (age > 0){
 			payOperatingCosts(bankCost2 * consumerCount);
 		}
 	}
 	
-	@ScheduledMethod(start = 5, interval = 10)
+	@ScheduledMethod(start = 5, interval = 12)
 	public void bank_updatesDD_5() throws Exception{
 		DD.setBankShort(shortTermAssets);
 		DD.setBankLong(longTermAssets);
 		getTotalAssetsAfterInitialDraws();
 	}
 
+	@ScheduledMethod(start = 9, interval = 12)
+	public void bank_End_9() throws Exception{
+		if (longTermAssets <= -1){
+			DD.updateBankFail();
+		}
+	}
 	
 	/** This scheduled status method determines if a cBank has gone bankrupt or not.
 	 * If it has gone bankrupt, it has already called collectFullLoans() so all loans have been destroyed.
@@ -341,8 +347,8 @@ public class CommercialBank {
 	 * If the cBank is not bankrupt, it pays interest on all Consumer accounts.
 	 * @throws Exception
 	 */
-	@ScheduledMethod(start = 9, interval = 10)
-	public void bank_End_9() throws Exception{
+	@ScheduledMethod(start = 10, interval = 12)
+	public void bank_End_10() throws Exception{
 		if (longTermAssets <= -1){
 			removeAllConsumers();
 			cBankDie();

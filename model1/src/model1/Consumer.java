@@ -479,20 +479,11 @@ public class Consumer {
 		return estimatedPanicWithdrawal;
 	}
 	
-	public double getPanicProportion(){
+	public double getNeighborPanicProportion(){
 		return neighborPanicProportion;
 	}
-	
-	public void setPanicProportion(){
-		if (consumerPBCount > 0){
-			neighborPanicProportion = neighborPanicCount / consumerPBCount;
-		}
-		else{
-			neighborPanicProportion = 0.0000001;
-		}
-	}
-	
-	
+
+
 	public double getAssetsFutureP(){
 		return assetsFutureP;
 	}
@@ -545,7 +536,7 @@ public class Consumer {
 				
 			}
 		}
-		setPanicProportion();
+
 		if (consumerPBCount > 0){
 			othersConsumption = othersConsumption / consumerPBCount * DD.getConsumerCount();
 		}
@@ -641,6 +632,7 @@ public class Consumer {
 	 * @throws Exception
 	 */
 	public void panicBasedConsumption() throws Exception{
+		neighborPanicProportion = 0.00001;
 		if (cBank != null){
 			consumerProximityLearning();
 			DD.addPlaceInLine();
@@ -650,9 +642,12 @@ public class Consumer {
 			if ((!allConsumersVisible) && (!bankVisible)){
 				if (consumerPBCount == 0){
 					estimatedPanicWithdrawal = 0.0001;
+					neighborPanicProportion = 0.00001;
 				}
 				else{
 					estimatedPanicWithdrawal = (shortTermAssets + shortTermPayout * longTermAssets) * neighborPanicCount / consumerPBCount * DD.getConsumerCount();
+					neighborPanicProportion = neighborPanicCount / (double) consumerPBCount;
+					System.out.println("My name is " + this + " and I saw " + neighborPanicCount + " divided by " + consumerPBCount + " = " + getNeighborPanicProportion());
 				}
 				if (neighborPanicCount > 0){
 					DD.addPanicEstimateCount();
@@ -886,7 +881,7 @@ public class Consumer {
 	 * @throws Exception Withdrawal and Deposit amounts must be positive.
 	 * 
 	 */
-	@ScheduledMethod(start = 1, interval = 10)
+	@ScheduledMethod(start = 1, interval = 12)
 	public void consumer_move_1() throws Exception{
 		consumerMove();
 		shocked = false;
@@ -909,13 +904,13 @@ public class Consumer {
 		neighborPanicProportion = 0.0000001;
 	}
 	
-	@ScheduledMethod(start = 4, interval = 10)
+	@ScheduledMethod(start = 4, interval = 12)
 	public void consumer_initialNet_4() throws Exception{
 		discoverInitialNet();
 		calculateBankAssets();
 	}
 	
-	@ScheduledMethod(start = 7, interval = 10)
+	@ScheduledMethod(start = 7, interval = 12)
 	public void consumer_pblm_7() throws Exception{
 		panicBasedConsumption();
 	}
@@ -925,7 +920,7 @@ public class Consumer {
 	 * The consumer than moves around to search for banks or just move
 	 * This provides the basis of consumers passing information to each other. 
 	 */
-	@ScheduledMethod(start = 8, interval = 10)
+	@ScheduledMethod(start = 8, interval = 12)
 	public void consumer_payBills_8() throws Exception{
 		payingBills();
 	}
@@ -937,8 +932,8 @@ public class Consumer {
 	 * @throws Exception 
 	 * 
 	 */
-	@ScheduledMethod(start = 10, interval = 10)
-	public void consumer_check_14() throws Exception{
+	@ScheduledMethod(start = 11, interval = 12)
+	public void consumer_check_11() throws Exception{
 		if (isBankrupt){
 //			System.out.println("I am " + this + " and I just went bankrupt so I am about to leave my bank " + getBank());
 			leaveBank(getBank());
