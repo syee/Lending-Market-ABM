@@ -96,6 +96,22 @@
         <methodName>getOthersConsumption</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>RunningTotalWithdrawals</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>RunningTotalWithdrawals</id>
+        <className>model1.Consumer</className>
+        <methodName>getRunningTotalWithdrawals</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>FinalTotalWithdrawals</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>FinalTotalWithdrawals</id>
+        <className>model1.Consumer</className>
+        <methodName>getFinalTotalWithdrawals</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>

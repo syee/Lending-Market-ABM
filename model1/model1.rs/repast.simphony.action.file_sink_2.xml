@@ -31,6 +31,8 @@
     <string>Bank Assets After Initial</string>
     <string>Bank Total Assets After Initial Withdrawals</string>
     <string>Bank Net Worth</string>
+    <string>DD Total Withdrawals</string>
+    <string>Consumer Running Total Withdrawals</string>
   </sourceIds>
   <fileName>ModelOutput.csv</fileName>
   <addTimeStamp>true</addTimeStamp>

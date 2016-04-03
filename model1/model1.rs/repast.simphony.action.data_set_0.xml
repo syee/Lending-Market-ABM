@@ -195,6 +195,24 @@
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>DD Total Withdrawals</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>DD Total Withdrawals</id>
+        <className>model1.DiamondDybvig</className>
+        <methodName>getTotalWithdrawals</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Consumer Running Total Withdrawals</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Consumer Running Total Withdrawals</id>
+        <className>model1.Consumer</className>
+        <methodName>getRunningTotalWithdrawals</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map">
     <entry>

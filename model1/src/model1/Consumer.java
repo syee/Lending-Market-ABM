@@ -72,6 +72,8 @@ public class Consumer {
 	private double estimatedPanicWithdrawal;
 	private int myPanicCount;
 	private double othersConsumption;
+	private double runningTotalWithdrawals = 0.0;
+	private double finalTotalWithdrawals = 0.0;
 	private RepastEdge<Object> bankEdge = null;
 	
 	//illiquidity stuff
@@ -236,6 +238,10 @@ public class Consumer {
 	
 	public double getCurrentBankAssetsEstimate(){
 		return currentBankAssetsEstimate;
+	}
+	
+	public double getRunningTotalWithdrawals(){
+		return runningTotalWithdrawals;
 	}
 	
 	public double getTotalAssets(){
@@ -500,6 +506,10 @@ public class Consumer {
 		return expectedWithdrawalsL;
 	}
 	
+	public double getFinalTotalWithdrawals(){
+		return finalTotalWithdrawals;
+	}
+	
 	
 	public void consumerProximityLearning(){
 		GridPoint pt = grid.getLocation(this);
@@ -565,6 +575,7 @@ public class Consumer {
 		if (net < 0){
 			if (cBank != null){
 				DD.addInitialWithdrawals(net);
+				DD.addTotalWithdrawals(net);
 				cash = withdrawSavings(Math.abs(net));
 			}
 			else{
@@ -574,6 +585,7 @@ public class Consumer {
 		else{
 			if (cBank != null){
 				DD.addInitialWithdrawals(net);
+				DD.addTotalWithdrawals(net);
 			}
 			depositSavings(net);
 		}
@@ -778,10 +790,15 @@ public class Consumer {
 			if (panicFlag){
 				unnecessaryPanic = DD.getUnnecessary();	
 				double fearWithdrawalAmount = getTotalAssets();
+				DD.addTotalWithdrawals(-fearWithdrawalAmount);
+				runningTotalWithdrawals = DD.getTotalWithdrawals();
 				purePanic = (panicFlag && (shockedButStanding || !shocked));
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
 				myPanicCount++;
+			}
+			else{
+				runningTotalWithdrawals = othersConsumption;
 			}
 		}
 	}
@@ -965,6 +982,7 @@ public class Consumer {
 		neighborShockCount = 0;
 		othersConsumption = 0.0001;
 		neighborPanicProportion = 0.0000001;
+		runningTotalWithdrawals = 0.0;
 	}
 	
 	@ScheduledMethod(start = 4, interval = 12)
@@ -986,6 +1004,7 @@ public class Consumer {
 	@ScheduledMethod(start = 8, interval = 12)
 	public void consumer_payBills_8() throws Exception{
 		payingBills();
+		finalTotalWithdrawals = DD.getTotalWithdrawals();
 	}
 	
 	//one of last scheduled methods

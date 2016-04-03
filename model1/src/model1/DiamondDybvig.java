@@ -21,6 +21,7 @@ public class DiamondDybvig {
 	
 	private int placeInLine = 0;
 	private double initialWithdrawals = 0.0;
+	private double totalWithdrawals = 0.0;
 	
 	private double consumerInitialEndowment;
 	
@@ -127,6 +128,21 @@ public class DiamondDybvig {
 	public double getInitialWithdrawals(){
 		return initialWithdrawals;
 	}
+	
+	
+	public void addTotalWithdrawals(double amount){
+		totalWithdrawals -= amount;
+	}
+	
+	public void resetTotalWithdrawals(){
+		totalWithdrawals = 0.0;
+	}
+	//consumer can see total withdrawals
+	public double getTotalWithdrawals(){
+		return totalWithdrawals;
+	}
+	
+	
 		
 	
 	
@@ -211,6 +227,7 @@ public class DiamondDybvig {
 		averagePanicEstimate = 0.0;
 		panicEstimateCount = 0;
 		bankFail = false;
+		totalWithdrawals = 0.0;
 	}
 	
 	@ScheduledMethod(start = 6, interval = 12)
