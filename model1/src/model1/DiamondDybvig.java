@@ -19,8 +19,6 @@ public class DiamondDybvig {
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	
-	private int consumerCount = 0;
-	
 	private int placeInLine = 0;
 	private double initialWithdrawals = 0.0;
 	
@@ -37,24 +35,23 @@ public class DiamondDybvig {
 	
 	private double panicEstimate = 0.0;
 	private double averagePanicEstimate = 0.0;
+	private int panicEstimateCount = 0;
 	
 	private double probWithdrawal;
 	
-	private int panicEstimatesCount = 0;
-	
+	private int consumerCount = 0;
 	private boolean isUnnecessary;
 	private boolean bankFail = false;
 	
 	
 	
-	public DiamondDybvig(ContinuousSpace<Object> space, Grid<Object> grid, double consumerLongTermPayout, double consumerInitialEndowment, double bankShortTermPayout, double bankLongTermPayout, double bankCost2, double consumerInitialCount, double probWithdrawal, double blank){
+	public DiamondDybvig(ContinuousSpace<Object> space, Grid<Object> grid, double consumerLongTermPayout, double consumerInitialEndowment, double bankShortTermPayout, double bankLongTermPayout, double bankCost2, double consumerInitialCount, double probWithdrawal, int originalConsumers, double blank){
 		this.space = space;
 		this.grid = grid;
 		this.consumerLongTermPayout = consumerLongTermPayout;
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
-		
-		this.bankCost2 = bankCost2 * 100;
+		this.bankCost2 = bankCost2 * originalConsumers;
 		this.probWithdrawal = probWithdrawal;
 		this.consumerInitialEndowment = consumerInitialEndowment;
 	}
@@ -86,15 +83,15 @@ public class DiamondDybvig {
 	}
 	
 	public int getPanicEstimatesCount(){
-		return panicEstimatesCount;
+		return panicEstimateCount;
 	}
 	
 	public void addPanicEstimateCount(){
-		panicEstimatesCount +=1;
+		panicEstimateCount +=1;
 	}
 	
 	public void resetPanicEstimatesCount(){
-		panicEstimatesCount = 0;
+		panicEstimateCount = 0;
 	}
 	
 	public double getPanicEstimate(){
@@ -110,10 +107,11 @@ public class DiamondDybvig {
 	}
 	
 	public double getAveragePanicEstimate(){
-		if (panicEstimatesCount == 0){
-			return 0.0;
+		if (panicEstimateCount == 0){
+			averagePanicEstimate =  0.0;
+			return averagePanicEstimate;
 		}
-		averagePanicEstimate = panicEstimate / panicEstimatesCount;
+		averagePanicEstimate = panicEstimate / panicEstimateCount;
 		return averagePanicEstimate;
 	}
 	
@@ -210,8 +208,8 @@ public class DiamondDybvig {
 		initialWithdrawals = 0.0;
 		placeInLine = 0;
 		panicEstimate = 0.0;
-		panicEstimatesCount = 0;
 		averagePanicEstimate = 0.0;
+		panicEstimateCount = 0;
 		bankFail = false;
 	}
 	

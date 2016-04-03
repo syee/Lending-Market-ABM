@@ -67,7 +67,7 @@ public class model1Builder implements ContextBuilder<Object> {
 		boolean allConsumersVisible = (boolean)params.getValue("All Consumers Visible");
 		boolean bankVisible = (boolean)params.getValue("Bank Assets Visible");
 		
-		DiamondDybvig DD = new DiamondDybvig(space, grid, consumerLongTermRate, shortTermEndowment, bankShortTermRate, bankLongTermRate, bankCost2, consumerCount, probWithdrawal, blank);
+		DiamondDybvig DD = new DiamondDybvig(space, grid, consumerLongTermRate, shortTermEndowment, bankShortTermRate, bankLongTermRate, bankCost2, consumerCount, probWithdrawal, consumerCount, blank);
 
 		context.add(DD);
 		

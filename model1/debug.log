@@ -1,336 +1,920 @@
-INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@659d856e and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62bb8771 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@20ad0885 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,994 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4ab8ecdd and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31b99ff5 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@41b9869d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4dec66bf and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@14d05010 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@551d4224 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@28d912ee and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@78290a0f and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@55cf7213 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7a2d08d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2deac3d2 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5854558d and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@430b9df3 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@15c5f5d9 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31284874 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@156365bc and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@33c9d9ad and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a7369e3 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62ac2389 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4829a610 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6df0a810 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e7f12db and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49844978 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1560c00f and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@68544dba and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@189fcd0 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1d3a9048 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2debdc8a and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@39c74d52 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf4ee and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@980a73d and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4fdd1cfb and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3984e336 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@624ba937 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:08,995 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@57f185e6 and I saw 0 divided by 1 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e7f12db and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@20ad0885 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4dec66bf and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@659d856e and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2deac3d2 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31284874 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@72934888 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@68544dba and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4ab8ecdd and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,001 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@551d4224 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@15c5f5d9 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@55cf7213 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1d3a9048 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@689754d0 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1143544e and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7a2d08d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@14d05010 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6df0a810 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61575e12 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4fdd1cfb and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@41b9869d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@624ba937 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4829a610 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@57f185e6 and I saw 0 divided by 1 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,002 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9486dd9 and I saw 0 divided by 3 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@92de976 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a7369e3 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31b99ff5 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@156365bc and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@38979a58 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@39c74d52 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@527ba114 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf4ee and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,004 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49844978 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@73dcd5d9 and I saw 0 divided by 1 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@430b9df3 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5854558d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2debdc8a and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@189fcd0 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,010 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@33c9d9ad and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3984e336 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1560c00f and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62ac2389 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@78290a0f and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@62bb8771 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a2c6be9 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@980a73d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@56417800 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,011 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6f6a4404 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13d112c8 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@783fa365 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,012 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25394609 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@a0887a4 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25f6fdf9 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,013 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@401c055d and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7b045db and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@26a2b4b2 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,014 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64b670c and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,015 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@288aee32 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,015 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3d071dfb and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1a184f5a and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1b99d625 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,016 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@65c60c34 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,017 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@c5d7e11 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,017 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@17563aea and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@44dc7e65 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e3bf6c and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@79d9753b and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a5d7398 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@51a73ec8 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5cbb0be4 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49f7ba55 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@415deab5 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7f410f1c and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@53eadb43 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31319418 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9ecb891 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,178 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@69a2f3dd and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2115a2cb and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@21fe4782 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4cb1eee and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1395e569 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@217def53 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@75282d5a and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2c5fa102 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e0946ff and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61d0584c and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5878eb8d and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@443ab337 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@40bcbf30 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2e4fc822 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3bd59894 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,179 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6b64a278 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@29b27943 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1132be06 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a726147 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a6f049 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64329dff and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13f47949 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@ad47396 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1506ea0f and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@662b29aa and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@197362cc and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6ea653f and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1f527e1f and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5b4dbc7 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf1c7d and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a13600 and I saw 0 divided by 2 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3f837310 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3245fbb9 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5e5fd45 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@36dc284 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@47f0e132 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@dc55b28 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@37949a0c and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@170dc33a and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@16a71084 and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@517d2b82 and I saw 0 divided by 9 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@9f22eb8 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@bb32f16 and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,182 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e5962a2 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,183 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6711381d and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@65c60c34 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a6f049 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,263 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@31319418 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,274 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@288aee32 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,275 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7f410f1c and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,281 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64b670c and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,286 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1f527e1f and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,291 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@49f7ba55 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,291 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@69a2f3dd and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,295 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3a13600 and I saw 0 divided by 1 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,297 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@61d0584c and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@662b29aa and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4e0946ff and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6f6a4404 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@dc55b28 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@170dc33a and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@36dc284 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6ea653f and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@37949a0c and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@40bcbf30 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@217def53 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,301 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2115a2cb and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3d071dfb and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@75282d5a and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13d112c8 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@47f0e132 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@517d2b82 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2a726147 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1395e569 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1a184f5a and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6b64a278 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6e3bf6c and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,302 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@51a73ec8 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@415deab5 and I saw 0 divided by 10 = 0.0
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25394609 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@1132be06 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@29b27943 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@3245fbb9 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@21fe4782 and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@4cb1eee and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@16a71084 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@44dc7e65 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5878eb8d and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,303 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@ad47396 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@6711381d and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7b045db and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@197362cc and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@56417800 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,304 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@c5d7e11 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@13f47949 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@53eadb43 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@a0887a4 and I saw 1 divided by 10 = 0.1
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@64329dff and I saw 4 divided by 10 = 0.4
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2e4fc822 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@783fa365 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@25f6fdf9 and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@443ab337 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@7eaf1c7d and I saw 2 divided by 10 = 0.2
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5cbb0be4 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,305 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@2c5fa102 and I saw 3 divided by 10 = 0.3
-INFO  [Thread-4] 2016-04-02 14:20:09,306 repast.simphony.batch.ssh.LocalSession - My name is model1.Consumer@5b4dbc7 and I saw 1 divided by 10 = 0.1
-INFO  [AWT-EventQueue-0] 2016-04-02 14:21:03,206 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 14:21:03,699 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [Thread-6] 2016-04-02 20:28:28,947 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,270 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,282 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,521 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,528 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,568 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,579 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,905 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,914 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,950 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:29,967 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,307 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,316 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,466 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,470 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,657 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,670 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,810 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,811 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,966 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:30,980 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,194 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,201 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,268 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,284 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,524 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,534 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,577 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,601 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,879 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:31,886 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,166 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,180 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,395 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,406 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,556 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,566 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,751 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,756 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,826 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:32,828 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,106 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,117 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,401 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,409 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,456 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,460 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,694 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,699 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,805 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:33,809 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,100 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,104 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,440 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,449 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,644 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:34,651 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,026 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,035 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,359 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,372 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,498 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,506 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,782 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:35,792 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,040 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,041 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [pool-2-thread-1] 2016-04-02 20:28:36,067 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459643129770 for DONE:  no
+INFO  [Thread-6] 2016-04-02 20:28:36,126 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,135 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,366 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,372 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,423 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,430 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,665 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,671 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,759 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:36,769 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,281 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,283 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,298 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,298 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,605 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,612 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,727 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,738 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,967 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:37,973 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,001 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,005 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,312 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,313 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,389 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,396 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,680 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,684 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,725 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,734 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:38,990 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,001 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,081 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,095 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,375 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,385 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,422 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,425 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,794 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,803 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,857 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:39,860 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,101 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,109 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,236 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,245 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,477 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,485 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,857 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,858 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,894 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:40,902 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,181 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,182 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,426 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,444 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,482 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,494 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,715 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:41,722 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,138 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,146 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,260 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,351 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,678 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,687 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,753 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:42,762 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,037 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,050 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,290 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,301 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,389 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,393 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,676 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,684 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,859 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:43,863 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,022 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,027 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,237 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,244 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,405 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,409 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,640 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,644 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,985 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:44,990 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,276 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,281 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,449 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,458 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,750 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,755 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,901 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:45,906 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,126 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,132 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,359 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,363 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,530 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,535 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,735 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:46,740 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,198 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,208 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,441 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,445 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,636 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,640 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,863 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:47,874 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,079 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,090 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,195 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,212 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,354 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,358 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,560 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,569 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,676 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,680 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,948 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:48,964 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,169 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,175 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,258 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,262 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,497 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,505 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,590 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,599 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,843 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,852 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,974 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:49,975 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,212 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,223 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,436 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,446 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,546 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,557 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,776 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,786 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,899 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:50,911 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,206 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,217 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,409 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,417 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,675 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,686 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,924 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:51,931 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,103 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,118 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,321 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,328 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,559 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,570 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,597 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,599 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,861 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,872 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,915 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:52,921 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,261 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,275 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,388 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,397 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,599 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,609 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,838 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,848 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:53,996 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,006 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,150 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,156 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,352 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,360 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,469 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,473 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,743 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,748 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,975 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:54,979 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,180 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,192 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,387 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,391 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,565 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,569 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,827 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,831 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,919 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:55,932 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,170 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,175 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,311 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,311 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,453 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,463 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,669 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,674 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,800 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,811 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,982 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:56,991 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,251 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,262 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,409 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,414 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,590 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,599 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,720 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,741 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,897 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:57,898 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,140 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,147 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,358 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,368 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,421 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,429 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,770 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,774 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,903 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:58,907 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,156 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,160 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,444 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,445 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,646 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,649 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,874 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:28:59,880 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,047 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,054 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,258 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,261 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,385 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,395 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,543 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,550 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,756 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,760 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:00,996 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,005 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,123 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,133 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,311 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,311 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,410 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,410 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,766 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,795 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,795 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:01,804 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,048 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,057 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,175 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,182 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,381 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,385 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,483 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,487 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,732 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,741 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,950 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:02,961 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,098 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,113 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,289 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,298 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,407 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,414 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,645 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,652 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,700 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,705 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,978 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:03,988 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,262 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,284 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,519 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,528 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,761 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,769 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,861 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:04,875 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,100 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,104 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,253 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,257 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,524 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,528 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,584 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,590 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,813 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,820 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,962 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:05,963 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,115 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,121 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,269 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,278 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,497 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,504 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,693 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:06,721 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,027 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,037 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,115 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,121 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,394 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,423 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,473 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,473 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,801 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:07,812 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,055 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,055 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,122 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,143 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,513 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,520 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,575 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,584 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,831 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:08,837 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,094 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,105 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,157 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,166 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,351 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,358 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,565 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,584 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,618 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,648 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,882 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,891 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,953 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:09,959 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,275 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,277 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,339 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,346 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,596 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,601 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,675 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,680 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,956 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:10,962 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,198 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,202 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,419 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,430 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,695 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,704 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:11,995 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,004 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,311 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,328 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,378 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,391 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,733 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:12,746 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,031 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,035 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,132 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,137 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,352 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,359 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,567 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,578 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,787 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,798 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,889 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:13,899 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,145 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,156 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,197 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,217 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,475 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,489 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,628 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,639 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,742 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:14,752 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,018 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,019 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,252 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,255 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,340 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,350 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,604 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,615 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,684 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,689 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,952 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:15,956 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,267 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,272 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,420 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,425 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,723 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,734 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,862 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:16,868 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,182 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,186 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,239 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,247 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,553 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,557 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,636 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,681 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,934 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,944 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:17,979 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:18,011 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:18,314 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:18,340 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:18,973 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:18,985 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,079 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,079 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,371 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,379 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,519 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,519 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,843 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,858 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,895 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:19,925 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,179 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,186 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,259 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,263 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,603 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,612 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,670 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:20,695 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,016 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,017 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,147 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,156 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,465 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,466 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,883 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:21,896 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,166 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,189 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,497 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,549 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,766 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:22,776 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:23,289 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:23,299 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:23,499 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:23,503 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:23,995 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:24,020 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:24,531 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:24,534 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:24,823 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:24,827 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,017 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,029 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,383 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,387 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,811 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:25,823 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,074 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,074 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,137 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,142 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,661 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:26,681 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,072 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,096 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,283 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,284 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,555 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,556 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,690 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:27,709 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:28,677 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:28,686 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:28,825 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:28,830 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,056 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,063 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,249 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,264 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,426 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,437 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,794 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:29,800 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,238 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,277 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,476 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,515 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,892 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:30,897 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,151 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,151 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,317 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,322 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,651 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,657 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,707 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:31,712 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,020 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,020 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,248 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,252 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,616 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,630 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,849 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:32,853 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:33,254 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:33,255 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:33,529 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:33,541 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:34,044 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:34,052 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:34,565 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:34,579 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,010 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,020 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,615 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,621 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,778 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:35,787 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [pool-2-thread-1] 2016-04-02 20:29:36,069 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459643129770 for DONE:  no
+INFO  [Thread-6] 2016-04-02 20:29:36,202 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,215 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,346 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,352 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,650 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,655 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,702 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:36,722 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,084 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,085 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,285 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,295 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,421 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,425 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,756 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:37,761 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:38,303 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:38,307 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:38,419 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:38,428 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,241 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,247 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,322 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,328 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,972 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:39,989 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:40,668 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:40,672 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:40,919 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:40,923 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:41,612 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:41,619 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:41,747 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:41,751 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:42,528 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:42,539 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:42,722 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:42,726 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:43,509 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:43,520 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:43,841 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:43,847 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:44,664 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:44,676 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:44,811 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:44,821 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:45,350 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:45,356 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:45,697 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:45,729 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:46,139 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:46,150 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:46,266 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:46,275 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:47,159 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:47,170 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:47,366 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:47,371 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,069 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,074 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,288 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,292 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,902 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:48,911 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,186 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,190 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,592 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,606 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,716 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,752 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,993 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:49,998 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,115 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,119 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,512 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,516 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,945 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:50,959 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,251 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,279 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,517 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,526 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,718 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:51,725 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,046 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,050 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,207 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,212 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,515 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,517 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,716 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:52,716 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,012 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,012 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,168 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,174 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,549 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,553 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,978 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:53,982 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,237 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,248 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,404 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,432 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,745 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,755 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,833 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:54,842 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,159 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,160 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,238 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,247 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,574 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,585 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,649 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:55,653 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,001 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,010 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,351 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,360 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,520 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,553 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,736 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,746 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,917 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:56,918 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,120 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,134 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,385 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,401 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,474 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,481 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,778 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:57,782 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,234 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,248 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,521 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,523 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,740 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:58,743 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:59,523 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:59,540 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:59,928 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:29:59,934 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:00,535 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:00,546 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,089 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,097 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,446 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,450 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,728 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:01,734 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,090 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,096 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,294 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,305 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,557 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,565 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,646 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:02,651 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:03,358 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:03,367 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:04,084 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:04,094 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:05,491 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:05,500 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:05,843 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:05,852 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:06,743 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:06,750 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:07,466 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:07,475 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:07,904 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:07,905 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:09,228 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:09,236 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:09,622 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:09,627 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:10,201 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:10,213 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:10,806 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:10,817 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:11,374 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:11,384 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:12,329 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:12,363 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:12,603 repast.simphony.batch.ssh.LocalSession - DD My cost is 5000.0
+INFO  [Thread-6] 2016-04-02 20:30:12,614 repast.simphony.batch.ssh.LocalSession - CBANK My cost is 5000.0
+INFO  [pool-2-thread-1] 2016-04-02 20:30:36,069 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459643129770 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 20:30:36,073 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0154
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 20:30:36,171 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459643129770
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 20:30:36,609 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 20:30:37,907 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0306
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 20:30:37,908 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1375
+INFO  [AWT-EventQueue-0] 2016-04-02 21:47:57,405 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 21:47:57,698 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:40,876 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost4242662073822453691.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 ...
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,403 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,404 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.2175
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:41,404 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352/stevenyee_localhost4242662073822453691.zip
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:21:43,040 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2016-04-02 14:22:43,062 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 14:23:43,069 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 14:24:43,077 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 14:25:43,079 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 14:26:43,082 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,083 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0280
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,125 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621288352
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,180 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,804 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0120
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 14:26:43,805 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.2599
-INFO  [AWT-EventQueue-0] 2016-04-02 14:27:51,096 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 14:27:51,102 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [AWT-EventQueue-0] 2016-04-02 21:49:55,271 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 21:49:55,526 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:05,543 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost201013736796349789.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 ...
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,064 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,065 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0868
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,069 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860/stevenyee_localhost201013736796349789.zip
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:28:06,885 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-3-thread-1] 2016-04-02 14:29:06,888 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:30:06,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:31:06,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:32:06,893 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:33:06,901 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:34:06,901 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:35:06,903 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 14:36:06,903 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,904 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0139
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,941 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459621680860
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:06,944 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:08,335 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0238
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 14:36:08,336 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1265
-INFO  [AWT-EventQueue-0] 2016-04-02 14:38:01,480 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 14:38:01,484 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:50:11,713 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost5544968113838488559.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:50:12,214 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:50:12,238 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0837
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:50:12,238 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190/stevenyee_localhost5544968113838488559.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:50:12,985 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 21:51:13,001 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 21:52:13,005 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 21:53:13,006 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 21:54:13,005 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:54:13,007 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0128
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:54:13,073 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648207190
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:54:13,125 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:54:13,456 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0075
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 21:54:13,456 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.1067
+INFO  [AWT-EventQueue-0] 2016-04-02 22:01:00,785 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 22:01:01,065 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:16,506 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost2243042430738713860.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 ...
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,038 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,039 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0878
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,044 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771/stevenyee_localhost2243042430738713860.zip
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:38:17,857 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-4-thread-1] 2016-04-02 14:39:17,861 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:40:17,868 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:41:17,870 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:42:17,872 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:43:17,876 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:44:17,883 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:45:17,884 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:46:17,892 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  no
-INFO  [pool-4-thread-1] 2016-04-02 14:47:17,891 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,892 repast.simphony.batch.ssh.SessionsDriver - Run Time: 9.0141
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,917 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459622291771
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:17,921 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:19,159 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0211
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 14:47:19,160 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 9.1249
-INFO  [AWT-EventQueue-0] 2016-04-02 15:37:27,093 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 15:37:27,637 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [AWT-EventQueue-0] 2016-04-02 22:01:15,888 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 22:01:15,892 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,273 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost9011350970053248897.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 ...
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,902 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,903 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0875
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:09,903 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655/stevenyee_localhost9011350970053248897.zip
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:38:10,855 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2016-04-02 15:39:10,875 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 15:40:10,877 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 15:41:10,878 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 15:42:10,885 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-02 15:43:10,885 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:10,886 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0164
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:10,959 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459625884655
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:11,005 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:12,340 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0242
-INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 15:43:12,341 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1305
-INFO  [AWT-EventQueue-0] 2016-04-02 15:50:51,697 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 15:50:51,702 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:01:30,563 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost299075458177809598.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:01:31,041 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:01:31,043 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0838
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:01:31,044 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011/stevenyee_localhost299075458177809598.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:01:32,050 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 22:02:32,071 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:03:32,079 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:04:32,078 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:05:32,081 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:06:32,087 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:07:32,087 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:08:32,086 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:08:32,091 repast.simphony.batch.ssh.SessionsDriver - Run Time: 7.0174
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:08:32,142 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459648886011
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:08:32,203 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:08:33,240 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0192
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:08:33,242 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 7.1220
+INFO  [AWT-EventQueue-0] 2016-04-02 22:16:34,887 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 22:16:35,196 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [AWT-EventQueue-0] 2016-04-02 15:51:03,390 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-02 15:51:03,394 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:16:52,056 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost3383558112476715054.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:16:52,614 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:16:52,617 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0883
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:16:52,618 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317/stevenyee_localhost3383558112476715054.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:16:53,467 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 22:17:53,484 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:18:53,485 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:19:53,486 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:20:53,486 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:21:53,490 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:22:53,491 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:23:53,491 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:24:53,491 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:24:53,494 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0146
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:24:53,654 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459649807317
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:24:53,745 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:24:55,475 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0330
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:24:55,477 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1387
+INFO  [AWT-EventQueue-0] 2016-04-02 22:36:40,970 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 22:36:41,426 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,133 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost5979413171505879934.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 ...
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,655 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,656 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0833
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:17,659 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660/stevenyee_localhost5979413171505879934.zip
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:51:18,462 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-3-thread-1] 2016-04-02 15:52:18,472 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 15:53:18,475 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 15:54:18,487 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-02 15:55:18,489 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,490 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0138
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,511 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459626672660
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:18,521 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:19,862 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0229
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-02 15:55:19,862 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.1222
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:37:23,406 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost5626560561823802578.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:37:24,012 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:37:24,013 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0894
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:37:24,013 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649/stevenyee_localhost5626560561823802578.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:37:24,847 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-02 22:38:24,861 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:39:24,866 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:40:24,866 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:41:24,868 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:42:24,873 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-02 22:43:24,877 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:43:24,878 repast.simphony.batch.ssh.SessionsDriver - Run Time: 6.0144
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:43:24,970 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651038649
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:43:25,028 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:43:26,665 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0298
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-02 22:43:26,666 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 6.1365
+INFO  [AWT-EventQueue-0] 2016-04-02 22:49:40,751 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-02 22:49:40,759 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:49:59,385 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost3023925692198099296.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:50:00,118 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:50:00,129 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.1060
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:50:00,136 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766/stevenyee_localhost3023925692198099296.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:50:01,163 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-02 22:51:01,177 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:52:01,180 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:53:01,181 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:54:01,183 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:55:01,184 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:56:01,184 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:57:01,189 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-02 22:58:01,188 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:58:01,190 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0176
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:58:01,204 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459651793766
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:58:01,211 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:58:02,198 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0168
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-02 22:58:02,199 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1437

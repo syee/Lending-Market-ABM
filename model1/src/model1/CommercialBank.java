@@ -70,11 +70,11 @@ public class CommercialBank {
 		this.bankShortTermPayout = bankShortTermPayout;
 		this.bankLongTermPayout = bankLongTermPayout;
 		
-		this.bankCost2 = bankCost2;
+		
 		this.DD = DD;
 		
 		this.consumerCount = consumerCount;
-		
+		this.bankCost2 = bankCost2 * consumerCount;
 		shortTermAssets  = reserves;
 		Consumers = new HashSet<Consumer>();
 		
@@ -323,7 +323,7 @@ public class CommercialBank {
 	@ScheduledMethod(start = 3, interval = 12)
 	public void bank_payCost2_3() throws Exception{
 		if (age > 0){
-			payOperatingCosts(bankCost2 * consumerCount);
+			payOperatingCosts(bankCost2);
 		}
 	}
 	
@@ -338,6 +338,7 @@ public class CommercialBank {
 	public void bank_End_9() throws Exception{
 		if (longTermAssets <= -1){
 			DD.updateBankFail();
+			removeAllConsumers();
 		}
 	}
 	
@@ -350,16 +351,9 @@ public class CommercialBank {
 	@ScheduledMethod(start = 10, interval = 12)
 	public void bank_End_10() throws Exception{
 		if (longTermAssets <= -1){
-			removeAllConsumers();
 			cBankDie();
 		}
 		else{
-			//pay interest on all consumer accounts
-			//pay bank operating costs
-			if (longTermAssets <= -1){
-				removeAllConsumers();
-				cBankDie();
-			}
 			age++;
 			transfers();
 		}
