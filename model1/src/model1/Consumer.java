@@ -83,6 +83,7 @@ public class Consumer {
 	private double longTermAssets;
 	private double totalAssets;
 	private double currentBankAssetsEstimate = 0.0;
+	private double actualBankAssets = 0.0;
 	
 	private DiamondDybvig DD;
 	private int placeInLine;
@@ -238,6 +239,10 @@ public class Consumer {
 	
 	public double getCurrentBankAssetsEstimate(){
 		return currentBankAssetsEstimate;
+	}
+	
+	public double getActualBankAssets(){
+		return actualBankAssets;
 	}
 	
 	public double getRunningTotalWithdrawals(){
@@ -516,7 +521,7 @@ public class Consumer {
 		GridCellNgh<Consumer> nghCreator = new GridCellNgh<Consumer>(grid, pt, Consumer.class, CUSTOMER_LEARN_COUNT, CUSTOMER_LEARN_COUNT);
 		List<GridCell<Consumer>> gridCells = nghCreator.getNeighborhood(true);
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		HashSet<Consumer> neighbors = new HashSet<Consumer>(10);
+		HashSet<Consumer> neighbors = new HashSet<Consumer>(CUSTOMER_LEARN_COUNT);
 		for (GridCell<Consumer> location: gridCells){
 			if (location.size() > 0){
 				GridPoint otherPt = location.getPoint();
@@ -652,12 +657,18 @@ public class Consumer {
 	 */
 	public void panicBasedConsumption() throws Exception{
 		neighborPanicProportion = 0.00001;
+		calculateBankAssets();
+		actualBankAssets = 0.0;
 		if (cBank != null){
+			actualBankAssets = cBank.getTotalAssets();
 			consumerProximityLearning();
 			DD.addPlaceInLine();
 			placeInLine = DD.getPlaceInLine();
 			if(allConsumersVisible){
-				othersConsumption = DD.getInitialWithdrawals();
+				othersConsumption = DD.getTotalWithdrawals();
+			}
+			if(bankVisible){
+				currentBankAssetsEstimate = cBank.getTotalAssets();
 			}
 						
 
@@ -710,14 +721,14 @@ public class Consumer {
 						panicPanic = true;
 						panicFlag = true;
 					}
-					if (!liquidityCheckerL(DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					if (!liquidityCheckerL(DD.getTotalWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
 						liquidityPanic = true;
 						panicFlag = true;
 					}
 				}
 				else{
 					estimatedPanicWithdrawal = 0.0001;
-					if (!liquidityCheckerL(DD.getInitialWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
+					if (!liquidityCheckerL(DD.getTotalWithdrawals(), shortTermAssets * DD.getConsumerCount(), longTermAssets * DD.getConsumerCount())){
 						liquidityPanic = true;
 						panicFlag = true;
 					}
@@ -772,14 +783,14 @@ public class Consumer {
 						panicPanic = true;
 						panicFlag = true;
 					}
-					if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+					if (!liquidityCheckerL(DD.getTotalWithdrawals(), DD.getBankShort(), DD.getBankLong())){
 						liquidityPanic = true;
 						panicFlag = true;
 					}
 				}
 				else{
 					estimatedPanicWithdrawal = 0.0001;
-					if (!liquidityCheckerL(DD.getInitialWithdrawals(), DD.getBankShort(), DD.getBankLong())){
+					if (!liquidityCheckerL(DD.getTotalWithdrawals(), DD.getBankShort(), DD.getBankLong())){
 						liquidityPanic = true;
 						panicFlag = true;
 					}
@@ -790,15 +801,15 @@ public class Consumer {
 			if (panicFlag){
 				unnecessaryPanic = DD.getUnnecessary();	
 				double fearWithdrawalAmount = getTotalAssets();
-				DD.addTotalWithdrawals(-fearWithdrawalAmount);
 				runningTotalWithdrawals = DD.getTotalWithdrawals();
+				DD.addTotalWithdrawals(-fearWithdrawalAmount);
 				purePanic = (panicFlag && (shockedButStanding || !shocked));
 				cash = withdrawSavings(fearWithdrawalAmount);
 				leaveBank(cBank);
 				myPanicCount++;
 			}
 			else{
-				runningTotalWithdrawals = othersConsumption;
+				runningTotalWithdrawals = DD.getTotalWithdrawals();
 			}
 		}
 	}

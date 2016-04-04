@@ -213,6 +213,15 @@
         <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>Consumer Estimate Of Initial Bank Assets</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Consumer Estimate Of Initial Bank Assets</id>
+        <className>model1.Consumer</className>
+        <methodName>getCurrentBankAssetsEstimate</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map">
     <entry>

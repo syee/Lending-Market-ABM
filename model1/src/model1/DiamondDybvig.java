@@ -242,7 +242,7 @@ public class DiamondDybvig {
 		if ((context.getObjects(Consumer.class).size() == 0) || (context.getObjects(CommercialBank.class).size() == 0)){
 			RunEnvironment.getInstance().endRun();
 		}
-		RunEnvironment.getInstance().endAt(150);
+		RunEnvironment.getInstance().endAt(90);
 	}
 	
 }

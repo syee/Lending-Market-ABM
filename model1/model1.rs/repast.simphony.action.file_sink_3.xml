@@ -17,6 +17,8 @@
     <string>NeighborPanicProportion</string>
     <string>RunningTotalWithdrawals</string>
     <string>FinalTotalWithdrawals</string>
+    <string>CurrentBankAssetsEstimate</string>
+    <string>ActualBankAssets</string>
   </sourceIds>
   <fileName>ConsumerOutput.csv</fileName>
   <addTimeStamp>true</addTimeStamp>

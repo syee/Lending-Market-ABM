@@ -33,6 +33,7 @@
     <string>Bank Net Worth</string>
     <string>DD Total Withdrawals</string>
     <string>Consumer Running Total Withdrawals</string>
+    <string>Consumer Estimate Of Initial Bank Assets</string>
   </sourceIds>
   <fileName>ModelOutput.csv</fileName>
   <addTimeStamp>true</addTimeStamp>

@@ -112,6 +112,22 @@
         <methodName>getFinalTotalWithdrawals</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>CurrentBankAssetsEstimate</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>CurrentBankAssetsEstimate</id>
+        <className>model1.Consumer</className>
+        <methodName>getCurrentBankAssetsEstimate</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ActualBankAssets</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ActualBankAssets</id>
+        <className>model1.Consumer</className>
+        <methodName>getActualBankAssets</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>

@@ -1,105 +1,107 @@
-INFO  [Thread-4] 2016-04-03 13:16:50,088 repast.simphony.batch.ssh.LocalSession - 7430017.310352281
-INFO  [Thread-4] 2016-04-03 13:16:50,088 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@77167c73 my DD total is 7430017.310352281 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,088 repast.simphony.batch.ssh.LocalSession - 7605271.086665724
-INFO  [Thread-4] 2016-04-03 13:16:50,088 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@36748a4d my DD total is 7605271.086665724 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,088 repast.simphony.batch.ssh.LocalSession - 7780524.862979168
-INFO  [Thread-4] 2016-04-03 13:16:50,089 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@5b0792a1 my DD total is 7780524.862979168 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,089 repast.simphony.batch.ssh.LocalSession - 7955778.639292612
-INFO  [Thread-4] 2016-04-03 13:16:50,089 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@31b96321 my DD total is 7955778.639292612 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,089 repast.simphony.batch.ssh.LocalSession - 8131032.415606055
-INFO  [Thread-4] 2016-04-03 13:16:50,090 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@39e0ec3 my DD total is 8131032.415606055 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,092 repast.simphony.batch.ssh.LocalSession - 8306286.191919499
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@3711d4b8 my DD total is 8306286.191919499 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - 8481539.968232943
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@391c7926 my DD total is 8481539.968232943 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - 8656793.744546387
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@4f9039b3 my DD total is 8656793.744546387 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - 8832047.520859832
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@66a66885 my DD total is 8832047.520859832 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - 9007301.297173277
-INFO  [Thread-4] 2016-04-03 13:16:50,093 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@3e6a296a my DD total is 9007301.297173277 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,094 repast.simphony.batch.ssh.LocalSession - 9182555.073486721
-INFO  [Thread-4] 2016-04-03 13:16:50,094 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1a76f198 my DD total is 9182555.073486721 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,094 repast.simphony.batch.ssh.LocalSession - 9357808.849800166
-INFO  [Thread-4] 2016-04-03 13:16:50,094 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@22c8dd1 my DD total is 9357808.849800166 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,094 repast.simphony.batch.ssh.LocalSession - 9533062.62611361
-INFO  [Thread-4] 2016-04-03 13:16:50,096 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@1f6253db my DD total is 9533062.62611361 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,100 repast.simphony.batch.ssh.LocalSession - 9708316.402427055
-INFO  [Thread-4] 2016-04-03 13:16:50,100 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@67c39a57 my DD total is 9708316.402427055 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,100 repast.simphony.batch.ssh.LocalSession - 9883570.1787405
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@2d471b7a my DD total is 9883570.1787405 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - 1.0058823955053944E7
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@684132b my DD total is 1.0058823955053944E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - 1.0234077731367389E7
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@43db5436 my DD total is 1.0234077731367389E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - 1.0409331507680833E7
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@2559a546 my DD total is 1.0409331507680833E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,101 repast.simphony.batch.ssh.LocalSession - 1.0584585283994278E7
-INFO  [Thread-4] 2016-04-03 13:16:50,102 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@bf74939 my DD total is 1.0584585283994278E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,102 repast.simphony.batch.ssh.LocalSession - 1.0759839060307723E7
-INFO  [Thread-4] 2016-04-03 13:16:50,103 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@5366f3b4 my DD total is 1.0759839060307723E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,104 repast.simphony.batch.ssh.LocalSession - 1.0935092836621167E7
-INFO  [Thread-4] 2016-04-03 13:16:50,168 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@4dad89f3 my DD total is 1.0935092836621167E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,169 repast.simphony.batch.ssh.LocalSession - 1.1110346612934612E7
-INFO  [Thread-4] 2016-04-03 13:16:50,204 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@4c869fd8 my DD total is 1.1110346612934612E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,204 repast.simphony.batch.ssh.LocalSession - 1.1285600389248056E7
-INFO  [Thread-4] 2016-04-03 13:16:50,225 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@8af720a my DD total is 1.1285600389248056E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,226 repast.simphony.batch.ssh.LocalSession - 1.1460854165561501E7
-INFO  [Thread-4] 2016-04-03 13:16:50,226 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@5b00e62d my DD total is 1.1460854165561501E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,226 repast.simphony.batch.ssh.LocalSession - 1.1636107941874946E7
-INFO  [Thread-4] 2016-04-03 13:16:50,226 repast.simphony.batch.ssh.LocalSession - I am model1.Consumer@38f8792b my DD total is 1.1636107941874946E7 I am about to withdraw 175253.77631344408 so the new DD total is 
-INFO  [Thread-4] 2016-04-03 13:16:50,226 repast.simphony.batch.ssh.LocalSession - 1.181136171818839E7
-INFO  [AWT-EventQueue-0] 2016-04-03 13:17:36,577 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-03 13:17:37,167 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [pool-6-thread-1] 2016-04-04 05:22:39,253 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761334188 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-5] 2016-04-04 05:22:39,254 repast.simphony.batch.ssh.SessionsDriver - Run Time: 7.0135
+INFO  [SwingWorker-pool-1-thread-5] 2016-04-04 05:22:39,266 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761334188
+INFO  [SwingWorker-pool-1-thread-5] 2016-04-04 05:22:39,268 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-5] 2016-04-04 05:22:40,777 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0254
+INFO  [SwingWorker-pool-1-thread-5] 2016-04-04 05:22:40,777 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 7.1111
+INFO  [AWT-EventQueue-0] 2016-04-04 05:25:35,817 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-04 05:25:35,820 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [AWT-EventQueue-0] 2016-04-03 13:18:16,077 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-03 13:18:16,093 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:25:46,739 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost1036253171717360415.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 ...
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:25:47,285 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:25:47,285 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0716
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:25:47,285 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989/stevenyee_localhost1036253171717360415.zip
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:25:48,090 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-7-thread-1] 2016-04-04 05:26:48,099 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  no
+INFO  [pool-7-thread-1] 2016-04-04 05:27:48,103 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  no
+INFO  [pool-7-thread-1] 2016-04-04 05:28:48,108 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  no
+INFO  [pool-7-thread-1] 2016-04-04 05:29:48,111 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  no
+INFO  [pool-7-thread-1] 2016-04-04 05:30:48,115 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  no
+INFO  [pool-7-thread-1] 2016-04-04 05:31:48,119 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:31:48,121 repast.simphony.batch.ssh.SessionsDriver - Run Time: 6.0139
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:31:48,131 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459761942989
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:31:48,133 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:31:50,029 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0318
+INFO  [SwingWorker-pool-1-thread-6] 2016-04-04 05:31:50,029 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 6.1184
+INFO  [AWT-EventQueue-0] 2016-04-04 06:34:36,698 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-04 06:34:36,702 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:18:48,008 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost2255088767131616399.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 ...
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:18:48,738 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:18:48,740 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.2215
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:18:48,740 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447/stevenyee_localhost2255088767131616399.zip
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:18:50,369 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2016-04-03 13:19:50,397 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:20:50,396 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:21:50,397 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:22:50,399 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:23:50,398 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:24:50,398 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:25:50,403 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:26:50,403 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:27:50,408 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  no
-INFO  [pool-2-thread-1] 2016-04-03 13:28:50,407 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:28:50,410 repast.simphony.batch.ssh.SessionsDriver - Run Time: 10.0278
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:28:50,491 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459703915447
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:28:50,552 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:28:52,825 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0402
-INFO  [SwingWorker-pool-1-thread-2] 2016-04-03 13:28:52,827 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 10.2932
-INFO  [AWT-EventQueue-0] 2016-04-03 13:34:29,677 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
-INFO  [AWT-EventQueue-0] 2016-04-03 13:34:29,683 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:34:48,509 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost7163595153950773040.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 ...
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:34:49,124 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:34:49,124 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0797
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:34:49,125 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341/stevenyee_localhost7163595153950773040.zip
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:34:50,071 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-8-thread-1] 2016-04-04 06:35:50,074 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 for DONE:  no
+INFO  [pool-8-thread-1] 2016-04-04 06:36:50,079 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 for DONE:  no
+INFO  [pool-8-thread-1] 2016-04-04 06:37:50,085 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 for DONE:  no
+INFO  [pool-8-thread-1] 2016-04-04 06:38:50,087 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 for DONE:  no
+INFO  [pool-8-thread-1] 2016-04-04 06:39:50,091 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:39:50,094 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0161
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:39:50,104 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459766084341
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:39:50,107 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:39:50,853 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0126
+INFO  [SwingWorker-pool-1-thread-7] 2016-04-04 06:39:50,853 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1094
+INFO  [AWT-EventQueue-0] 2016-04-04 06:51:31,387 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-04 06:51:31,588 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
 	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:34:44,198 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost2070119935803389754.zip to 
-/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 ...
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:34:44,760 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:34:44,760 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0887
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:34:44,761 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440/stevenyee_localhost2070119935803389754.zip
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:34:45,587 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-3-thread-1] 2016-04-03 13:35:45,592 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:36:45,601 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:37:45,602 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:38:45,610 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:39:45,614 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:40:45,614 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:41:45,621 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  no
-INFO  [pool-3-thread-1] 2016-04-03 13:42:45,620 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:42:45,621 repast.simphony.batch.ssh.SessionsDriver - Run Time: 8.0143
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:42:45,636 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459704879440
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:42:45,640 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:42:47,479 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0310
-INFO  [SwingWorker-pool-1-thread-3] 2016-04-03 13:42:47,479 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 8.1360
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:51:45,322 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost4037120233773985996.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:51:45,920 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:51:45,933 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0811
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:51:45,934 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053/stevenyee_localhost4037120233773985996.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:51:46,959 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-04 06:52:46,971 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-04 06:53:46,976 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-04 06:54:46,979 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-04 06:55:46,980 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-04 06:56:46,982 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:56:46,983 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0175
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:56:47,058 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459767101053
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:56:47,094 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:56:48,018 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0172
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-04 06:56:48,018 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.1176
+INFO  [AWT-EventQueue-0] 2016-04-04 07:10:19,921 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-04 07:10:19,925 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:10:31,566 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost2068064507756464424.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:10:32,110 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:10:32,111 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0812
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:10:32,111 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236/stevenyee_localhost2068064507756464424.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:10:33,118 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-04 07:11:33,123 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-04 07:12:33,128 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-04 07:13:33,131 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:13:33,133 repast.simphony.batch.ssh.SessionsDriver - Run Time: 3.0170
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:13:33,152 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768227236
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:13:33,159 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:13:34,009 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0146
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-04 07:13:34,010 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 3.1136
+INFO  [AWT-EventQueue-0] 2016-04-04 07:14:18,704 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /Users/stevenyee/Documents/EconThesis/model1/model1/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-04 07:14:18,708 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/Users/stevenyee/Documents/EconThesis/model1/model1/batch/batch_params.xml to
+	/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:14:30,765 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/stevenyee_localhost3763203559737195295.zip to 
+/var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768466611 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:14:31,337 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:14:31,338 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0788
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:14:31,338 repast.simphony.batch.ssh.LocalSession - Unzipping model /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768466611/stevenyee_localhost3763203559737195295.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:14:32,424 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-4-thread-1] 2016-04-04 07:15:32,424 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768466611 for DONE:  no
+INFO  [pool-4-thread-1] 2016-04-04 07:16:32,425 repast.simphony.batch.ssh.LocalDonePoller - Polled /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768466611 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:16:32,426 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.0181
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:16:32,436 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /var/folders/x6/_7f3h4rd4vd7zw7ftj4rv93r0000gn/T/simphony_model_1459768466611
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:16:32,439 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /Users/stevenyee/Documents/EconThesis/model1/model1/output
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:16:33,502 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0179
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-04 07:16:33,502 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.1155
